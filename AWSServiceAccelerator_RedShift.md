@@ -1,13 +1,8 @@
 AWS Service Accelerator: RedShift
 Date: 2019-04-15
 
-
-
-
- 
- 
-Detailed Security Configuration
-Overview
+# Detailed Security Configuration
+## Overview
 This section is meant to provide an opinionated approach towards the implementation security controls by domain.  Although the approaches may not be a fit for all use casees or complete for production use, they are meant to guide the audience towards current best practices and design considerations to achieve security control objectives.
 Controls and Architectures
 This table maps Security Domain to the corresponding controls and architectural best practices as documented in AWS’ public documentation, white papers, and blog posts. 
@@ -28,25 +23,28 @@ For KMS details see KMS Accelerator
 
 
 Encryption of data in-transit	
-●	To support SSL connections, Amazon Redshift creates and installs an AWS Certificate Manager (ACM) issued SSL certificate on each cluster. The set of Certificate Authorities that you must trust in order to properly support SSL connections can be found at https://s3.amazonaws.com/redshift-downloads/redshift-ca-bundle.crt.
+* To support SSL connections, Amazon Redshift creates and installs an AWS Certificate Manager (ACM) issued SSL certificate on each cluster. The set of Certificate Authorities that you must trust in order to properly support SSL connections can be found at https://s3.amazonaws.com/redshift-downloads/redshift-ca-bundle.crt.
 Note: Customers can import certificates into AWS ACM to use custom certs and still take advantage of the integration ACM has with Redshift.[3]
-●	RedShift endpoints are available over HTTPS at a selection of regions.
+* RedShift endpoints are available over HTTPS at a selection of regions.
 Best practice:
-●	Set the “require_SSL” parameter to “true” in the parameter group that is associated with the cluster.
-●	For workloads that require FIPS-140-2 SSL compliance an additional step is required to set parameter “use_fips_ssl” to “true”	
+* Set the “require_SSL” parameter to “true” in the parameter group that is associated with the cluster.
+* For workloads that require FIPS-140-2 SSL compliance an additional step is required to set parameter “use_fips_ssl” to “true”	
 1.	How to encrypt end to end: https://aws.amazon.com/blogs/big-data/encrypt-your-amazon-redshift-loads-with-amazon-s3-and-aws-kms/
 2.	To make client side encryption work follow this pattern https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html
 3.	https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html
 
 
-Encryption Key Management	•	Key management is handled by KMS or HSM.
-•	For encryption functions to occur in Redshift the DEK/CEK are stored on disk in an encrypted state.  They persist on disk after cluster reboots and then require a request to KMS to use the CMK to decrypt the CEK to be used again in memory.
-•	Key Rotation can occur as often as data requirement define.[1]
-Example: Commandline key rotation[3]
+## Encryption Key Management
+* Key management is handled by KMS or HSM.
+* For encryption functions to occur in Redshift the DEK/CEK are stored on disk in an encrypted state.  They persist on disk after cluster reboots and then require a request to KMS to use the CMK to decrypt the CEK to be used again in memory.
+* Key Rotation can occur as often as data requirement define.[1]
+* Example: Commandline key rotation[3]
+```
 rotate-encryption-key
 --cluster-identifier <value>
 [--cli-input-json <value>]
 [--generate-cli-skeleton <value>]
+```
 Note: Snapshots stored in S3 will need to be decrypted prior to key rotation and then re-encrypted using the new DEK.  This is a process that should be tested prior to production use.	1.	https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html
 2.	https://docs.aws.amazon.com/kms/latest/developerguide/concepts.htm
 3.	https://docs.aws.amazon.com/cli/latest/reference/redshift/rotate-encryption-key.html
