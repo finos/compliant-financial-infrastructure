@@ -1,11 +1,5 @@
 Date: 2019-04-08
 
-## 
-
-#   
-
-# 
-
 # Detailed Security Configuration
 
 Overview
@@ -77,10 +71,7 @@ white papers, and blog posts.
 <li><p>Key Rotation can occur as often as data requirement define.[1]</p>
 <p>Example: Commandline key rotation[3]</p></li>
 </ul>
-<p>rotate-encryption-key</p>
-<p>--cluster-identifier &lt;value&gt;</p>
-<p>[--cli-input-json &lt;value&gt;]</p>
-<p>[--generate-cli-skeleton &lt;value&gt;]</p>
+<pre>rotate-encryption-key --cluster-identifier <value> [--cli-input-json <value>] [--generate-cli-skeleton <value>]</pre>
 <p><strong>Note:</strong> Snapshots stored in S3 will need to be decrypted prior to key rotation and then re-encrypted using the new DEK. This is a process that should be tested prior to production use.</p></td>
 <td><ol type="1">
 <li><p><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html</a></p></li>
@@ -161,75 +152,104 @@ white papers, and blog posts.
 <li><p>RedShift uses IAM principles to assign rights to actions. When different roles are created and mapped from customer domain groups to AWS IAM roles consider some best practices:</p>
 <p>Limit potential over privilege by using redshift:RequestTag Condition key to limit any action to a specific deployment or environment:</p></li>
 </ul>
-<p>{</p>
-<p>"Version": "2012-10-17",</p>
-<p>"Statement": {</p>
-<p>"Sid":"AllowCreateProductionCluster",</p>
-<p>"Effect": "Allow",</p>
-<p>"Action": "redshift:CreateCluster",</p>
-<p>"Resource": "*"</p>
-<p>"Condition":{"StringEquals":{"redshift:RequestTag/usage":"production"}</p>
-<p>}</p>
-<p>}</p>
+<pre>
+{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Sid":"AllowCreateProductionCluster",
+    "Effect": "Allow",
+    "Action": "redshift:CreateCluster",
+    "Resource": "*"
+    "Condition":{"StringEquals":{"redshift:RequestTag/usage":"production"}
+  }
+}
+</pre>
 <ul>
 <li><p>It should go without saying but policies should not include “*” without having a following deny statement and/or condition statements</p>
 <p>For example:</p>
 <p>A condition statement to restrict access by redshift:ResourceTag Condition key</p></li>
 </ul>
-<p>{</p>
-<p>"Version": "2012-10-17",</p>
-<p>"Statement": {</p>
-<p>"Sid":"AllowModifyTestCluster",</p>
-<p>"Effect": "Allow",</p>
-<p>"Action": "redshift:ModifyCluster",</p>
-<p>"Resource": "arn:aws:redshift:us-west-2:123456789012:cluster:*"</p>
-<p>"Condition":{"StringEquals":{"redshift:ResourceTag/environment":"test"}</p>
-<p>}</p>
-<p>}</p>
+<pre>
+{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Sid":"AllowModifyTestCluster",
+    "Effect": "Allow",
+    "Action": "redshift:ModifyCluster",
+    "Resource": "arn:aws:redshift:us-west-2:123456789012:cluster:*"
+    "Condition":{"StringEquals":{"redshift:ResourceTag/environment":"test"}
+  }
+}          
+</pre>
 <p>For example: A deny policy to limit actions to a specific Redshift Cluster environment “production*”.</p>
-<p>{</p>
-<p>"Version": "2012-10-17",</p>
-<p>"Statement": [</p>
-<p>{</p>
-<p>"Sid":"AllowClusterManagement",</p>
-<p>"Action": [</p>
-<p>"redshift:CreateCluster",</p>
-<p>"redshift:DeleteCluster",</p>
-<p>"redshift:ModifyCluster",</p>
-<p>"redshift:RebootCluster"</p>
-<p>],</p>
-<p>"Resource": [</p>
-<p>"*"</p>
-<p>],</p>
-<p>"Effect": "Allow"</p>
-<p>},</p>
-<p>{</p>
-<p>"Sid":"DenyDeleteModifyProtected",</p>
-<p>"Action": [</p>
-<p>"redshift:DeleteCluster",</p>
-<p>"redshift:ModifyCluster"</p>
-<p>],</p>
-<p>"Resource": [</p>
-<p>"arn:aws:redshift:us-west-2:123456789012:cluster:production*"</p>
-<p>],</p>
-<p>"Effect": "Deny"</p>
-<p>}</p>
-<p>]</p>
-<p>}</p>
+<pre>
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid":"AllowClusterManagement",
+      "Action": [
+        "redshift:CreateCluster",
+        "redshift:DeleteCluster",
+        "redshift:ModifyCluster",
+        "redshift:RebootCluster"
+      ],
+      "Resource": [
+        "*"
+      ],
+      "Effect": "Allow"
+    },
+    {
+      "Sid":"DenyDeleteModifyProtected",
+      "Action": [
+        "redshift:DeleteCluster",
+        "redshift:ModifyCluster"
+      ],
+      "Resource": [
+        "arn:aws:redshift:us-west-2:123456789012:cluster:production*"
+      ],
+      "Effect": "Deny"
+    }
+  ]
+}
+</pre>
 <ul>
 <li><p>Ensure you separate roles that perform snapshot/restore from regular users. Remember to test this as IAM assumes deny but if a broad access role is assigned and a regular user can assume that role then they user can perform the API action. The only way to prevent this is to have a condition statement limiting actions to a specific role or an explicit deny.</p></li>
 <li><p>Become very familiar with all API actions for RedShift [6]</p></li>
 <li><p>To properly manage a Service-Linked role be sure to separate the "create" and "delete" actions to unique IAM entity so access to manage data and manage the cluster are separated.</p>
 <p>For example: Allow IAM identity to delete Service-Linked Role</p>
-<p>{</p>
-<p>"Effect": "Allow",</p>
-<p>"Action": [</p>
-<p>"iam:DeleteServiceLinkedRole",</p>
-<p>"iam:GetServiceLinkedRoleDeletionStatus"</p>
-<p>],</p>
-<p>"Resource": "arn:aws:iam::&lt;AWS-account-ID&gt;:role/aws-service-role/redshift.amazonaws.com/AWSServiceRoleForRedshift",</p>
-<p>"Condition": {"StringLike": {"iam:AWSServiceName": "redshift.amazonaws.com"}}</p>
-<p>}</p></li>
+<pre>
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid":"AllowClusterManagement",
+      "Action": [
+        "redshift:CreateCluster",
+        "redshift:DeleteCluster",
+        "redshift:ModifyCluster",
+        "redshift:RebootCluster"
+      ],
+      "Resource": [
+        "*"
+      ],
+      "Effect": "Allow"
+    },
+    {
+      "Sid":"DenyDeleteModifyProtected",
+      "Action": [
+        "redshift:DeleteCluster",
+        "redshift:ModifyCluster"
+      ],
+      "Resource": [
+        "arn:aws:redshift:us-west-2:123456789012:cluster:production*"
+      ],
+      "Effect": "Deny"
+    }
+  ]
+}
+</pre>
+</li>
 </ul></td>
 <td><ol type="1">
 <li><p><a href="https://aws.amazon.com/iam/details/manage-federation/"><span class="underline">Managing federation in AWS IAM</span></a></p></li>
