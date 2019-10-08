@@ -1,0 +1,1 @@
+# DynamoDB Service Accelerator
