@@ -616,20 +616,17 @@ access to DynamoDB across HTTPS endpoints.
 IAM Policy
 
 AWS CLI Command
-
-aws dynamodb list-tables --endpoint
-https://dynamodb.us-east-1.amazonaws.com
-
+```
+aws dynamodb list-tables --endpoint https://dynamodb.us-east-1.amazonaws.com
+```
 Result – Success
-
+```
 {
 
-"TableNames": \[
-
-"test"\]
+"TableNames": \["test"\]
 
 }
-
+```
 ### Scenario – User attempts access DynamoDB over HTTP endpoint
 
 A user has access to DynamoDB through an IAM policy that restricts
@@ -639,10 +636,9 @@ request using an HTTP endpoint and receive an AccessDeniedException.
 IAM Policy
 
 AWS CLI Command
-
-aws dynamodb list-tables --endpoint
-http://dynamodb.us-east-1.amazonaws.com
-
+```
+aws dynamodb list-tables --endpoint http://dynamodb.us-east-1.amazonaws.com
+```
 Result – Success
 
 An error occurred (AccessDeniedException) when calling the ListTables
@@ -707,12 +703,12 @@ example, you can do the following:
   - Grant permissions on a table but restrict access to specific items
     in that table based on certain primary key values.
 
-![https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/info-hiding-horizontal.png](media/image1.png)
+![https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/info-hiding-horizontal.png](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/info-hiding-horizontal.png)
 
   - Hide information so that only a subset of attributes are visible to
     the user.
 
-![https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/info-hiding-vertical.png](media/image2.png)
+![https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/info-hiding-vertical.png](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/info-hiding-vertical.png)
 
 To implement this kind of fine-grained access control, you write an IAM
 permissions policy that specifies conditions for accessing security
@@ -744,7 +740,7 @@ of "dynamodb:LeadingKeys": "2013". The user is able to run a get-item
 with key value pair of year=2013.
 
 IAM policy
-
+```
 {
 
 "Version": "2012-10-17",
@@ -814,9 +810,9 @@ IAM policy
 \]
 
 }
-
+```
 CLI Command
-
+```
 aws dynamodb get-item --table-name Movies --key '{ "year": {"N": "2013"
 }, "title": {"S":"Copperhead"} }' --query
 'Item.\[year,title,info.M.plot\]'
@@ -845,7 +841,7 @@ War."
 }
 
 \]
-
+```
 ### Scenario – IAM policy that restricts access to a specific attribute in a DynamoDB table
 
 In this scenario we have an IAM policy that limits specific read
@@ -853,7 +849,7 @@ permission to the “year” and”title” attributes on a particular DynamoDB
 table.
 
 IAM policy
-
+```
 {
 
 "Version": "2012-10-17",
@@ -899,9 +895,9 @@ IAM policy
 \]
 
 }
-
+```
 CLI Command
-
+```
 aws dynamodb get-item --table-name Movies --key '{ "year": {"N": "2013"
 }, "title": {"S":"Copperhead"} }' --query
 'Item.\[year,title,info.M.plot\]'
@@ -930,7 +926,7 @@ War."
 }
 
 \]
-
+```
 ## DynamoDB is only accessible via a VPC Endpoint
 
 | **As A**          | **I Want to**                                                          | **So that**                                  |
@@ -967,7 +963,7 @@ Amazon network and does not access the public Internet.
 The following diagram shows how an EC2 instance in a VPC can use a VPC
 endpoint to access DynamoDB.
 
-![https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/ddb-yes-vpc-endpoint.png](media/image3.png)
+![https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/ddb-yes-vpc-endpoint.png](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/ddb-yes-vpc-endpoint.png)
 
 ### Scenario – A user creates a VPC endpoint
 
@@ -988,7 +984,7 @@ When a user makes a request to DynamoDB across a VPC endpoint the
 sourceIPAddress will be recorded as an internal private IP address from
 within the VPC. In addition there will also be a field for
 vpcEndpointId.
-
+```
 {
 
 "eventVersion": "1.05",
@@ -1043,13 +1039,13 @@ Linux/4.9.81-35.56.amzn1.x86\_64 botocore/1.10.27",
 "vpcEndpointId": \<VPC Endpoint Id\>
 
 }
-
+```
 ### CloudTrail Event – A user makes a request to DynamoDB across the public internet 
 
 When a user makes a request to DynamoDB across the public internet, the
 sourceIPAddress will be recorded as the public IP address of the
 requestor.
-
+```
 {
 
 "eventVersion": "1.05",
@@ -1102,7 +1098,7 @@ Linux/4.9.81-35.56.amzn1.x86\_64 botocore/1.10.27",
 "recipientAccountId": \<Account Id\>
 
 }
-
+```
 ## All DynamoDB API calls are recorded in CloudTrail
 
 | **As A**          | **I Want to**                                                               | **So that**                                                |
@@ -1261,7 +1257,7 @@ get-item on the table “Movies” but receives an AccessDeniedError
 response on the “Movies2” table.
 
 IAM policy
-
+```
 {
 
 "Version": "2012-10-17",
@@ -1335,15 +1331,15 @@ IAM policy
 \]
 
 }
-
+```
 CLI Command – get-item on “Movies” table
-
+```
 aws dynamodb get-item --table-name Movies --key '{ "year": {"N": "2013"
 }, "title": {"S":"Copperhead"} }' --query
 'Item.\[year,title,info.M.plot\]'
-
+```
 Result – Success
-
+```
 \[
 
 {
@@ -1366,13 +1362,13 @@ War."
 }
 
 \]
-
+```
 CLI Command – get-item on “Movies2” table
-
+```
 aws dynamodb get-item --table-name Movies2 --key '{ "year": {"N": "2013"
 }, "title": {"S":"Copperhead"} }' --query
 'Item.\[year,title,info.M.plot\]'
-
+```
 Result – AccessDeniedError
 
 An error occurred (AccessDeniedException) when calling the GetItem
