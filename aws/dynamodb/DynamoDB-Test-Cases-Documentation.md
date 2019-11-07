@@ -13,113 +13,113 @@ Version: 0.2
 
 # Table of Contents
 
-1. [Executive Summary 4](#executive-summary)
+[1. Executive Summary 4](#executive-summary)
 
-2. [Test Cases 7](#test-cases)
+[2. Test Cases 7](#test-cases)
 
-   2.1. [All DynamoDB tables are created with SSE enabled
+[2.1. All DynamoDB tables are created with SSE enabled
 7](#all-dynamodb-tables-are-created-with-sse-enabled)
 
-   [Scenario – User creates a DynamoDB table with SSE encryption enabled
+[2.1.1 Scenario – User creates a DynamoDB table with SSE encryption enabled
 7](#scenario-user-creates-a-dynamodb-table-with-sse-encryption-enabled)
 
-   [CloudTrail Event – Create a DynamoDB table with SSE enabled
+[2.1.2 CloudTrail Event – Create a DynamoDB table with SSE enabled
 9](#cloudtrail-event-create-a-dynamodb-table-with-sse-enabled)
 
-   [Scenario – User creates a DynamoDB table without SSE enabled
+[2.1.3 Scenario – User creates a DynamoDB table without SSE enabled
 11](#scenario-user-creates-a-dynamodb-table-without-sse-enabled)
 
-   [CloudTrail Event - Create a DynamoDB table without SSE enabled
+[2.1.4 CloudTrail Event - Create a DynamoDB table without SSE enabled
 12](#cloudtrail-event---create-a-dynamodb-table-without-sse-enabled)
 
-   2.2 [All DynamoDB tables must remain encrypted at rest by SSE
+[2.2 All DynamoDB tables must remain encrypted at rest by SSE
 14](#all-dynamodb-tables-must-remain-encrypted-at-rest-by-sse)
 
-   [Scenario – DescribeTable with SSE enabled
+[2.2.1 Scenario – DescribeTable with SSE enabled
 14](#scenario-describetable-with-sse-enabled)
 
-   [Scenario – DescribeTable without SSE enabled
+[2.2.2 Scenario – DescribeTable without SSE enabled
 15](#scenario-describetable-without-sse-enabled)
 
-   2.3 [Users are prohibited from creating DynamoDB tables without SSE
+[2.3 Users are prohibited from creating DynamoDB tables without SSE
 enabled
 16](#users-are-prohibited-from-creating-dynamodb-tables-without-sse-enabled)
 
-   [Scenario – User creates a DynamoDB table with SSE encryption enabled
+[2.3.1 Scenario – User creates a DynamoDB table with SSE encryption enabled
 16](#scenario-user-creates-a-dynamodb-table-with-sse-encryption-enabled-1)
 
-   [CloudTrail Event – Create a DynamoDB table with SSE enabled
+[2.3.2 CloudTrail Event – Create a DynamoDB table with SSE enabled
 18](#cloudtrail-event-create-a-dynamodb-table-with-sse-enabled-1)
 
-   [Scenario – User creates a DynamoDB table without SSE enabled
+[2.3.3 Scenario – User creates a DynamoDB table without SSE enabled
 20](#scenario-user-creates-a-dynamodb-table-without-sse-enabled-1)
 
-   [CloudTrail Event - Create a DynamoDB table without SSE enabled
+[2.3.4 CloudTrail Event - Create a DynamoDB table without SSE enabled
 21](#cloudtrail-event---create-a-dynamodb-table-without-sse-enabled-1)
 
-   2.4 [Be able to create an SSE protected DynamoDB table
+[2.4 Be able to create an SSE protected DynamoDB table
 23](#be-able-to-create-an-sse-protected-dynamodb-table)
 
-   [Scenario – User creates a DynamoDB table with SSE encryption enabled
+[2.4.1 Scenario – User creates a DynamoDB table with SSE encryption enabled
 23](#scenario-user-creates-a-dynamodb-table-with-sse-encryption-enabled-2)
 
-   [CloudTrail Event – Create a DynamoDB table with SSE enabled
+[2.4.2 CloudTrail Event – Create a DynamoDB table with SSE enabled
 25](#cloudtrail-event-create-a-dynamodb-table-with-sse-enabled-2)
 
-   [Scenario – User creates a DynamoDB table without SSE enabled
+[2.4.3 Scenario – User creates a DynamoDB table without SSE enabled
 27](#scenario-user-creates-a-dynamodb-table-without-sse-enabled-2)
 
-   [CloudTrail Event - Create a DynamoDB table without SSE enabled
+[2.4.4 CloudTrail Event - Create a DynamoDB table without SSE enabled
 28](#cloudtrail-event---create-a-dynamodb-table-without-sse-enabled-2)
 
-   2.5 [Users can only connect to DynamoDB through HTTPS
+[2.5 Users can only connect to DynamoDB through HTTPS
 30](#users-can-only-connect-to-dynamodb-through-https)
 
-   [Scenario – User access DynamoDB over HTTPS endpoint
+[2.5.1 Scenario – User access DynamoDB over HTTPS endpoint
 30](#scenario-user-access-dynamodb-over-https-endpoint)
 
-   [Scenario – User attempts access DynamoDB over HTTP endpoint
+[2.5.2 Scenario – User attempts access DynamoDB over HTTP endpoint
 30](#scenario-user-attempts-access-dynamodb-over-http-endpoint)
 
-   2.6 [Allow AWS Services to inherit an IAM role to access DynamoDB
+[2.6 Allow AWS Services to inherit an IAM role to access DynamoDB
 32](#allow-aws-services-to-inherit-an-iam-role-to-access-dynamodb)
 
-   [Scenario – Lambda is granted permission to DynamoDB
+[2.6.1 Scenario – Lambda is granted permission to DynamoDB
 32](#scenario-lambda-is-granted-permission-to-dynamodb)
 
-   2.7 [Update IAM policy to restrict access to a partition key or
+[2.7 Update IAM policy to restrict access to a partition key or
 attribute in a DynamoDB table
 33](#update-iam-policy-to-restrict-access-to-a-partition-key-or-attribute-in-a-dynamodb-table)
 
-   [Scenario – IAM policy that restricts access to a specific partition key
+[2.7.1 Scenario – IAM policy that restricts access to a specific partition key
 in a DynamoDB table
 34](#scenario-iam-policy-that-restricts-access-to-a-specific-partition-key-in-a-dynamodb-table)
 
-   [Scenario – IAM policy that restricts access to a specific attribute in
+[2.7.2 Scenario – IAM policy that restricts access to a specific attribute in
 a DynamoDB table
 35](#scenario-iam-policy-that-restricts-access-to-a-specific-attribute-in-a-dynamodb-table)
 
-   2.8 [DynamoDB is only accessible via a VPC Endpoint
+[2.8 DynamoDB is only accessible via a VPC Endpoint
 37](#dynamodb-is-only-accessible-via-a-vpc-endpoint)
 
-   [Scenario – A user creates a VPC endpoint
+[2.8.1 Scenario – A user creates a VPC endpoint
 38](#scenario-a-user-creates-a-vpc-endpoint)
 
-   [CloudTrail Event – A user makes a request to DynamoDB across a VPC
+[2.8.2 CloudTrail Event – A user makes a request to DynamoDB across a VPC
 endpoint
 39](#cloudtrail-event-a-user-makes-a-request-to-dynamodb-across-a-vpc-endpoint)
 
-   [CloudTrail Event – A user makes a request to DynamoDB across the public
+[2.8.3 CloudTrail Event – A user makes a request to DynamoDB across the public
 internet
 40](#cloudtrail-event-a-user-makes-a-request-to-dynamodb-across-the-public-internet)
 
-   2.9 [All DynamoDB API calls are recorded in CloudTrail
+[2.9 All DynamoDB API calls are recorded in CloudTrail
 41](#all-dynamodb-api-calls-are-recorded-in-cloudtrail)
 
-   2.10 [Restrict DynamoDB access through IAM roles
+[2.10 Restrict DynamoDB access through IAM roles
 43](#restrict-dynamodb-access-through-iam-roles)
 
-   [Scenario – IAM policy that restricts access to Read-Only on a specific
+[2.10.1 Scenario – IAM policy that restricts access to Read-Only on a specific
 DynamoDB table
 43](#scenario-iam-policy-that-restricts-access-to-read-only-on-a-specific-dynamodb-table)
 
