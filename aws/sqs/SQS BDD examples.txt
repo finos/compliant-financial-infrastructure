@@ -1,0 +1,58 @@
+Feature: Create the SQS Cfn stacks in the correct region
+  Test that we can create the right SQS stack correctly in US and non-US region
+  Scenario Outline: Create the SQS Cfn stack in US and non-US regions
+    Given that I have valid AWS credentials with privileges to use CloudFormation
+    When I try to deploy the <regional> SQS stack in <region>
+    Then the stack creation should <result>
+
+    Examples:
+      |regional | region    | result  |
+      |US       | us-east-1 | SUCCEED |
+      |Non-US   | eu-west-1 | SUCCEED |
+      |US       | eu-west-1 | FAIL    |
+      |Non-US   | us-east-1 | FAIL    |
+
+Feature: SQS is set up with security controls
+  Tests that SQS is set-up with the right security controls in place
+  Scenario Outline: Connect to SQS over an unencrypted connection
+    Given that I have valid AWS credentials with permissions to use SQS
+    And I have IAM permissions to read, write and modify an SQS queue
+    And the queue access policy allows me to read, write and modify the SQS queue
+    When I invoke an <API action> without using encryption in transit
+    Then the API action should <result>
+
+    Examples:
+      | API action              | result |
+      | SendMessage             | fail   |
+      | DeleteMessage           | fail   |
+      | ReceiveMessage          | fail   |
+      | GetQueueAttributes      | fail   |
+      | GetQueueUrl             | fail   |
+      | ChangeMessageVisibility | fail   |
+      | PurgeQueue              | fail   |
+
+
+  Scenario: Change permissions on a queue that I do not have access to
+    Given that I have valid AWS credentials with permission to use SQS
+    And I have IAM permissions to read, write and modify an SQS queue
+    And I have IAM permissions to read, write and modify an SQS queue
+    And the queue access policy allows me to read, write and modify the SQS queue
+    When I try to change permissions on a queue that I do not have access to
+    Then it should fail
+
+
+  Scenario: Change tags on a queue that I do not have access to
+    Given that I have valid AWS credentials with permission to use SQS
+    And I have IAM permissions to read, write and modify an SQS queue
+    And the queue's access policy allows me to read, write and modify the SQS queue
+    When I try to change permissions on a queue that I do not have access to
+    Then it should fail
+
+  Scenario: Fetch messages from an SQS queue without authentication
+    Given that I do not have AWS access credentials
+    And I have an SQS queue URL for an existing queue
+    When I try to fetch messages from this queue
+    Then it should fail
+    
+ 
+
