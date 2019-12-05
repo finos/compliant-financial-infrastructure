@@ -1,10 +1,21 @@
 [![FINOS - Incubating](https://cdn.jsdelivr.net/gh/finos/contrib-toolbox@master/images/badge-incubating.svg)](https://finosfoundation.atlassian.net/wiki/display/FINOS/Incubating)
-
-Find the [Cloud Service Certification Project Kanban](https://github.com/orgs/finos/projects/1) in the parent FINOS organisation on GitHub.
-
 # Cloud Service Certification
 
 Enable banks to use services provided by AWS, Azure and Google in a way that meets existing regulatory and internal security controls.
+
+# Project Kanban
+Find the [Cloud Service Certification Project Kanban](https://github.com/orgs/finos/projects/1) in the parent FINOS organisation on GitHub.
+
+# Project Wiki
+We're currently migrating Cloud Service Certification reference materials from the FINOS wiki to the Cloud Service Certification GitHub wiki.
+
+Please use the links below to find Cloud Service Certification materials. 
+
+* **Migrating From FINOS Wiki :** 
+  * [Cloud Service Certification FINOS Wiki](https://finosfoundation.atlassian.net/wiki/spaces/FDX/pages/904626436/Cloud+Service+Certification+Project) 
+* **Migrating To GitHub Wiki :** 
+  * [Cloud Service Cerification GitHub Wiki](https://github.com/finos/cloud-service-certification/wiki)
+
 
 # Project Structure
 The project is expected to grow to cover the different CSP (Cloud Service Providers) and in turn services for each of the providers. The project structure maps this hierarchy of CSPs -> Services.
