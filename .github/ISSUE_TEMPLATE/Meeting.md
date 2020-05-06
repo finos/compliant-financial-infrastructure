@@ -1,5 +1,5 @@
 ---
-name: 🤝Cloud Service Certification Meeting Minutes
+name: 🤝 Cloud Service Certification Meeting Minutes
 about: To track Cloud Service Certification meeting agenda and attendance
 ---
 
