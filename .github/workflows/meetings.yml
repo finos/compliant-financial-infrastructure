@@ -30,7 +30,7 @@ env:
   FINOS_TOKEN: ${{ secrets.FINOS_TOKEN }}
   GIT_CSV_USER_EMAIL: infra@finos.org
   GIT_CSV_USER_NAME: "FINOS Admin"
-  GIT_CSV_USER: maoo
+  GIT_CSV_USER: "finos-admin"
   GIT_CSV_TOKEN: ${{ secrets.GIT_CSV_TOKEN }}
   GIT_CSV_HOST: "gitlab.com"
   GIT_CSV_ORG: "finos-admin"
