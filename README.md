@@ -44,8 +44,6 @@ See [this thread](https://stackoverflow.com/questions/16383237/how-can-doc-docx-
 
 ## License
 
-Copyright 2019 JPMC
-
 Distributed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 SPDX-License-Identifier: [Apache-2.0](https://spdx.org/licenses/Apache-2.0)
