@@ -76,6 +76,6 @@ jobs:
         issue-number: ${{ github.event.number }}
         body: "${{ steps.vars.outputs.UNKNOWNS_COMMENT }}"
     - name: Add label 'indexed' to issue
-      if: github.event.action == 'labeled'
+      if: github.event.action == 'closed'
       run: |
         curl -v -u admin:${{ secrets.GITHUB_TOKEN }} -H "Accept: application/vnd.github.antiope-preview+json" -d '{"labels": ["indexed"]}' ${{ github.event.issue.url }}/labels
