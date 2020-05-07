@@ -23,7 +23,7 @@ name: meeting-minutes-action
 # Note. There's a thread regarding org level secrets in GitHub, which may avoid the secret configuration step - https://github.community/t5/GitHub-Actions/Secrets-on-Team-and-Organization-level/td-p/29745
 on:
   issues:
-    types: [labeled,unlabeled]
+    types: [closed,unlabeled]
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -38,7 +38,7 @@ env:
   GIT_CSV_BRANCH: master
   REPO_NAME: ${{ github.event.repository.name }}
   ORG_NAME: ${{ github.event.repository.owner.login }}
-  MEETING_DATE: ${{ github.event.issue.created_at }}
+  MEETING_DATE: ${{ github.event.issue.closed_at }}
   ASSIGNEES: ${{ join(github.event.issue.assignees.*.login, ', ') }}
   ACTION: ${{ github.event.action }}
 
@@ -69,7 +69,7 @@ jobs:
           echo "Posting message as comment: ${{ env.UNKNOWNS_COMMENT }}"
         fi
     - name: Report unknowns on issue comment
-      if: github.event.action == 'labeled' && env.UNKNOWNS_COMMENT != ''
+      if: github.event.action == 'closed' && env.UNKNOWNS_COMMENT != ''
       uses: peter-evans/create-or-update-comment@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -79,7 +79,3 @@ jobs:
       if: github.event.action == 'labeled'
       run: |
         curl -v -u admin:${{ secrets.GITHUB_TOKEN }} -H "Accept: application/vnd.github.antiope-preview+json" -d '{"labels": ["indexed"]}' ${{ github.event.issue.url }}/labels
-    - name: Remove label 'indexed' to issue
-      if: github.event.action == 'unlabeled'
-      run: |
-        curl -X DELETE -v -u admin:${{ secrets.GITHUB_TOKEN }} -H "Accept: application/vnd.github.antiope-preview+json" ${{ github.event.issue.url }}/labels/indexed
