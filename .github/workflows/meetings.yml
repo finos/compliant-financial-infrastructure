@@ -44,7 +44,7 @@ env:
 
 jobs:
   submit-meeting-attendance:
-    if: github.event.label.name == 'meeting'
+    if: contains(github.event.pull_request.labels.*.name, 'meeting')
     runs-on: ubuntu-latest
     steps:
     - name: Checking out metadata-tool
