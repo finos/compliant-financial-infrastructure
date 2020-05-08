@@ -2,17 +2,20 @@ name: meeting-minutes-action
 
 # This GitHub action is used to manage meeting minutes via GitHub Issues:
 # - The issue description contains minutes and other meeting meta info (see .github/ISSUE_TEMPLATE/Meeting.md)
-# - Meeting attendants are set as issue assignees
+# - Issue commenters are tracked as meetings attendants, and (eventually, not real time) published on metrics.finos.org
 # 
 # When an issue (with "meeting" label) is closed, this action
-# collects the issue assignees and uses FINOS metadata-tool to generate a CSV
+# collects the issue commenters and uses FINOS metadata-tool to generate a CSV
 # file with meeting attendance, which can be submitted for later ingestion and
 # final publication into metrics.finos.org . After successful submission, 
 # the "indexed" label will be added to the issue.
 # 
-# When the "indexed" label is removed, entries will be removed by the system, 
-# allowing to amend attendance after the meeting. The "indexed" label will 
-# also be removed.
+# When the "indexed" label is removed, entries will be removed from the index, 
+# allowing to amend attendance after the meeting; by re-adding the "indexed", entries will be added again to the index.
+#
+# The date of the meeting is extracted from the date that the issue was closed, therefore:
+# - Do not apply the "indexed" label if the issue is not closed
+# - Only close the issue once, during (or right after) the meeting, regardless of issue contents/comments; use the "indexed" label to trigger a reindexing later on
 # 
 # To run this action, you'll need the following secrets defined in https://github.com/finos/<repo name>/settings/secrets :
 # - FINOS_TOKEN
@@ -23,7 +26,7 @@ name: meeting-minutes-action
 # Note. There's a thread regarding org level secrets in GitHub, which may avoid the secret configuration step - https://github.community/t5/GitHub-Actions/Secrets-on-Team-and-Organization-level/td-p/29745
 on:
   issues:
-    types: [closed,unlabeled]
+    types: [closed,labeled,unlabeled]
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -40,6 +43,7 @@ env:
   ORG_NAME: ${{ github.event.repository.owner.login }}
   MEETING_DATE: ${{ github.event.issue.closed_at }}
   ASSIGNEES: ${{ join(github.event.issue.assignees.*.login, ', ') }}
+  ISSUE_NUMBER: ${{ github.event.issue.number }}
   ACTION: ${{ github.event.action }}
 
 jobs:
@@ -56,12 +60,14 @@ jobs:
       run: git clone https://finos-admin:$FINOS_TOKEN@github.com/finos-admin/metadata.git >/dev/null
     - name: Downloading github-finos-meetings.csv
       run: curl -s https://raw.githubusercontent.com/finos/open-developer-platform/master/scripts/checkout-meeting-attendance.sh | bash
+    - name: Checkout metadata dependencies
+      run: cd metadata-tool ; lein deps
     - name: Generating a new github-finos-meetings.csv
       run: curl -s https://raw.githubusercontent.com/finos/open-developer-platform/master/scripts/generate-meeting-attendance.sh | bash
     - name: Pushing github-finos-meetings.csv changes to Git
       run: curl -s https://raw.githubusercontent.com/finos/open-developer-platform/master/scripts/submit-meeting-attendance.sh | bash
     - name: Check unknowns
-      if: github.event.action == 'closed'
+      if: github.event.action == 'closed' || (github.event.action == 'labeled' && github.event.label.name == 'indexed')
       run: |
         if [ -f "metadata-tool/github-finos-meetings-unknowns.txt" ]; then
           UNKNOWNS=`cat metadata-tool/github-finos-meetings-unknowns.txt`
@@ -70,7 +76,7 @@ jobs:
           echo "Posting message as comment: ${UNKNOWNS_COMMENT}"
         fi
     - name: Report unknowns on issue comment
-      if: github.event.action == 'closed' && env.UNKNOWNS_COMMENT != ''
+      if: (github.event.action == 'closed' || (github.event.action == 'labeled' && github.event.label.name == 'indexed')) && env.UNKNOWNS_COMMENT != ''
       uses: peter-evans/create-or-update-comment@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
