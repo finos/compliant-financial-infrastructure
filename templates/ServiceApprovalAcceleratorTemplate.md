@@ -1,105 +1,168 @@
 Date: 2018-11-13
 
-<table>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-7btt{border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-fymr{border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-8zwo{font-style:italic;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg .tg-f8tv{border-color:inherit;font-style:italic;text-align:left;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
 <thead>
-<tr class="header">
-<th><h2 id="section-15"></h2></th>
-<th><h2 id="category">Category</h2></th>
-<th><h2 id="measure-of-compliance">Measure of Compliance</h2>
-<table>
-<tbody>
-<tr class="odd">
-<td><h2 id="pass">Pass</h2></td>
-<td><h2 id="review">Review</h2></td>
-<td><h2 id="remediate">Remediate</h2></td>
-</tr>
-</tbody>
-</table>
-<h2 id="section-16"></h2></th>
-<th><h2 id="detail">Detail</h2></th>
-<th><h2 id="public-links">Public Links</h2></th>
-</tr>
+  <tr>
+    <th class="tg-7btt">Top level</th>
+    <th class="tg-fymr">Breakdown</th>
+    <th class="tg-fymr">Measure of compliance</th>
+    <th class="tg-fymr">Detail</th>
+    <th class="tg-fymr">Public Links</th>
+  </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><h2 id="section">1</h2></td>
-<td><h2 id="external-certification">External Certification</h2></td>
-<td><h2 id="redshift-is-in-scope-of-soc-reports-and-pci-compliant">RedShift is in scope of SOC reports and PCI compliant</h2></td>
-<td><h2 id="all-reports-can-be-downloaded-from-aws-artifact.">All reports can be downloaded from AWS Artifact.</h2></td>
-<td><h2 id="httpsaws.amazon.comcomplianceservices-in-scope"><a href="https://aws.amazon.com/compliance/services-in-scope/">https://aws.amazon.com/compliance/services-in-scope/</a></h2></td>
-</tr>
-<tr class="even">
-<td><h2 id="section-1">2</h2></td>
-<td><h2 id="authentication">Authentication</h2></td>
-<td><h2 id="for-redshift-iam-is-leveraged-to-handle-authentication-and-authorization-for-aws-platform-functions-like-api-calls-to-manage-the-service.">For RedShift, IAM is leveraged to handle authentication and authorization for AWS platform functions like API calls to manage the service.</h2></td>
-<td><h2 id="iam-is-the-decision-engine-for-authentication-and-authorization.-iam-will-be-federated-with-microsoft-active-directory-for-single-source-identity-management.">IAM is the decision engine for authentication and authorization. IAM will be federated with Microsoft Active Directory for single source identity management.</h2></td>
-<td><a href="https://docs.aws.amazon.com/redshift/latest/dg/welcome.html">https://docs.aws.amazon.com/redshift/latest/dg/welcome.html</a></td>
-</tr>
-<tr class="odd">
-<td><h2 id="section-2">3</h2></td>
-<td><h2 id="authorization">Authorization</h2></td>
-<td><h2 id="for-redshift-iam-is-leveraged-to-handle-authentication-and-authorization-for-aws-platform-functions-like-api-calls-to-manage-the-service.-1">For RedShift, IAM is leveraged to handle authentication and authorization for AWS platform functions like API calls to manage the service.</h2></td>
-<td><h2 id="redshift-will-leverage-iam-for-access-control-primarily.-redshift-has-settings-that-define-how-access-is-assigned-and-to-which-resource-user-service-role">RedShift will leverage IAM for access control primarily. RedShift has settings that define how access is assigned and to which resource (user, service, role)</h2></td>
-<td><h2 id="section-3"></h2></td>
-</tr>
-<tr class="even">
-<td><h2 id="section-4">4</h2></td>
-<td><h2 id="encryption-at-rest">Encryption at Rest</h2></td>
-<td><h2 id="encryption-can-be-enforced-using-kms-keys-byok-and-hsm.">Encryption can be enforced using KMS keys (byok) and HSM.</h2></td>
-<td><h2 id="encryption-at-rest-can-be-enforced-via-iam-policy-cloudformation-templates-and-kms-policy.">Encryption at rest can be enforced via IAM policy, Cloudformation templates, and KMS policy.</h2></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><h2 id="section-5">5</h2></td>
-<td><h2 id="encryption-in-transit">Encryption in Transit</h2></td>
-<td><h2 id="aws-redshift-supports-tls-enforced-connections-and-all-api-actions-are-signed.">AWS RedShift supports TLS enforced connections, and all API actions are signed.</h2></td>
-<td><h2 id="encryption-in-transit-can-be-enforced-in-two-location-api-endpoint-and-bucket-policy.">Encryption in transit can be enforced in two location, API endpoint and bucket policy.</h2></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><h2 id="section-6">6</h2></td>
-<td><h2 id="underlying-os">Underlying OS</h2></td>
-<td><h2 id="aws-redshift-is-a-managed-service.-the-underlying-technologies-are-not-configurable-by-customer.">AWS RedShift is a managed service. The underlying technologies are not configurable by customer.</h2></td>
-<td><h2 id="aws-redshift-is-in-scope-of-soc-and-pci-compliance-frameworks.">AWS RedShift is in-scope of SOC and PCI compliance frameworks. </h2></td>
-<td><h2 id="section-7"></h2></td>
-</tr>
-<tr class="odd">
-<td><h2 id="section-8">7</h2></td>
-<td><h2 id="csp-access">CSP access</h2></td>
-<td><h2 id="access-to-redshift-can-be-controlled-via-iam-policy-s3-policy-ec2-controls-and-encryption-using-kms.">Access to RedShift can be controlled via IAM policy, S3 policy, EC2 controls and encryption using KMS.</h2></td>
-<td><h2 id="customer-can-implement-layers-of-controls-to-enforce-least-access-permissions-to-redshift-and-the-services-used-to-deliver-redshift.">Customer can implement layers of controls to enforce least access permissions to RedShift and the services used to deliver RedShift.</h2>
-<p>AWS RedShift supports CloudTrail/CloudWatch to capture actions taken against AWS RedShift.</p></td>
-<td><h2 id="section-9"></h2></td>
-</tr>
-<tr class="even">
-<td><h2 id="section-10">8</h2></td>
-<td><h2 id="endpoint-localization">Endpoint Localization</h2></td>
-<td><h2 id="aws-redshift-can-localize-access-via-policy-vpc-endpoint-and-iam-policy-for-access-to-data-in-s3.">AWS RedShift can localize access via policy, VPC Endpoint, and IAM policy for access to data in S3.</h2></td>
-<td><h2 id="a-vpc-endpoint-enables-you-to-privately-connect-your-vpc-to-supported-aws-services-and-vpc-endpoint-services-powered-by-privatelink-without-requiring-an-internet-gateway-nat-device-vpn-connection-or-aws-direct-connect-connection.-instances-in-your-vpc-do-not-require-public-ip-addresses-to-communicate-with-resources-in-the-service.-traffic-between-your-vpc-and-the-other-service-does-not-leave-the-amazon-network.">A VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC do not require public IP addresses to communicate with resources in the service. Traffic between your VPC and the other service does not leave the Amazon network.</h2></td>
-<td><h2 id="vpc-endpoint-for-services---httpsdocs.aws.amazon.comamazonvpclatestuserguidevpc-endpoints-access.html">VPC Endpoint for services - <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints-access.html">https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints-access.html</a></h2></td>
-</tr>
-<tr class="odd">
-<td><h2 id="section-11">9</h2></td>
-<td><h2 id="storageprocess-isolation">Storage/Process Isolation</h2></td>
-<td><h2 id="amazon-redshift-is-a-managed-service.-storage-of-objects-can-be-isolated-via-s3-object-acl-bucket-policy-and-iam-policy-iam-policy-for-region-and-kms-policy.">Amazon RedShift is a managed service. Storage of objects can be isolated via S3 object ACL, bucket policy, and IAM policy, IAM policy for region, and KMS policy.</h2></td>
-<td>VPC Endpoint policy and restrict to which S3 bucket(s) are accessible to RedShift and from which VPC or subnet.</td>
-<td><h2 id="section-12"></h2></td>
-</tr>
-<tr class="even">
-<td><h2 id="section-13">10</h2></td>
-<td><h2 id="dependent-services">Dependent Services</h2></td>
-<td><h2 id="s3-iam-kms-ec2">S3, IAM, KMS, EC2</h2></td>
-<td>Several AWS services are used to deliver the RedShift service.</td>
-<td><h2 id="section-14"></h2></td>
-</tr>
+  <tr>
+    <td class="tg-amwm">External Certification</td>
+    <td class="tg-1wig">-</td>
+    <td class="tg-8zwo">Where is the documentation showing external certification?</td>
+    <td class="tg-0lax"><span style="font-style:italic">Does the service you are evaluating have the necessary external certification for your use case?</span></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-7btt" rowspan="4">Identity &amp; Access Management</td>
+    <td class="tg-fymr">Authentication</td>
+    <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
+    <td class="tg-f8tv">How does the service you are evaluating handle authentication?</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Authorization</td>
+    <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
+    <td class="tg-f8tv"><span style="font-weight:400">How does the service you are evaluating handle authorization?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">RBAC</td>
+    <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
+    <td class="tg-f8tv"><span style="font-weight:400">How does the service you are evaluating handle RBAC?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Privileged Access Management</td>
+    <td class="tg-0pky"><span style="font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-f8tv"><span style="font-weight:400;font-style:italic">How does the service you are evaluating handle Privileged Access Management?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-7btt" rowspan="4">Encryption &amp; Secure Data Management</td>
+    <td class="tg-fymr">Encryption in Transit</td>
+    <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How does the service you are evaluating handle Encryption at Rest?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Encryption at Rest</td>
+    <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How does the service you are evaluating handle Encryption in Transit?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Certificate and Key Management</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How does the service you are evaluating handle Certificate and Key Management?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">BYOK/HYOK Management</td>
+    <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
+    <td class="tg-f8tv">How does the service you are evaluating handle BYOK/HYOK Management?</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-7btt" rowspan="3">Network Security </td>
+    <td class="tg-fymr">Endpoint Localisation</td>
+    <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
+    <td class="tg-f8tv">How does the service you are evaluating handle Endpoint Localisation?</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">IP Firewall Rules</td>
+    <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How does the service you are evaluating handle IP Firewall Rules?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Data Exfiltration Prevention <br>&amp; Data Loss Prevention</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How does the service you are evaluating handle Data Exfiltration and Loss Prevention?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-7btt" rowspan="3">Logging &amp; Monitoring</td>
+    <td class="tg-fymr">Security Monitoring &amp; Alerting</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-f8tv">Does the service you are evaluating offer security &amp; Alerting</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Service Monitoring</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-f8tv">Does the CSP provide monitoring for this service?</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Alert &amp; Incident Management</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-f8tv">Is there Alert &amp; Incident Management capabilities?</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-7btt" rowspan="2">Resilience &amp; Recovery</td>
+    <td class="tg-fymr">Data Resilience (back-up/replication)</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-f8tv">Are data backups and replication capabilities provided if needed?</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Compute High Availability</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-0pky">How does the service you are evaluating provide high availability to suit your requirements?</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-7btt" rowspan="2">Underlying OS</td>
+    <td class="tg-fymr">Use of Latest Version</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-f8tv"><span style="font-weight:400">How does this service ensure it is using the latest stable/secure version of the underlying software?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">-</td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-8zwo">How does the service you are evaluating manage the underlying operating system the service is built on? <br>Is this maintained by the CSP? If not how will you ensure the necessary updates are performed etc?</td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-7btt">CSP Access</td>
+    <td class="tg-fymr">-</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-7btt">Dependent Services</td>
+    <td class="tg-fymr">-</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+  </tr>
 </tbody>
 </table>
-
-## 
-
-#   
-
-# 
 
 # Detailed Security Configuration
 
@@ -114,7 +177,7 @@ considerations to achieve security control objectives.
 **Controls and Architectures**
 
 This table maps Security Domain to the corresponding controls and
-architectural best practices as documented in AWS’ public documentation,
+architectural best practices as documented in AWS’ public documentation, 
 white papers, and blog posts.
 
 <table>
@@ -173,9 +236,9 @@ white papers, and blog posts.
 <p>Example: Commandline key rotation[3]</p></li>
 </ul>
 <p>rotate-encryption-key</p>
-<p>--cluster-identifier &lt;value&gt;</p>
-<p>[--cli-input-json &lt;value&gt;]</p>
-<p>[--generate-cli-skeleton &lt;value&gt;]</p>
+<p>--cluster-identifier &lt; value&gt; </p>
+<p>[--cli-input-json &lt; value&gt; ]</p>
+<p>[--generate-cli-skeleton &lt; value&gt; ]</p>
 <p><strong>Note:</strong> Snapshots stored in S3 will need to be decrypted prior to key rotation and then re-encrypted using the new DEK. This is a process that should be tested prior to production use.</p></td>
 <td><ol type="1">
 <li><p><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html</a></p></li>
@@ -243,7 +306,7 @@ white papers, and blog posts.
 <li><p>When you launch a new cluster using the AWS Management Console, AWS CLI, or Amazon Redshift API, you must supply a clear text password for the master database user</p></li>
 </ul>
 <blockquote>
-<p>To protect the password make sure to encrypt the plaintext password using the following command (assuming CMK used to encrypt cluster) “aws kms encrypt --key-id &lt;kms_key_id&gt; --plaintext &lt;password&gt;”</p>
+<p>To protect the password make sure to encrypt the plaintext password using the following command (assuming CMK used to encrypt cluster) “aws kms encrypt --key-id &lt; kms_key_id&gt; --plaintext &lt; password&gt; ”</p>
 </blockquote></td>
 <td><ol type="1">
 <li><p><a href="https://docs.aws.amazon.com/redshift/latest/dg/r_Privileges.html">https://docs.aws.amazon.com/redshift/latest/dg/r_Privileges.html</a></p></li>
@@ -254,59 +317,59 @@ white papers, and blog posts.
 <td>Role Based Access Control</td>
 <td><ul>
 <li><p>RedShift uses IAM principles to assign rights to actions. When different roles are created and mapped from JPMC domain groups to AWS IAM roles consider some best practices:</p>
-<p>Limit potential over privilege by using redshift:RequestTag Condition key to limit any action to a specific deployment or environment:</p></li>
+<p>Limit potential over privilege by using redshift: RequestTag Condition key to limit any action to a specific deployment or environment:</p></li>
 </ul>
 <p>{</p>
-<p>"Version": "2012-10-17",</p>
+<p>"Version": "2012-10-17", </p>
 <p>"Statement": {</p>
-<p>"Sid":"AllowCreateProductionCluster",</p>
-<p>"Effect": "Allow",</p>
-<p>"Action": "redshift:CreateCluster",</p>
+<p>"Sid":"AllowCreateProductionCluster", </p>
+<p>"Effect": "Allow", </p>
+<p>"Action": "redshift: CreateCluster", </p>
 <p>"Resource": "*"</p>
-<p>"Condition":{"StringEquals":{"redshift:RequestTag/usage":"production"}</p>
+<p>"Condition":{"StringEquals":{"redshift: RequestTag/usage":"production"}</p>
 <p>}</p>
 <p>}</p>
 <ul>
 <li><p>It should go without saying but policies should not include “*” without having a following deny statement and/or condition statements</p>
 <p>For example:</p>
-<p>A condition statement to restrict access by redshift:ResourceTag Condition key</p></li>
+<p>A condition statement to restrict access by redshift: ResourceTag Condition key</p></li>
 </ul>
 <p>{</p>
-<p>"Version": "2012-10-17",</p>
+<p>"Version": "2012-10-17", </p>
 <p>"Statement": {</p>
-<p>"Sid":"AllowModifyTestCluster",</p>
-<p>"Effect": "Allow",</p>
-<p>"Action": "redshift:ModifyCluster",</p>
+<p>"Sid":"AllowModifyTestCluster", </p>
+<p>"Effect": "Allow", </p>
+<p>"Action": "redshift: ModifyCluster", </p>
 <p>"Resource": "arn:aws:redshift:us-west-2:123456789012:cluster:*"</p>
-<p>"Condition":{"StringEquals":{"redshift:ResourceTag/environment":"test"}</p>
+<p>"Condition":{"StringEquals":{"redshift: ResourceTag/environment":"test"}</p>
 <p>}</p>
 <p>}</p>
 <p>For example: A deny policy to limit actions to a specific Redshift Cluster environment “production*”.</p>
 <p>{</p>
-<p>"Version": "2012-10-17",</p>
+<p>"Version": "2012-10-17", </p>
 <p>"Statement": [</p>
 <p>{</p>
-<p>"Sid":"AllowClusterManagement",</p>
+<p>"Sid":"AllowClusterManagement", </p>
 <p>"Action": [</p>
-<p>"redshift:CreateCluster",</p>
-<p>"redshift:DeleteCluster",</p>
-<p>"redshift:ModifyCluster",</p>
-<p>"redshift:RebootCluster"</p>
-<p>],</p>
+<p>"redshift: CreateCluster", </p>
+<p>"redshift: DeleteCluster", </p>
+<p>"redshift: ModifyCluster", </p>
+<p>"redshift: RebootCluster"</p>
+<p>], </p>
 <p>"Resource": [</p>
 <p>"*"</p>
-<p>],</p>
+<p>], </p>
 <p>"Effect": "Allow"</p>
-<p>},</p>
+<p>}, </p>
 <p>{</p>
-<p>"Sid":"DenyDeleteModifyProtected",</p>
+<p>"Sid":"DenyDeleteModifyProtected", </p>
 <p>"Action": [</p>
-<p>"redshift:DeleteCluster",</p>
-<p>"redshift:ModifyCluster"</p>
-<p>],</p>
+<p>"redshift: DeleteCluster", </p>
+<p>"redshift: ModifyCluster"</p>
+<p>], </p>
 <p>"Resource": [</p>
 <p>"arn:aws:redshift:us-west-2:123456789012:cluster:production*"</p>
-<p>],</p>
+<p>], </p>
 <p>"Effect": "Deny"</p>
 <p>}</p>
 <p>]</p>
@@ -317,13 +380,13 @@ white papers, and blog posts.
 <li><p>To properly manage a Service-Linked role be sure to separate the "create" and "delete" actions to unique IAM entity so access to manage data and manage the cluster are separated.</p>
 <p>For example: Allow IAM identity to delete Service-Linked Role</p>
 <p>{</p>
-<p>"Effect": "Allow",</p>
+<p>"Effect": "Allow", </p>
 <p>"Action": [</p>
-<p>"iam:DeleteServiceLinkedRole",</p>
-<p>"iam:GetServiceLinkedRoleDeletionStatus"</p>
-<p>],</p>
-<p>"Resource": "arn:aws:iam::&lt;AWS-account-ID&gt;:role/aws-service-role/redshift.amazonaws.com/AWSServiceRoleForRedshift",</p>
-<p>"Condition": {"StringLike": {"iam:AWSServiceName": "redshift.amazonaws.com"}}</p>
+<p>"iam: DeleteServiceLinkedRole", </p>
+<p>"iam: GetServiceLinkedRoleDeletionStatus"</p>
+<p>], </p>
+<p>"Resource": "arn:aws:iam::&lt; AWS-account-ID&gt; :role/aws-service-role/redshift.amazonaws.com/AWSServiceRoleForRedshift", </p>
+<p>"Condition": {"StringLike": {"iam: AWSServiceName": "redshift.amazonaws.com"}}</p>
 <p>}</p></li>
 </ul></td>
 <td><ol type="1">
@@ -376,49 +439,49 @@ white papers, and blog posts.
 <ul>
 <li><p>Determine how authentication will occur with Redshift[2]</p></li>
 <li><p>Create the appropriate IAM roles [5]</p>
-<p>For example, a policy to allow IAM users to request credentials for temporary access. The following policy enables the GetCredentials, CreateCluserUser, and JoinGroup actions. The policy uses condition keys to allow the GetClusterCredentials and CreateClusterUser actions only when the AWS user ID matches "AIDIODR4TAW7CSEXAMPLE:${redshift:DbUser}@yourdomain.com". IAM access is requested for the "testdb" database only. The policy also allows users to join a group named "common_group".</p></li>
+<p>For example, a policy to allow IAM users to request credentials for temporary access. The following policy enables the GetCredentials,  CreateCluserUser, and JoinGroup actions. The policy uses condition keys to allow the GetClusterCredentials and CreateClusterUser actions only when the AWS user ID matches "AIDIODR4TAW7CSEXAMPLE:${redshift: DbUser}@yourdomain.com". IAM access is requested for the "testdb" database only. The policy also allows users to join a group named "common_group".</p></li>
 </ul>
 <p>{</p>
-<p>"Version": "2012-10-17",</p>
+<p>"Version": "2012-10-17", </p>
 <p>"Statement": [</p>
 <p>{</p>
-<p>"Sid": "GetClusterCredsStatement",</p>
-<p>"Effect": "Allow",</p>
+<p>"Sid": "GetClusterCredsStatement", </p>
+<p>"Effect": "Allow", </p>
 <p>"Action": [</p>
-<p>"redshift:GetClusterCredentials"</p>
-<p>],</p>
+<p>"redshift: GetClusterCredentials"</p>
+<p>], </p>
 <p>"Resource": [</p>
-<p>"arn:aws:redshift:us-west-2:123456789012:dbuser:examplecluster/${redshift:DbUser}",</p>
-<p>"arn:aws:redshift:us-west-2:123456789012:dbname:examplecluster/testdb",</p>
+<p>"arn:aws:redshift:us-west-2:123456789012:dbuser:examplecluster/${redshift: DbUser}", </p>
+<p>"arn:aws:redshift:us-west-2:123456789012:dbname:examplecluster/testdb", </p>
 <p>"arn:aws:redshift:us-west-2:123456789012:dbgroup:examplecluster/common_group"</p>
-<p>],</p>
+<p>], </p>
 <p>"Condition": {</p>
 <p>"StringEquals": {</p>
-<p>"aws:userid":"AIDIODR4TAW7CSEXAMPLE:${redshift:DbUser}@yourdomain.com"</p>
+<p>"aws:userid":"AIDIODR4TAW7CSEXAMPLE:${redshift: DbUser}@yourdomain.com"</p>
 <p>}</p>
 <p>}</p>
-<p>},</p>
+<p>}, </p>
 <p>{</p>
-<p>"Sid": "CreateClusterUserStatement",</p>
-<p>"Effect": "Allow",</p>
+<p>"Sid": "CreateClusterUserStatement", </p>
+<p>"Effect": "Allow", </p>
 <p>"Action": [</p>
-<p>"redshift:CreateClusterUser"</p>
-<p>],</p>
+<p>"redshift: CreateClusterUser"</p>
+<p>], </p>
 <p>"Resource": [</p>
-<p>"arn:aws:redshift:us-west-2:123456789012:dbuser:examplecluster/${redshift:DbUser}"</p>
-<p>],</p>
+<p>"arn:aws:redshift:us-west-2:123456789012:dbuser:examplecluster/${redshift: DbUser}"</p>
+<p>], </p>
 <p>"Condition": {</p>
 <p>"StringEquals": {</p>
-<p>"aws:userid":"AIDIODR4TAW7CSEXAMPLE:${redshift:DbUser}@yourdomain.com"</p>
+<p>"aws:userid":"AIDIODR4TAW7CSEXAMPLE:${redshift: DbUser}@yourdomain.com"</p>
 <p>}</p>
 <p>}</p>
-<p>},</p>
+<p>}, </p>
 <p>{</p>
-<p>"Sid": "RedshiftJoinGroupStatement",</p>
-<p>"Effect": "Allow",</p>
+<p>"Sid": "RedshiftJoinGroupStatement", </p>
+<p>"Effect": "Allow", </p>
 <p>"Action": [</p>
-<p>"redshift:JoinGroup"</p>
-<p>],</p>
+<p>"redshift: JoinGroup"</p>
+<p>], </p>
 <p>"Resource": [</p>
 <p>"arn:aws:redshift:us-west-2:123456789012:dbgroup:examplecluster/common_group"</p>
 <p>]</p>
@@ -468,7 +531,7 @@ white papers, and blog posts.
 <p>For example:</p>
 <p>aws redshift modify-cluster-parameter-group</p>
 <p>--parameter-group-name myclusterparametergroup</p>
-<p>--parameters ParameterName=statement_timeout,ParameterValue=20000 ParameterName=enable_user_activity_logging,ParameterValue=true</p></li>
+<p>--parameters ParameterName=statement_timeout, ParameterValue=20000 ParameterName=enable_user_activity_logging, ParameterValue=true</p></li>
 </ul>
 <p>As a best practice, after a configuration of RedShift is found to be functional and meet requirements make sure to commit all settings into a <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">parameter group</a> so all databases within a cluster are configured the same and each new cluster can be configured the same. (a final deployed cluster should not have parameter group = default.redshift-1.0 because this will not enable logging or other settings specific to JPMorgan Chase &amp; Co. requirements.)</p></td>
 <td><ol type="1">
