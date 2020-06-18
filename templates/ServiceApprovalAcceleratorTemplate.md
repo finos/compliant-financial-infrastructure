@@ -165,6 +165,9 @@ This table maps Security Domain to the corresponding controls and
 architectural best practices as documented in AWS’ public documentation, 
 white papers, and blog posts.
 
+**Explanation of example below**
+The content below is specific to an AWS service called RedShift.  This content is only provided with a specific service so to give examples of what content could look like.  When other cloud services are used this content would be similar to this depth and specificity but unique to the service.  The opinionated approach requires the writer to provided specific recommendations that are relevant to financial regulated industry.  The examples below are meant to provide knowledge that a person would gain through use at a production level.  The writer should provide examples of issues at scale, security challenges, example compensating controls, or limitations.  Please consider the below as a guide and format but not a template for which to replace names for services.
+
 <table>
 <tbody>
 <tr class="odd">
