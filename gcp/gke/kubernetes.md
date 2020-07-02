@@ -54,9 +54,9 @@ Note: Default GKE cluster has encrypted persistent disks and encryption layers f
 Migrating from a workload without Customer Managed Encryption Keys (CMEK) disks to an environment with CMEK disks will require the creation of new storage classes and Persistent Volume Claims. 
 </p>
 <td><ol type="1">
-<li><p><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html</a></p></li>
-<li><p><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/migrating-to-an-encrypted-cluster.html">Migrating an Unencrypted Cluster to an Encrypted Cluster</a></p></li>
-<li><p><a href="https://docs.aws.amazon.com/cli/latest/reference/redshift/describe-clusters.html">https://docs.aws.amazon.com/cli/latest/reference/redshift/describe-clusters.html</a></p></li>
+<li><p><a href="https://cloud.google.com/security/encryption-at-rest/default-encryption">Default encryption at rest on GCP: </a></p></li>
+<li><p><a href="https://cloud.google.com/blog/products/containers-kubernetes/exploring-container-security-use-your-own-keys-to-protect-your-data-on-gke">Using your own keys to protect data on GKE:</a></p></li>
+<li><p><a href="https://cloud.google.com/kubernetes-engine/docs/how-to/encrypting-secrets"Application Layer Secrets Encryption: </a></p></li>
 </ol></td>
 </tr>
 <tr class="even">
