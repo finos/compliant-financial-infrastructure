@@ -45,11 +45,12 @@ _See AWS Redshift example below_.
 
 The [AWS RedShift Service Definition](https://github.com/finos/cloud-service-certification/tree/master/aws/redshift) has been created to demonstrate through example the assets required with each service contribution to Cloud Service Certification.
 
-* **[Redshift Test Cases](https://github.com/finos/cloud-service-certification/blob/master/aws/redshift/RedshiftTestCases.md)** : A document containing test cases from the point of view of AWS Redshift. 
-
-* **[Redshift Service Approval Accelerator](https://github.com/finos/cloud-service-certification/blob/master/aws/redshift/ServiceApprovalAcceleratorRedshift.md)** : A document containing the Service Approval Accelerator from the point of view of AWS Redshift.
-
-* **[The Redshift Service Definition](https://github.com/finos/cloud-service-certification/blob/master/aws/redshift/redshift_template_public.yml)** : A YAML file containing the description of the AWS Redshift service as code.
+* [Redshift Test Cases](https://github.com/finos/cloud-service-certification/blob/master/aws/redshift/RedshiftTestCases.md) : 
+  * A document containing test cases from the point of view of AWS Redshift. 
+* [Redshift Service Approval Accelerator](https://github.com/finos/cloud-service-certification/blob/master/aws/redshift/ServiceApprovalAcceleratorRedshift.md) : 
+  * A document containing the Service Approval Accelerator from the point of view of AWS Redshift.
+* [The Redshift Service Definition](https://github.com/finos/cloud-service-certification/blob/master/aws/redshift/redshift_template_public.yml) : 
+  * A YAML file containing the description of the AWS Redshift service as code.
 
 # Tips
 
