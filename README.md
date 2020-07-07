@@ -22,7 +22,9 @@ The project is expected to grow to cover the different CSP (Cloud Service Provid
 
 Each service folder will contain markdown files (the service control description), test cases documentation and ultimately infrastructure-as-code (e.g. cloud formation or Terraform configuration). Where applicable, pre-existing source documents (e.g. docx) are stored within "archive" folders under the indidivual service folders.
 
-## Contributing
+# Contributing
+
+## Forking, Feature Branches and Pull Requests
 
 1. Fork it (<https://github.com/finos-fdx/cloud-service-certification/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
@@ -30,6 +32,25 @@ Each service folder will contain markdown files (the service control description
 4. Commit your changes (`git commit -am 'Add some fooBar'`)
 5. Push to the branch (`git push origin feature/fooBar`)
 6. Create a new Pull Request
+
+## Service Approval Accelerator
+
+The [Service Approval Accelerator](https://github.com/finos/cloud-service-certification/blob/master/templates/ServiceApprovalAcceleratorTemplate.md) describes each service contributed to Cloud Service Certification alongside test cases and infrastructure as code.
+
+A single [Service Approval Accelerator](https://github.com/finos/cloud-service-certification/blob/master/templates/ServiceApprovalAcceleratorTemplate.md) document should be contributed with every service contributed to Cloud Service Certifcation. 
+
+_See AWS Redshift example below_.
+
+## Contributed Cloud Service by Example, AWS Redshift
+
+The [AWS RedShift Service Definition](https://github.com/finos/cloud-service-certification/tree/master/aws/redshift) has been created to demonstrate through example the assets required with each service contribution to Cloud Service Certification.
+
+* [Redshift Test Cases](https://github.com/finos/cloud-service-certification/blob/master/aws/redshift/RedshiftTestCases.md) : 
+  * A document containing test cases from the point of view of AWS Redshift. 
+* [Redshift Service Approval Accelerator](https://github.com/finos/cloud-service-certification/blob/master/aws/redshift/ServiceApprovalAcceleratorRedshift.md) : 
+  * A document containing the Service Approval Accelerator from the point of view of AWS Redshift.
+* [The Redshift Service Definition](https://github.com/finos/cloud-service-certification/blob/master/aws/redshift/redshift_template_public.yml) : 
+  * A YAML file containing the description of the AWS Redshift service as code.
 
 # Tips
 
