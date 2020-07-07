@@ -11,7 +11,6 @@ A new cloud service must follow the standard completion template. The 'definitio
 - [ ] Cloud Platform Target
 - [ ] Service Name
 - [ ] Service Approval Accelerator Definition
-- [ ] Control Framework Definition
-- [ ] Test Cases Created
+- [ ] Define Control Framework with Test Case definition
 - [ ] Deployment Scripts Created
 - [ ] Gherkin Scripts Created
