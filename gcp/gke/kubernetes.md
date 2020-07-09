@@ -116,9 +116,27 @@ gcloud kms keys update key-name \ <br>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Isolation of physical hosts</td>
-<td><strong>N/A</strong>: RedShift is a fully-managed service and for cluster nodes the isolation of hosts is not currently possible via dedicated host ec2-resources. Reserved instances can be purchased to ensure availability of ec2 resource types.</td>
-<td></td>
+<td>Isolation of infrastructure and logical components</td>
+<td>
+<p> **Layers of isolation in Kubernetes: ** <br><br>
+
+Kubernetes has several nested layers, each of which provides some level of isolation and security. 
+<ul>
+<li>**Container (not specific to Kubernetes):** A container provides basic management of resources, but does not isolate identity or the network, and can suffer from a noisy neighbor on the node for resources that are not isolated by cgroups. It provides some security isolation, but only provides a single layer, compared to our desired double layer. </li>
+
+<li> **Pod:** A pod is a collection of containers. A pod isolates a few more resources than a container, including the network. It does so with micro-segmentation using Kubernetes Network Policy, which dictates which pods can speak to one another. At the moment, a pod does not have a unique identity, but the Kubernetes community has made proposals to provide this. A pod still suffers from noisy neighbors on the same host. </li>
+
+<li> **Node:** This is a machine, either physical or virtual. A node includes a collection of pods, and has a superset of the privileges of those pods. A node leverages a hypervisor or hardware for isolation, including for its resources. Modern Kubernetes nodes run with distinct identities, and are authorized only to access the resources required by pods that are scheduled to the node. There can still be attacks at this level, such as convincing the scheduler to assign sensitive workloads to the node. You can use firewall rules to restrict network traffic to the node. </li>
+
+<li> **Cluster:** A cluster is a collection of nodes and a control plane. This is a management layer for your containers. Clusters offer stronger network isolation with per-cluster DNS. </li>
+
+<li> **Project:** A GCP project is a collection of resources, including Kubernetes Engine clusters. A project provides all of the above, plus some additional controls that are GCP-specific, like project-level IAM for Kubernetes Engine and org policies. Resource names, and other resource metadata, are visible up to this layer.<li>
+</p>
+</td>
+<td><ol type="1">
+<li><p>Security Isolation on GKE <a href="https://cloud.google.com/blog/products/gcp/exploring-container-security-isolation-at-different-layers-of-the-kubernetes-stack">https://cloud.google.com/blog/products/gcp/exploring-container-security-isolation-at-different-layers-of-the-kubernetes-stack</a></p></li>
+<li><p>Network Policy for inter-pod communication: <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/network-policy">https://cloud.google.com/kubernetes-engine/docs/how-to/network-policy</a></p></li>
+</ol></td>
 </tr>
 <tr class="even">
 <td>Network Isolation</td>
