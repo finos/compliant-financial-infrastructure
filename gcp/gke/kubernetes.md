@@ -76,9 +76,10 @@ You can provision your own SSL certificate and create a Secret to hold it. You c
 The 3rd option is generally the most preferred and the most secure option if you incorporate Application Layer Secrets Encryption as mentioned in the previous sub-category.<br><br>
 
 Note: The GKE LB supports multiple TLS certificates
-<li><p>How to encrypt end to end: <a href="https://aws.amazon.com/blogs/big-data/encrypt-your-amazon-redshift-loads-with-amazon-s3-and-aws-kms/">https://aws.amazon.com/blogs/big-data/encrypt-your-amazon-redshift-loads-with-amazon-s3-and-aws-kms/</a></p></li>
-<li><p>To make client side encryption work follow this pattern <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html</a></p></li>
-<li><p>https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html</p></li>
+</p>
+<td><ol type="1">
+<li><p>SSL Certs on GCP: <a href="https://cloud.google.com/load-balancing/docs/ssl-certificates">https://cloud.google.com/load-balancing/docs/ssl-certificates</a></p></li>
+<li><p>Using Multiple SSL Certs with GKE Ingress <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-multi-ssl">https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-multi-ssl</a></p></li>
 </ol></td>
 </tr>
 <tr class="odd">
