@@ -84,14 +84,26 @@ Note: The GKE LB supports multiple TLS certificates
 </tr>
 <tr class="odd">
 <td>Encryption Key Management</td>
-<td><ul>
-<li><p>Key management is handled by KMS or HSM.</p></li>
-<li><p>For encryption functions to occur in Redshift the DEK/CEK are stored on disk in an encrypted state. They persist on disk after cluster reboots and then require a request to KMS to use the CMK to decrypt the CEK to be used again in memory.</p></li>
-<li><p>Key Rotation can occur as often as data requirement define.[1]</p>
-<p>Example: Commandline key rotation[3]</p></li>
-</ul>
-<pre>rotate-encryption-key --cluster-identifier <value> [--cli-input-json <value>] [--generate-cli-skeleton <value>]</pre>
-<p><strong>Note:</strong> Snapshots stored in S3 will need to be decrypted prior to key rotation and then re-encrypted using the new DEK. This is a process that should be tested prior to production use.</p></td>
+<td><p>
+If you want to control and manage the encryption on GCP yourself, you can use key encryption keys. Key encryption keys do not directly encrypt your data but are used to encrypt the data encryption keys that encrypt your data. <br><br>
+
+You have two options for key encryption keys in GCP:
+<ol>
+<li>1) Use Cloud Key Management Service to create and manage key encryption keys.</li> 
+<li>2) Create and manage your own key encryption keys, also known as customer-supplied encryption keys (CSEK). </li>
+</ol>
+<br><br>
+
+Key Rotation should occur as often as organization security guidelines dictate.
+<br><br>
+Key rotations can be automated like so: <br><br>
+
+gcloud kms keys update key-name \ <br>
+ &nbsp; &nbsp; &nbsp;    --location location \
+ &nbsp; &nbsp; &nbsp;    --keyring key-ring-name \
+ &nbsp; &nbsp; &nbsp;    --rotation-period rotation-period \
+ &nbsp; &nbsp; &nbsp;    --next-rotation-time next-rotation-time
+</p></td>
 <td><ol type="1">
 <li><p><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html</a></p></li>
 <li><p><a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.htm">https://docs.aws.amazon.com/kms/latest/developerguide/concepts.htm</a></p></li>
