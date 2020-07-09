@@ -32,16 +32,16 @@ white papers, and blog posts.
 <td>Encryption of data at-rest</td>
 <td><p>
 By default, GKE encrypts customer content stored at rest, including Secrets. GKE handles and manages this default encryption for the user without any additional actions. Persistent disks in GKE are already encrypted at the hardware layer by default, however, there is also the option of adding additional encryption where you, the user, can manage the encryption keys.
-To encrypt persistent disks in GKE, you must use the GCP Persistent Disk CSI plugin, which lets you protect disks in GKE with a key that you manage in Cloud KMS—by creating a StorageClass referencing a key. This encryption key is used to encrypt the disks created with that StorageClass. If your organization is required to manage its own key material, the CSI plugin provides the same functionality available in traditional CMEK for persistent disks in GKE. For this, you will need to create a Cloud KMS key to use for encryption, then you can create a StorageClass on Kubernetes that specifies the Cloud KMS key KMS_KEY_ID to use to encrypt the disk. <br>
-Eg of storage class manifest:
-apiVersion: storage.k8s.io/v1beta1
-kind: StorageClass
-metadata:
-  name: csi-gce-pd
-provisioner: pd.csi.storage.gke.io
-parameters:
-  type: pd-standard
-  disk-encryption-kms-key: KMS_KEY_ID
+To encrypt persistent disks in GKE, you must use the GCP Persistent Disk CSI plugin, which lets you protect disks in GKE with a key that you manage in Cloud KMS—by creating a StorageClass referencing a key. This encryption key is used to encrypt the disks created with that StorageClass. If your organization is required to manage its own key material, the CSI plugin provides the same functionality available in traditional CMEK for persistent disks in GKE. For this, you will need to create a Cloud KMS key to use for encryption, then you can create a StorageClass on Kubernetes that specifies the Cloud KMS key KMS_KEY_ID to use to encrypt the disk. <br><br>
+Eg of storage class manifest:<br>
+apiVersion: storage.k8s.io/v1beta1 <br>
+kind: StorageClass<br>
+metadata:<br>
+<p>  name: csi-gce-pd <br>
+provisioner: pd.csi.storage.gke.io <br>
+parameters: <br>
+  type: pd-standard <br>
+  disk-encryption-kms-key: KMS_KEY_ID <br> <br>
 
 Application-layer Secrets Encryption provides an additional layer of security for sensitive data, such as Secrets, stored in etcd. Using this functionality, you can use a key managed with Cloud KMS to encrypt data at the application layer. This protects against attackers who gain access to an offline copy of etcd.
 
