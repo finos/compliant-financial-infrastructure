@@ -124,13 +124,14 @@ Kubernetes has several nested layers, each of which provides some level of isola
 <ul>
  <li><b>Container (not specific to Kubernetes):</b> A container provides basic management of resources, but does not isolate identity or the network, and can suffer from a noisy neighbor on the node for resources that are not isolated by cgroups. It provides some security isolation, but only provides a single layer, compared to our desired double layer. </li>
 
-<li> **Pod:** A pod is a collection of containers. A pod isolates a few more resources than a container, including the network. It does so with micro-segmentation using Kubernetes Network Policy, which dictates which pods can speak to one another. At the moment, a pod does not have a unique identity, but the Kubernetes community has made proposals to provide this. A pod still suffers from noisy neighbors on the same host. </li>
+<li> <b>Pod:</b> A pod is a collection of containers. A pod isolates a few more resources than a container, including the network. It does so with micro-segmentation using Kubernetes Network Policy, which dictates which pods can speak to one another. At the moment, a pod does not have a unique identity, but the Kubernetes community has made proposals to provide this. A pod still suffers from noisy neighbors on the same host. </li>
 
-<li> **Node:** This is a machine, either physical or virtual. A node includes a collection of pods, and has a superset of the privileges of those pods. A node leverages a hypervisor or hardware for isolation, including for its resources. Modern Kubernetes nodes run with distinct identities, and are authorized only to access the resources required by pods that are scheduled to the node. There can still be attacks at this level, such as convincing the scheduler to assign sensitive workloads to the node. You can use firewall rules to restrict network traffic to the node. </li>
+<li> <b>Node:</b> This is a machine, either physical or virtual. A node includes a collection of pods, and has a superset of the privileges of those pods. A node leverages a hypervisor or hardware for isolation, including for its resources. Modern Kubernetes nodes run with distinct identities, and are authorized only to access the resources required by pods that are scheduled to the node. There can still be attacks at this level, such as convincing the scheduler to assign sensitive workloads to the node. You can use firewall rules to restrict network traffic to the node. </li>
 
-<li> **Cluster** A cluster is a collection of nodes and a control plane. This is a management layer for your containers. Clusters offer stronger network isolation with per-cluster DNS. </li>
+<li> <b>Cluster</b> A cluster is a collection of nodes and a control plane. This is a management layer for your containers. Clusters offer stronger network isolation with per-cluster DNS. </li>
 
-<li> **Project:** A GCP project is a collection of resources, including Kubernetes Engine clusters. A project provides all of the above, plus some additional controls that are GCP-specific, like project-level IAM for Kubernetes Engine and org policies. Resource names, and other resource metadata, are visible up to this layer.<li>
+<li> <b>Project:</b> A GCP project is a collection of resources, including Kubernetes Engine clusters. A project provides all of the above, plus some additional controls that are GCP-specific, like project-level IAM for Kubernetes Engine and org policies. Resource names, and other resource metadata, are visible up to this layer.<li>
+</ul>
 </p>
 </td>
 <td><ol type="1">
@@ -140,36 +141,40 @@ Kubernetes has several nested layers, each of which provides some level of isola
 </tr>
 <tr class="even">
 <td>Network Isolation</td>
-<td><p>When an Amazon Redshift cluster is provisioned, it is locked down by default so nobody has access to it except to IAM entities with Console access from within the provisioned network and with the default credentials. Amazon Redshift provides a cluster security group called default, which is created automatically when you launch your first cluster. Initially, this cluster security group is empty. You can add inbound access rules to the default cluster security group and then associate it with your Amazon Redshift cluster. To grant other users inbound access to an Amazon Redshift cluster, you associate the cluster with a security group. To grant access use an existing Amazon VPC security group or define a new one and then associate it with a cluster. For more information on managing a cluster on the EC2-VPC platform, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/managing-clusters-vpc.html">Managing Clusters in an Amazon Virtual Private Cloud (VPC)</a>.</p>
-<p>Amazon RedShift relies on EC2 security groups to provide infrastructure security, and thus initial protection from unauthorized traffic connecting to the cluster. [1]</p>
-<p>Best Practice</p>
+<td><p>
+There are three different flavors of network modes for clusters that can deliver network level protection: <br><br>
+<ol>
+<li><b>Public endpoint access disabled, master authorized networks enabled (recommended):</b> This is the most secure option as it prevents all internet access to both masters and nodes, except for certain whitelisted IPs and Google Service IP ranges.</li>
+ <li><b> Public endpoint access enabled, master authorized networks enabled:</b> This option provides restricted access to the master from source IP addresses that you define. This is a good choice if you don't have existing VPN infrastructure or have remote users or branch offices that connect over the public internet instead of the corporate VPN and Cloud Interconnect or Cloud VPN.</li>
+ <li><b>Public endpoint access enabled, master authorized networks disabled (least secure): </b>This is the default and allows anyone on the internet to make network connections to the control plane.</li><br>
+ 
+The most secure option is utilizing private GKE cluster with no public endpoints (on either master or nodes), and whitelisting Kube API server access in the master to only select machines.This best practive ensures the control plane is only reachable by: <br>
 <ul>
-<li><p>SecurityGroups should follow a naming convention for the entire account</p></li>
-<li><p>The cluster leader node is the only EC2 instance that is allowed to communicate with the cluster nodes in the AWS Service Account. Ensure to enable VPC FlowLogs on the leader node ENI and capture logs from the OS to ensure only authorized access and activity has occurred.</p></li>
-<li><p>For the leader node it is recommended the SecurityGroup have no outbound entries to prevent egress of data if the node is compromised.</p></li>
-<li><p>Attempt to reference other SecurityGroups instead of using IP</p></li>
-<li><p>Enable EnhancedVPCRouting [4]</p></li>
-<li><p>Enable VPCEndpoint with S3</p></li>
-<li><p>For most use cases the cluster should not be publically accessible.</p></li>
-<li><p>Configure default port to authorized port for SecurityGroup usage. The default port is 5439 and cannot be changed after cluster is built.[5]</p></li>
+<li>The whitelisted CIDRs in master authorized networks (bastion host or other admin machines). </li>
+<li> Nodes within your cluster's VPC.</li>
+<li> Google's internal production jobs that manage your master.</li>
 </ul>
-<p>See S3 Accelerator for controls around S3 and data isolation.</p></td>
+<br><br>
+This corresponds to the following gcloud flags at cluster creation time:
+<ul>
+ <li> --enable-ip-alias</li>
+ <li> --enable-private-nodes</li>
+ <li> --enable-master-authorized-networks</li>
+</ul>
+</p></td>
 <td><ol type="1">
-<li><p><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html</a></p></li>
-<li><p><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html</a></p></li>
-<li><p><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/copy-unload-iam-role.html">https://docs.aws.amazon.com/redshift/latest/mgmt/copy-unload-iam-role.html</a></p></li>
-<li><p><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-enabling-cluster.html">https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-enabling-cluster.html</a></p></li>
-<li><p><a href="https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-prereq.html">https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-prereq.html</a></p></li>
+<li><p>Restricting Network Access <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster#restrict_network_access_to_the_control_plane_and_nodes">https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster#restrict_network_access_to_the_control_plane_and_nodes</a></p></li>
+<li><p>Creating a Private GKE Cluster: <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters">https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters</a></p></li>
+ <li><p>Master Authorized Networks: <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/authorized-networks">https://cloud.google.com/kubernetes-engine/docs/how-to/authorized-networks</a></p></li>
 </ol></td>
 </tr>
 <tr class="odd">
-<td>AWS Network</td>
-<td><ul>
-<li><p>A special use case exists for RedShift network isolation and must be noted but requires no action. When database encryption is enabled with KMS, KMS exports a CEK/DEK that is stored on a separate network from the cluster. This network is part of the managed service of RedShift and is not customer configurable or monitored.</p></li>
-</ul>
-<ul>
-<li><p>Another note to mention is that Redshift clusters exist in another AWS account managed by AWS. This is important to be aware of for monitoring so it is clear what account traffic is going towards and coming from is actually authorized vs rogue.</p></li>
-</ul></td>
+<td>GKE Master Network</td>
+<td><p>
+An important thing to note is that the entire GKE control plane is managed by Google. <br><br>
+Essentially, the master node is  managed in a separate Google managed project, in a separate Google managed VPC that is automatically peered with the VPC in which you deploy your cluster upon cluster creation time.<br>
+This means that if you need to communicate to the Kube master API in a private cluster, it would require establishing a VPN tunnel and exporting the custom routes.
+</p></td>
 <td><ol type="1">
 <li><p><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html</a></p></li>
 </ol></td>
