@@ -89,8 +89,8 @@ If you want to control and manage the encryption on GCP yourself, you can use ke
 
 You have two options for key encryption keys in GCP:
 <ol>
-<li>1) Use Cloud Key Management Service to create and manage key encryption keys.</li> 
-<li>2) Create and manage your own key encryption keys, also known as customer-supplied encryption keys (CSEK). </li>
+<li>Use Cloud Key Management Service to create and manage key encryption keys.</li> 
+<li>Create and manage your own key encryption keys, also known as customer-supplied encryption keys (CSEK). </li>
 </ol>
 <br><br>
 
@@ -99,15 +99,15 @@ Key Rotation should occur as often as organization security guidelines dictate.
 Key rotations can be automated like so: <br><br>
 
 gcloud kms keys update key-name \ <br>
- &nbsp; &nbsp; &nbsp;    --location location \
- &nbsp; &nbsp; &nbsp;    --keyring key-ring-name \
- &nbsp; &nbsp; &nbsp;    --rotation-period rotation-period \
+ &nbsp; &nbsp; &nbsp;    --location location <p>\</p>
+ &nbsp; &nbsp; &nbsp;    --keyring key-ring-name <p>\</p>
+ &nbsp; &nbsp; &nbsp;    --rotation-period rotation-period <p>\</p>
  &nbsp; &nbsp; &nbsp;    --next-rotation-time next-rotation-time
 </p></td>
 <td><ol type="1">
-<li><p><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html</a></p></li>
-<li><p><a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.htm">https://docs.aws.amazon.com/kms/latest/developerguide/concepts.htm</a></p></li>
-<li><p><a href="https://docs.aws.amazon.com/cli/latest/reference/redshift/rotate-encryption-key.html">https://docs.aws.amazon.com/cli/latest/reference/redshift/rotate-encryption-key.html</a></p></li>
+<li><p>Protecting Resources with KMS keys: <a href="https://cloud.google.com/compute/docs/disks/customer-managed-encryption">https://cloud.google.com/compute/docs/disks/customer-managed-encryption</a></p></li>
+<li><p>Using KMS: <a href="https://cloud.google.com/kms/docs/quickstart">https://cloud.google.com/kms/docs/quickstart</a></p></li>
+<li><p>Configuring automatic Key Rotation<a href="https://cloud.google.com/kms/docs/rotating-keys#kms-enable-key-version-cli">https://cloud.google.com/kms/docs/rotating-keys#kms-enable-key-version-cli</a></p></li>
 </ol></td>
 </tr>
 <tr class="even">
