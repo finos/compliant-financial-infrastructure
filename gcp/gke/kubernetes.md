@@ -60,20 +60,22 @@ Migrating from a workload without Customer Managed Encryption Keys (CMEK) disks 
 <tr class="even">
 <td>Encryption of data in-transit</td>
 <td><ul>
-<li><p>To support SSL connections, Amazon Redshift creates and installs an <a href="https://aws.amazon.com/certificate-manager/">AWS Certificate Manager (ACM)</a> issued SSL certificate on each cluster. The set of Certificate Authorities that you must trust in order to properly support SSL connections can be found at <a href="https://s3.amazonaws.com/redshift-downloads/redshift-ca-bundle.crt">https://s3.amazonaws.com/redshift-downloads/redshift-ca-bundle.crt</a>.</p></li>
-</ul>
-<blockquote>
-<p>Note: Customers can import certificates into AWS ACM to use custom certs and still take advantage of the integration ACM has with Redshift.[3]</p>
-</blockquote>
-<ul>
-<li><p>RedShift endpoints are available over HTTPS at a selection of regions.</p></li>
-</ul>
-<p>Best practice:</p>
-<ul>
-<li><p>Set the <strong>“require_SSL”</strong> parameter to <strong>“true”</strong> in the parameter group that is associated with the cluster.</p></li>
-<li><p>For workloads that require FIPS-140-2 SSL compliance an additional step is required to set parameter <strong>“use_fips_ssl”</strong> to <strong>“true”</strong></p></li>
-</ul></td>
-<td><ol type="1">
+<p>The GKE Ingress Load Balancer is the ideal SSL termination point to ensure that data in transit is encrypted.
+<br>
+There are three ways to provide SSL certificates to an HTTPS load balancer on GKE:<br><br>
+
+**1) Google-managed certificates** <br>
+Google-managed SSL certificates are provisioned, deployed, renewed, and managed for your domains. Managed certificates do not support wildcard domains.<br><br>
+
+**2) Self-managed certificates shared with Google Cloud**<br>
+You can provision your own SSL certificate and create a certificate resource in your Google Cloud project. You can then list the certificate resource in an annotation on an Ingress to create an HTTP(S) load balancer that uses the certificate<br><br>
+
+**3) Self-managed certificates as Secret resources**<br>
+You can provision your own SSL certificate and create a Secret to hold it. You can then refer to the Secret in an Ingress specification to create an HTTP(S) load balancer that uses the certificate<br><br>.
+
+The 3rd option is generally the most preferred and the most secure option if you incorporate Application Layer Secrets Encryption as mentioned in the previous sub-category.<br><br>
+
+Note: The GKE LB supports multiple TLS certificates
 <li><p>How to encrypt end to end: <a href="https://aws.amazon.com/blogs/big-data/encrypt-your-amazon-redshift-loads-with-amazon-s3-and-aws-kms/">https://aws.amazon.com/blogs/big-data/encrypt-your-amazon-redshift-loads-with-amazon-s3-and-aws-kms/</a></p></li>
 <li><p>To make client side encryption work follow this pattern <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html</a></p></li>
 <li><p>https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html</p></li>
