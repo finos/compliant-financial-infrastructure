@@ -176,8 +176,9 @@ Essentially, the master node is  managed in a separate Google managed project, i
 This means that if you need to communicate to the Kube master API in a private cluster, it would require establishing a VPN tunnel and exporting the custom routes.
 </p></td>
 <td><ol type="1">
-<li><p><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html</a></p></li>
+<li><p>Cluster Master<a href="https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#master">https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#master</a></p></li>
 </ol></td>
+<!---
 </tr>
 <tr class="even">
 <td><strong>IAM</strong></td>
@@ -529,3 +530,4 @@ This means that if you need to communicate to the Kube master API in a private c
 </tr>
 </tbody>
 </table>
+-->
