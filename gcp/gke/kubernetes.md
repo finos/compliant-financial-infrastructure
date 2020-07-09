@@ -52,9 +52,9 @@ Note: Default GKE cluster has encrypted persistent disks and encryption layers f
 Migrating from a workload without Customer Managed Encryption Keys (CMEK) disks to an environment with CMEK disks will require the creation of new storage classes and Persistent Volume Claims. 
 </p>
 <td><ol type="1">
-<li><p><a href="https://cloud.google.com/security/encryption-at-rest/default-encryption">Default encryption at rest on GCP: </a></p></li>
-<li><p><a href="https://cloud.google.com/blog/products/containers-kubernetes/exploring-container-security-use-your-own-keys-to-protect-your-data-on-gke">Using your own keys to protect data on GKE:</a></p></li>
-<li><p><a href="https://cloud.google.com/kubernetes-engine/docs/how-to/encrypting-secrets"Application Layer Secrets Encryption: </a></p></li>
+<li><p>Default encryption at rest on GCP: <a href="https://cloud.google.com/security/encryption-at-rest/default-encryption">https://cloud.google.com/security/encryption-at-rest/default-encryption</a></p></li>
+<li><p>Using your own keys to protect data on GKE:<a href="https://cloud.google.com/blog/products/containers-kubernetes/exploring-container-security-use-your-own-keys-to-protect-your-data-on-gke">https://cloud.google.com/blog/products/containers-kubernetes/exploring-container-security-use-your-own-keys-to-protect-your-data-on-gke</a></p></li>
+<li><p>Application Layer Secrets Encryption: <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/encrypting-secrets">https://cloud.google.com/kubernetes-engine/docs/how-to/encrypting-secrets</a></p></li>
 </ol></td>
 </tr>
 <tr class="even">
