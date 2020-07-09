@@ -99,10 +99,10 @@ Key Rotation should occur as often as organization security guidelines dictate.
 Key rotations can be automated like so: <br><br>
 
 gcloud kms keys update key-name \ <br>
- &nbsp; &nbsp; &nbsp;    --location location <p>\</p>
- &nbsp; &nbsp; &nbsp;    --keyring key-ring-name <p>\</p>
- &nbsp; &nbsp; &nbsp;    --rotation-period rotation-period <p>\</p>
- &nbsp; &nbsp; &nbsp;    --next-rotation-time next-rotation-time
+ &nbsp; &nbsp; &nbsp;    --location location \ <br>
+ &nbsp; &nbsp; &nbsp;    --keyring key-ring-name \ <br>
+ &nbsp; &nbsp; &nbsp;    --rotation-period rotation-period \ <br>
+ &nbsp; &nbsp; &nbsp;    --next-rotation-time next-rotation-time \ <br>
 </p></td>
 <td><ol type="1">
 <li><p>Protecting Resources with KMS keys: <a href="https://cloud.google.com/compute/docs/disks/customer-managed-encryption">https://cloud.google.com/compute/docs/disks/customer-managed-encryption</a></p></li>
@@ -118,7 +118,7 @@ gcloud kms keys update key-name \ <br>
 <tr class="odd">
 <td>Isolation of infrastructure and logical components</td>
 <td>
-<p> **Layers of isolation in Kubernetes: ** <br><br>
+ <p> <b>Layers of isolation in Kubernetes: </b> <br><br>
 
 Kubernetes has several nested layers, each of which provides some level of isolation and security. 
 <ul>
@@ -130,7 +130,7 @@ Kubernetes has several nested layers, each of which provides some level of isola
 
 <li> <b>Cluster</b> A cluster is a collection of nodes and a control plane. This is a management layer for your containers. Clusters offer stronger network isolation with per-cluster DNS. </li>
 
-<li> <b>Project:</b> A GCP project is a collection of resources, including Kubernetes Engine clusters. A project provides all of the above, plus some additional controls that are GCP-specific, like project-level IAM for Kubernetes Engine and org policies. Resource names, and other resource metadata, are visible up to this layer.<li>
+<li> <b>Project:</b> A GCP project is a collection of resources, including Kubernetes Engine clusters. A project provides all of the above, plus some additional controls that are GCP-specific, like project-level IAM for Kubernetes Engine and org policies. Resource names, and other resource metadata, are visible up to this layer.</li>
 </ul>
 </p>
 </td>
@@ -148,7 +148,7 @@ There are three different flavors of network modes for clusters that can deliver
  <li><b> Public endpoint access enabled, master authorized networks enabled:</b> This option provides restricted access to the master from source IP addresses that you define. This is a good choice if you don't have existing VPN infrastructure or have remote users or branch offices that connect over the public internet instead of the corporate VPN and Cloud Interconnect or Cloud VPN.</li>
  <li><b>Public endpoint access enabled, master authorized networks disabled (least secure): </b>This is the default and allows anyone on the internet to make network connections to the control plane.</li><br>
  
-The most secure option is utilizing private GKE cluster with no public endpoints (on either master or nodes), and whitelisting Kube API server access in the master to only select machines.This best practive ensures the control plane is only reachable by: <br>
+The most secure option is utilizing private GKE cluster with no public endpoints (on either master or nodes), and whitelisting Kube API server access in the master to only select machines.<br>This best practive ensures the control plane is only reachable by: <br>
 <ul>
 <li>The whitelisted CIDRs in master authorized networks (bastion host or other admin machines). </li>
 <li> Nodes within your cluster's VPC.</li>
@@ -172,7 +172,7 @@ This corresponds to the following gcloud flags at cluster creation time:
 <td>GKE Master Network</td>
 <td><p>
 An important thing to note is that the entire GKE control plane is managed by Google. <br><br>
-Essentially, the master node is  managed in a separate Google managed project, in a separate Google managed VPC that is automatically peered with the VPC in which you deploy your cluster upon cluster creation time.<br>
+Essentially, the master node is  managed in a separate Google managed project, in a separate Google managed VPC that is automatically peered with the VPC in which you deploy your cluster upon cluster creation time.<br><br>
 This means that if you need to communicate to the Kube master API in a private cluster, it would require establishing a VPN tunnel and exporting the custom routes.
 </p></td>
 <td><ol type="1">
