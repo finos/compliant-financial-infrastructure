@@ -33,11 +33,12 @@ white papers, and blog posts.
 <td><p>
 By default, GKE encrypts customer content stored at rest, including Secrets. GKE handles and manages this default encryption for the user without any additional actions. Persistent disks in GKE are already encrypted at the hardware layer by default, however, there is also the option of adding additional encryption where you, the user, can manage the encryption keys.
 To encrypt persistent disks in GKE, you must use the GCP Persistent Disk CSI plugin, which lets you protect disks in GKE with a key that you manage in Cloud KMS—by creating a StorageClass referencing a key. This encryption key is used to encrypt the disks created with that StorageClass. If your organization is required to manage its own key material, the CSI plugin provides the same functionality available in traditional CMEK for persistent disks in GKE. For this, you will need to create a Cloud KMS key to use for encryption, then you can create a StorageClass on Kubernetes that specifies the Cloud KMS key KMS_KEY_ID to use to encrypt the disk. <br><br>
+<p>
 Eg of storage class manifest:<br> <br>
 apiVersion: storage.k8s.io/v1beta1 <br>
 kind: StorageClass<br>
 metadata:<br>
-<p>  name: csi-gce-pd <br>
+  name: csi-gce-pd <br>
 provisioner: pd.csi.storage.gke.io <br>
 parameters: <br>
   type: pd-standard <br>
