@@ -31,8 +31,8 @@ white papers, and blog posts.
 <tr class="odd">
 <td>Encryption of data at-rest</td>
 <td><p>
-By default, GKE encrypts customer content stored at rest, including Secrets. GKE handles and manages this default encryption for the user without any additional actions. Persistent disks in GKE are already encrypted at the hardware layer by default, however, there is also the option of adding additional encryption where you, the user, can manage the encryption keys.
-To encrypt persistent disks in GKE, you must use the GCP Persistent Disk CSI plugin, which lets you protect disks in GKE with a key that you manage in Cloud KMS—by creating a StorageClass referencing a key. This encryption key is used to encrypt the disks created with that StorageClass. If your organization is required to manage its own key material, the CSI plugin provides the same functionality available in traditional CMEK for persistent disks in GKE. For this, you will need to create a Cloud KMS key to use for encryption, then you can create a StorageClass on Kubernetes that specifies the Cloud KMS key KMS_KEY_ID to use to encrypt the disk. <br><br>
+By default, GKE encrypts customer content stored at rest, including Secrets. GKE handles and manages this default encryption for the user without any additional actions. Persistent disks in GKE are already encrypted at the hardware layer by default, however, there is also the option of adding additional encryption where you, the user, can manage the encryption keys. <br><br>
+To encrypt persistent disks in GKE, you must use the GCP Persistent Disk CSI plugin, which lets you protect disks in GKE with a key that you manage in Cloud KMS—by creating a StorageClass referencing a key. This encryption key is used to encrypt the disks created with that StorageClass. If your organization is required to manage its own key material, the CSI plugin provides the same functionality available in traditional CMEK for persistent disks in GKE.<br> For this, you will need to create a Cloud KMS key to use for encryption, then you can create a StorageClass on Kubernetes that specifies the Cloud KMS key KMS_KEY_ID to use to encrypt the disk. <br><br>
 Eg of storage class manifest:<br> <br>
 apiVersion: storage.k8s.io/v1beta1 <br>
 kind: StorageClass<br>
@@ -43,13 +43,11 @@ parameters: <br>
 &nbsp;  type: pd-standard <br>
 &nbsp;  disk-encryption-kms-key: KMS_KEY_ID <br> <br>
 
-Application-layer Secrets Encryption provides an additional layer of security for sensitive data, such as Secrets, stored in etcd. Using this functionality, you can use a key managed with Cloud KMS to encrypt data at the application layer. This protects against attackers who gain access to an offline copy of etcd.
+Application-layer Secrets Encryption provides an additional layer of security for sensitive data, such as Secrets, stored in etcd. Using this functionality, you can use a key managed with Cloud KMS to encrypt data at the application layer. This protects against attackers who gain access to an offline copy of etcd.<br><br>
 
-To use Application-layer Secrets Encryption, you must first create a Cloud KMS key and give the GKE service account access to the key. The key must be in the same location as the cluster to decrease latency and to prevent cases where resources depend on services spread across multiple failure domains. Then, you can enable the feature on a new or existing cluster by specifying the key you would like to use.
+To use Application-layer Secrets Encryption, you must first create a Cloud KMS key and give the GKE service account access to the key. The key must be in the same location as the cluster to decrease latency and to prevent cases where resources depend on services spread across multiple failure domains. Then, you can enable the feature on a new or existing cluster by specifying the key you would like to use.<br><br>
 
-
-
-Note: Default GKE cluster has encrypted persistent disks and encryption layers for secrets stored in etcd/cluster.
+Note: Default GKE cluster has encrypted persistent disks and encryption layers for secrets stored in etcd/cluster. <br><br>
 
 Migrating from a workload without Customer Managed Encryption Keys (CMEK) disks to an environment with CMEK disks will require the creation of new storage classes and Persistent Volume Claims. 
 </p>
