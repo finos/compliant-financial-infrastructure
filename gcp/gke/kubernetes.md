@@ -173,7 +173,7 @@ This corresponds to the following gcloud flags at cluster creation time:
 <td><p>
 An important thing to note is that the entire GKE control plane is managed by Google. <br><br>
 Essentially, the master node is  managed in a separate Google managed project, in a separate Google managed VPC that is automatically peered with the VPC in which you deploy your cluster upon cluster creation time.<br><br>
-This means that if you need to communicate to the Kube master API in a private cluster, it would require establishing a VPN tunnel and exporting the custom routes.
+This means that if you need to communicate to the Kube master API in a private cluster from an external source, it would require establishing a VPN tunnel and exporting the custom routes.
 </p></td>
 <td><ol type="1">
 <li><p>Cluster Master<a href="https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#master">https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#master</a></p></li>
