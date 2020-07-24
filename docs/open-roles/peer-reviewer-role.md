@@ -1,4 +1,4 @@
-## Peer Review Role
+# Peer Review Role
 
 This role will perform the review of the proposed content and ensure high levels of content quality, consistency with the template, accuracy to technical detail, and fit and finish for public GitHub repo commit.
 

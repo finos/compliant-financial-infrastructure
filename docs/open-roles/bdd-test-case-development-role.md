@@ -1,4 +1,4 @@
-## BDD Test Case Development Role
+# BDD Test Case Development Role
 
 This role will create test cases using gherkin format or other project approved methods.  The purpose of this role is to translate the opinionated configurations from the Cloud Certification document into test cases formatted in the gherkin format.
 

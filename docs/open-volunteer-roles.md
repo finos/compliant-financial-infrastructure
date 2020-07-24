@@ -1,4 +1,4 @@
-## Open Volunteer Roles
+# Open Volunteer Roles
 
 The following is a list of the open Cloud Service Certification volunteer roles.
 

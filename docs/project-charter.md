@@ -19,7 +19,7 @@ The working group will produce multiple Cloud Service Certification artifacts (t
 
 ## [Open Volunteer Roles](open-volunteer-roles.md)
 * [Compliance Framework Mapping Role](open-roles/compliance-framework-mapping-role.md)
-* [Cloud Service Certification Documentation Role](open-roles/cloud-service-certification-documentation-role)
+* [Cloud Service Certification Documentation Role](open-roles/cloud-service-certification-documentation-role.md)
 * [Codified Controls Development Role](/codified-controls-development-role.md)
 * [BDD Test Case Development Role](open-roles/bdd-test-case-development-role.md)
 * [Peer Reviewer Role](open-roles/peer-reviewer-role.md)
