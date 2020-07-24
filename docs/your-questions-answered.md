@@ -1,8 +1,8 @@
 # Your Questions Answered
 
-This section of the Cloud Service Certification wiki answers questions asked by the community for all to leverge the answers.
+This section of the Cloud Service Certification wiki answers questions asked by the CSC community.
 
-Feel free to ask your questions by opening a [Support Question through our GitHub Issues](https://github.com/finos/cloud-service-certification/issues/new?template=Support_question.md).
+Ask your question by opening a [Support Issue](https://github.com/finos/cloud-service-certification/issues/new?template=Support_question.md) through GitHub.
 
 ## Question
 How does Cloud Service Certification maintain the security of the environment and the protection of the environment for open source consumers?
