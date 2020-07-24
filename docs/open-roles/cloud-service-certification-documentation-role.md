@@ -1,4 +1,4 @@
-### Cloud Service Certification Documentation Role
+## Cloud Service Certification Documentation Role
 
 This role will research the specific Cloud Service and fill in the [document template](https://github.com/finos/cloud-service-certification/tree/master/templates) for each section making sure to provide specific technical examples and asserting an opinionated view of how to implement and meet the control objective.  This document will be vital to provide context to security teams, architecture review boards, internal compliance teams, developers, and infrastructure teams. 
 
