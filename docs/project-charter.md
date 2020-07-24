@@ -65,8 +65,8 @@ Original Contribution JIRA: [https://finosfoundation.atlassian.net/browse/CONTRI
 
 (**) indicates FINOS member
 
-## Documentation Links
+## Documentation Links and Resources
 * [Cloud Service Certification PDF](https://finosfoundation.atlassian.net/wiki/download/attachments/904626436/2019.2.19%20-%20FINOS%20Cloud%20Certification%20contribution%20by%20JPMC.pdf?version=1&modificationDate=1560439158668&cacheVersion=1&api=v2)
-* [cloud Security Alliance](https://cloudsecurityalliance.org/)
+* [Cloud Security Alliance](https://cloudsecurityalliance.org/)
   * https://cloudsecurityalliance.org/research/artifacts/
   * https://cloudsecurityalliance.org/research/artifacts/?search=&char=&term=cloud-security-services-management&locale=en
