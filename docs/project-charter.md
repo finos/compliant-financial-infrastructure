@@ -45,7 +45,7 @@ The working group will produce multiple Cloud Service Certification artifacts (t
     * +44-20319-88141 UK Toll
     * Access code: 662 732 581
 
-Github Repository: [https://github.com/finos-fdx/cloud-service-certification](https://github.com/finos/cloud-service-certification)
+Github Repository: [https://github.com/finos/cloud-service-certification](https://github.com/finos/cloud-service-certification)
 
 Original Contribution JIRA: [https://finosfoundation.atlassian.net/browse/CONTRIB-33](https://finosfoundation.atlassian.net/browse/CONTRIB-33)
 
