@@ -91,7 +91,7 @@ You have 3 options for encryption in GCP:
 <ol>
 <li>Use Cloud Key Management Service to create and manage key encryption keys.</li> 
 <li>Create and manage your own key encryption keys, also known as customer-supplied encryption keys (CSEK). </li>
-<li>Use Cloud HSM: Cloud HSM is a cloud-hosted Hardware Security Module (HSM) service that allows you to host encryption keys and perform cryptographic operations in a cluster of FIPS 140-2 Level 3 certified HSMs. Google manages the HSM cluster for you, so you don't need to worry about clustering, scaling, or patching. Because Cloud HSM uses Cloud KMS as its front end, you can leverage all the conveniences and features that Cloud KMS provides. </li>
+<li>Use Cloud HSM: Cloud HSM is a cloud-hosted Hardware Security Module (HSM) service that allows you to host encryption keys and perform cryptographic operations in a cluster of FIPS 140-2 Level 3 certified HSMs. Google manages the HSM cluster for you, so you don't need to worry about clustering, scaling, or patching. Because Cloud HSM uses Cloud KMS as its front end, you can leverage all the conveniences and features that Cloud KMS provides. Note: Cloud HSM is only available in a few regions at the moment </li>
 </ol>
 <br><br>
 
