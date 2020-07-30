@@ -75,7 +75,7 @@ You can provision your own SSL certificate and create a Secret to hold it. You c
 
 The 3rd option is generally the most preferred and the most secure option if you incorporate Application Layer Secrets Encryption as mentioned in the previous sub-category.<br><br>
 
-Note: The GKE LB supports multiple TLS certificates
+Note: The above information is in the context of utilizing GKE LB which supports multiple TLS certificates. 3rd party/OpenSource Ingress tools such as Nginx and Istio are not covered here
 </p>
 <td><ol type="1">
 <li><p>SSL Certs on GCP: <a href="https://cloud.google.com/load-balancing/docs/ssl-certificates">https://cloud.google.com/load-balancing/docs/ssl-certificates</a></p></li>
@@ -91,6 +91,7 @@ You have two options for key encryption keys in GCP:
 <ol>
 <li>Use Cloud Key Management Service to create and manage key encryption keys.</li> 
 <li>Create and manage your own key encryption keys, also known as customer-supplied encryption keys (CSEK). </li>
+<li>Use Cloud HSM: Cloud HSM is a cloud-hosted Hardware Security Module (HSM) service that allows you to host encryption keys and perform cryptographic operations in a cluster of FIPS 140-2 Level 3 certified HSMs. Google manages the HSM cluster for you, so you don't need to worry about clustering, scaling, or patching. Because Cloud HSM uses Cloud KMS as its front end, you can leverage all the conveniences and features that Cloud KMS provides. </li>
 </ol>
 <br><br>
 
@@ -108,6 +109,7 @@ gcloud kms keys update key-name \ <br>
 <li><p>Protecting Resources with KMS keys: <a href="https://cloud.google.com/compute/docs/disks/customer-managed-encryption">https://cloud.google.com/compute/docs/disks/customer-managed-encryption</a></p></li>
 <li><p>Using KMS: <a href="https://cloud.google.com/kms/docs/quickstart">https://cloud.google.com/kms/docs/quickstart</a></p></li>
 <li><p>Configuring automatic Key Rotation<a href="https://cloud.google.com/kms/docs/rotating-keys#kms-enable-key-version-cli">https://cloud.google.com/kms/docs/rotating-keys#kms-enable-key-version-cli</a></p></li>
+<li><p>Using Cloud HSM<a href="https://cloud.google.com/kms/docs/hsm">https://cloud.google.com/kms/docs/hsm</a></p></li>
 </ol></td>
 </tr>
 <tr class="even">
@@ -130,7 +132,14 @@ Kubernetes has several nested layers, each of which provides some level of isola
 
 <li> <b>Cluster</b> A cluster is a collection of nodes and a control plane. This is a management layer for your containers. Clusters offer stronger network isolation with per-cluster DNS. </li>
 
-<li> <b>Project:</b> A GCP project is a collection of resources, including Kubernetes Engine clusters. A project provides all of the above, plus some additional controls that are GCP-specific, like project-level IAM for Kubernetes Engine and org policies. Resource names, and other resource metadata, are visible up to this layer.</li>
+<li> <b>Project:</b> A GCP project is a collection of resources, including Kubernetes Engine clusters. A project provides all of the above, plus some additional controls that are GCP-specific, like project-level IAM for Kubernetes Engine and org policies. Resource names, and other resource metadata, are visible up to this layer.</li></ul>
+<br>
+
+Isolating applications on GKE can be achieved with the following scenarios: <br><br>
+<ul>
+ <li> <b>Seperating applications by namespace</b>: This is the simplest option for isolating different services on kubernetes, however, namespaces are only meant to incorporate logical isolation and doesn't provide actual physical isolation between services/pods. <br><br>Eg: login microservice resources will be hosted in the login namespace, and similarly shipping microservice resources will be contained in the shipping namespace</li>
+ <li> <b>Seperating applications by node pool</b>: This method can be used to achieve physical isolation if used appropriately in tandem with Node Selectors and Affinities. This option also provides flexibility in using different node types for different type of workloads. <br><br> Eg: You can have ML workloads running on a Nodepool with GPUs and a datastore Nodepool which contains SSD Disks.
+ <li> <b>Seperating applications by cluster</b>: This option achieves the maximum level of physical and logical isolation for kubernetes clusters, also providing all the benefits of the second option, but with a relatively heavier management and overhead and will often involve the inclusion of implementing network structures that allow for communication between clusters if needed. <br><br>Eg: You may want to run a seperate cluster on GKE for hosting your CI/CD workloads, however this will require a VPN connection if the CI/CD cluster is expected to deploy changes to a separate private cluster.
 </ul>
 </p>
 </td>
