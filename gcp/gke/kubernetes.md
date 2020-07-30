@@ -87,7 +87,7 @@ Note: The above information is in the context of utilizing GKE LB which supports
 <td><p>
 If you want to control and manage the encryption on GCP yourself, you can use key encryption keys. Key encryption keys do not directly encrypt your data but are used to encrypt the data encryption keys that encrypt your data. <br><br>
 
-You have two options for key encryption keys in GCP:
+You have 3 options for encryption in GCP:
 <ol>
 <li>Use Cloud Key Management Service to create and manage key encryption keys.</li> 
 <li>Create and manage your own key encryption keys, also known as customer-supplied encryption keys (CSEK). </li>
