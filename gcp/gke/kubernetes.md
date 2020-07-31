@@ -47,7 +47,7 @@ Application-layer Secrets Encryption provides an additional layer of security fo
 
 To use Application-layer Secrets Encryption, you must first create a Cloud KMS key and give the GKE service account access to the key. The key must be in the same location as the cluster to decrease latency and to prevent cases where resources depend on services spread across multiple failure domains. Then, you can enable the feature on a new or existing cluster by specifying the key you would like to use.<br><br>
 
-Note: Default GKE cluster has encrypted persistent disks and encryption layers for secrets stored in etcd/cluster. <br><br>
+Note: Default GKE cluster has encrypted persistent disks and encryption layers for secrets stored in etcd/cluster <br><br>
 
 Migrating from a workload without Customer Managed Encryption Keys (CMEK) disks to an environment with CMEK disks will require the creation of new storage classes and Persistent Volume Claims. 
 </p>
