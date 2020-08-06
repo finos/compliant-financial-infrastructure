@@ -28,7 +28,7 @@ The working group will produce multiple Cloud Service Certification artifacts (t
 # Group Information
 * **Meetings and Minutes**
   * [Meetings and Minutes on GitHub](https://github.com/finos/cloud-service-certification/issues?q=label%3Ameeting+)
-  * [*Depricated Meeting and Minutes on Confluence*](https://finosfoundation.atlassian.net/wiki/spaces/FDX/pages/917962769/Minutes)
+  * [*Deprecated Meeting and Minutes on Confluence*](https://finosfoundation.atlassian.net/wiki/spaces/FDX/pages/917962769/Minutes)
 * **Mailing list:** [fdx-cloud-service-certification@finos.org](mailto:fdx-cloud-service-certification@finos.org) ([web archive](https://groups.google.com/a/finos.org/forum/#!forum/fdx-cloud-service-certification))
 * **Google Group**: [https://groups.google.com/a/finos.org/forum/#!topic/fdx-cloud-service-certification/1RPUvv18ksA](https://groups.google.com/a/finos.org/forum/#!topic/fdx-cloud-service-certification/1RPUvv18ksA)
 
