@@ -16,6 +16,157 @@ This table maps Security Domain to the corresponding controls and
 architectural best practices as documented in GCP public documentation,
 white papers, and blog posts.
 
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-7btt">Top level</th>
+    <th class="tg-fymr">Breakdown</th>
+    <th class="tg-fymr">Measure of compliance</th>
+    <th class="tg-fymr">Detail</th>
+    <th class="tg-fymr">Public Links</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-amwm">Encryption</td>
+    <td class="tg-1wig">Encryption of data at-rest</td>
+    <td class="tg-1wig">Encryption of data in-transit</td>
+    <td class="tg-1wig">Encryption Key Management</td>
+    <td class="tg-8zwo">Where is the documentation showing external certification?</td>
+    <td class="tg-0lax"><span style="font-style:italic">Does the service you are evaluating have the necessary external certification for your use case?</span></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-7btt" rowspan="4">Identity &amp; Access Management</td>
+    <td class="tg-fymr">Authentication</td>
+    <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
+    <td class="tg-f8tv">How does the service you are evaluating handle authentication?</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Authorization</td>
+    <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
+    <td class="tg-f8tv"><span style="font-weight:400">How does the service you are evaluating handle authorization?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">RBAC</td>
+    <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
+    <td class="tg-f8tv"><span style="font-weight:400">How does the service you are evaluating handle RBAC?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Privileged Access Management</td>
+    <td class="tg-0pky"><span style="font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-f8tv"><span style="font-weight:400;font-style:italic">How does the service you are evaluating handle Privileged Access Management?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-7btt" rowspan="4">Encryption &amp; Secure Data Management</td>
+    <td class="tg-fymr">Encryption in Transit</td>
+    <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How does the service you are evaluating handle Encryption at Rest?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Encryption at Rest</td>
+    <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How does the service you are evaluating handle Encryption in Transit?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Certificate and Key Management</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How does the service you are evaluating handle Certificate and Key Management?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">BYOK/HYOK Management</td>
+    <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
+    <td class="tg-f8tv">How does the service you are evaluating handle BYOK/HYOK Management?</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-7btt" rowspan="3">Network Security </td>
+    <td class="tg-fymr">Endpoint Localisation</td>
+    <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
+    <td class="tg-f8tv">How does the service you are evaluating handle Endpoint Localisation?</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">IP Firewall Rules</td>
+    <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How does the service you are evaluating handle IP Firewall Rules?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Data Exfiltration Prevention <br>&amp; Data Loss Prevention</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How does the service you are evaluating handle Data Exfiltration and Loss Prevention?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-7btt" rowspan="3">Logging &amp; Monitoring</td>
+    <td class="tg-fymr">Security Monitoring &amp; Alerting</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-f8tv">Does the service you are evaluating offer security &amp; Alerting</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Service Monitoring</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-f8tv">Does the CSP provide monitoring for this service?</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Alert &amp; Incident Management</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-f8tv">Is there Alert &amp; Incident Management capabilities?</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-7btt" rowspan="2">Resilience &amp; Recovery</td>
+    <td class="tg-fymr">Data Resilience (back-up/replication)</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-f8tv">Are data backups and replication capabilities provided if needed?</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Compute High Availability</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-0pky">How does the service you are evaluating provide high availability to suit your requirements?</td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-7btt" rowspan="2">Underlying OS</td>
+    <td class="tg-fymr">Use of Latest Version</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-f8tv"><span style="font-weight:400">How does this service ensure it is using the latest stable/secure version of the underlying software?</span></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-1wig">-</td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-8zwo">How does the service you are evaluating manage the underlying operating system the service is built on? <br>Is this maintained by the CSP? If not how will you ensure the necessary updates are performed etc?</td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-7btt">CSP Access</td>
+    <td class="tg-fymr">-</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-7btt">Dependent Services</td>
+    <td class="tg-fymr">-</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How will you ensure the service you are evaluating meets this requirement?</span></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+  </tr>
+</tbody>
+</table>
+
 <table>
 <tbody>
 <tr class="odd">
