@@ -211,7 +211,7 @@ This means that if you need to communicate to the Kube master API in a private c
  
 <li><p> For users that don't require cluster administrative permissions (permissions that allow infrastructural and networking changes to the cluster), it is recommended to grant those users the Kubernetes Engine Viewer role, which grants read acess to gke resources. That access canthen be extended with granular RBAC configuration that grants write and/or admin access to specific namespaces. With GKE, IAM is the foundation for authorization and RBAC is the structure built on top of that.</p></li>
 
-<li><p> So for example if we want to provide a user named John edit access to a specific 'web' namespace where web-server pods are hosted, we would grant John the Kubernetes Engine Viewer IAM role, supplemented by the following role-binding:</p></li>
+<li><p> So for example if we want to provide a user named John edit access to a specific 'web' namespace where web-server pods are hosted, we would grant John the Kubernetes Engine Viewer IAM role like so: <br> <pre> gcloud projects add-iam-policy-binding PROJECT_ID --member=john@example.com --role=roles/container.viewer </pre> <br> supplemented by the following role-binding:</p></li>
 </ul>
 
 <pre>
