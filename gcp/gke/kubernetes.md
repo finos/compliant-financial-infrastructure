@@ -218,11 +218,11 @@ This means that if you need to communicate to the Kube master API in a private c
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-&nbsp;  name: jane-web
-&nbsp;  namespace: web
+  name: john-web
+  namespace: web
 subjects:
 - kind: User
-  name: jane@example.com
+  name: john@example.com
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: ClusterRole
@@ -230,116 +230,20 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 </pre>
 
-<pre>
-{
-  "Version": "2012-10-17",
-  "Statement": {
-    "Sid":"AllowCreateProductionCluster",
-    "Effect": "Allow",
-    "Action": "redshift:CreateCluster",
-    "Resource": "*"
-    "Condition":{"StringEquals":{"redshift:RequestTag/usage":"production"}
-  }
-}
-</pre>
 <ul>
-<li><p>It should go without saying but policies should not include “*” without having a following deny statement and/or condition statements</p>
-<p>For example:</p>
-<p>A condition statement to restrict access by redshift:ResourceTag Condition key</p></li>
+<li><p>Defining RBAC configuration like this works relatively well at a small scale, but can quickly become difficult to manage across a variety of namespaces or users. It can also be difficult to get a full picture of authorization in your cluster when half of the configuration is in Google Cloud IAM while the other half lives in Kubernetes RBAC. GKE allows the usage of google groups withing the kubernetes RBAC to simplify user management</p></li>
+ 
+<li><p>One way to ease RBAC management is by using tools such as this open-source one: <a href:"https://github.com/FairwindsOps/rbac-manager">rbac-manager</a></p></li>
 </ul>
-<pre>
-{
-  "Version": "2012-10-17",
-  "Statement": {
-    "Sid":"AllowModifyTestCluster",
-    "Effect": "Allow",
-    "Action": "redshift:ModifyCluster",
-    "Resource": "arn:aws:redshift:us-west-2:123456789012:cluster:*"
-    "Condition":{"StringEquals":{"redshift:ResourceTag/environment":"test"}
-  }
-}          
-</pre>
-<p>For example: A deny policy to limit actions to a specific Redshift Cluster environment “production*”.</p>
-<pre>
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid":"AllowClusterManagement",
-      "Action": [
-        "redshift:CreateCluster",
-        "redshift:DeleteCluster",
-        "redshift:ModifyCluster",
-        "redshift:RebootCluster"
-      ],
-      "Resource": [
-        "*"
-      ],
-      "Effect": "Allow"
-    },
-    {
-      "Sid":"DenyDeleteModifyProtected",
-      "Action": [
-        "redshift:DeleteCluster",
-        "redshift:ModifyCluster"
-      ],
-      "Resource": [
-        "arn:aws:redshift:us-west-2:123456789012:cluster:production*"
-      ],
-      "Effect": "Deny"
-    }
-  ]
-}
-</pre>
-<ul>
-<li><p>Ensure you separate roles that perform snapshot/restore from regular users. Remember to test this as IAM assumes deny but if a broad access role is assigned and a regular user can assume that role then they user can perform the API action. The only way to prevent this is to have a condition statement limiting actions to a specific role or an explicit deny.</p></li>
-<li><p>Become very familiar with all API actions for RedShift [6]</p></li>
-<li><p>To properly manage a Service-Linked role be sure to separate the "create" and "delete" actions to unique IAM entity so access to manage data and manage the cluster are separated.</p>
-<p>For example: Allow IAM identity to delete Service-Linked Role</p>
-<pre>
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid":"AllowClusterManagement",
-      "Action": [
-        "redshift:CreateCluster",
-        "redshift:DeleteCluster",
-        "redshift:ModifyCluster",
-        "redshift:RebootCluster"
-      ],
-      "Resource": [
-        "*"
-      ],
-      "Effect": "Allow"
-    },
-    {
-      "Sid":"DenyDeleteModifyProtected",
-      "Action": [
-        "redshift:DeleteCluster",
-        "redshift:ModifyCluster"
-      ],
-      "Resource": [
-        "arn:aws:redshift:us-west-2:123456789012:cluster:production*"
-      ],
-      "Effect": "Deny"
-    }
-  ]
-}
-</pre>
-</li>
-</ul></td>
+</td>
 <td><ol type="1">
-<li><p><a href="https://aws.amazon.com/iam/details/manage-federation/"><span class="underline">Managing federation in AWS IAM</span></a></p></li>
-<li><p><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/iam-redshift-user-mgmt.html">https://docs.aws.amazon.com/redshift/latest/mgmt/iam-redshift-user-mgmt.html</a></p></li>
-<li><p><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html">https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html</a></p></li>
-<li><p><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html">https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html</a></p></li>
-<li><p><a href="https://docs.aws.amazon.com/redshift/latest/mgmt/using-service-linked-roles.html">https://docs.aws.amazon.com/redshift/latest/mgmt/using-service-linked-roles.html</a></p></li>
-<li><p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonredshift.html">https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonredshift.html</a></p></li>
+<li><p>RBAC on GKE: <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/role-based-access-control">https://cloud.google.com/kubernetes-engine/docs/how-to/role-based-access-control</a></p></li>
+<li><p>RBAC manager tool: <a href="https://github.com/FairwindsOps/rbac-manager">https://github.com/FairwindsOps/rbac-manager</a></p></li>
 </ol></td>
 </tr>
+<!--
 <tr class="odd">
-<td>Authorization between AWS services</td>
+<td>Authorization between GCP services</td>
 <td><ul>
 <li><p>Redshift will need to access other AWS services (S3, Glue, Athena, KMS, etc..., to perform functions in an automated way. To setup a role for a specific service function use reference [1].</p></li>
 <li><p>It is recommended to run a Service Linked Role for RedShift to limit service specific actions to only the RDS service endpoint [2]</p></li>
