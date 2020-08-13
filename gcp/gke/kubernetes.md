@@ -1,3 +1,19 @@
+# Detailed Security Configuration
+
+Overview
+
+This section is meant to provide an opinionated approach towards the
+implementation security controls by domain. Although the approaches may
+not be a fit for all use cases or complete for production use, they are
+meant to guide the reader towards current best practices and design
+considerations to achieve security control objectives.
+
+**Controls and Architectures**
+
+This table maps Security Domain to the corresponding controls and
+architectural best practices as documented in GCP’s public documentation, 
+white papers, and blog posts.
+
 <table>
 <tbody>
 <tr class="odd">
@@ -169,35 +185,51 @@ This means that if you need to communicate to the Kube master API in a private c
 <td><ol type="1">
 <li><p>Cluster Master<a href="https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#master">https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#master</a></p></li>
 </ol></td>
-<!---
 </tr>
 <tr class="even">
-<td><strong>IAM</strong></td>
+<td><strong>IAM and RBAC</strong></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Admin Accounts</td>
-<td><ul>
-<li><p>A superuser account must be created to perform password disable/enable function (the default user created when a cluster is launched is called <strong>masteruser</strong>)</p></li>
-<li><p>The IAM entity that creates the cluster is the default owner and first superuser.</p></li>
-<li><p>A database superuser bypasses all permission checks. Be very careful when using a superuser role. It is recommended that you do most of your work as a role that is not a superuser. Superusers retain all privileges regardless of GRANT and REVOKE commands.</p></li>
-<li><p>When you launch a new cluster using the AWS Management Console, AWS CLI, or Amazon Redshift API, you must supply a clear text password for the master database user.</p></li>
+<td> <p> In IAM for GKE services there are 2 types of administrative roles Kubernetes Engine Admin, and Kubernetes Engine Cluster Admin	</p> <br><br>
+ <ul>
+ <li><p> The Kubernetes Engine Admin role provides access to full management of clusters and their Kubernetes API objects. This role is kind of similar to the admin role available in kubernetes RBAC. This role is applicable at a project level and hence applies to every cluster in the project. Since this is a highly privileged role, as a best practice, it is recommended grant limited users this role and to maintain admin activity logs for audit to identify what changes were made by whom.</p></li>
+<li><p>The Kubernetes Engine Cluster Admin role provides access to management of clusters, but does not actually provide access to the cluster. So while the Cluster Admin may make changes to the clusters in a particular project, he/she will not be able to access it or make any kube operations. The permissions involved in this role are required to create a GKE cluster, and the same permissions are found in the Kubernetes Engine Admin role mentioned above.</p></li>
 </ul>
-<blockquote>
-<p>To protect the password make sure to encrypt the plaintext password using the following command (assuming CMK used to encrypt cluster) “aws kms encrypt --key-id &lt;kms_key_id&gt; --plaintext &lt;password&gt;”</p>
-</blockquote></td>
+
 <td><ol type="1">
-<li><p><a href="https://docs.aws.amazon.com/redshift/latest/dg/r_Privileges.html">https://docs.aws.amazon.com/redshift/latest/dg/r_Privileges.html</a></p></li>
-<li><p><a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html">https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html</a></p></li>
+<li><p>GKE IAM Roles: <a href="https://cloud.google.com/kubernetes-engine/docs/how-to/iam">https://cloud.google.com/kubernetes-engine/docs/how-to/iam</a></p></li>
+<li><p>Admin Activity Audit Logs: <a href="https://cloud.google.com/logging/docs/audit#admin-activity">https://cloud.google.com/logging/docs/audit#admin-activity</a></p></li>
 </ol></td>
 </tr>
 <tr class="even">
 <td>Role Based Access Control</td>
 <td><ul>
-<li><p>RedShift uses IAM principles to assign rights to actions. When different roles are created and mapped from customer domain groups to AWS IAM roles consider some best practices:</p>
-<p>Limit potential over privilege by using redshift:RequestTag Condition key to limit any action to a specific deployment or environment:</p></li>
+<li><p>The best way to grant permissions is by following the principle of least privilege. To achieve that on GKE, we have to use a combination of GCP IAM roles in tandem with granular RBAC policies. </p></li>
+ 
+<li><p> For users that don't require cluster administrative permissions (permissions that allow infrastructural and networking changes to the cluster), it is recommended to grant those users the Kubernetes Engine Viewer role, which grants read acess to gke resources. That access canthen be extended with granular RBAC configuration that grants write and/or admin access to specific namespaces. With GKE, IAM is the foundation for authorization and RBAC is the structure built on top of that.</p></li>
+
+<li><p> So for example if we want to provide a user named John edit access to a specific 'web' namespace where web-server pods are hosted, we would grant John the Kubernetes Engine Viewer IAM role, supplemented by the following role-binding:</p></li>
 </ul>
+
+<pre>
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+&nbsp;  name: jane-web
+&nbsp;  namespace: web
+subjects:
+- kind: User
+  name: jane@example.com
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: edit
+  apiGroup: rbac.authorization.k8s.io
+</pre>
+
 <pre>
 {
   "Version": "2012-10-17",
