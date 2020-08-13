@@ -195,7 +195,7 @@ This means that if you need to communicate to the Kube master API in a private c
 <td>Admin Accounts</td>
 <td> <p> In IAM for GKE services there are 2 types of administrative roles Kubernetes Engine Admin, and Kubernetes Engine Cluster Admin	</p> <br><br>
  <ul>
- <li><p> <b>The Kubernetes Engine Admin<b> role provides access to full management of clusters and their Kubernetes API objects. This role is kind of similar to the admin role available in kubernetes RBAC. This role is applicable at a project level and hence applies to every cluster in the project. Since this is a highly privileged role, as a best practice, it is recommended grant limited users this role and to maintain admin activity logs for audit to identify what changes were made by whom.</p></li>
+ <li><p> <b>The Kubernetes Engine Admin</b> role provides access to full management of clusters and their Kubernetes API objects. This role is kind of similar to the admin role available in kubernetes RBAC. This role is applicable at a project level and hence applies to every cluster in the project. Since this is a highly privileged role, as a best practice, it is recommended grant limited users this role and to maintain admin activity logs for audit to identify what changes were made by whom.</p></li>
   <li><p><b>The Kubernetes Engine Cluster Admin</b> role provides access to management of clusters, but does not actually provide access to the cluster. So while the Cluster Admin may make changes to the clusters in a particular project, he/she will not be able to access it or make any kube operations. The permissions involved in this role are required to create a GKE cluster, and the same permissions are found in the Kubernetes Engine Admin role mentioned above.</p></li>
 </ul>
 
