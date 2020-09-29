@@ -1,7 +1,6 @@
 # Overview
 
-This section is meant to provide an opinionated approach towards the implementation security controls by domain. Although the approaches may not be a fit for all use cases or complete for production use,  
-they are meant to guide the audience towards current best practices and design considerations to achieve security control objectives.
+This document is intended to provide an opinionated approach towards the implementation security controls of Azure Database for PostgreSQL by domain. Although the approaches may not be a fit for all use cases or complete for production use,  they are meant to guide the audience towards current best practices and design considerations to achieve the security control objectives.
 
 Azure database for PostgreSQL is available in 2 deployment options.
 - Single Server
@@ -56,8 +55,8 @@ This table maps Security Domain to the corresponding controls and architectural 
             when using Azure AD for authentication, the security features that build in AAD can help to protect the login process. The AAD token can be obtained in various
             ways which could help to protect most of the password attach. 
             <br><br>
-            Azure managed identity can be used by many azure resources (VM, app services, azure function, etc) to have a controled identity within AAD, which elimate the needs store and
-            manage any form of password or token for deployed application. It further strenghtens the protection for authentication.
+            Azure managed identity can be used by many azure resources (VM, app services, azure function, etc.) to have a controlled identity within AAD, which eliminates the need to store and
+            manage any form of password or token for a deployed application. It further strenghtens the protection for authentication.
             <br><br>
             When AAD integration is not enabled, simple user/pass is used for authentication in postgres.
          </p>
@@ -68,14 +67,14 @@ This table maps Security Domain to the corresponding controls and architectural 
     <td class="tg-fymr">Authorization</td>
     <td class="tg-f8tv">
         <p>
-            It is recommended to only assign AAD groups roles within postgres, and not to create indivisual users within postgres itself.            
+            It is recommended to only assign AAD groups roles within postgres, and not to create individual users within postgres itself.            
             <br><br>
-            When setting up AAD integration for Azure postgres, an AAD account (either group or user) needs to be specified as the azure ad administorator for the postgres server.             
+            When setting up AAD integration for Azure postgres, an AAD account (either group or user) needs to be specified as the azure ad administrator for the postgres server.             
             Only the AAD users that are specified can initially connect and add more AAD user/group into postgres and assign database roles.            
             <br><br>
-            Custom database roles with least privileged access is always preferable, logically grouped permissions can be used to ease the burdon of administration
+            Custom database roles with least privileged access is always preferable, logically grouped permissions can be used to ease the burden of administration
             <br><br>                        
-            When a AAD group is added into the postgres server, any member of the group can login and assume the database role that is assigned to the group. It thus recommended to create and add 
+            When an AAD group is added into the postgres server, any member of the group can login and assume the database role that is assigned to the group. It thus recommended to create and add 
             AAD groups only to postgres, and manage all users and role assignments using AAD, and eleminate the needs to create individual users within postgres.            
         </p>
     </td>
@@ -85,15 +84,15 @@ This table maps Security Domain to the corresponding controls and architectural 
     <td class="tg-fymr">Privileged Access Management</td>
     <td class="tg-f8tv">
         <p>
-            Only authorised Database Administrators group members should be allowed to create or update or delete any instance of Azure database for PostgreSQL.
-            Additionally, this should happen in accordance to the defined deployment process as well (e.g. via a build service, etc.).
+            Only authorised Database Administrators group members should be allowed to create, update or delete any instance of Azure database for PostgreSQL.
+            Additionally, this should happen in accordance with the defined deployment process as well (e.g. via a build service).
         </p>
         <ul>
             <li>One admin group per PostgreSQL server</li>
-            <li>RBAC should be used for database admins with least privileged access, custom roles per user are preferable but to ease the burden of management we
+            <li>RBAC should be used for database admins with least privileged access. Custom roles per user are preferable but to ease the burden of management we
             have provided a potential RBAC model</li>
-            <li>The Banks existing privileged account security system should be integrated</li>
-            <li>The Banks existing systems for user account re-certification should be integrated</li>
+            <li>The Bank's existing privileged account security system should be integrated</li>
+            <li>The Bank's existing systems for user account re-certification should be integrated</li>
         </ul>
         Azure AD provides PIM service to manage, control, and monitor access to the priviledge accoung/group.
     </td>
@@ -110,7 +109,9 @@ This table maps Security Domain to the corresponding controls and architectural 
         (PFS) protects connections between customers’ client systems and Microsoft cloud services by unique keys. Connections also use RSA-based 2,048-bit encryption key
         lengths. This combination makes it difficult for someone to intercept and access data that is in transit. <br><br>
         All database communications from the banks application servers to Azure PostgreSQL should use TLS1.2, Azure policy should be used to enforce encryption in transit
-        on all Azure PostgreSQL servers.</p>
+        on all Azure PostgreSQL servers. <br><br>
+        Azure certificates should be used for the TLS process (rather than bank certificates) due to the gateway being common in front of all Postgres instances.
+        </p>
     </td>
     <td class="tg-0pky"><a href="https://docs.microsoft.com/en-us/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit">Encryption of Data in Transit</a></td>
   </tr>
@@ -214,17 +215,17 @@ This table maps Security Domain to the corresponding controls and architectural 
             connect to the server. <br><br>
             To begin using your server from another computer, you need to specify one or more server-level firewall rules to enable access to your server. Use the firewall rules
             to specify which IP address ranges from the Internet to allow. Access to the Azure portal website itself is not impacted by the firewall rules. <br><br>
-            This example uses Acces to Azure Services enabled or Public peering, this will be different for private link but gives some insight to how communications are proxied
+            The example uses Access to Azure Services enabled or Public peering. This will be different for private link but gives some insight to how communications are proxied
             to Azure PAAS services.<br><br>
         </p>
         <h4>Connecting from Azure</h4>
         <p>
             To allow applications from Azure to connect to your Azure Database for PostgreSQL server, Azure connections must be enabled. For example, to host an Azure Web Apps
-            application, or an application that runs in an Azure VM, or to connect from an Azure Data Factory data management gateway. The resources do not need to be in the same
+            application, or an application that runs in an Azure VM, or to connect from an Azure Data Factory data management gateway, the resources do not need to be in the same
             Virtual Network (VNet) or Resource Group for the firewall rule to enable those connections. When an application from Azure attempts to connect to your database server,
             the firewall verifies that Azure connections are allowed. This option configures the firewall to allow all connections from Azure including connections from the
             subscriptions of other customers.<br><br>
-            Allow connections from Azure should be disabled on every PostgreSQL firewall that is using an in-house application running on servers, other PAAS services connection
+            Allow connections from Azure should be disabled on every PostgreSQL firewall that is using an in-house application running on servers. Other PAAS services connections
             into Azure PostgreSQL should be assessed individually for best practice secure configuration.
         </p>
     </td>
@@ -235,12 +236,12 @@ This table maps Security Domain to the corresponding controls and architectural 
     <td class="tg-0pky">
         <p>
             Best practice is to disable all Azure service traffic to Azure Database for PostgreSQL Single server via the public endpoint by setting Allow Azure Services to OFF.<br><br>
-            Ensure no public IP addresses or ranges are allowed to access the server either via NSG and PostgreSQL firewall rules, and no private IP addresses are allowed to
+            Ensure no public IP addresses or ranges are allowed to access the server either via NSG or PostgreSQL firewall rules, and no private IP addresses are allowed to
             connect to the Azure PostgreSQL server via virtual network service endpoints.<br><br>
             Create a Private Link to the Azure PostgreSQL server and only allow traffic to the Azure Database for PostgreSQL Single server using the Private IP address of the VM.<br><br>
             With Private Link, you can now set up network access controls like NSGs to restrict access to the private endpoint.<br><br>
-            Restricting access to the Azure PostgreSQL server from only the IPV4 addresses that are found in rules applied to both the NSG attached to the subnet that the Azure PostgreSQL
-            server has a private endpoint and the Azure PostgreSQL firewall reduces data exfiltration risks.<br><br>
+            Access to the Azure PostgreSQL server should be restricted to only the IPV4 addresses that are found in rules applied to both a) the NSG subnet where the Azure PostgreSQL
+            server has a private endpoint and b) the Azure PostgreSQL firewall. This reduces data exfiltration risks.<br><br>
             With Private Link, you can enable cross-premises access to the private endpoint using Express Route (ER), Then you can subsequently disable all access via public endpoints.
         </p>
     </td>
@@ -268,7 +269,7 @@ This table maps Security Domain to the corresponding controls and architectural 
         <ul>
             <li>All AzurePostgreSQL logs should be stored in a Log Analytics workspace</li>
             <li>Log analytics workspaces should have table level RBAC implemented</li>
-            <li>All table level RBAC roles should have least privelaged permissions</li>
+            <li>All table level RBAC roles should have least privileged permissions</li>
             <li>Azure monitor should be used for operational insights</li>
         </ul>
     </td>
@@ -278,12 +279,12 @@ This table maps Security Domain to the corresponding controls and architectural 
     <td class="tg-fymr">Alert &amp; Incident Management</td>
     <td class="tg-f8tv">
         <p>
-            Advanced Threat Protection (ATP) provides additional layer of security that enables customers to detect and react to anamolous activities.</br>
-            ATP provides alerts on multiple fronts like the database activities, vulnerabilities, anamolous database activities, various query patterns.</br>
+            Advanced Threat Protection (ATP) provides additional layer of security that enables customers to detect and react to anomalous activities.</br>
+            ATP provides alerts on multiple fronts like the database activities, vulnerabilities, anomalous database activities and various query patterns.</br>
             ATP can raise alerts on unusual activities like access from unusual location, access from unfamiliar principal, access from potentially harmful applications etc. </br>
             ATP for Azure database for PostgreSQL integrates its alerts with Azure Security Center. </br>
             The security alerts within the security center provide the list of potential alerts and any threats detected on the database. </br>
-            Enable the Advanced Threat Protection to send alerts to certain email addresses to receive alerts upon detection of anamolous activities. </br>
+            Enable Advanced Threat Protection to send alerts to certain email addresses to receive alerts upon detection of anomoalous activities. </br>
         </p>
     </td>
     <td class="tg-0pky"><a href="https://docs.microsoft.com/en-us/azure/postgresql/concepts-data-access-and-security-threat-protection">Advanced Threat Protection</a></br></td>
@@ -295,12 +296,12 @@ This table maps Security Domain to the corresponding controls and architectural 
         <p>
             Backups are created and stored automatically in storage at either a locally redundant storage or geo-redundant storage based on the configuration set up.</br>
             Backup retention period can be anywhere between 7 and 35 days.</br>
-            Point in time restore can be done in the same region as the original server. A new server is created from the original server's backups.</br>
-            Geo-restore can be done if the server is configured for geo-redundant storage and can be restored to a server to a different region.</br>
-            The configuration on the restored server needs to mimic the configuration on the original server (a script needs to be developed to copy the configuration)</br>
-            In case of Hyperscaale, backups of each node are created and stored locally.</br>
+            Point-in-time restore can be done in the same region as the original server. A new server is created from the original server's backups.</br>
+            Geo-restore can be done if the server is configured for geo-redundant storage and can be restored to a server in a different region.</br>
+            The configuration on the restored server needs to mimic the configuration on the original server (a script needs to be developed to copy the configuration).</br>
+            In case of Hyperscale, backups of each node are created and stored locally.</br>
             The cluster can be restored to a specified point in time using the backups.</br>
-            Restoring the cluster creates a new cluster from the original nodes backups.</br>
+            Restoring the cluster creates a new cluster from the original node's backups.</br>
         </p>
     </td>
     <td class="tg-f8tv">
@@ -314,16 +315,16 @@ This table maps Security Domain to the corresponding controls and architectural 
     <td class="tg-fymr">Data Resilience (Replication)</td>
     <td class="tg-0pky">
         <p>
-            Azure allows to create replicas from an Azure database for PostgreSQL to a read-only server. Up to 5 replicas can be created.</br>
+            Azure allows creation of replicas from an Azure database for PostgreSQL to a read-only server. Up to 5 replicas can be created.</br>
             Replicas are updated asynchronously using PostgresSQL asynchronous replication. The data becomes eventually consistent between the read replicas.</br>
             The read replicas can be used to improve performance of intensive workloads by isolating some read workloads to replicas and write workloads to the master.</br>
             Read replicas can be created in either the same region as the master server or in a different region. Cross region replication helps in the DR set up.</br>
             The replicas don’t inherit the firewall rules or the service endpoint of the master server and therefore the rules must be set separately for the replica.</br>
             There is no automated fail-over between the master server and the replica. The fail-over process is manual and requires the replication to be stopped. Once the
-            replication is stopped, the replica becomes stand-alone server. The replica server is restarted, so it can accept writes.</br>
+            replication is stopped, the replica becomes stand-alone server. The replica server is then restarted, so it can accept writes.</br>
             The applications need to be pointed to the replica. A script that is capable of performing the above steps to stop replication and making the replica to a master
             server should be created to achieve this.</br>
-            Azure replication support parameter needs to be configured for replicas as this feature is dependent on Postgres WAL (Write Ahead Log). The parameter has 3 options
+            The Azure replication support parameter needs to be configured for replicas as this feature is dependent on Postgres WAL (Write Ahead Log). The parameter has 3 options
             viz. 'Off, 'Replica' and 'Logical'. This needs to be set to at-least 'Replica' for logging to be configured for replica servers.</br>
         </p>
     </td>
@@ -338,10 +339,10 @@ This table maps Security Domain to the corresponding controls and architectural 
     <td class="tg-fymr">Compute High Availability</td>
     <td class="tg-0pky">
     <p>
-        99.99% availability is defined in the SLA document and handled by Microsoft. <br><br>
+        A 99.99% availability requirement is defined in the SLA document and handled by Microsoft. <br><br>
         Additionally, high availability can be implemented by creating a read-only replica of the database in a different region to the
         one the database is deployed in. A script can be used to fail-over between the main database and the read replica. If the replication
-        is broken the read-replica becomes write-able and can act as the main database. This method ensures high availability between regions,
+        is broken the read-replica becomes writeable and can act as the main database. This method ensures high availability between regions,
         on top of the high availability guaranteed by Microsoft.
     </p>
     </td>
