@@ -13,12 +13,9 @@ Thursday DD MMM yyyy - 10am EST / 3pm BST
 ## Agenda
 
 - [ ] Convene, roll call, welcome new people
-- [ ] Review action items from previous meetings
+- [ ] Cloud Service Certification [Project Kanban](https://github.com/orgs/finos/projects/1) Review
 - [ ] Approve previous meeting minutes - https://github.com/finos/cloud-service-certification/issues?q=is%3Aissue+is%3Aclosed+label%3Ameeting
-- [ ] [Cloud Service Certification Kanban Review](https://github.com/orgs/finos/projects/1)
-
 - [ ] _Add Items Here_
-
 - [ ] AOB, Q&A & Adjourn (5mins)
 
 ## Decisions Made
