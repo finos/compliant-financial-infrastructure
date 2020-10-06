@@ -7,8 +7,8 @@ about: To track Cloud Service Certification meeting agenda and attendance
 Thursday DD MMM yyyy - 10am EST / 3pm BST
 
 ## Untracked attendees
-- Fullname, Affiliation, (optional) GitHub username
-- ...
+| Name | Firm | Comment |
+|:---------|:------------|:-----|
 
 ## Agenda
 
