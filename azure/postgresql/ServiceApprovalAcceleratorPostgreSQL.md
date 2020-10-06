@@ -49,13 +49,13 @@ This table maps Security Domain to the corresponding controls and architectural 
         <p>
             It is recommended to enable AAD integration with PAzure Database for PostgreSQL.
             <br><br>
-            Microsoft Azure Active Directory (Azure AD) authentication is a mechanism of connecting to Azure Database for PostgreSQL using identities defined in Azure AD.
-            With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.            
+            Microsoft Azure Active Directory (AAD) authentication is a mechanism of connecting to Azure Database for PostgreSQL using identities defined in Azure AD.
+            With Azure Active Directory authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
             <br><br>
-            when using Azure AD for authentication, the security features that build in AAD can help to protect the login process. The AAD token can be obtained in various
+            When using AAD for authentication, the security features that build in AAD can help to protect the login process. The AAD token can be obtained in various
             ways which could help to protect most of the password attach. 
             <br><br>
-            Azure managed identity can be used by many azure resources (VM, app services, azure function, etc.) to have a controlled identity within AAD, which eliminates the need to store and
+            Azure managed identity can be used by many Azure resources (VM, app services, Azure function, etc.) to have a controlled identity within AAD, which eliminates the need to store and
             manage any form of password or token for a deployed application. It further strenghtens the protection for authentication.
             <br><br>
             When AAD integration is not enabled, simple user/pass is used for authentication in postgres.
@@ -69,7 +69,7 @@ This table maps Security Domain to the corresponding controls and architectural 
         <p>
             It is recommended to only assign AAD groups roles within postgres, and not to create individual users within postgres itself.            
             <br><br>
-            When setting up AAD integration for Azure postgres, an AAD account (either group or user) needs to be specified as the azure ad administrator for the postgres server.             
+            When setting up AAD integration for Azure postgres, an AAD account (either group or user) needs to be specified as the AAD administrator for the postgres server.
             Only the AAD users that are specified can initially connect and add more AAD user/group into postgres and assign database roles.            
             <br><br>
             Custom database roles with least privileged access is always preferable, logically grouped permissions can be used to ease the burden of administration
@@ -91,15 +91,15 @@ This table maps Security Domain to the corresponding controls and architectural 
             <li>One admin group per PostgreSQL server</li>
             <li>RBAC should be used for database admins with least privileged access. Custom roles per user are preferable but to ease the burden of management we
             have provided a potential RBAC model</li>
-            <li>The Bank's existing privileged account security system should be integrated</li>
-            <li>The Bank's existing systems for user account re-certification should be integrated</li>
+            <li>The organization's existing privileged account security system should be integrated</li>
+            <li>The organization's existing systems for user account re-certification should be integrated</li>
         </ul>
-        Azure AD provides PIM service to manage, control, and monitor access to the priviledge accoung/group.
+        Azure Active Directory provides PIM service to manage, control, and monitor access to the priviledge accoung/group.
     </td>
     <td class="tg-0pky"><a href="https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure">1. Azure AD PIM</a></td>
   </tr>
   <tr>
-    <td class="tg-7btt" rowspan="4">Encryption &amp; Secure Data Management</td>
+    <td class="tg-7btt" rowspan="5">Encryption &amp; Secure Data Management</td>
     <td class="tg-fymr">Encryption in Transit</td>
     <td class="tg-0pky">
         <p>
@@ -108,9 +108,9 @@ This table maps Security Domain to the corresponding controls and architectural 
         detection of message tampering, interception, and forgery), interoperability, algorithm flexibility, and ease of deployment and use. Perfect Forward Secrecy
         (PFS) protects connections between customers’ client systems and Microsoft cloud services by unique keys. Connections also use RSA-based 2,048-bit encryption key
         lengths. This combination makes it difficult for someone to intercept and access data that is in transit. <br><br>
-        All database communications from the banks application servers to Azure PostgreSQL should use TLS1.2, Azure policy should be used to enforce encryption in transit
+        All database communications from the organizations application servers to Azure PostgreSQL should use TLS1.2, Azure policy should be used to enforce encryption in transit
         on all Azure PostgreSQL servers. <br><br>
-        Azure certificates should be used for the TLS process (rather than bank certificates) due to the gateway being common in front of all Postgres instances.
+        Azure certificates should be used for the TLS process (rather than the organizations certificates) due to the gateway being common in front of all Postgres instances.
         </p>
     </td>
     <td class="tg-0pky"><a href="https://docs.microsoft.com/en-us/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit">Encryption of Data in Transit</a></td>
@@ -148,7 +148,7 @@ This table maps Security Domain to the corresponding controls and architectural 
     <td class="tg-f8tv">
         <h4>BYOK</h4>
         <p>
-            Using BYOK, the key material is generated and tested on-prem and exported to hardware-protected storage in the cloud. Keys are managed on-prem by the the banks
+            Using BYOK, the key material is generated and tested on-prem and exported to hardware-protected storage in the cloud. Keys are managed on-prem by the the organizations
             internal key management solution. For transport, the key must be encrypted and authenticated. Furthermore, it must be ensured that the exported key material is
             bound to its future use-case and location. Each key has a life-time defined by criticality and algorithm, clear roll-over processes must be defined and followed.
             <br><br>
@@ -164,12 +164,18 @@ This table maps Security Domain to the corresponding controls and architectural 
         </ul>
         <h4>HYOK</h4>
         <p>
-            Using Hold your own keys (HYOK) is preferable, as it gives the bank more control over the keys and enables easy potential migration between platforms. In particular,
-            applications developed by the bank should not use CSP-specific vaults directly. In case a native CSP service integrates with the vault, a BYOK strategy is preferable,
+            Using Hold your own keys (HYOK) is preferable, as it gives the organization more control over the keys and enables easy potential migration between platforms. In particular,
+            applications developed by the organization should not use CSP-specific vaults directly. In case a native CSP service integrates with the vault, a BYOK strategy is preferable,
             e.g. for Database as a Service and Kubernetes.
             <br><br>
             HYOK are best practice future state, although this is currently not supported by Microsoft Azure
         </p>
+    </td>
+    <td class="tg-0pky"><a href="https://docs.microsoft.com/en-us/azure/postgresql/concepts-data-encryption-postgresql">Encryption with Customer managed Keys</a></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Key Management</td>
+      <td class="tg-f8tv">
         <h4>Key Management using Key Vault</h4>
         <p>
             Key Vault is a cloud-based, external key management system. It’s highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by
@@ -189,8 +195,8 @@ This table maps Security Domain to the corresponding controls and architectural 
                 <li>Keep the newly created server (restored/replica) in an inaccessible state, because it’s unique identity hasn’t yet been given permissions to Key Vault.</li>
                 <li>On the restored/replica server, revalidate the customer-managed key in the data encryption settings. This ensures that the newly created server is given wrap and unwrap permissions to the key stored in Key Vault.</li>
             </ol>
-    </td>
-    <td class="tg-0pky"><a href="https://docs.microsoft.com/en-us/azure/postgresql/concepts-data-encryption-postgresql">Encryption with Customer managed Keys</a></td>
+      </td>
+      <td><a href="https://docs.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates">Key Vault Keys</a></td>
   </tr>
   <tr>
     <td class="tg-7btt" rowspan="3">Network Security </td>
@@ -220,13 +226,16 @@ This table maps Security Domain to the corresponding controls and architectural 
         </p>
         <h4>Connecting from Azure</h4>
         <p>
-            To allow applications from Azure to connect to your Azure Database for PostgreSQL server, Azure connections must be enabled. For example, to host an Azure Web Apps
-            application, or an application that runs in an Azure VM, or to connect from an Azure Data Factory data management gateway, the resources do not need to be in the same
-            Virtual Network (VNet) or Resource Group for the firewall rule to enable those connections. When an application from Azure attempts to connect to your database server,
-            the firewall verifies that Azure connections are allowed. This option configures the firewall to allow all connections from Azure including connections from the
-            subscriptions of other customers.<br><br>
-            Allow connections from Azure should be disabled on every PostgreSQL firewall that is using an in-house application running on servers. Other PAAS services connections
-            into Azure PostgreSQL should be assessed individually for best practice secure configuration.
+            1. You should enable Azure Connections on your PostgreSQL firewall if the application connecting to your database is hosted in Azure.
+               - For example, to host an Azure Web Apps application, or an application that runs in an Azure VM, or to connect from an Azure Data Factory data management gateway, the
+                 resources do not need to be in the same Virtual Network (VNet) or Resource Group for the firewall rule to enable those connections.
+               - When an Azure-hosted application attempts to connect to your database server, the firewall verifies that Azure connections are allowed.
+               - This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. This can be controlled by
+                 setting IP restrictions on the source IP of the firewall.
+            <br><br>
+            2. You should NOT enable Azure Connections on any PostgreSQL firewall if the application connecting to your database is hosted on-premise.
+            <br><br>
+            3. Other PAAS services connections into Azure PostgreSQL should be assessed individually for best practice secure configuration.
         </p>
     </td>
     <td class="tg-0pky"><a href="https://docs.microsoft.com/en-us/azure/postgresql/concepts-firewall-rules">Firewall Rules</a></td>
@@ -252,16 +261,17 @@ This table maps Security Domain to the corresponding controls and architectural 
     <td class="tg-fymr">Security Monitoring &amp; Alerting</td>
     <td class="tg-f8tv">
         <p>
-            By default, pgAudit log statements are emitted along with regular log statements by using Postgres’s standard logging facility. In Azure Database for PostgreSQL, these .log
-            files can be downloaded through the Azure portal or the CLI. The maximum storage for the collection of files is 1 GB, and each file is available for a maximum of seven days
-            (the default is three days). This service is a short-term storage option. <br><br>
-            Alternatively, the bank can configure all logs to be emitted to Azure Monitor’s diagnostic log service. If Azure Monitor diagnostic logging is enabled, all logs will be
-            automatically sent (in JSON format) to Azure Storage, Event Hubs, and/or Azure Monitor logs, depending on the configuration. <br><br>
-            Azure Events that may impact security of platform to be monitored and alerted upon <br><br>
-            PGAUDIT and Query store should be logging for all PostgreSQL servers.
+            1. By default, pgAudit log statements are emitted along with regular log statements by using Postgres’s standard logging facility. In Azure Database for PostgreSQL, these .log
+               files can be downloaded through the Azure portal or the CLI. The maximum storage for the collection of files is 1 GB, and each file is available for a maximum of seven days
+               (the default is three days). This service is a short-term storage option. <br><br>
+            2. Alternatively, the organization can configure all logs to be emitted to Azure Monitor’s diagnostic log service. If Azure Monitor diagnostic logging is enabled, all logs will be
+               automatically sent (in JSON format) to Azure Storage, Event Hubs, and/or Azure Monitor logs, depending on the configuration. You can adjust the Monitor service retention
+               period (Log analytics workspace is part of Azure Monitor) and diagnostic logs can all be collected into a LAWS. <br><br>
+            3. Azure Events that may impact security of platform to be monitored and alerted upon <br><br>
+            4. PGAUDIT and Query store should be logging for all PostgreSQL servers.
         </p>
     </td>
-    <td class="tg-0pky"></td>
+    <td class="tg-0pky"><a href="https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-settings">Azure Monitor</a></td>
   </tr>
   <tr>
     <td class="tg-fymr">Service Monitoring</td>
@@ -374,7 +384,7 @@ This table maps Security Domain to the corresponding controls and architectural 
 </tbody>
 </table>
 
-### Abbreviation
+### Abbreviations
 
 <table>
     <thead>
