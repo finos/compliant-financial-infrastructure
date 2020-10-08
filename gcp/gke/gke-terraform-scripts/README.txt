@@ -53,6 +53,7 @@ Edits required before terraform apply:
 
 -> Line 31 (optional): Change GKE master version
 -> Line 57: Add key ring name where encryption key for ETCD is maintained
+-> Set maintenance window and maintenance exclusions based on your time zone (I have intentionally left this out consdiering that different organizations have different peak traffic hours and varying time zones)
 
 3) modules/Bastion_Host/main.tf
 
