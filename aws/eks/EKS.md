@@ -1,7 +1,5 @@
 # EKS
 
-## Overview
-
 This document is meant to provide an opinionated approach towards the implementation of security controls, by domain, in EKS. Although the approaches may not be fit for all use cases or complete for production use, they are meant to guide the reader towards current best practices and design considerations to achieve security control objectives.
 
 ## Terms
