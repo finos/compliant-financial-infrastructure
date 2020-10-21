@@ -1,17 +1,17 @@
 # EKS
 
-**Overview**
+## Overview
 
 This document is meant to provide an opinionated approach towards the implementation of security controls, by domain, in EKS. Although the approaches may not be fit for all use cases or complete for production use, they are meant to guide the reader towards current best practices and design considerations to achieve security control objectives.
 
-**Terms**
+## Terms
 
 - Amazon = AWS
 - Identity & Access Management = IAM
 - Kubernetes = K8s
 - Role-based Access Control = RBAC
 
-**Components & Shared Responsibility**
+## Components & Shared Responsibility
 
 An EKS cluster consists of two primary components:
 
@@ -31,11 +31,11 @@ It also provisions EKS-managed elastic network interfaces (ENIs) in your VPC sub
 
 As for the customer, the responsibility is to look after: IAM, pod security, runtime security, and network security.
 
-**VPC**
+## VPC
 
 AWS recommends the user to create a VPC with public and private subnets so that K8s can create public load balancers in the public subnets that load balance traffic to pods running on nodes that are in private subnets.
 
-**Controls and Architecture Best Practices**
+## Controls and Architecture Best Practices
 
 This table maps each security domain to the corresponding controls and architectural best practices as documented in EKS’s public documentation, white papers, and blog posts.
 
