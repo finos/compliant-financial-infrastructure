@@ -7,7 +7,7 @@ variable "cred_url" {
 variable "service_account_name" {
     type = string
     description = "The service account name"
-    default = "service-account"
+    default = "<ID of K8s nodes service account>"
 }
 
 variable "project_id" {
@@ -127,5 +127,5 @@ variable "gke-cluster" {
 variable "encryption_key_name" {
     type = string
     description = "Name of the encryption key for ETCD"
-    default = "<encryption-key-name>"
+    default = "<encryption-key-id>"
 }
