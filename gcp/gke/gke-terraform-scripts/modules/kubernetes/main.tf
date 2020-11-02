@@ -28,7 +28,7 @@ resource "google_container_cluster" "gke-cluster" {
   }
  }
  
- min_master_version = "1.16.13-gke.1"
+ min_master_version = "1.16.13-gke.401"
 
  network = var.vpc_name
 
@@ -54,7 +54,7 @@ resource "google_container_cluster" "gke-cluster" {
 
  database_encryption {
   state = "ENCRYPTED"
-  key_name = "projects/${var.project_id}/locations/europe-west2/keyRings/<key-ring-name>/cryptoKeys/${var.encryption_key_name}"
+  key_name = var.encryption_key_name
  }
 }
 
@@ -94,12 +94,13 @@ resource "google_container_node_pool" "node-pool-1" {
 
     metadata = {
       disable-legacy-endpoints = "true"
+      }
       
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]  
     }
-  }
-}
+ }
+
 
 
