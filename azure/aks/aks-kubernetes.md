@@ -190,7 +190,21 @@ In summary, if a node remains unhealthy for 10 consecutive minutes, the followin
 ### Use of Latest Version
 
 Azure fully manages the host OS for the nodes and the rest of the core Kubernetes system.
-To upgrade their infrastructure, they employ a "cordon and drain" system.
+
+Linux nodes run an optimized Ubuntu distribution using the Moby container runtime.
+Windows Server nodes run an optimized Windows Server 2019 release and also use the Moby container runtime.
+When an AKS cluster is created or scaled up, the nodes are automatically deployed with the latest OS security updates and configurations.
+
+The Azure platform automatically applies OS security patches to Linux nodes on a nightly basis.
+If a Linux OS security update requires a host reboot, that reboot is not automatically performed.
+You can manually reboot the Linux nodes, or a common approach is to use Kured, an open-source reboot daemon for Kubernetes.
+Kured runs as a DaemonSet and monitors each node for the presence of a file indicating that a reboot is required.
+
+For Windows Server nodes, Windows Update does not automatically run and apply the latest updates.
+On a regular schedule around the Windows Update release cycle and your own validation process, you should perform an upgrade on the Windows Server node pool(s) in your AKS cluster.
+This upgrade process creates nodes that run the latest Windows Server image and patches, then removes the older nodes.
+
+To upgrade the Kubernetes software, a similar "cordon and drain" system is used.
 New, upgraded nodes are added silently added to the cluster, while old existing nodes are gracefully shut down, recreating pods and resources on the new nodes.
 This happens without any downtime or intervention from the customer.
 
