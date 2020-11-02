@@ -37,7 +37,7 @@ Pre-requisites:
 -> Logs Writer
 -> Storage Object Viewer
 
-4) encryption key in cloud KMS for encrypting ETCD
+4) encryption key in cloud KMS for encrypting ETCD 
 
 Edits required before terraform apply:
 
@@ -52,7 +52,7 @@ Edits required before terraform apply:
 2) modules/kubernetes/main.tf
 
 -> Line 31 (optional): Change GKE master version
--> Line 57: Add key ring name where encryption key for ETCD is maintained
+-> Line 57: Add key ID where encryption key for ETCD is contained (the full resource ID must be mentioned for this, not just the key name)
 -> Set maintenance window and maintenance exclusions based on your time zone (I have intentionally left this out consdiering that different organizations have different peak traffic hours and varying time zones)
 
 3) modules/Bastion_Host/main.tf
