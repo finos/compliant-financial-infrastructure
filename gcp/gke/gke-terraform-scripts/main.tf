@@ -71,12 +71,12 @@ module "gke-cluster" {
   region                = var.gke-cluster.region
   cluster_name          = var.gke-cluster.cluster_name
   vpc_name              = google_compute_network.gke-vpc.name
-  subnet_name           = var.gke-vpc.subnets[2].name
+  subnet_name           = var.gke-vpc.subnets[1].name
   bastion_ip            = "${var.bastion_host.internal_ip_address}/32"
   master_cidr           = var.gke-cluster.master_cidr 
   cluster_ipv4_cidr_block = var.gke-cluster.cluster_ipv4_cidr_block
   machine_type = var.gke-cluster.machine_type
-  encryption_key_name  = "${var.encryption_key_name}"
+  encryption_key_name  = var.encryption_key_name
  }
 
  
