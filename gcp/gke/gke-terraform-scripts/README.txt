@@ -14,6 +14,7 @@ Notes:
 
 -> This script does not include the creation of service accounts nor roles
 -> This script does not include the creation of Key Rings and Encryption Keys
+-> This script does not include the creation and configuration of NAT Gateway, it is recommended to setup CloudNAT and configure it for the VPC where your cluster is hosted, else the private K8s nodes will not be able to access the internet.
 -> Any access from pods/jobs to Google Cloud Services that are not part of the K8s nodes service account permissions need to be granted granular permissions via Workload Identity
 
 Pre-requisites:
