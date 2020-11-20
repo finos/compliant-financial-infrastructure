@@ -30,7 +30,7 @@ Thursday DD MMM yyyy - 10am EST / 3pm BST
 
 ### WebEx info
 **Webex:** 
-https://finos.webex.com/finos/j.php?MTID=me0b8e6061812f875505b0caaceac3321
+https://finos.webex.com/finos/j.php?MTID=m4b1d85127d1f3ca179545d6bd3291975
 
 **Dial-in**
 **US** +1-415-655-0003 US Toll
