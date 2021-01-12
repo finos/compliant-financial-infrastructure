@@ -195,6 +195,11 @@ Linux nodes run an optimized Ubuntu distribution using the Moby container runtim
 Windows Server nodes run an optimized Windows Server 2019 release and also use the Moby container runtime.
 When an AKS cluster is created or scaled up, the nodes are automatically deployed with the latest OS security updates and configurations.
 
+Clusters are deployed on host virtual machines, which in turn are
+based on Ubuntu 16.04 (the LTS release at the time of writing). This
+OS is hardened by Azure, although it is explicitly not
+CIS-compliant. For details, see source [2].
+
 The Azure platform automatically applies OS security patches to Linux nodes on a nightly basis.
 If a Linux OS security update requires a host reboot, that reboot is not automatically performed.
 You can manually reboot the Linux nodes, or a common approach is to use Kured, an open-source reboot daemon for Kubernetes.
@@ -209,6 +214,7 @@ New, upgraded nodes are added silently added to the cluster, while old existing 
 This happens without any downtime or intervention from the customer.
 
 1.  https://docs.microsoft.com/en-us/azure/aks/concepts-security
+2.  https://docs.microsoft.com/en-us/azure/aks/security-hardened-vm-host-image
 
 ## CSP access
 
