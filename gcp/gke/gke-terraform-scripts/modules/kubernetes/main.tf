@@ -33,16 +33,14 @@ resource "google_container_cluster" "gke-cluster" {
  network = var.vpc_name
 
  network_policy {
-  enabled = true
+  enabled = false
  }
 
  private_cluster_config {
-  enable_private_nodes = true
+  enable_private_nodes = false
   enable_private_endpoint = true
   master_ipv4_cidr_block = var.master_cidr
  }
-
-
 
  vertical_pod_autoscaling {
   enabled = true
