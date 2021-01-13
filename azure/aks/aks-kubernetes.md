@@ -118,7 +118,15 @@ Application-layer filtering can be performed by ingress controller and load bala
 
 For transport layer security, the Azure Firewall service can be configured to protect AKS.
 
+To control traffic between pods, network policies can be used - or for
+more complex configurations, a service mesh. Azure offers no special
+infrastructure for this, but an implementation of kubernetes
+network-policies as well as the Istio, Linkerd and Consul meshes are
+supported.
+
 1.  https://docs.microsoft.com/en-gb/azure/firewall/protect-azure-kubernetes-service
+2.  https://docs.microsoft.com/en-us/azure/aks/use-network-policies
+3.  https://docs.microsoft.com/en-us/azure/aks/servicemesh-about
 
 ### Data Exfiltration Prevention & Data Loss Prevention
 
