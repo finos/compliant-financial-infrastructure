@@ -62,8 +62,11 @@ The encryption, decryption, and key management processes are transparent to user
 Customers can also choose to manage their own keys using Azure Key Vault.
 There are a variety of methods for authenticating with the Storage platform.
 
+Note that this also applies to fully managed components, such as etcd.
+
 1.  https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction
 2.  https://docs.microsoft.com/en-gb/azure/aks/concepts-storage
+3.  https://docs.microsoft.com/en-us/azure/aks/concepts-security#kubernetes-secrets
 
 ### Encryption of data in transit
 
