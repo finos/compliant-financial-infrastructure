@@ -9,7 +9,7 @@ This can be done by AKS, but it is recommended to use the integration with Azure
 Using AD lets you manage users in a central place that can be used across many different Azure services.
 
 1.  https://kubernetes.io/docs/reference/access-authn-authz/controlling-access/
-2.  https://docs.microsoft.com/en-us/azure/aks/concepts-identity
+2.  https://docs.microsoft.com/en-gb/azure/aks/security-baseline#31-maintain-an-inventory-of-administrative-accounts
 
 ### Authorization
 
@@ -30,9 +30,14 @@ The first is at the Azure service level.
 User accounts in Active Directory can be assigned roles which restrict access to a certain set of services or resources in the subscription.
 User access to AKS can be controlled to a fine level of detail, but there are some built-in roles [2]:
 
-*   Azure Kubernetes Service Cluster Admin Role
-*   Azure Kubernetes Service Cluster User Role
-*   Azure Kubernetes Service Contributor Role
+| Role       | Description     | Link     |
+| :------------- | :----------: | -----------: |
+|  Azure Kubernetes Service RBAC Viewer | Allows read-only access to see most objects in a namespace. It doesn't allow viewing roles or role bindings. This role doesn't allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation)   | https://docs.microsoft.com/en-us/azure/aks/concepts-identity#built-in-roles    |
+| Azure Kubernetes Service RBAC Writer   | Allows read/write access to most objects in a namespace. This role doesn't allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets and running Pods as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace. | https://docs.microsoft.com/en-us/azure/aks/concepts-identity#built-in-roles |
+| Azure Kubernetes Service RBAC Admin   | Allows admin access, intended to be granted within a namespace. Allows read/write access to most resources in a namespace (or cluster scope), including the ability to create roles and role bindings within the namespace. This role doesn't allow write access to resource quota or to the namespace itself. | https://docs.microsoft.com/en-us/azure/aks/concepts-identity#built-in-roles |
+| Azure Kubernetes Service RBAC Cluster Admin   |Allows super-user access to perform any action on any resource. It gives full control over every resource in the cluster and in all namespaces. | https://docs.microsoft.com/en-us/azure/aks/concepts-identity#built-in-roles |
+||||
+
 
 Secondly, there is the Kubernetes RBAC system.
 This permits fine-grained control of the Kubernetes resources themselves via Role and ClusterRole definitions.
