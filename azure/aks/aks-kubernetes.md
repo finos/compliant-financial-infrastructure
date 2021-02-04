@@ -62,16 +62,17 @@ Azure provides guidance and AD functionality for managing privileged identities,
 ### Encryption of data at rest
 
 AKS allows connecting pods to persistent storage via volumes.
-Volumes are backed by the Azure Storage product, which encrypts all data as standard.
+Volumes are backed by the Azure Storage product, which encrypts all data as standard[4].
 The encryption, decryption, and key management processes are transparent to users.
 Customers can also choose to manage their own keys using Azure Key Vault.
 There are a variety of methods for authenticating with the Storage platform.
 
-Note that this also applies to fully managed components, such as etcd.
+Note that this also applies to fully managed components, such as etcd[3].
 
 1.  https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction
 2.  https://docs.microsoft.com/en-gb/azure/aks/concepts-storage
 3.  https://docs.microsoft.com/en-us/azure/aks/concepts-security#kubernetes-secrets
+4.  https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption
 
 ### Encryption of data in transit
 
