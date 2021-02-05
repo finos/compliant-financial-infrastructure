@@ -134,6 +134,27 @@ supported.
 2.  https://docs.microsoft.com/en-us/azure/aks/use-network-policies
 3.  https://docs.microsoft.com/en-us/azure/aks/servicemesh-about
 
+## Network Isolation
+
+To ensure that the API server can only be accessed from within a
+private network, Azure supports private clusters[1].
+
+These are created like regular clusters, except that they are set up
+with `--enable-private-cluster`.
+
+Access to the cluster will be restricted to services within the same
+virtual network. To connect to this cluster, Azure gives three
+options:
+
+1. A VM created in the same virtual network.
+2. A VM in a separate virtual network, that is connected through virtual network peering.
+3. A VPN connection that leads to on-premises access.
+
+The first option is the simplest, as other configurations require
+complex networking.
+
+1.  https://docs.microsoft.com/en-us/azure/aks/private-clusters
+
 ## Underlying OS
 
 ### Use of Latest Version
