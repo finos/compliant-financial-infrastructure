@@ -95,24 +95,48 @@ Many Azure services support configuration of customer-managed keys; see the BYOK
 2.  https://docs.microsoft.com/en-gb/azure/aks/ingress-tls
 3.  https://kubernetes.io/docs/concepts/configuration/secret/
 
-### BYOK/HYOK Management
+### Encryption Key Management
+
+Like other providers, Azure's encryption services are based on
+key-encryption-keys, that encrypt keys which in turn are used to
+encrypt data, rather than directly encrypting data.
 
 Azure products in general support two encryption models [1]:
 
 *   Service-managed keys: Provides a combination of control and convenience with low overhead.
-
 *   Customer-managed keys: Gives you control over the keys, including Bring Your Own Keys (BYOK) support, or allows you to generate new ones.
 
-Customer-managed keys are managed via the Azure Key Vault service.
-Azure Storage supports both of these models.
+For service-customer managed keys, the rotation period is explicitly
+unspecified (and not guaranteed to be consistent) [5]. If there are
+specific key rotation requirements, customer-managed keys are
+therefore recommended.
 
-Additionally, the AKS OS disk can be encrypted with a customer-managed key via an Azure DiskEncryptionSet [3].
+Customer-managed keys are managed via the Azure Key Vault service. If
+customer managed keys are used, use the following AZ CLI command to
+configure key rotation [4]:
 
-HYOK is only available in the Azure Information Protection service, which is irrelevant to Kubernetes [2].
+```bash
+az keyvault storage add \
+    --vault-name <YourKeyVaultName> \
+    -n <YourStorageAccountName> \
+    --active-key-name key1 \
+    --auto-regenerate-key \
+    --regeneration-period P90D \
+    --resource-id "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
+```
 
-1.  https://docs.microsoft.com/en-gb/azure/security/fundamentals/encryption-overview
+The AKS OS disk can also be encrypted with a customer-managed key via
+an Azure DiskEncryptionSet [3].
+
+HYOK (Hold Your Own Key - managing keys outside of Azure
+infrastructure) is only available in the Azure Information Protection
+service, which is irrelevant to Kubernetes [2].
+
+1.  https://docs.microsoft.com/en-gb/azure/security/fundamentals/encryption-overview#server-side-encryption
 2.  https://docs.microsoft.com/en-us/azure/information-protection/configure-adrms-restrictions
 3.  https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys
+4.  https://docs.microsoft.com/en-us/azure/key-vault/secrets/overview-storage-keys
+5.  https://github.com/MicrosoftDocs/azure-docs/issues/58185#issuecomment-655014105
 
 ## Network security
 
