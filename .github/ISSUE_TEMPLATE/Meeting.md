@@ -40,12 +40,15 @@ Thursday DD MMM yyyy - 10am EST / 3pm BST
 
 ### WebEx info
 **Webex:** 
-https://finos.webex.com/finos/j.php?MTID=me0b8e6061812f875505b0caaceac3321
+https://finos.webex.com/finos/j.php?MTID=m4b1d85127d1f3ca179545d6bd3291975
 
 **Dial-in**
-**US** +1-415-655-0003 US Toll
-**UK** +44-20319-88141 UK Toll
-**Access code:** 662 732 581
+- **US** +1-415-655-0003 US Toll
+- **UK** +44-20319-88141 UK Toll
+- **Access code:** 127 846 2278
 
 **Github Repo:** https://github.com/finos/cloud-service-certification/
+
 **Project Wiki Page:** https://finosfoundation.atlassian.net/wiki/spaces/FDX/pages/904626436/Cloud+Service+Certification+Project 
+
+**Mailing List:** Email fdx-cloud-service-certification+subscribe@finos.org to subscribe to our mailing list
