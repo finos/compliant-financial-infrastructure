@@ -22,7 +22,7 @@ Find the [Cloud Service Certification Project Kanban](https://github.com/orgs/fi
 
 ## Forking, Feature Branches and Pull Requests
 
-1. Fork it (<https://github.com/finos-fdx/cloud-service-certification/fork>)
+1. Fork it (<https://github.com/finos/cloud-service-certification/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Read our [contribution guidelines](.github/CONTRIBUTING.md) and [Community Code of Conduct](https://www.finos.org/code-of-conduct)
 4. Commit your changes (`git commit -am 'Add some fooBar'`)
