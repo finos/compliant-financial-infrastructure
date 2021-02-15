@@ -49,6 +49,9 @@ The [AWS RedShift Service Definition](https://github.com/finos/cloud-service-cer
 * [The Redshift Service Definition](https://github.com/finos/cloud-service-certification/blob/master/aws/redshift/redshift_template_public.yml) : 
   * A YAML file containing the description of the AWS Redshift service as code.
 
+## Mailing List
+Email fdx-cloud-service-certification+subscribe@finos.org to subscribe to the Cloud Service Certification mailing list
+
 ## License
 
 Distributed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
