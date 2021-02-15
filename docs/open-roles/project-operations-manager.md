@@ -13,6 +13,8 @@ Helping run Cloud Service Certification as Project Operations Manager is a fun o
 
 The Cloud Service Certification Project Operations Manager does not necessarily have to be technical, or a subject matter expert, but should have ...
 
+## Skills Requiremented
+
 - Strong organization skills.
 - Attention to detail.
 - Curiosity and proactiveness.
