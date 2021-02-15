@@ -209,11 +209,3 @@ This happens without any downtime or intervention from the customer.
 
 1.  https://docs.microsoft.com/en-us/azure/aks/concepts-security
 2.  https://docs.microsoft.com/en-us/azure/aks/security-hardened-vm-host-image
-
-## CSP access
-
-???
-
-## Dependent services
-
-N/A
