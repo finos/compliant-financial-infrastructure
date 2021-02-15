@@ -1,6 +1,8 @@
 # Project Operations Manager - Cloud Service Certification 
 Helping run Cloud Service Certification as Project Operations Manager is a fun open source role involveing a broad set of tasks that need to be taken care of, including ... 
 
+## Role Requirements
+
 - Capturing, writing and updating work items GitHub Issues.
 - Updating and running the [Cloud Service Certification Project Kanban](https://github.com/orgs/finos/projects/1).
 - Scheduling [Cloud Service Certification Project Meetings](https://github.com/finos/cloud-service-certification/issues?q=label%3Ameeting+).
