@@ -3,7 +3,7 @@ Helping run [Cloud Service Certification](https://github.com/finos/cloud-service
 
 ## Role Requirements
 
-- Capturing, writing and updating work items GitHub Issues.
+- Capturing, writing and updating work items as [GitHub Issues](https://github.com/finos/cloud-service-certification/issues).
 - Updating and running the [Cloud Service Certification Project Kanban](https://github.com/orgs/finos/projects/1).
 - Scheduling [Cloud Service Certification Project Meetings](https://github.com/finos/cloud-service-certification/issues?q=label%3Ameeting+).
 - Creating and circulating agendas. 
