@@ -31,6 +31,6 @@ The Project Operations Manager works closely with the Cloud Service Certificatio
 
 ## Contact Cloud Service Certification
 
-Contact Peter Thomas, Cloud Service Certification Lead Maintainer, at peter.thomas@db.com for more information or drop into the next [Cloud Service Certification Project Meeting](https://github.com/finos/cloud-service-certification/issues?q=label%3Ameeting+) to say hello.
+Contact [James McLeod](james@finos.org), FINOS Director of Community, or  [Peter Thomas](peter.thomas@db.com), Cloud Service Certification Lead Maintainer, for more information or drop into the next [Cloud Service Certification Project Meeting](https://github.com/finos/cloud-service-certification/issues?q=label%3Ameeting+) to say hello.
 
 🌤 🚀
