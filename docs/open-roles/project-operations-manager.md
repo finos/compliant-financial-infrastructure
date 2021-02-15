@@ -1,5 +1,5 @@
 # Project Operations Manager - Cloud Service Certification 
-Helping run Cloud Service Certification as Project Operations Manager is a fun open source role involveing a broad set of tasks that need to be taken care of, including ... 
+Helping run Cloud Service Certification as Project Operations Manager is a fun open source role involving a broad set of tasks that need to be taken care of, including ... 
 
 ## Role Requirements
 
