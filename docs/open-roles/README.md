@@ -2,8 +2,6 @@
 
 The following is a list of the open Cloud Service Certification roles.
 
-## Open Roles
-
 * [Project Operations Manager - Cloud Service Certification](project-operations-manager.md)
 
 ## Contact Cloud Service Certification
