@@ -20,7 +20,10 @@ The Cloud Service Certification Project Operations Manager does not necessarily 
 - Curiosity and proactiveness.
 - Willingness to have fun growing Cloud Service Certification.
 
-The Project Operations Manager will need to be (or become) comfortable using GitHub and coordinating meetings using WebEx. 
+The Project Operations Manager will need to be (or become) ... 
+
+- Comfortable using GitHub.
+- Comfortable coordinating meetings using WebEx. 
 
 The Project Operations Manager will have to understand the [FINOS Landscape](https://landscape.finos.org), [Open Developer Platform](https://github.com/finos/open-developer-platform) and [FINOS Governance and Policies](https://github.com/finos/community/tree/master/governance). 
 
