@@ -1,6 +1,6 @@
 # Service Approval Accelerator for Azure Kubernetes Service (AKS)
 
-## Identity & access management
+## Identity & Access Management
 
 ### Authentication
 
@@ -57,9 +57,9 @@ Azure provides guidance and AD functionality for managing privileged identities,
 
 1.  https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-admin-roles-secure
 
-## Encryption & secure data management
+## Encryption & Secure Data Management
 
-### Encryption of data at rest
+### Encryption of Data at Rest
 
 AKS allows connecting pods to persistent storage via volumes.
 Volumes are backed by the Azure Storage product, which encrypts all data as standard[4].
@@ -74,7 +74,7 @@ Note that this also applies to fully managed components, such as etcd[3].
 3.  https://docs.microsoft.com/en-us/azure/aks/concepts-security#kubernetes-secrets
 4.  https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption
 
-### Encryption of data in transit
+### Encryption of Data in Transit
 
 In-transit encryption is generally more an application layer concern and not considered by the lower-layer routing and network services that Kubernetes offers.
 However, it does support "ingress controllers" which can process data at the application level, including decryption of TLS for routing to pods.
@@ -82,7 +82,7 @@ This allows centralised management of TLS at the Kubernetes networking level, ev
 
 1.  https://docs.microsoft.com/en-gb/azure/aks/concepts-network
 
-### Certificate and key management
+### Certificate & Key Management
 
 Ingress controllers can be configured with user-managed certificates (stored as AKS secrets) [1] or Let's Encrypt (via a Kubernetes Issuer resource) [2].
 
@@ -138,7 +138,7 @@ service, which is irrelevant to Kubernetes [2].
 4.  https://docs.microsoft.com/en-us/azure/key-vault/secrets/overview-storage-keys
 5.  https://github.com/MicrosoftDocs/azure-docs/issues/58185#issuecomment-655014105
 
-## Network security
+## Network Security
 
 ### IP Firewall Rules
 
