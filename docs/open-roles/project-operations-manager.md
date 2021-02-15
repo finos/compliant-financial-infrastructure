@@ -8,7 +8,7 @@ Helping run Cloud Service Certification as Project Operations Manager is a fun o
 - Scheduling [Cloud Service Certification Project Meetings](https://github.com/finos/cloud-service-certification/issues?q=label%3Ameeting+).
 - Creating and circulating agendas. 
 - Communicating with the project team.
-- Updating the FINOS Community.
+- Updating the [FINOS Community](https://github.com/finos/community/issues).
 - Capturing and circulating meeting minutes. 
 
 The Cloud Service Certification Project Operations Manager does not necessarily have to be technical, or a subject matter expert, but should have ...
