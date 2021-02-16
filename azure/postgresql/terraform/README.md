@@ -4,6 +4,9 @@ This terraform script provisions:
 + azure postresql Single Server with a database
 + private endpoint for postgresql server
 
+Prerequisites:
++ VNet and Subnet already provisioned in Resource Group.
+
 ## How to use
 
 All variable are set in [terraform.tfvars](terraform.tfvars) these should be changed for each application team.
