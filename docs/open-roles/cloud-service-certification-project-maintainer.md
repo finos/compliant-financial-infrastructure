@@ -5,15 +5,15 @@ Helping run [Cloud Service Certification](https://github.com/finos/cloud-service
 
 - You're an experienced senior level cloud services engineer within the financial services industry and understand the relationship between cloud engineering, finacial services regulation, cyber security, risk and banking policies within an enterprise banking setting.
 
-- You will review and provide feedback on pull requests. The CSC community is growing fast and we're receiving a growing number of pull requests. You will help review pull requests, provide constructive feedback and support contributors, and ultimately making the call on what is merged into the project.
+- You'll review and provide feedback on pull requests. The CSC community is growing fast and we're receiving a growing number of pull requests. You will help review pull requests, provide constructive feedback and support contributors, and ultimately making the call on what is merged into the project.
 
-- You will help guide architectural decisions. The future of Cloud Service Certification is discussed and planned on project calls and in our GitHub Issues. You’ll help drive these conversations and will guide CSC towards the best possible solutions.
+- You'll help guide architectural decisions. The future of Cloud Service Certification is discussed and planned on project calls and in our GitHub Issues. You’ll help drive these conversations and will guide CSC towards the best possible solutions.
 
-- You will convert high-level ideas into detailed specifications and actionable issues. You will provide the required context to allow community contributors to quickly and effectively pick up issues.
+- You'll convert high-level ideas into detailed specifications and actionable issues. You will provide the required context to allow community contributors to quickly and effectively pick up issues.
 
-- You will educate and drive the quality of Cloud Service Certification deliverables and documentation. You'll work to identify and implement opportunities for getting the FINOS Community involed in contributing solutions to the project.
+- You'll educate and drive the quality of Cloud Service Certification deliverables and documentation. You'll work to identify and implement opportunities for getting the FINOS Community involed in contributing solutions to the project.
 
-- You will help define and uphold FINOS Cloud Service Certification community standards. You will represent Cloud Service Certification within the FINOS community, both with the quality of your solutions and the way you treat people in the community.
+- You'll help define and uphold FINOS Cloud Service Certification community standards. You will represent Cloud Service Certification within the FINOS community, both with the quality of your solutions and the way you treat people in the community.
 
 ## Skills Requirements
 
