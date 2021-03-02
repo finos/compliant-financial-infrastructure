@@ -1,5 +1,5 @@
 # CSC Project Maintainer - Cloud Service Certification 
-Helping run [Cloud Service Certification](https://github.com/finos/cloud-service-certification) with the Cloud Service Certification Lead Maintainer as a CSC Project Maintainer is a fun open source role involving a broad set of tasks that need to be taken care of, including ...
+Helping run [Cloud Service Certification](https://github.com/finos/cloud-service-certification) with the Cloud Service Certification Lead Maintainer as CSC Project Maintainer is a fun open source role involving a broad set of tasks that need to be taken care of, including ...
 
 ## Role Requirements
 
