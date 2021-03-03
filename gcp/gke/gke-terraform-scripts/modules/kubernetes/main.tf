@@ -79,7 +79,6 @@ resource "google_container_node_pool" "node-pool-1" {
     max_unavailable = 0
   }
 
-
   node_config {
     preemptible     = false
     machine_type    = var.machine_type
