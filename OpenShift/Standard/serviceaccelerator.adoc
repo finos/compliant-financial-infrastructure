@@ -1,0 +1,283 @@
+= Detailed Security Configuration0
+
+== Overview
+
+This section is meant to provide an opinionated approach towards the
+implementation security controls by domain. Although the approaches may
+not be a fit for all use cases or complete for production use, they are
+meant to guide the reader towards current best practices and design
+considerations to achieve security control objectives.
+
+=== *Controls and Architectures*
+
+The information provided in the table below is compiled from product
+documentation, blog posts, white papers and other resources and
+emphasize recommended configurations that ensure Red Hat OpenShift
+Security and Platform Integrity.
+
+
+|===
+|*Security Domain*|*Control & Architectural Suggestions*|*References*
+|*Authentication & Authorization*
+|
+|
+|*How does the service you are evaluating handle authentication*
+|There are several Related to Authentication and Authorization -
+Users - The primary entity that interacts with the API Server, Assign permissions to the user by adding roles to the user or groups the user belongs to
+Identity - Keeps a record of successful auth attempts from a specific user and identity provider.  All data concerning the source of the authentication is stored on the provider.
+Service Account - Applications can directly communicate with the API, Service accounts are used in place of sharing user accouts.
+Groups - Groups contain a set of specific users, users can belong to multiple groups. Permissions can be assigned to multiple users via groups.
+
+Users are allowed interaction with OpenShift via the Authentication and
+Authorization Layers, A user makes a request to the API, and the
+authentication layer authenticates the user. The authorization layer
+uses RBAC to determin privileges.
+
+There are two authentication methods: 1) OAuth Access Tokens and 2)
+X.509 Client Certificates
+
+The Authentication Operator runs an OAuth Service which provide the
+access tokens to users when they attempt to authenticate to the API. The
+OAuth Server uses an identity provider to validate the request.
+OpenShift creates the identity and user resources after a successful
+login.
+
+Configurable Identity providers include: HTPAsswd. Keystone, LDAP,
+GitHub or GitHub Enterprise, OpenID Connect, Google, GitLab and Basic
+Authentication.
+
+By default the OpenShift Container Platform creates a cluster
+administrator kubeadmin after installation which should be removed once
+authentication is configured.
+
+https://docs.openshift.com/container-platform/4.6/authentication/remove-kubeadmin.html[https://docs.openshift.com/container-platform/4.6/authentication/remove-kubeadmin.html]
+
+$ oc delete secrets kubeadmin -n kube-system
+
+a|
+
+* Understanding authentication: https://docs.openshift.com/container-platform/4.6/authentication/understanding-authentication.html
+* Orgs Management and Team Onboarding in OpenShift: https://www.openshift.com/blog/orgs-management-and-team-onboarding-in-openshift-a-fully-automated-approach
+* Removing the kubeadmin user: https://docs.openshift.com/container-platform/4.6/authentication/remove-kubeadmin.html
+
+
+|*How does the service you are evaluating handle Authorization?*
+
+|After authentication, the OpenShift API request is passed along (with the asserted User info) to the Kubernetes authorization layer (after a visit to the Audit layer). This layer is responsible for ensuring that the user has been granted permissions, by policy, to perform the requested action against the requested resource. Although the Kubernetes authorization layer is pluggable, OpenShift does not allow customization here, and only uses the Role-Based Access Control (RBAC) authorization type
+Authorization is handeled by rules, roles and bindings.
+Rules - Set of permitted verbs on a set of objects. For example, whether a user or service account can create pods.
+Roles - Collections of rules. You can associate, or bind, users and groups to multiple roles.
+Bindings - Associations between users and/or groups with a role.
+
+a|
+
+* Using RBAC to define and apply permissions: https://docs.openshift.com/container-platform/4.6/authentication/using-rbac.html
+
+|*How does the service you are evaluating handle RBAC?*
+|Authorization in OpenShift is managed using role-based access control (RBAC). OpenShift takes a deny-by-default approach to RBAC. There are two types of roles within OpenShift that determine which actions RBAC can authorize, Cluster and Local.
+
+Cluster Role - give Users or Groups the ability to manage the OpenShift Cluster
+Local Role - Users or Groups that are managing objects and attributes at the project level
+
+Default Roles available in OpenShift:
+admin - Can Manage All project Resources
+basic-user - read access to the project
+cluster-admin - Users with this role have access to the cluster resources. These users have full control of the cluster.
+cluster-statue - this role grants the ability to get status information
+edit - create, edit, change and delete common application resources from the project
+self-provisioner - this role allows the creation of new projects (cluster role not a project level role)
+view - Users with this role can view project resources.
+
+a|
+* Using RBAC to define and apply permissions: https://docs.openshift.com/container-platform/4.5/authentication/using-rbac.html
+
+* How to customize OpenShift RBAC permissions: https://developers.redhat.com/blog/2017/12/04/customize-openshift-rbac-permissions/
+
+|*How does the service you are evaluating handle Privileged Access Management?*
+|OpenShift can use Security Context Constraints to control permissions for pods. These permissions include actions that a pod, a collection of containers, can perform and what resources it can access. You can use SCCs to define a set of conditions that a pod must run with in order to be accepted into the system.
+
+SCCs allow an administrator to control:
+
+Whether a pod can run privileged containers.
+The capabilities that a container can request.
+The use of host directories as volumes.
+The SELinux context of the container.
+The container user ID.
+The use of host namespaces and networking.
+The allocation of an FSGroup that owns the pod’s volumes.
+The configuration of allowable supplemental groups.
+Whether a container requires the use of a read only root file system.
+The usage of volume types.
+The configuration of allowable seccomp profiles.
+a|
+* Managing security context constraints: https://docs.openshift.com/container-platform/4.6/authentication/managing-security-context-constraints.html
+
+* Managing SCCs in OpenShift: https://www.openshift.com/blog/managing-sccs-in-openshift
+
+* Introduction to Security Contexts and SCCs: https://www.openshift.com/blog/introduction-to-security-contexts-and-sccs
+
+| *How does the service you are evaluating handle Privileged Access Management?*
+| Accessing Nodes directly
+
+RHCOS is designed to be as immutable as possible, allowing for only a few system settings to be changed. These settings are configured remotely, with the help of a specific operator developed by OpenShift. This scenario means no user will need to access a node directly, and any changes to the node will need to be directly authorized through the use of the Red Hat Machine Operator
+a|
+* ToBeFilled
+
+|*Security Monitoring & Alerting*
+|
+|
+|*OpenShift Security Approach*
+|The security tooling provided and inherent in the platform encourages the utilization of security as a fluid methodology strengthening each layer of the platform and each stage of the application delivery lifecycle.
+a|
+* A layered approach to container and Kubernetes security: https://www.redhat.com/en/resources/layered-approach-security-detail
+
+|*Does the service you are evaluating offer Auditing Capabilities*
+|In OpenShift Container Platform, auditing occurs at both a host operating system context and at an OpenShift API context.
+
+Auditing of the host operating system consists of the standard auditing capabilities provided by the auditd service in Red Hat Enterprise Linux
+(RHEL) and Red Hat CoreOS (RHCOS). Audit is enabled by default in Red Hat Enterprise Linux CoreOS (RHCOS); however, the audit subsystem is running in a default configuration and without any audit rules. The auditd configuration ( /etc/audit/auditd.conf ) file should be modified as necessary to meet common organizational audit requirements such as retention and fault tolerance. Additionally, audit rules must be configured to record events.
+
+Auditing at the OpenShift context consists of recording the HTTP requests made to the OpenShift API. The OpenShift API consists of two
+components : the Kubernetes API server and the OpenShift API server. Both of these components provide an audit log, each recording the events that
+have affected the system by individual users, administrators, or other components of the system. OpenShift API audit is enabled by default and is produced by both the kube-apiserver and openshift-apiserver components. The audit configuration of each is defined by a combination of default settings and corresponding custom resources named KubeAPIServer and OpenShiftAPIServer, respectively. For more information, consult the Kubernetes Auditing documentation https://kubernetes.io/docs/tasks/debug-application-cluster/audit/.
+a|
+* Viewing audit logs: https://docs.openshift.com/container-platform/4.6/security/audit-log-view.html#audit-log-view
+
+* Configuring the audit log policy: https://docs.openshift.com/container-platform/4.6/security/audit-log-policy-config.html
+
+* Auditing the OS: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/auditing-the-system_security-hardening
+
+|*Does the service you are evaluating enforce Compliance Capabilities*
+|The Compliance Operator lets OpenShift Container Platform administrators describe the desired compliance state of a cluster and provides them with an overview of gaps and ways to remediate them. The Compliance Operator assesses compliance of both the Kubernetes API resources of OpenShift Container Platform, as well as the nodes running the cluster. The Compliance Operator uses OpenSCAP, a NIST-certified tool, to scan and enforce security policies provided by the content. Currently the following profiles are available for Compliance:
+
+$ oc get -n profiles.compliance
+NAME
+ocp4-cis
+ocp4-cis-node
+ocp4-e8
+ocp4-moderate
+ocp4-ncp
+rhcos4-e8
+rhcos4-moderate
+rhcos4-ncp
+
+a|
+* Understanding the Compliance Operator: https://docs.openshift.com/container-platform/4.6/security/compliance_operator/compliance-operator-understanding.html
+
+* How does Compliance Operator work for OpenShift?: https://www.openshift.com/blog/how-does-compliance-operator-work-for-openshift-part-1
+
+* RHEL CoreOS Compliance Scanning in OpenShift 4: https://www.openshift.com/blog/rhel-coreos-compliance-scanning-in-openshift-4
+
+|*Does the service you are evaluating enforce File Integrity & Intrusion Detection*
+| The File Integrity Operator is an OpenShift Container Platform Operator that continually runs file integrity checks on the cluster nodes. It deploys a daemon set that initializes and runs privileged advanced intrusion detection environment (AIDE) containers on each node, providing a status object with a log of files that are modified during the initial run of the daemon set pods.
+a|
+* Understanding the File Integrity Operator: https://docs.openshift.com/container-platform/4.6/security/file_integrity_operator/file-integrity-operator-understanding.html
+
+* Configuring the Custom File Integrity Operator: https://docs.openshift.com/container-platform/4.6/security/file_integrity_operator/file-integrity-operator-configuring.html
+
+* How to install and use the File Integrity Operator in Red Hat OpenShift Container Platform 4.6: https://access.redhat.com/solutions/5751261
+
+| *Does the service you are evaluating offer Alerting*
+| In OpenShift Container Platform 4.6, the Alerting UI enables you to manage alerts, silences, and alerting rules.
+
+Alerting rules. Alerting rules contain a set of conditions that outline a particular state within a cluster. Alerts are triggered when those conditions are true. An alerting rule can be assigned a severity that defines how the alerts are routed.
+
+Alerts. An alert is fired when the conditions defined in an alerting rule are true. Alerts provide a notification that a set of circumstances are apparent within an OpenShift Container Platform cluster.
+
+Silences. A silence can be applied to an alert to prevent notifications from being sent when the conditions for an alert are true. You can mute an alert after the initial notification, while you work on resolving the underlying issue.
+
+a|
+
+* Configuring alert notifications: https://docs.openshift.com/container-platform/4.6/post_installation_configuration/configuring-alert-notifications.html
+* Managing alerts: https://docs.openshift.com/container-platform/4.6/monitoring/managing-alerts.html
+* Understanding cluster logging alerts: https://docs.openshift.com/container-platform/4.6/logging/troubleshooting/cluster-logging-alerts.html
+
+
+| *Does the Platform provide monitoring for this service?*
+| OpenShift Container Platform includes a pre-configured, pre-installed, and self-updating monitoring stack that provides monitoring for core platform components. OpenShift Container Platform delivers monitoring best practices out of the box. A set of alerts are included by default that immediately notify cluster administrators about issues with a cluster. Default dashboards in the OpenShift Container Platform web console include visual representations of cluster metrics to help you to quickly understand the state of your cluster.
+
+After installing OpenShift Container Platform 4.6, cluster administrators can optionally enable monitoring for user-defined projects. By using this feature, cluster administrators, developers, and other users can specify how services and pods are monitored in their own projects. You can then query metrics, review dashboards, and manage alerting rules and silences for your own projects in the OpenShift Container Platform web console.
+
+a|
+Understanding the monitoring stack: https://docs.openshift.com/container-platform/4.6/monitoring/understanding-the-monitoring-stack.html
+
+Configuring the monitoring stack: https://docs.openshift.com/container-platform/4.6/monitoring/configuring-the-monitoring-stack.html
+
+|*Is there Alert & Incident Management capabilities?*
+| Alerting is built into the platform. Alerts can be managed via rules, queried upon, and surfaced on a visual dashboard. Alerts can send notices to external systems
+a|
+* Managing alerts: https://docs.openshift.com/container-platform/4.6/monitoring/managing-alerts.html
+
+| *Data Resilience (back-up/replication)*
+|
+a|
+
+| *Are data backups and replication capabilities provided if needed?*
+| Replication is an underlying feature of etcd. The ability to snapshot the etcd data is available via the CLI. For real-time synchonous backups of the data store, the storage provider of the storage used to persist the etcd would provide data replication capabilities.
+a|
+Backing up etcd: https://docs.openshift.com/container-platform/4.6/backup_and_restore/backing-up-etcd.html
+
+| *Compute High Availability*
+|
+a|
+
+| *How does the service you are evaluating provide high availability to suit your requirements?*
+| The standard OpenShift Architecture consists of 3 control plane nodes or masters and at least two worker nodes providing localized high availability in the event a master node or worker node is lost. For multi-site High Availability there are two ways to achieve this: 1) Install complete clusters across Availability Zones or Sites and have applications deployed to multiple clusters with load balancing between the two separate clusters. 2) Have an OpenShift Cluster span 3 sites with a master node in each site and workers distributed. This type of cluster is extremely sensitive to network and other external variables and extreme consideration and testing should be applied to the architecture and deployment.
+a| OpenShift Container Platform architecture: https://docs.openshift.com/container-platform/4.6/architecture/architecture.html
+
+Stretch and multi-site clusters Capabilities and Support: https://access.redhat.com/articles/3220991#policies
+
+| *Cluster Versioning*
+|
+|
+
+| *How does this service ensure it is using the latest stable/secure version of the underlying software?*
+a| OpenShift provides over the air updates to both the underlying RHCOS nodes as well as the cluster itself. The entire platform is treated as one composable platform. Updates are packed in containers and can be set to apply automatically from selected channels and releases.Cluster Upgrades are managed via the Cluster Version Operator, the Machine Config Operator and some individual Operators. Updates and Patches are managed by the Cluster Administrator. Updates to nodes are done in a rolling fashion ensuring zero cluster downtime for applications designed according to cloud native principals. ALL platform Operators ensure that any drift from unsupported configuration changes are reset to the baseline configuration.
+RHCOS is tightly coupled with the platform in order to consistently apply OS Updates, the Machine Config Operator can apply upgrades automatically in a coordinated fashion, minimizing cluster impact. Updates are released with the OpenShift Cluster update payload ensuring OS releases are in sync with Cluster releases.
+
+OpenShift Updates can bee applied via the Web Console or CLI -
+
+From the Web Console the user will be notified if the update is available, from there they can simply click update.
+From the command line, there are a few steps:
+
+. Check if the cluster is available - oc get clusterversion
+. Check if an update is available - oc adm upgrade
+. Apply an update to the latest release - oc adm upgrade --to-latest=true
+a| * Updating a cluster within a minor version by using the CLI : https://docs.openshift.com/container-platform/4.6/updating/updating-cluster-cli.html
+
+|*How does the service you are evaluating manage the underlying operating system the service is built on?*
+| As mentioned in the latest version category the operating system (Red Hat CoreOS Operating System) and OpenShift kubernetes orchestration platform are tightly coupled together to ensure consistency and interoperability between fast moving components. Since RHCOS is only intended to be used by Red Hat OpenShift, it's installable via the OpenShift Installer Provisioned Infrastructure (IPI) or User Provisioned Infrastructure (UPI) where the user is responsible to downloading the image and generating the ingnition control scripts.
+The RHCOS Operating System is designed to be a single purpose container Operating System only supported in the capacity of OpenShift Container Platform usage which allows it to be more targeted and controlled than general purpose Operating Systems. It's based on Red Hat Enterprise Linux and inherits all the of the security and hardware certifications of RHEL in addition to the secure and stable OS Lifecycle. Reiterating the single use, the OS lacks non-critical components generally found in multi-purpose Operating Systems, which greatly reduce the attack surface. The state of the Operating System is stored within the OpenShift Container Platform ensuring controlled immutability, allowing the nodes to be scaled in either direction. The container Runtime is CRI-O which is designed to be specifically used with Kubernetes implementing only the features needed, again minimizing the attack surface. The last two capabilities to highloght are the way in which software is updated using rpm-ostree and the way RHCOS is configured using the Machine Config Operator. RPM-OSTREE features transactional upgrades. Updates are delivered by way of a container as part of the OpenShift upgrade process and extracted to disk. From there the bootloader is modified to boot into the updated version. There is the ability to rollback as neccessary. The Machine Config Operator handles the OS upgrades directed using rpm-ostree as well as maintaining and applying node configurations. This state is maintained accross all cluster nodes.
+
+Please see the associated links for RHCOS Configuration, Hardening, Compliance Scanning and Installation.
+a|
+* Creating Red Hat Enterprise Linux CoreOS (RHCOS) machines: https://docs.openshift.com/container-platform/4.6/installing/installing_bare_metal/installing-bare-metal.html#creating-machines-bare-metal
+
+* RHEL CoreOS Compliance Scanning in OpenShift 4: https://www.openshift.com/blog/rhel-coreos-compliance-scanning-in-openshift-4
+
+* Hardening RHCOS: https://docs.openshift.com/container-platform/4.6/security/container_security/security-hardening.html
+
+|*Certificate and Key Management*
+|
+a|
+
+|*How does the service you are evaluating handle Certificate and Key Management?*
+|All certificates for internal traffic is managed by OpenShift and rotated automatically. Egress (Proxy) traffic CA is configurable. Ingres traffic is configurable
+a|
+*User-provided certificates for the API server: https://docs.openshift.com/container-platform/4.6/security/certificate_types_descriptions/user-provided-certificates-for-api-server.html
+
+|*Encryption*
+| Encrypting etcd data - To be updated
+a|
+* Encrypting ETCD: https://docs.openshift.com/container-platform/4.6/security/encrypting-etcd.html
+
+|*How does the service you are evaluating handle Encryption in Transit?*
+| With IPsec enabled, all network traffic between nodes on the OVN-Kubernetes Container Network Interface (CNI) cluster network travels through an encrypted tunnel.
+a|
+* IPsec encryption configuration: https://docs.openshift.com/container-platform/4.7/networking/ovn_kubernetes_network_provider/about-ipsec-ovn.html
+
+|*Network Policy and Security*
+|
+|
+
+|===
