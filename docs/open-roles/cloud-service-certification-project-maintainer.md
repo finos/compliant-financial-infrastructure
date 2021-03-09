@@ -9,7 +9,7 @@ Helping run [Cloud Service Certification](https://github.com/finos/cloud-service
 
 - You'll help to guide overall direction, setting the priority and strategy for the backlog and owning the overall direction of the project. The future of Cloud Service Certification is discussed and planned on project calls and in our GitHub Issues. You’ll help drive these conversations and will guide CSC towards the best possible solutions.
 
-- You'll convert high-level ideas into detailed specifications and actionable issues. You will provide the required context to allow community contributors to quickly and effectively pick up issues.
+- You will contribute to the detailed solutions and support the rest of the community in building out the features.
 
 - You'll educate and drive the quality of Cloud Service Certification deliverables and documentation. You'll work to identify and implement opportunities for getting the FINOS Community involed in contributing solutions to the project.
 
