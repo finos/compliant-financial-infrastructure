@@ -3,7 +3,7 @@ Helping run [Cloud Service Certification](https://github.com/finos/cloud-service
 
 ## Role Requirements
 
-- You're an experienced senior level cloud services engineer within the financial services industry and understand the relationship between cloud engineering, finacial services regulation, cyber security, risk and banking policies within an enterprise banking setting.
+- You're an experienced senior level cloud services engineer ideally within the financial services industry who understands the relationship between cloud engineering, finacial services regulation, cyber security, risk and banking policies within an enterprise banking setting.
 
 - You'll review and provide feedback on pull requests. The CSC community is growing fast and we're receiving a growing number of pull requests. You will help review pull requests, provide constructive feedback and support contributors, and ultimately making the call on what is merged into the project.
 
