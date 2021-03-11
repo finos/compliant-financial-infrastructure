@@ -2,6 +2,7 @@
 
 The following is a list of the open Cloud Service Certification roles.
 
+* [CSC Project Maintainer - Cloud Service Certification](cloud-service-certification-project-maintainer.md)
 * [Project Operations Manager - Cloud Service Certification](project-operations-manager.md)
 
 ## Contact Cloud Service Certification
