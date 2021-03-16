@@ -50,8 +50,17 @@ The [AWS RedShift Service Definition](https://github.com/finos/cloud-service-cer
 * [The Redshift Service Definition](https://github.com/finos/cloud-service-certification/blob/master/aws/redshift/redshift_template_public.yml) : 
   * A YAML file containing the description of the AWS Redshift service as code.
 
-## Mailing List
-Email fdx-cloud-service-certification+subscribe@finos.org to subscribe to the Cloud Service Certification mailing list
+## CSC Mailing List
+Cloud Service Certification email communications are conducted through the fdx-cloud-service-certification@finos.org mailing list. Email fdx-cloud-service-certification@finos.org with questions or suggestions related to Cloud Service Certification.
+
+Subscribe to the Cloud Service Certification mailing list by sending an email to fdx-cloud-service-certification+subscribe@finos.org.
+
+## Join the CSC Slack Channel
+Join Cloud Service Certification on the FINOS Slack by signing up at https://finos-lf.slack.com/. The Cloud Service Certification channel on Slack is found directly at https://finos-lf.slack.com/messages/cloud-service-certification/.
+
+[<img src="https://img.shields.io/badge/slack-@finos/cloud%20service%20certification-green.svg?logo=slack">](https://finos-lf.slack.com/messages/cloud-service-certification/)
+
+Reach out to help@finos.org for any issues when joining CSC on the FINOS Slack.
 
 ## License
 
