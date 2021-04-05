@@ -47,15 +47,58 @@ To make review of PRs easier, please:
 
 ### Expected Structure
 
-As you have likely read elsewhere by now, the goals of this project are threefold, and each is reflected within the codebase.
+First, let's review the goals... As you have likely read elsewhere by now, the goals of this project are threefold, and each is reflected within the codebase.
 
-1. Service Accelerator Templates
+1. Service Accelerator Templates (SAT)
     * Details the recommended infrastructure. Organized by cloud provider & topic/resource
 
-1. Infrastructure As Code
-    * Provides a functional example of how the infrastructure recommended in a Service Accelerator Template may be implemented
+1. Infrastructure As Code (IaC)
+    * Provides a functional example of how the infrastructure recommended in a SAT may be implemented
     * Terraform is currently the only approved format for IaC contributions
 
 1. IaC Verification & Validation
-    * Provides pre-deployment verification that any IaC contributions are compatible with the associated Service Accelerator Template
-    * Provides post-deployment validation that any IaC contributions successfully provide the recommended infrastructure outlined in the associated Service Accelerator Template
+    * Provides pre-deployment verification that any IaC contributions are compatible with the associated SAT
+    * Provides post-deployment validation that any IaC contributions successfully provide the recommended infrastructure outlined in the associated SAT
+
+Now, with that in mind... below is the expected structure that all contributions should adhere to.
+
+1. Cloud Service Providers
+    * Content should be sorted based on the CSP that it addresses
+    * An individual directory for CSP resources should live at the top level of the CSC repo
+    * The directory should contain any high-level items such as `.md` files that pertain to all resources for that CSP
+    * A subdirectory should exist that contains all IaC resources and their corresponding SATs
+        - Only Terraform is currently approved for contributions, so that should be the only subdirectory here
+
+1. SATs & Terraform Configs
+    * Two types of content should exist within this subdirectory: resources and reusable modules
+    * Each resource that has a SAT should have it's own directory, named after that resource
+    * Terraform configs should be created after SATs, and live in the same subdirectory
+    * Terraform configs should import modules that are defined in the modules directory
+
+1. Terraform Modules
+    * The central logic of all IaC should be reusable and live in a module
+    * Modules should all live in their own subdirectory, with each module in another subdirectory named after the resource it pertains to
+    * Modules should be usable by any config that needs it (agnostic and configurable)
+    * Ideally, a separate module should exist for each type of resource that needs to be created
+  
+#### Example CSP Directory Structure
+
+```
+# finos/cloud-services-certification
+├── aws
+│   └── ...
+├── azure
+│   └── ...
+└── gcp
+    ├── google-cloud-provider.md
+    └── terraform
+        ├── blob-storage
+        │   ├── blob-storage-sat.md
+        │   ├── blob-storage.tf
+        │   └── variables.tf
+        ├── gke
+        │   └── ...
+        └── modules
+            ├── blob-storage
+            └── gke
+```
