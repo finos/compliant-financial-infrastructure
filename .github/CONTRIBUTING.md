@@ -1,7 +1,7 @@
 # Contributing to Cloud Service Certification
 :+1: First off, thanks for taking the time to contribute! :+1:
 
-# Contributor License Agreement (CLA)
+## Contributor License Agreement (CLA)
 A CLA is a document that specifies how a project is allowed to use your
 contribution; they are commonly used in many open source projects.
 
@@ -17,15 +17,15 @@ As a result, PRs submitted to the Cloud Services Certification project cannot be
 
 Need an ICLA? Unsure if you are covered under an existing CCLA? Email [help@finos.org](mailto:help@finos.org?subject=CLA)
 
-# Contributing Issues
+## Contributing Issues
 
-## Prerequisites
+### Prerequisites
 
 * [ ] Have you [searched for duplicates](https://github.com/{program name}/{project name}/issues?utf8=%E2%9C%93&q=)?  A simple search for exception error messages or a summary of the unexpected behaviour should suffice.
 * [ ] Are you running the latest version?
 * [ ] Are you sure this is a bug or missing capability?
 
-## Raising an Issue
+### Raising an Issue
 * Create your issue [here](https://github.com/{program name}/{project name}/issues/new).
 * New issues contain two templates in the description: bug report and enhancement request. Please pick the most appropriate for your issue, **then delete the other**.
   * Please also tag the new issue with either "Bug" or "Enhancement".
@@ -33,7 +33,7 @@ Need an ICLA? Unsure if you are covered under an existing CCLA? Email [help@fino
 liberally to assist in readability.
   * [Code fences](https://help.github.com/articles/creating-and-highlighting-code-blocks/) for exception stack traces and log entries, for example, massively improve readability.
 
-# Contributing Pull Requests (Code & Docs)
+## Contributing Pull Requests (Code & Docs)
 To make review of PRs easier, please:
 
  * Please make sure your PRs will merge cleanly - PRs that don't are unlikely to be accepted.
@@ -44,3 +44,18 @@ To make review of PRs easier, please:
  * Minimise non-functional changes (e.g. whitespace shenanigans).
  * Ensure all new files include a header comment block containing the [Apache License v2.0 and your copyright information](http://www.apache.org/licenses/LICENSE-2.0#apply).
  * If necessary (e.g. due to 3rd party dependency licensing requirements), update the [NOTICE file](https://github.com/{program name}/{project name}/blob/master/NOTICE) with any new attribution or other notices
+
+### Expected Structure
+
+As you have likely read elsewhere by now, the goals of this project are threefold, and each is reflected within the codebase.
+
+1. Service Accelerator Templates
+    * Details the recommended infrastructure. Organized by cloud provider & topic/resource
+
+1. Infrastructure As Code
+    * Provides a functional example of how the infrastructure recommended in a Service Accelerator Template may be implemented
+    * Terraform is currently the only approved format for IaC contributions
+
+1. IaC Verification & Validation
+    * Provides pre-deployment verification that any IaC contributions are compatible with the associated Service Accelerator Template
+    * Provides post-deployment validation that any IaC contributions successfully provide the recommended infrastructure outlined in the associated Service Accelerator Template
