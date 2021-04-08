@@ -4,7 +4,7 @@ The following IAM permissions are the minimum permissions required for your IAM 
 
 ```json
 {
-    "Version": "2021-04-08",
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
