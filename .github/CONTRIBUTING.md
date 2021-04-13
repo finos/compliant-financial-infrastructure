@@ -45,9 +45,9 @@ To make review of PRs easier, please:
  * Ensure all new files include a header comment block containing the [Apache License v2.0 and your copyright information](http://www.apache.org/licenses/LICENSE-2.0#apply).
  * If necessary (e.g. due to 3rd party dependency licensing requirements), update the [NOTICE file](https://github.com/{program name}/{project name}/blob/master/NOTICE) with any new attribution or other notices
 
-### Expected Structure
+### Goals
 
-First, let's review the goals... As you have likely read elsewhere by now, the goals of this project are threefold, and each is reflected within the codebase.
+When making contributions, it's important to remember the project goals. As you have likely read elsewhere by now, the goals of this project are threefold, and each is reflected within the codebase.
 
 1. Service Accelerator Templates (SAT)
     * Details the recommended infrastructure. Organized by cloud provider & topic/resource
@@ -60,7 +60,11 @@ First, let's review the goals... As you have likely read elsewhere by now, the g
     * Provides pre-deployment verification that any IaC contributions are compatible with the associated SAT
     * Provides post-deployment validation that any IaC contributions successfully provide the recommended infrastructure outlined in the associated SAT
 
-Now, with that in mind... below is the expected structure that all contributions should adhere to.
+## Preparing your contributions
+
+### Structure
+
+Now, with the goals freshly in mind... below is the expected structure that all contributions should adhere to.
 
 1. Cloud Service Providers
     * Content should be sorted based on the CSP that it addresses
@@ -102,3 +106,19 @@ Now, with that in mind... below is the expected structure that all contributions
             ├── blob-storage
             └── gke
 ```
+
+### Workflow
+
+Below is the recommended workflow for contributing to CSC. Unless otherwise stated, these are recommendations.
+
+Each step in this workflow should be spread across separate PRs 
+to allow for peer review and contribution prior to advancing to the next step.
+
+1. Establish an approved SAT prior to any other work
+1. Create your IaC based on the SAT, test it in your own environment as much as possible
+1. Add robust documentation for your IaC
+    - Documentation is REQUIRED before continuing to build CI
+    - Docs should include necessary perms for the service account that will execute the IaC
+1. Create pre-deployment tests for the IaC (conftest, OPA)
+1. Create a CI pipeline to run approved tests automatically on future changes to this IaC
+1. Create a CI pipeline to deploy, validate (Probr), and destroy IaC
