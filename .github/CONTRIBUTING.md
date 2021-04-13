@@ -117,7 +117,7 @@ to allow for peer review and contribution prior to advancing to the next step.
 1. Establish an approved SAT prior to any other work
 1. Create your IaC based on the SAT, test it in your own environment as much as possible
 1. Add robust documentation for your IaC
-    - Documentation is REQUIRED before continuing to build CI
+    - Documentation is REQUIRED before CI contributions will be approved
     - Docs should include necessary perms for the service account that will execute the IaC
 1. Create pre-deployment tests for the IaC (conftest, OPA)
 1. Create a CI pipeline to run approved tests automatically on future changes to this IaC
