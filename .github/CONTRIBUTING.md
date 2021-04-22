@@ -71,7 +71,7 @@ Now, with the goals freshly in mind... below is the expected structure that all 
     * An individual directory for CSP resources should live at the top level of the CSC repo
     * The directory should contain any high-level items such as `.md` files that pertain to all resources for that CSP
     * A subdirectory should exist that contains all IaC resources and their corresponding SATs
-        - Only Terraform is currently approved for contributions, so that should be the only subdirectory here
+        * Only Terraform is currently approved for contributions, so that should be the only subdirectory here
 
 1. SATs & Terraform Configs
     * Two types of content should exist within this subdirectory: resources and reusable modules
@@ -87,38 +87,45 @@ Now, with the goals freshly in mind... below is the expected structure that all 
   
 #### Example CSP Directory Structure
 
-```
+```sh
 # finos/cloud-services-certification
 ├── aws
 │   └── ...
-├── azure
-│   └── ...
-└── gcp
-    ├── google-cloud-provider.md
-    └── terraform
-        ├── blob-storage
-        │   ├── blob-storage-sat.md
-        │   ├── blob-storage.tf
-        │   └── variables.tf
-        ├── gke
-        │   └── ...
-        └── modules
-            ├── blob-storage
-            └── gke
+└── azure
+    ├── aks
+    │   └── aks-kubernetes.md
+    └── postgresql
+        ├── ServiceApprovalAcceleratorPostgreSQL.md
+        ├── media
+        │   └── net-security.png
+        └── terraform
+            ├── README.md
+            ├── main.tf
+            ├── modules
+            │   └── postgres
+            │       ├── network.tf
+            │       ├── outputs.tf
+            │       ├── postgres.tf
+            │       └── variables.tf
+            ├── modules.tf
+            ├── outputs.tf
+            ├── terraform.tfvars
+            └── variables.tf
+
 ```
 
 ### Workflow
 
 Below is the recommended workflow for contributing to CSC. Unless otherwise stated, these are recommendations.
 
-Each step in this workflow should be spread across separate PRs 
+Each step in this workflow should be spread across separate PRs
 to allow for peer review and contribution prior to advancing to the next step.
 
 1. Establish an approved SAT prior to any other work
 1. Create your IaC based on the SAT, test it in your own environment as much as possible
 1. Add robust documentation for your IaC
-    - Documentation is REQUIRED before CI contributions will be approved
-    - Docs should include necessary perms for the service account that will execute the IaC
+    * Documentation is REQUIRED before CI contributions will be approved
+    * Docs should include necessary perms for the service account that will execute the IaC
 1. Create pre-deployment tests for the IaC (conftest, OPA)
 1. Create a CI pipeline to run approved tests automatically on future changes to this IaC
 1. Create a CI pipeline to deploy, validate (Probr), and destroy IaC
