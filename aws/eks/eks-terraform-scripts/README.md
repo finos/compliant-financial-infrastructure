@@ -2,7 +2,7 @@
 
 ## Requirements
 
-Before running the Terraform scripts, make sure to set the [IAM required permissions](./iam-required-permissions.md) first. You will have to remove the comments in the code if you decide to copy/paste them.
+Before running the Terraform scripts, make sure to set the [IAM required permissions](./iam-required-permissions.md) first. You will have to remove the comments in the code if you decide to copy/paste them. Remember it is a best practice to use a role and assign this permissions as a managed policy rather than inline.
 
 ## Instructions
 
@@ -27,4 +27,13 @@ yes
 6. Execute:
 ```shell
 terraform apply
+```
+7. At this point you can configure **kubectl**:
+```shell
+aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)
+```
+8. What you decide to do next is up to you; the cluster is ready for you to work with it.
+9. Clean up:
+```shell
+terraform destroy
 ```
