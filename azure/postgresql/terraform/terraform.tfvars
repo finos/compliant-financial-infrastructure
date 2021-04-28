@@ -14,7 +14,7 @@ postgres_name                    = "<change-me>"
 # Location of postgres
 postgres_location                = "<change-me>"
 
-# Version of porstgres
+# Version of postgres
 postgres_version                 = "<change-me>"
 
 # Tags for the postgres

@@ -51,7 +51,7 @@ To connect you can use your favorite IDE, SQL tool or command line.
 | postgres\_resource\_group\_name | Name of resource group to hold postgres | `string` | n/a | yes |
 | postgres\_resource\_group\_tags | Tags to be added to the postgres resource group | `map` | n/a | yes |
 | postgres\_tags | n/a | `map` | n/a | yes |
-| postgres\_version | Version of porstgres | `string` | n/a | yes |
+| postgres\_version | Version of postgres | `string` | n/a | yes |
 | private\_endpoint\_location | Location of private endpoint | `string` | n/a | yes |
 | private\_endpoint\_name | Name for the postgres private endpoint | `string` | n/a | yes |
 | private\_service\_connection\_name | Name for the postgres private service connection | `string` | n/a | yes |
