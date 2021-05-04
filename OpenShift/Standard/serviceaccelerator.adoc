@@ -93,7 +93,7 @@ a|
 
 * How to customize OpenShift RBAC permissions: https://developers.redhat.com/blog/2017/12/04/customize-openshift-rbac-permissions/
 
-|*How does the service you are evaluating handle Privileged Access Management?*
+|*How does the service you are evaluating handle Privileged Access Management? (Privileged pod)*
 |OpenShift can use Security Context Constraints to control permissions for pods. These permissions include actions that a pod, a collection of containers, can perform and what resources it can access. You can use SCCs to define a set of conditions that a pod must run with in order to be accepted into the system.
 
 SCCs allow an administrator to control:
@@ -116,12 +116,20 @@ a|
 
 * Introduction to Security Contexts and SCCs: https://www.openshift.com/blog/introduction-to-security-contexts-and-sccs
 
-| *How does the service you are evaluating handle Privileged Access Management?*
+| *How does the service you are evaluating handle Privileged Access Management? (Node Access & Configuation)*
 | Accessing Nodes directly
 
-RHCOS is designed to be as immutable as possible, allowing for only a few system settings to be changed. These settings are configured remotely, with the help of a specific operator developed by OpenShift. This scenario means no user will need to access a node directly, and any changes to the node will need to be directly authorized through the use of the Red Hat Machine Operator
+RHCOS is designed to be as immutable as possible, allowing for only a few system settings to be changed. These settings are configured remotely, with the help of a specific operator developed by OpenShift. This scenario means no user will need to access a node directly, and any changes to the node will need to be directly authorized through the use of the Red Hat Machine Operator.
+
+Additionally, Node Tuning Operator helps you manage node-level tuning by orchestrating the Tuned daemon. The majority of high-performance applications require some level of kernel tuning. The Node Tuning Operator provides a unified management interface to users of node-level sysctls and more flexibility to add custom tuning specified by user needs.
+
+The node can still be accessed via ssh for limited troubleshooting requirements.
 a|
-* ToBeFilled
+* Machine Config Operator: https://docs.openshift.com/container-platform/4.7/post_installation_configuration/machine-configuration-tasks.html#understanding-the-machine-config-operator
+* Tuning Operator: https://docs.openshift.com/container-platform/4.7/nodes/nodes/nodes-node-tuning-operator.html
+* Manually gathering logs & troubleshooting - https://docs.openshift.com/container-platform/4.7/installing/installing-troubleshooting.html#installation-manually-gathering-logs-with-SSH_installing-troubleshooting
+
+
 
 |*Security Monitoring & Alerting*
 |
@@ -257,18 +265,31 @@ a|
 
 * Hardening RHCOS: https://docs.openshift.com/container-platform/4.7/security/container_security/security-hardening.html
 
-|*Certificate and Key Management*
-|
-a|
+|*Secrets & Key Management*
+|The Secret object type provides a mechanism to hold sensitive information such as passwords, OpenShift Container Platform client configuration files, private source repository credentials, and so on. Secrets decouple sensitive content from the pods. You can mount secrets into containers using a volume plug-in or the system can use secrets to perform actions on behalf of a pod.
+
+Key properties include:
+
+Secret data can be referenced independently from its definition.
+
+Secret data volumes are backed by temporary file-storage facilities (tmpfs) and never come to rest on a node.
+
+Secret data can be shared within a namespace.
+a| *Storing Sensitive Data: https://docs.openshift.com/container-platform/4.7/nodes/pods/nodes-pods-secrets.html
 
 |*How does the service you are evaluating handle Certificate Management?*
 |All certificates for internal traffic is managed by OpenShift and rotated automatically. Egress (Proxy) traffic CA is configurable. Ingres traffic is configurable
-a|*
 
-|*How does the service you are evaluating handle Key Management?*
-| To be Filled
-a|
-*
+Service serving certificates are intended to support complex middleware applications that require encryption. These certificates are issued as TLS web server certificates.
+
+The service-ca controller uses the x509.SHA256WithRSA signature algorithm to generate service certificates.
+
+The generated certificate and key are in PEM format, stored in tls.crt and tls.key respectively, within a created secret. The certificate and key are automatically replaced when they get close to expiration.
+
+The service CA certificate, which issues the service certificates, is valid for 26 months and is automatically rotated when there is less than six months validity left. After rotation, the previous service CA configuration is still trusted until its expiration. This allows a grace period for all affected services to refresh their key material before the expiration. If you do not upgrade your cluster during this grace period, which restarts services and refreshes their key material, you might need to manually restart services to avoid failures after the previous service CA expires.
+
+a|*Certificate Management: https://docs.openshift.com/container-platform/4.7/security/certificates/service-serving-certificate.html
+
 
 
 
@@ -297,7 +318,12 @@ a|
 * IPsec encryption configuration: https://docs.openshift.com/container-platform/4.7/networking/ovn_kubernetes_network_provider/about-ipsec-ovn.html
 
 |*Network Policy and Security*
-|
-|
+|In a cluster using a Kubernetes Container Network Interface (CNI) plug-in that supports Kubernetes network policy, network isolation is controlled entirely by NetworkPolicy objects. In OpenShift Container Platform 4.7, OpenShift SDN supports using network policy in its default network isolation mode.
+
+By default, all pods in a project are accessible from other pods and network endpoints. To isolate one or more pods in a project, you can create NetworkPolicy objects in that project to indicate the allowed incoming connections. Project administrators can create and delete NetworkPolicy objects within their own project.
+
+If a pod is matched by selectors in one or more NetworkPolicy objects, then the pod will accept only connections that are allowed by at least one of those NetworkPolicy objects. A pod that is not selected by any NetworkPolicy objects is fully accessible.
+a|* NetworkPolicy Configuration and Details: https://docs.openshift.com/container-platform/4.7/networking/network_policy/about-network-policy.html#nw-networkpolicy-about_about-network-policy
+* OpenShift Networking and Cluster Access Best Practices: https://www.openshift.com/blog/openshift-networking-and-cluster-access-best-practices
 
 |===
