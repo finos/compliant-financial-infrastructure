@@ -3,7 +3,7 @@ resource "google_compute_address" "bastion_internal_ip" {
   address_type = "INTERNAL"
   address      = var.internal_ip_address
   subnetwork   = var.bastion_subnet_name
-  region = var.region
+  region       = var.region
 }
 
 resource "google_compute_instance" "default" {
@@ -27,7 +27,7 @@ resource "google_compute_instance" "default" {
   }
 
   service_account {
-    email = "<bastion-service-account-id>"
+    email  = "<bastion-service-account-id>"
     scopes = ["logging-write", "monitoring-write", "storage-ro", "service-management", "service-control", "cloud-platform"]
   }
 

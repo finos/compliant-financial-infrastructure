@@ -1,0 +1,10 @@
+**/.terraform
+*.tfstate*
+*.ide
+*.idea
+*.rpm
+*.zip
+*.tgz
+*.exe
+*.pem
+*.pfx
