@@ -1,2 +1,4 @@
-
-aws/.DS_Store
+ws/.DS_Store
+azure/postgresql/.DS_Store
+.idea
+.DS_Store

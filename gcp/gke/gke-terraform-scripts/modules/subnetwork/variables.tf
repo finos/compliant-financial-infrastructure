@@ -36,7 +36,7 @@ variable "create_secondary_ranges" {
 * - ip_cidr_range 
 */
 variable "secondary_ranges" {
-  type        = list
+  type        = list(any)
   default     = []
   description = "Create up to 5 alternative CIDR range to represent this subnetwork"
 }
