@@ -3,6 +3,22 @@
 
 <img src="https://github.com/finos/branding/blob/master/project-logos/active-project-logos/Cloud%20Service%20Certification%20Logo/Horizontal/2020_CloudServicesCertification_Horizontal.png?raw=true" width="400">
 
+### Important Notice
+The CSC default branch has been renamed. 
+
+`master` is now named `main`
+
+If you have a local clone, you can update it by running:
+
+```
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
+```
+
+For more complex branch changes, please read the following issue comment https://github.com/finos/cloud-service-certification/issues/119#issuecomment-843231539 
+
 # Cloud Service Certification
 Cloud Service Certification accelerates the development, deployment and adoption of services provided for AWS, Azure and Google in a way that meets existing regulatory and internal security controls.
 
