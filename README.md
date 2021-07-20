@@ -17,6 +17,8 @@ git branch -u origin/main main
 git remote set-head origin -a
 ```
 
+For more complex branch changes, please read the following issue comment https://github.com/finos/cloud-service-certification/issues/119#issuecomment-843231539 
+
 # Cloud Service Certification
 Cloud Service Certification accelerates the development, deployment and adoption of services provided for AWS, Azure and Google in a way that meets existing regulatory and internal security controls.
 
