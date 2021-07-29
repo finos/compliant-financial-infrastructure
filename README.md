@@ -3,22 +3,6 @@
 
 <img src="https://github.com/finos/branding/blob/master/project-logos/active-project-logos/Cloud%20Service%20Certification%20Logo/Horizontal/2020_CloudServicesCertification_Horizontal.png?raw=true" width="400">
 
-### Important Notice
-The CSC default branch has been renamed. 
-
-`master` is now named `main`
-
-If you have a local clone, you can update it by running:
-
-```
-git branch -m master main
-git fetch origin
-git branch -u origin/main main
-git remote set-head origin -a
-```
-
-For more complex branch changes, please read the following issue comment https://github.com/finos/cloud-service-certification/issues/119#issuecomment-843231539 
-
 # Cloud Service Certification
 Cloud Service Certification accelerates the development, deployment and adoption of services provided for AWS, Azure and Google in a way that meets existing regulatory and internal security controls.
 
@@ -49,9 +33,9 @@ Find the [Cloud Service Certification Project Kanban](https://github.com/orgs/fi
 
 ## Service Approval Accelerator
 
-The [Service Approval Accelerator](templates/ServiceApprovalAcceleratorTemplate.md) describes each service contributed to Cloud Service Certification alongside test cases and infrastructure as code.
+The [Service Approval Accelerator](https://github.com/finos/cloud-service-certification/blob/master/templates/ServiceApprovalAcceleratorTemplate.md) describes each service contributed to Cloud Service Certification alongside test cases and infrastructure as code.
 
-A single [Service Approval Accelerator](templates/ServiceApprovalAcceleratorTemplate.md) document should be contributed with every service contributed to Cloud Service Certifcation. 
+A single [Service Approval Accelerator](https://github.com/finos/cloud-service-certification/blob/master/templates/ServiceApprovalAcceleratorTemplate.md) document should be contributed with every service contributed to Cloud Service Certifcation. 
 
 _See AWS Redshift example below_.
 
@@ -59,11 +43,11 @@ _See AWS Redshift example below_.
 
 The [AWS RedShift Service Definition](https://github.com/finos/cloud-service-certification/tree/master/aws/redshift) has been created to demonstrate through example the assets required with each service contribution to Cloud Service Certification.
 
-* [Redshift Test Cases](aws/redshift/RedshiftTestCases.md) : 
+* [Redshift Test Cases](https://github.com/finos/cloud-service-certification/blob/master/aws/redshift/RedshiftTestCases.md) : 
   * A document containing test cases from the point of view of AWS Redshift. 
-* [Redshift Service Approval Accelerator](aws/redshift/ServiceApprovalAcceleratorRedshift.md) : 
+* [Redshift Service Approval Accelerator](https://github.com/finos/cloud-service-certification/blob/master/aws/redshift/ServiceApprovalAcceleratorRedshift.md) : 
   * A document containing the Service Approval Accelerator from the point of view of AWS Redshift.
-* [The Redshift Service Definition](aws/redshift/redshift_template_public.yml) : 
+* [The Redshift Service Definition](https://github.com/finos/cloud-service-certification/blob/master/aws/redshift/redshift_template_public.yml) : 
   * A YAML file containing the description of the AWS Redshift service as code.
 
 ## CSC Mailing List
