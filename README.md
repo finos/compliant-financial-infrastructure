@@ -3,6 +3,7 @@
 
 <img src="https://github.com/finos/branding/blob/master/project-logos/active-project-logos/Cloud%20Service%20Certification%20Logo/Horizontal/2020_CloudServicesCertification_Horizontal.png?raw=true" width="400">
 
+<<<<<<< HEAD
 ### Important Notice
 The Compliant Financial Infrastructure default branch has been renamed. 
 
@@ -21,6 +22,10 @@ For more complex branch changes, please read the following issue comment https:/
 
 # Compliant Financial Infrastructure
 Compliant Financial Infrastructure accelerates the development, deployment and adoption of services provided for AWS, Azure and Google in a way that meets existing regulatory and internal security controls.
+=======
+# Cloud Service Certification
+Cloud Service Certification accelerates the development, deployment and adoption of services provided for AWS, Azure and Google in a way that meets existing regulatory and internal security controls.
+>>>>>>> a3f89c3 (Updated config and reconcile)
 
 ## Business Problem and Opportunity
 Cloud services controls and tests are used to demonstrate adherence with regulatory and internal compliance requirements mandated for financial institutions when using cloud services. The majority of cloud security incidents are due to misconfiguration; services are not secure by default, configuration is often complex, nuanced and difficult to validate. To some degree or another all financial institutions are re-inventing the wheel – institutions have similar control frameworks and each is trying to secure and stand up the same providers and services within the same regulatory frameworks.
@@ -57,9 +62,15 @@ The Agile Workflow for Compliant Financial Infrastructure falls into three main 
 
 ## Service Approval Accelerator
 
+<<<<<<< HEAD
 The [Service Approval Accelerator](templates/ServiceApprovalAcceleratorTemplate.md) describes each service contributed to Compliant Financial Infrastructure alongside test cases and infrastructure as code.
 
 A single [Service Approval Accelerator](templates/ServiceApprovalAcceleratorTemplate.md) document should be contributed with every service contributed to Compliant Financial Infrastructure. 
+=======
+The [Service Approval Accelerator](https://github.com/finos/cloud-service-certification/blob/master/templates/ServiceApprovalAcceleratorTemplate.md) describes each service contributed to Cloud Service Certification alongside test cases and infrastructure as code.
+
+A single [Service Approval Accelerator](https://github.com/finos/cloud-service-certification/blob/master/templates/ServiceApprovalAcceleratorTemplate.md) document should be contributed with every service contributed to Cloud Service Certifcation. 
+>>>>>>> a3f89c3 (Updated config and reconcile)
 
 _See AWS Redshift example below_.
 
@@ -67,11 +78,11 @@ _See AWS Redshift example below_.
 
 The [AWS RedShift Service Definition](https://github.com/finos/compliant-financial-infrastructure/tree/master/aws/redshift) has been created to demonstrate through example the assets required with each service contribution to Compliant Financial Infrastructure.
 
-* [Redshift Test Cases](aws/redshift/RedshiftTestCases.md) : 
+* [Redshift Test Cases](https://github.com/finos/cloud-service-certification/blob/master/aws/redshift/RedshiftTestCases.md) : 
   * A document containing test cases from the point of view of AWS Redshift. 
-* [Redshift Service Approval Accelerator](aws/redshift/ServiceApprovalAcceleratorRedshift.md) : 
+* [Redshift Service Approval Accelerator](https://github.com/finos/cloud-service-certification/blob/master/aws/redshift/ServiceApprovalAcceleratorRedshift.md) : 
   * A document containing the Service Approval Accelerator from the point of view of AWS Redshift.
-* [The Redshift Service Definition](aws/redshift/redshift_template_public.yml) : 
+* [The Redshift Service Definition](https://github.com/finos/cloud-service-certification/blob/master/aws/redshift/redshift_template_public.yml) : 
   * A YAML file containing the description of the AWS Redshift service as code.
 
 ## Compliant Financial Infrastructure Mailing List
