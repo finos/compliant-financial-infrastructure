@@ -51,6 +51,6 @@ Reviews and feedback from the CSC and wider FINOS Community are also welcome by 
 
 By submitting asynchronous reviews you will be recognised as a Cloud Service Certification open source contributor and will be increasing the quality and pace of work being contributed into the FINOS CSC project and wider financial services industry.
 
-### Recieving Community Feedback
+### Receiving Community Feedback
 
 Contributors to Cloud Service Certification are expected to take feedback from the wider FINOS and open source community into account during the review cycle as well as feedback from regular CSC project contributors. This cycle of feedback creates an ecosystem of quality and learning that promotes an open and welcome community alongside a positive growth mindset.
