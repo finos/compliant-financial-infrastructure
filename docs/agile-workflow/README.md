@@ -49,4 +49,4 @@ Reviews and feedback from the CSC and wider FINOS Community are also welcome by 
 
 <img alt="Submit Pull Request Review" src="../_images/review-3.png" width="60%">
 
-By submitting asynchronous reviews you will be recognised as a Cloud Service Certification open source contributor and will be increasing the quality of work being contributed into the FINOS CSC project and wider financial services industry.
+By submitting asynchronous reviews you will be recognised as a Cloud Service Certification open source contributor and will be increasing the quality and pace of work being contributed into the FINOS CSC project and wider financial services industry.
