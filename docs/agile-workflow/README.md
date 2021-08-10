@@ -1,9 +1,10 @@
 # Cloud Service Certification - Agile Workflow
 
-The Agile Workflow for Cloud Service Certification falls into two main work streams which are overseen by CSC Project Maintainers and fulfilled by the CSC project team and wider FINOS community.
+The Agile Workflow for Cloud Service Certification falls into three main work streams which are overseen by CSC Project Maintainers and fulfilled by the CSC project team and wider FINOS community.
 
 - [Agile Delivery of Prioritised Work Items](#agile)
 - [Community Contributions and Pull Requests](#community)
+- [CSC Asynchronous Reviews](#reviews)
 
 ## <a name="agile">Agile Delivery of Prioritised Work Items</a>
 
@@ -28,24 +29,24 @@ The Agile Workflow for Cloud Service Certification falls into two main work stre
 
 ## <a name="reviews">CSC Asynchronous Reviews</a>
 
-Cloud Service Certification openly encourages and welcomes asynchronous pull request and code reviews as part of its agile workflow from the FINOS and open source community without direct invitation from CSC maintainers or contributors in order to increase pace and efficiency within the project.
+Cloud Service Certification openly encourages and invites asynchronous pull request and code reviews as part of its agile delivery workflow from the CSC and wider FINOS Community without direct invitation from CSC maintainers or contributors in order to increase pace and efficiency within the project.
 
 ### Reviewing CSC Pull Requests
 
-Asynchronous reviews can take place in any Cloud Service Certification pull request that has a `ready for review` label assigned.
+Asynchronous reviews can take place in any Cloud Service Certification pull request that has a `ready for review` label assigned as illustrated below.
 
 <img alt="Open Pull Request to Review" src="../_img/review-1.png" width="60%">
 
 
-### Inline Reviews and Comments
+### Inline Code Reviews and Comments
 
-Inline reviews and comments are very much welcome to give context and instructions to the contributor of the pull request, as demonstrated below.
+Inline code reviews and comments are very much encouraged, invited and welcome in order to give context and instructions to the pull request contributor as demonstrated in the screenshot below.
 
 <img alt="Add Files Changed Inline Comments" src="../_img/review-2.png" width="60%">
 
-### Review Changes
+### Reviewing Changes and Giving Feedback
 
-Reviews and feedback from the FINOS and wider open source community are also welcome by submitting your review using the `Review Changes` feature.
+Reviews and feedback from the CSC and wider FINOS Community are also welcome by submitting your review using the `Review Changes` feature as illustrated below.
 
 <img alt="Submit Pull Request Review" src="../_img/review-3.png" width="60%">
 
