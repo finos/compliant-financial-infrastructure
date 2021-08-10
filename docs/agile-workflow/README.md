@@ -25,3 +25,11 @@ The Agile Workflow for Cloud Service Certification falls into two main work stre
 
 - Pull Requests and Issues raised by the FINOS Community are automatically assigned to CSC Project Maintainers and allocated to the CSC project backlog for sprint prioritisation at the next scheduled sprint planning session.
 - Critical Pull Requests and Issues are allocated to the CSC project team for immediate fulfilment at the discretion of the CSC Project Maintainers.
+
+## <a name="community">Asynchronousous Reviews</a>
+
+The Cloud Service Certification project openly welcomes code reviews and community feedback from the wider FINOS and open source community without direct invitation from CSC members or the maintainer team.
+
+![Pul Request to Review](../img/review-1.png)
+![Files Changed Inline Comments](../img/review-2.png)
+![Pull Request Submit Review](../img/review-3.png)
