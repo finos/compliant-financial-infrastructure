@@ -30,6 +30,6 @@ The Agile Workflow for Cloud Service Certification falls into two main work stre
 
 The Cloud Service Certification project openly welcomes code reviews and community feedback from the wider FINOS and open source community without direct invitation from CSC members or the maintainer team.
 
-![Pul Request to Review](../img/review-1.png)
-![Files Changed Inline Comments](../img/review-2.png)
-![Pull Request Submit Review](../img/review-3.png)
+<img alt="Open Pull Request to Review" src="../img/review-1.png" width="50%">
+<img alt="Add Files Changed Inline Comments" src="../img/review-2.png" width="50%">
+<img alt="Submit Pull Request Review" src="../img/review-3.png" width="50%">
