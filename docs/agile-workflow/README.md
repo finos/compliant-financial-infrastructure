@@ -53,4 +53,4 @@ By submitting asynchronous reviews you will be recognised as a Cloud Service Cer
 
 ### Receiving Community Feedback
 
-Contributors to Cloud Service Certification are expected to take feedback from the wider FINOS and open source community into account during the review cycle as well as feedback from regular CSC project contributors. This cycle of feedback creates an ecosystem of quality and learning that promotes an open and welcome community alongside a positive growth mindset.
+Contributors to Cloud Service Certification are expected to take feedback from the wider FINOS and open source community into account during review cycles as well as feedback from regular CSC project contributors. This cycle of feedback creates an ecosystem of quality and learning that promotes an open and welcome community alongside a positive growth mindset.
