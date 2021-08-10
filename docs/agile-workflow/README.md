@@ -28,8 +28,25 @@ The Agile Workflow for Cloud Service Certification falls into two main work stre
 
 ## <a name="reviews">CSC Asynchronous Reviews</a>
 
-The Cloud Service Certification project openly welcomes code reviews and community feedback from the wider FINOS and open source community without direct invitation from CSC members or the maintainer team.
+Cloud Service Certification openly encourages and welcomes asynchronous pull request and code reviews as part of its agile workflow from the FINOS and open source community without direct invitation from CSC maintainers or contributors in order to increase pace and efficiency within the project.
 
-<img alt="Open Pull Request to Review" src="../_img/review-1.png" width="50%">
-<img alt="Add Files Changed Inline Comments" src="../_img/review-2.png" width="50%">
-<img alt="Submit Pull Request Review" src="../_img/review-3.png" width="50%">
+### Reviewing CSC Pull Requests
+
+Asynchronous reviews can take place in any Cloud Service Certification pull request that has a `ready for review` label assigned.
+
+<img alt="Open Pull Request to Review" src="../_img/review-1.png" width="60%">
+
+
+### Inline Reviews and Comments
+
+Inline reviews and comments are very much welcome to give context and instructions to the contributor of the pull request, as demonstrated below.
+
+<img alt="Add Files Changed Inline Comments" src="../_img/review-2.png" width="60%">
+
+### Review Changes
+
+Reviews and feedback from the FINOS and wider open source community are also welcome by submitting your review using the `Review Changes` feature.
+
+<img alt="Submit Pull Request Review" src="../_img/review-3.png" width="60%">
+
+By submitting asynchronous reviews you will be recognised as a Cloud Service Certification open source contributor and will be increasing the quality of work being contributed into the FINOS CSC project and wider financial services industry.
