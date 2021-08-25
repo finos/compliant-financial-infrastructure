@@ -36,6 +36,14 @@ The working group will produce multiple Cloud Service Certification artifacts (t
 ## Project Kanban
 Find the [Cloud Service Certification Project Kanban](https://github.com/orgs/finos/projects/1) in the parent FINOS organisation on GitHub.
 
+# Cloud Service Certification - Agile Workflow
+
+The Agile Workflow for Cloud Service Certification falls into three main work streams which are overseen by CSC Project Maintainers and fulfilled by the CSC project team and wider FINOS community.
+
+- [Agile Delivery of Prioritised Work Items](https://github.com/finos/cloud-service-certification/tree/main/docs/agile-workflow#agile)
+- [Community Contributions and Pull Requests](https://github.com/finos/cloud-service-certification/tree/main/docs/agile-workflow#community)
+- [CSC Asynchronous Pull Request and Code Reviews](https://github.com/finos/cloud-service-certification/tree/main/docs/agile-workflow#reviews)
+
 # Contributing
 
 ## Forking, Feature Branches and Pull Requests
