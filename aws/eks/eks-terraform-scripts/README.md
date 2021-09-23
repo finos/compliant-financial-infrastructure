@@ -4,6 +4,22 @@
 
 Before running the Terraform scripts, make sure to set the [IAM required permissions](./iam-required-permissions.md) first. You will have to remove the comments in the code if you decide to copy/paste them. Remember it is a best practice to use a role and assign this permissions as a managed policy rather than inline.
 
+## Supported Versions
+
+1. Terraform
+- required_version = "~> 0.14"
+
+2. Terraform AWS
+- source  = "hashicorp/aws"
+- version = ">= 3.20.0"
+
+3. Terraform Kubernetes
+- source  = "hashicorp/kubernetes"
+- version = ">= 2.0.1"
+
+4. AWS EKS
+- cluster_version = "1.18"
+
 ## Instructions
 
 1. Make sure you have the following installed and configured:

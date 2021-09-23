@@ -28,14 +28,14 @@ module "eks" {
   worker_groups = [
     {
       name                          = "worker-group-1"
-      instance_type                 = "t2.small"
-      asg_desired_capacity          = 2
+      instance_type                 = var.worker_groups_instance_type
+      asg_desired_capacity          = var.worker_groups_asg_desired_capacity
       additional_security_group_ids = [aws_security_group.worker_group_one.id]
     },
     {
       name                          = "worker-group-2"
-      instance_type                 = "t2.medium"
-      asg_desired_capacity          = 1
+      instance_type                 = var.worker_groups_instance_type
+      asg_desired_capacity          = var.worker_groups_asg_desired_capacity
       additional_security_group_ids = [aws_security_group.worker_group_two.id]
     },
   ]
