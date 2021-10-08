@@ -6,7 +6,7 @@ variable "postgres_resource_group_name" {
 }
 #Resource group tags for potgresql server
 variable "postgres_resource_group_tags" {
-  type = map
+  type = map(any)
 }
 #Resource group location for potgresql server
 variable "postgres_resource_group_location" {
@@ -25,7 +25,7 @@ variable "postgres_version" {
   type = string
 }
 variable "postgres_tags" {
-  type = map
+  type = map(any)
 }
 #Database storage in megabytes
 variable "storagemb" {
@@ -45,7 +45,7 @@ variable "auto_grow_enabled" {
 }
 #Postres sku name (GP_Gen5_2)
 variable "sku_name" {
-  type =string
+  type = string
 }
 #Name for database in postgres
 variable "database_name" {
