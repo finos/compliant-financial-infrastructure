@@ -7,14 +7,14 @@ resource "azurerm_resource_group" "postgres-rg" {
 
 #Create a Postgres server
 resource "azurerm_postgresql_server" "postgres-server" {
-  name                             = var.postgres_name
-  resource_group_name              = azurerm_resource_group.postgres-rg.name
-  location                         = var.postgres_location
-  version                          = var.postgres_version
-  administrator_login              = var.database_login
-  administrator_login_password     = var.database_password
+  name                         = var.postgres_name
+  resource_group_name          = azurerm_resource_group.postgres-rg.name
+  location                     = var.postgres_location
+  version                      = var.postgres_version
+  administrator_login          = var.database_login
+  administrator_login_password = var.database_password
 
-  sku_name                         = var.sku_name
+  sku_name = var.sku_name
 
   storage_mb                       = var.storagemb
   backup_retention_days            = var.backup_retention_days
@@ -24,7 +24,7 @@ resource "azurerm_postgresql_server" "postgres-server" {
   ssl_enforcement_enabled          = true
   ssl_minimal_tls_version_enforced = "TLS1_2"
 
-  tags                             = var.postgres_tags
+  tags = var.postgres_tags
 
 }
 
