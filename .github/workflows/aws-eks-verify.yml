@@ -1,0 +1,56 @@
+name: aws eks terraform verification
+
+on:
+  push:
+    paths:
+      - ".github/actions/terraform-*/action.yml"
+      - ".github/workflows/aws-eks-verify.yml"
+      - "aws/eks/eks-terraform-scripts/**"
+      - "!**.md"
+  pull_request:
+    paths:
+      - ".github/actions/terraform-*/action.yml"
+      - ".github/workflows/aws-eks-verify.yml"
+      - "aws/eks/eks-terraform-scripts/**"
+      - "!**.md"
+  workflow_dispatch:
+
+env:
+  TF_IN_AUTOMATION: true
+  TF_INPUT: false
+  TF_CLI_ARGS: "-no-color"
+  TF_GLOBAL_ARGS: "-chdir=aws/eks/eks-terraform-scripts/"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: hashicorp/setup-terraform@v1.3.2
+      - uses: ./.github/actions/terraform-validate
+
+  apply:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: aws/eks/eks-terraform-scripts/
+    env:
+      AWS_ACCESS_KEY_ID: "TEST_KEY_ID"
+      AWS_SECRET_ACCESS_KEY: "TEST_SECRET_KEY"
+    needs: validate
+    steps:
+      - uses: actions/checkout@v2
+      - uses: hashicorp/setup-terraform@v1.3.2
+      - uses: ./.github/actions/terraform-apply
+
+  destroy:
+    runs-on: ubuntu-latest
+    if: always()
+    env:
+      AWS_ACCESS_KEY_ID: "TEST_KEY_ID"
+      AWS_SECRET_ACCESS_KEY: "TEST_SECRET_KEY"
+    needs: apply
+    steps:
+      - uses: actions/checkout@v2
+      - uses: hashicorp/setup-terraform@v1.3.2
+      - uses: ./.github/actions/terraform-destroy
