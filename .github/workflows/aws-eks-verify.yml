@@ -1,0 +1,43 @@
+name: aws eks terraform verification
+
+on:
+  push:
+    paths:
+      - ".github/actions/verify/action.yml"
+      - ".github/workflows/aws-eks-verify.yml"
+      - "aws/eks/eks-terraform-scripts/**"
+      - "!**.md"
+  pull_request:
+    paths:
+      - ".github/actions/verify/action.yml"
+      - ".github/workflows/aws-eks-verify.yml"
+      - "aws/eks/eks-terraform-scripts/**"
+      - "!**.md"
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: aws/eks/eks-terraform-scripts/
+    env:
+      AWS_ACCESS_KEY_ID: "TEST_KEY_ID"
+      AWS_SECRET_ACCESS_KEY: "TEST_SECRET_KEY"
+      TF_IN_AUTOMATION: true
+      TF_INPUT: false
+      TF_CLI_ARGS: "-no-color"
+      TF_GLOBAL_ARGS: "-chdir=aws/eks/eks-terraform-scripts/"
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1.3.2
+
+      - uses: ./.github/actions/verify
+
+      # TODO: Run EKS specific jobs/steps here.
+
+      # - name: Terraform Destroy
+      #   if: always()
+      #   run: terraform ${{ env.TF_GLOBAL_ARGS }} destroy

@@ -1,0 +1,24 @@
+name: terraform verify
+
+runs:
+  using: "composite"
+  steps:
+    - name: Terraform Init
+      run: terraform ${{ env.TF_GLOBAL_ARGS }} init
+      shell: bash
+
+    - name: Terraform Format
+      run: terraform ${{ env.TF_GLOBAL_ARGS }} fmt -check -recursive
+      shell: bash
+
+    - name: Terraform Validate
+      run: terraform ${{ env.TF_GLOBAL_ARGS }} validate
+      shell: bash
+
+    # - name: Terraform Plan
+    #   run: terraform ${{ env.TF_GLOBAL_ARGS }} plan
+    #   shell: bash
+
+    # - name: Terraform Apply
+    #   run: terraform ${{ env.TF_GLOBAL_ARGS }} apply
+    #   shell: bash
