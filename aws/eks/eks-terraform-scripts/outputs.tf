@@ -18,10 +18,10 @@ output "kubectl_config" {
   value       = module.eks.kubeconfig
 }
 
-output "config_map_aws_auth" {
-  description = "A Kubernetes configuration to authenticate to this EKS cluster."
-  value       = module.eks.config_map_aws_auth
-}
+#output "config_map_aws_auth" {
+#  description = "A Kubernetes configuration to authenticate to this EKS cluster."
+#  value       = module.eks.config_map_aws_auth
+#}
 
 output "region" {
   description = "AWS region."
