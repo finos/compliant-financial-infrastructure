@@ -25,9 +25,12 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: hashicorp/setup-terraform@v1.3.2
-      - uses: ./.github/actions/terraform-validate
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup terraform
+        uses: hashicorp/setup-terraform@v1.3.2
+      - name: Validate eks terraform
+        uses: ./.github/actions/terraform-validate
 
   apply:
     runs-on: ubuntu-latest
@@ -39,13 +42,16 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     needs: validate
     steps:
-      - uses: actions/checkout@v2
-      - uses: hashicorp/setup-terraform@v1.3.2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup terraform
+        uses: hashicorp/setup-terraform@v1.3.2
       - name: Setup kubectl
         uses: azure/setup-kubectl@v1
       - name: Make sure we have destroyed any leftover resources from previous runs
         uses: ./.github/actions/terraform-destroy
-      - uses: ./.github/actions/terraform-apply
+      - name: Apply eks terraform
+        uses: ./.github/actions/terraform-apply
 
   destroy:
     runs-on: ubuntu-latest
@@ -55,6 +61,9 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     needs: apply
     steps:
-      - uses: actions/checkout@v2
-      - uses: hashicorp/setup-terraform@v1.3.2
-      - uses: ./.github/actions/terraform-destroy
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup terraform
+        uses: hashicorp/setup-terraform@v1.3.2
+      - name: Destroy eks terraform
+        uses: ./.github/actions/terraform-destroy
