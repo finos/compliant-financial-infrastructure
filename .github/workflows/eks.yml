@@ -1,0 +1,45 @@
+name: eks terraform
+
+on:
+  - push
+  - pull_request
+  - workflow_dispatch
+
+jobs:
+  gate-verify:
+    runs-on: ubuntu-latest
+    env:
+      TF_IN_AUTOMATION: yes
+      TF_INPUT: 0
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: cloud-service-certification
+
+      - uses: hashicorp/setup-terraform@v1.3.2
+
+      - name: Terraform Format Check
+        run: terraform -chdir='cloud-service-certification/aws/eks/eks-terraform-scripts' fmt -check -recursive
+
+      - name: Confirm we can run Terraform Init
+        run: terraform -chdir='cloud-service-certification/aws/eks/eks-terraform-scripts' init
+
+      - name: Ask Terraform to run its internal validation
+        run: terraform -chdir='cloud-service-certification/aws/eks/eks-terraform-scripts' validate -no-color
+
+  apply:
+    runs-on: ubuntu-latest
+    needs: [gate-verify]
+    env:
+      TF_IN_AUTOMATION: yes
+      TF_INPUT: 0
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: cloud-service-certification
+
+      - uses: hashicorp/setup-terraform@v1.3.2
+
+      - run: terraform -chdir='cloud-service-certification/aws/eks/eks-terraform-scripts' init
+
+      - run: terraform -chdir='cloud-service-certification/aws/eks/eks-terraform-scripts' apply -auto-approve
