@@ -43,6 +43,8 @@ jobs:
       - uses: hashicorp/setup-terraform@v1.3.2
       - name: Setup kubectl
         uses: azure/setup-kubectl@v1
+      - name: Make sure we have destroyed any leftover resources from previous runs
+        uses: ./.github/actions/terraform-destroy
       - uses: ./.github/actions/terraform-apply
 
   destroy:
