@@ -1,0 +1,12 @@
+name: terraform apply
+
+runs:
+  using: "composite"
+  steps:
+    - name: Terraform Init
+      run: terraform ${{ env.TF_GLOBAL_ARGS }} init
+      shell: bash
+
+    - name: Terraform Apply
+      run: terraform ${{ env.TF_GLOBAL_ARGS }} apply -auto-approve
+      shell: bash

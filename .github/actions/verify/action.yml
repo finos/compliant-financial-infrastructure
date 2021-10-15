@@ -14,11 +14,3 @@ runs:
     - name: Terraform Validate
       run: terraform ${{ env.TF_GLOBAL_ARGS }} validate
       shell: bash
-
-    # - name: Terraform Plan
-    #   run: terraform ${{ env.TF_GLOBAL_ARGS }} plan
-    #   shell: bash
-
-    # - name: Terraform Apply
-    #   run: terraform ${{ env.TF_GLOBAL_ARGS }} apply
-    #   shell: bash
