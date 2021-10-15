@@ -56,6 +56,10 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1.3.2
 
+      - name: Make sure we have destroyed any leftover resources from previous runs
+        if: always()
+        uses: ./.github/actions/destroy
+
       - uses: ./.github/actions/apply
 
       # TODO: Run EKS specific jobs/steps here.
