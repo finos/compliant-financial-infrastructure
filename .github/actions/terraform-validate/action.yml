@@ -1,16 +1,20 @@
 name: terraform validate
 
+inputs:
+  working-directory:
+    required: true
+
 runs:
   using: "composite"
   steps:
     - name: Terraform Init
-      run: terraform ${{ env.TF_GLOBAL_ARGS }} init
+      run: terraform -chdir=${{ inputs.working-directory }} init
       shell: bash
 
     - name: Terraform Format
-      run: terraform ${{ env.TF_GLOBAL_ARGS }} fmt -check -recursive
+      run: terraform -chdir=${{ inputs.working-directory }} fmt -check -recursive
       shell: bash
 
     - name: Terraform Validate
-      run: terraform ${{ env.TF_GLOBAL_ARGS }} validate
+      run: terraform -chdir=${{ inputs.working-directory }} validate
       shell: bash

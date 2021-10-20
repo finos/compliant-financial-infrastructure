@@ -19,7 +19,7 @@ env:
   TF_IN_AUTOMATION: true
   TF_INPUT: false
   TF_CLI_ARGS: "-no-color"
-  TF_GLOBAL_ARGS: "-chdir=aws/eks/eks-terraform-scripts/"
+  WORKING_DIRECTORY: aws/eks/eks-terraform-scripts
 
 jobs:
   validate:
@@ -31,12 +31,14 @@ jobs:
         uses: hashicorp/setup-terraform@v1.3.2
       - name: Validate eks terraform
         uses: ./.github/actions/terraform-validate
+        with:
+          working-directory: ${{ env.WORKING_DIRECTORY }}
 
   apply:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: aws/eks/eks-terraform-scripts/
+        working-directory: ${{ env.WORKING_DIRECTORY }}
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -50,8 +52,12 @@ jobs:
         uses: azure/setup-kubectl@v1
       - name: Make sure we have destroyed any leftover resources from previous runs
         uses: ./.github/actions/terraform-destroy
+        with:
+          working-directory: ${{ env.WORKING_DIRECTORY }}
       - name: Apply eks terraform
         uses: ./.github/actions/terraform-apply
+        with:
+          working-directory: ${{ env.WORKING_DIRECTORY }}
 
   destroy:
     runs-on: ubuntu-latest
@@ -67,3 +73,5 @@ jobs:
         uses: hashicorp/setup-terraform@v1.3.2
       - name: Destroy eks terraform
         uses: ./.github/actions/terraform-destroy
+        with:
+          working-directory: ${{ env.WORKING_DIRECTORY }}
