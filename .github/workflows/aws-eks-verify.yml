@@ -34,7 +34,7 @@ jobs:
         with:
           working-directory: ${{ env.WORKING_DIRECTORY }}
 
-  apply:
+  ephemeral-deploy:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -58,20 +58,8 @@ jobs:
         uses: ./.github/actions/terraform-apply
         with:
           working-directory: ${{ env.WORKING_DIRECTORY }}
-
-  destroy:
-    runs-on: ubuntu-latest
-    if: always()
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    needs: apply
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Setup terraform
-        uses: hashicorp/setup-terraform@v1.3.2
       - name: Destroy eks terraform
+        if: always()
         uses: ./.github/actions/terraform-destroy
         with:
           working-directory: ${{ env.WORKING_DIRECTORY }}
