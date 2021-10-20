@@ -1,0 +1,43 @@
+regions:
+- eu-west-2
+
+account-blocklist:
+- "999999999999" # production
+
+accounts:
+#  "761688265120": # finos-csc
+#    filters:
+#      IAMUser:
+#      - "csc-eks"
+#      IAMUserPolicyAttachment:
+#      - "csc-eks -> AdministratorAccess"
+#      IAMUserAccessKey:
+#      - "csc-eks -> AKIA3CWBISGQO7E5BFYA"
+  "403142367877": # codethink-co089
+    filters:
+      IAMUser:
+      - "finos_csc"
+      IAMUserPolicyAttachment:
+      - "finos_csc -> AdministratorAccess"
+      IAMUserAccessKey:
+      - "finos_csc -> AKIAV3XJILKCRUMMXBMS"
+
+resource-types:
+  # only nuke these resources
+  targets:
+    - EC2RouteTable
+    - EC2Subnet
+    - EC2NetworkInterface
+    - EC2DHCPOption
+    - EC2RouteTable
+    - EC2NATGateway
+    - EC2SecurityGroup
+    - AutoScalingGroup
+    - EC2VPC
+    - EC2Instance
+    - EC2InternetGatewayAttachment
+    - EC2Address
+    - EC2Volume
+    - LaunchConfiguration
+    - EKSCluster
+    - KMSKey

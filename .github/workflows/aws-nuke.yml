@@ -1,0 +1,51 @@
+# originally from https://github.com/cloudposse/testing.cloudposse.co/blob/master/.github/workflows/aws-nuke.yml
+# modified to remove scheduled nuking
+name: 'aws-nuke'
+
+on:
+  # Enable manual runs
+  workflow_dispatch:
+    inputs:
+      delete:
+        description: 'Set to "true" to actually delete stuff'
+        required: true
+        default: 'false'
+
+  # Enable pull request for testing
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  # Run aws-nuke simulation (don't actually delete anything)
+  dry-run:
+    runs-on: ubuntu-latest
+    environment: aws
+    if: github.event_name == 'pull_request' || ( github.event_name == 'workflow_dispatch' && github.event.inputs.delete != 'true' )
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: aws-nuke
+        uses: "docker://quay.io/rebuy/aws-nuke:v2.15.0"
+        with:
+          args: "--config .github/aws-nuke.yaml --force"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          AWS_ACCESS_KEY_ID: "${{ secrets.AWS_ACCESS_KEY_ID }}"
+          AWS_SECRET_ACCESS_KEY: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+
+  # Run aws-nuke "for reals" (delete everything)
+  no-dry-run:
+    runs-on: ubuntu-latest
+    environment: aws
+    if: ( github.event_name == 'workflow_dispatch' && github.event.inputs.delete == 'true' )
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: aws-nuke
+        uses: "docker://quay.io/rebuy/aws-nuke:v2.15.0"
+        with:
+          args: "--config .github/aws-nuke.yaml --force --no-dry-run"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          AWS_ACCESS_KEY_ID: "${{ secrets.AWS_ACCESS_KEY_ID }}"
+          AWS_SECRET_ACCESS_KEY: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
