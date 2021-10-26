@@ -13,23 +13,27 @@ Controls for cloud service compliance afford banks no particular strategic or co
 The working group will produce multiple Compliant Financial Infrastructure artifacts (together forming one or multiple accelerators) that provide functional code that implements regulatory compliant configurations of cloud services with BDD tests to validate efficacy.  The group review the artifacts for an accelerator and then gather feedback on process and content before iterating on additional services. A key part of the working group's approach will be to set quality standards across artifacts; members of all tiers can contribute to the project and ensure a common high level of quality is delivered and in less time. The group will also work with cloud service providers to produce more industry specific content and solutions. 
 
 # Group Information
-* **Meetings and Minutes**
-  * [Meetings and Minutes on GitHub](https://github.com/finos/cloud-service-certification/issues?q=label%3Ameeting+)
-* **Mailing list:** [fdx-cloud-service-certification@finos.org](mailto:fdx-cloud-service-certification@finos.org) ([web archive](https://groups.google.com/a/finos.org/forum/#!forum/fdx-cloud-service-certification))
-* **Google Group**: [https://groups.google.com/a/finos.org/forum/#!topic/fdx-cloud-service-certification/1RPUvv18ksA](https://groups.google.com/a/finos.org/forum/#!topic/fdx-cloud-service-certification/1RPUvv18ksA)
+### Meetings and Minutes
+  - [Meetings and Minutes on GitHub](https://github.com/finos/cloud-service-certification/issues?q=label%3Ameeting+)
+### Mailing list: 
+  - [fdx-cloud-service-certification@finos.org](mailto:fdx-cloud-service-certification@finos.org) ([web archive](https://groups.google.com/a/finos.org/forum/#!forum/fdx-cloud-service-certification))
+### Google Group: 
+  - [https://groups.google.com/a/finos.org/forum/#!topic/fdx-cloud-service-certification/1RPUvv18ksA](https://groups.google.com/a/finos.org/forum/#!topic/fdx-cloud-service-certification/1RPUvv18ksA)
 
-* **Meetings**
+### Meetings
 
-  * **Schedule:** Group meets every other Thursday at 10am ET / 3pm London.
+  - Group meets every other Thursday at 10am ET / 3pm London.
 
-**Webex:** 
-https://finos.webex.com/finos/j.php?MTID=m4b1d85127d1f3ca179545d6bd3291975
+### Webex:
+  - https://finos.webex.com/finos/j.php?MTID=m4b1d85127d1f3ca179545d6bd3291975
 
-**Dial-in**
-- **US** +1-415-655-0003 US Toll
-- **UK** +44-20319-88141 UK Toll
-- **Access code:** 127 846 2278
+### Dial-in
+  - **US** +1-415-655-0003 US Toll
+  - **UK** +44-20319-88141 UK Toll
+  - **Access code:** 127 846 2278
 
-Github Repository: [https://github.com/finos/cloud-service-certification](https://github.com/finos/cloud-service-certification)
+### Github Repository: 
+  - [https://github.com/finos/cloud-service-certification](https://github.com/finos/cloud-service-certification)
 
-Original Contribution JIRA: [https://finosfoundation.atlassian.net/browse/CONTRIB-33](https://finosfoundation.atlassian.net/browse/CONTRIB-33)
+### Original Contribution JIRA: 
+  - [https://finosfoundation.atlassian.net/browse/CONTRIB-33](https://finosfoundation.atlassian.net/browse/CONTRIB-33)
