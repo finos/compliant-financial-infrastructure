@@ -1,6 +1,6 @@
 ---
-name: 🤝 Cloud Service Certification Meeting Agenda
-about: To track Cloud Service Certification meeting agenda and attendance
+name: 🤝 Compliant Financial Infrastructure Meeting Agenda
+about: To track Compliant Financial Infrastructure meeting agenda and attendance
 ---
 
 ## Date
@@ -24,7 +24,7 @@ Thursday DD MMM yyyy - 10am EST / 3pm BST
 - [ ] Display [FINOS Antitrust Policy summary slide](https://github.com/finos/community/blob/master/governance/Compliance-Slides/Antitrust-Compliance-Slide.pdf) 
 - [ ] Review Meeting Notices (see above)
 - [ ] Approve previous meeting minutes - https://github.com/finos/cloud-service-certification/issues?q=is%3Aissue+is%3Aclosed+label%3Ameeting
-- [ ] Cloud Service Certification [Project Kanban](https://github.com/orgs/finos/projects/1) Review
+- [ ] Compliant Financial Infrastructure [Project Kanban](https://github.com/orgs/finos/projects/1) Review
 - [ ] _Add Items Here_
 - [ ] AOB, Q&A & Adjourn (5mins)
 

@@ -7,7 +7,7 @@ Helping run [Compliant Financial Infrastructure](https://github.com/finos/cloud-
 
 - You'll review and provide feedback on pull requests. The Compliant Financial Infrastructure community is growing fast and we're receiving a growing number of pull requests. You will help review pull requests, provide constructive feedback and support contributors, and ultimately making the call on what is merged into the project.
 
-- You'll help to guide overall direction, setting the priority and strategy for the backlog and owning the overall direction of the project. The future of Compliant Financial Infrastructure is discussed and planned on project calls and in our GitHub Issues. You’ll help drive these conversations and will guide CSC towards the best possible solutions.
+- You'll help to guide overall direction, setting the priority and strategy for the backlog and owning the overall direction of the project. The future of Compliant Financial Infrastructure is discussed and planned on project calls and in our GitHub Issues. You’ll help drive these conversations and will guide Compliant Financial Infrastructure towards the best possible solutions.
 
 - You will contribute to the detailed solutions and support the rest of the community in building out the features.
 

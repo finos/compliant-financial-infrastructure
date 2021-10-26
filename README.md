@@ -42,7 +42,7 @@ The Agile Workflow for Compliant Financial Infrastructure falls into three main 
 
 - [Agile Delivery of Prioritised Work Items](https://github.com/finos/cloud-service-certification/tree/main/docs/agile-workflow#agile)
 - [Community Contributions and Pull Requests](https://github.com/finos/cloud-service-certification/tree/main/docs/agile-workflow#community)
-- [CSC Asynchronous Pull Request and Code Reviews](https://github.com/finos/cloud-service-certification/tree/main/docs/agile-workflow#reviews)
+- [Compliant Financial Infrastructure Asynchronous Pull Request and Code Reviews](https://github.com/finos/cloud-service-certification/tree/main/docs/agile-workflow#reviews)
 
 # Contributing
 
@@ -84,7 +84,7 @@ Join Compliant Financial Infrastructure on the FINOS Slack by signing up at http
 
 [<img src="https://img.shields.io/badge/slack-@finos/cloud%20service%20certification-green.svg?logo=slack">](https://finos-lf.slack.com/messages/compliant-financial-infrastructure/)
 
-Reach out to help@finos.org for any issues when joining CSC on the FINOS Slack.
+Reach out to help@finos.org for any issues when joining Compliant Financial Infrastructure on the FINOS Slack.
 
 ## License
 
