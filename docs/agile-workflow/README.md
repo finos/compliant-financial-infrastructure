@@ -1,6 +1,6 @@
-# Cloud Service Certification - Agile Workflow
+# Compliant Financial Infrastructure - Agile Workflow
 
-The Agile Workflow for Cloud Service Certification falls into three main work streams which are overseen by CSC Project Maintainers and fulfilled by the CSC project team and wider FINOS community.
+The Agile Workflow for Compliant Financial Infrastructure falls into three main work streams which are overseen by CSC Project Maintainers and fulfilled by the CSC project team and wider FINOS community.
 
 - [Agile Delivery of Prioritised Work Items](#agile)
 - [Community Contributions and Pull Requests](#community)
@@ -8,7 +8,7 @@ The Agile Workflow for Cloud Service Certification falls into three main work st
 
 ## <a name="agile">Agile Delivery of Prioritised Work Items</a>
 
-- Cloud Service Certification is an agile project with agreed agile ceremonies and a fixed sprint cadence. Example agile ceremonies include ...
+- Compliant Financial Infrastructure is an agile project with agreed agile ceremonies and a fixed sprint cadence. Example agile ceremonies include ...
   - Regular team stand-ups
   - Backlog grooming sessions
   - Pre-sprint planning
@@ -29,11 +29,11 @@ The Agile Workflow for Cloud Service Certification falls into three main work st
 
 ## <a name="reviews">CSC Asynchronous Pull Request and Code Reviews</a>
 
-Cloud Service Certification openly encourages and invites asynchronous pull request and code reviews as part of its agile delivery workflow from the CSC and wider FINOS Community without direct invitation from CSC maintainers or contributors in order to increase pace and efficiency within the project.
+Compliant Financial Infrastructure openly encourages and invites asynchronous pull request and code reviews as part of its agile delivery workflow from the CSC and wider FINOS Community without direct invitation from CSC maintainers or contributors in order to increase pace and efficiency within the project.
 
 ### Reviewing CSC Pull Requests
 
-Asynchronous reviews can take place in any Cloud Service Certification pull request that has a `ready for review` label assigned as illustrated below.
+Asynchronous reviews can take place in any Compliant Financial Infrastructure pull request that has a `ready for review` label assigned as illustrated below.
 
 <img alt="Open Pull Request to Review" src="../_images/review-1.png" width="60%">
 
@@ -49,8 +49,8 @@ Reviews and feedback from the CSC and wider FINOS Community are also welcome by 
 
 <img alt="Submit Pull Request Review" src="../_images/review-3.png" width="60%">
 
-By submitting asynchronous reviews you will be recognised as a Cloud Service Certification open source contributor and will be increasing the quality and pace of work being contributed into the FINOS CSC project and wider financial services industry.
+By submitting asynchronous reviews you will be recognised as a Compliant Financial Infrastructure open source contributor and will be increasing the quality and pace of work being contributed into the FINOS CSC project and wider financial services industry.
 
 ### Receiving Community Feedback
 
-Contributors to Cloud Service Certification are expected to take feedback from the wider FINOS and open source community into account during review cycles as well as feedback from regular CSC project contributors. This cycle of feedback creates an ecosystem of quality and learning that promotes an open and welcome community alongside a positive growth mindset.
+Contributors to Compliant Financial Infrastructure are expected to take feedback from the wider FINOS and open source community into account during review cycles as well as feedback from regular CSC project contributors. This cycle of feedback creates an ecosystem of quality and learning that promotes an open and welcome community alongside a positive growth mindset.
