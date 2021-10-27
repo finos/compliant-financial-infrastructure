@@ -1,7 +1,7 @@
 SPDXVersion: SPDX-2.0
 DataLicense: CC0-1.0
 Creator: JPMC
-PackageName: Cloud Service Certification
+PackageName: Compliant Financial Infrastructure
 PackageOriginator: JPMC
 PackageHomePage: https://github.com/finos-fdx/cloud-service-certification
 PackageLicenseDeclared: Apache-2.0

@@ -1,12 +1,12 @@
-# Open Roles - Cloud Service Certification
+# Open Roles - Compliant Financial Infrastructure
 
-The following is a list of the open Cloud Service Certification roles.
+The following is a list of the open Compliant Financial Infrastructure roles.
 
-* [CSC Project Maintainer - Cloud Service Certification](cloud-service-certification-project-maintainer.md)
-* [Project Operations Manager - Cloud Service Certification](project-operations-manager.md)
+* [Project Maintainer - Compliant Financial Infrastructure](cloud-service-certification-project-maintainer.md)
+* [Project Operations Manager - Compliant Financial Infrastructure](project-operations-manager.md)
 
-## Contact Cloud Service Certification
+## Contact Compliant Financial Infrastructure
 
-Contact [James McLeod](james@finos.org), FINOS Director of Community, or  [Peter Thomas](peter.thomas@db.com), Cloud Service Certification Lead Maintainer from Deutsche Bank, for more information or drop into the next [Cloud Service Certification Project Meeting](https://github.com/finos/cloud-service-certification/issues?q=label%3Ameeting+) to say hello.
+Contact [James McLeod](james@finos.org), FINOS Director of Community, or  [Peter Thomas](peter.thomas@db.com), Compliant Financial Infrastructure Lead Maintainer from Deutsche Bank, for more information or drop into the next [Compliant Financial Infrastructure Project Meeting](https://github.com/finos/cloud-service-certification/issues?q=label%3Ameeting+) to say hello.
 
 🌤 🚀 🤖
