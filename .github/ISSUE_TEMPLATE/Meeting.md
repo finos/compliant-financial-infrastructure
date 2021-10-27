@@ -23,7 +23,7 @@ Thursday DD MMM yyyy - 10am EST / 3pm BST
 - [ ] Convene, roll call, welcome new people (5mins)
 - [ ] Display [FINOS Antitrust Policy summary slide](https://github.com/finos/community/blob/master/governance/Compliance-Slides/Antitrust-Compliance-Slide.pdf) 
 - [ ] Review Meeting Notices (see above)
-- [ ] Approve previous meeting minutes - https://github.com/finos/cloud-service-certification/issues?q=is%3Aissue+is%3Aclosed+label%3Ameeting
+- [ ] Approve previous meeting minutes - https://github.com/finos/compliant-financial-infrastructure/issues?q=is%3Aissue+is%3Aclosed+label%3Ameeting
 - [ ] Compliant Financial Infrastructure [Project Kanban](https://github.com/orgs/finos/projects/1) Review
 - [ ] _Add Items Here_
 - [ ] AOB, Q&A & Adjourn (5mins)
@@ -47,7 +47,7 @@ https://finos.webex.com/finos/j.php?MTID=m4b1d85127d1f3ca179545d6bd3291975
 - **UK** +44-20319-88141 UK Toll
 - **Access code:** 127 846 2278
 
-**Github Repo:** https://github.com/finos/cloud-service-certification/
+**Github Repo:** https://github.com/finos/compliant-financial-infrastructure/
 
 **Project Wiki Page:** https://finosfoundation.atlassian.net/wiki/spaces/FDX/pages/904626436/Cloud+Service+Certification+Project 
 

@@ -3,5 +3,5 @@ DataLicense: CC0-1.0
 Creator: JPMC
 PackageName: Compliant Financial Infrastructure
 PackageOriginator: JPMC
-PackageHomePage: https://github.com/finos-fdx/cloud-service-certification
+PackageHomePage: https://github.com/finos/compliant-financial-infrastructure
 PackageLicenseDeclared: Apache-2.0

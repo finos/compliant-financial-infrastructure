@@ -14,7 +14,7 @@ The working group will produce multiple Compliant Financial Infrastructure artif
 
 # Group Information
 ### Meetings and Minutes
-  - [Meetings and Minutes on GitHub](https://github.com/finos/cloud-service-certification/issues?q=label%3Ameeting+)
+  - [Meetings and Minutes on GitHub](https://github.com/finos/compliant-financial-infrastructure/issues?q=label%3Ameeting+)
 ### Mailing list: 
   - [fdx-cloud-service-certification@finos.org](mailto:fdx-cloud-service-certification@finos.org) ([web archive](https://groups.google.com/a/finos.org/forum/#!forum/fdx-cloud-service-certification))
 ### Google Group: 
@@ -33,7 +33,7 @@ The working group will produce multiple Compliant Financial Infrastructure artif
   - **Access code:** 127 846 2278
 
 ### Github Repository: 
-  - [https://github.com/finos/cloud-service-certification](https://github.com/finos/cloud-service-certification)
+  - [https://github.com/finos/compliant-financial-infrastructure](https://github.com/finos/compliant-financial-infrastructure)
 
 ### Original Contribution JIRA: 
   - [https://finosfoundation.atlassian.net/browse/CONTRIB-33](https://finosfoundation.atlassian.net/browse/CONTRIB-33)

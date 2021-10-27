@@ -1,5 +1,5 @@
 # Project Maintainer - Compliant Financial Infrastructure 
-Helping run [Compliant Financial Infrastructure](https://github.com/finos/cloud-service-certification) with the Compliant Financial Infrastructure Lead Maintainer as Project Maintainer is a fun open source role involving a broad set of tasks that need to be taken care of, including ...
+Helping run [Compliant Financial Infrastructure](https://github.com/finos/compliant-financial-infrastructure) with the Compliant Financial Infrastructure Lead Maintainer as Project Maintainer is a fun open source role involving a broad set of tasks that need to be taken care of, including ...
 
 ## Role Requirements
 
@@ -31,6 +31,6 @@ The Compliant Financial Infrastructure Project Maintainer will reach out to FINO
 
 ## Contact Compliant Financial Infrastructure
 
-Contact [James McLeod](james@finos.org), FINOS Director of Community, or  [Peter Thomas](peter.thomas@db.com), Compliant Financial Infrastructure Lead Maintainer from Deutsche Bank, for more information or drop into the next [Compliant Financial Infrastructure Project Meeting](https://github.com/finos/cloud-service-certification/issues?q=label%3Ameeting+) to say hello.
+Contact [James McLeod](james@finos.org), FINOS Director of Community, or  [Peter Thomas](peter.thomas@db.com), Compliant Financial Infrastructure Lead Maintainer from Deutsche Bank, for more information or drop into the next [Compliant Financial Infrastructure Project Meeting](https://github.com/finos/compliant-financial-infrastructure/issues?q=label%3Ameeting+) to say hello.
 
 🌤 🚀 🤖
