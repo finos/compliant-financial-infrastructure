@@ -2,10 +2,10 @@
 
 This section of the Compliant Financial Infrastructure wiki answers questions asked by the Compliant Financial Infrastructure community.
 
-Ask your question by opening a [Support Issue](https://github.com/finos/cloud-service-certification/issues/new?template=Support_question.md) through GitHub.
+Ask your question by opening a [Support Issue](https://github.com/finos/compliant-financial-infrastructure/issues/new?template=Support_question.md) through GitHub.
 
 ## Question
-How does Compliant Financial Infrastructure maintain the security of the environment and the protection of the environment for open source consumers? [#18](https://github.com/finos/cloud-service-certification/issues/18)
+How does Compliant Financial Infrastructure maintain the security of the environment and the protection of the environment for open source consumers? [#18](https://github.com/finos/compliant-financial-infrastructure/issues/18)
 
 ### Answer
 Compliant Financial Infrastructure has a peer review process to ensure the content created is functional (works as intended) and at least 2 members feel the content meets the control objective it was created for. This is OSS and it should not be trusted completely. 

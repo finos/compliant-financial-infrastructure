@@ -1,11 +1,11 @@
 # Project Operations Manager - Compliant Financial Infrastructure
-Helping run [Compliant Financial Infrastructure](https://github.com/finos/cloud-service-certification) as Project Operations Manager is a fun open source role involving a broad set of tasks that need to be taken care of, including ... 
+Helping run [Compliant Financial Infrastructure](https://github.com/finos/compliant-financial-infrastructure) as Project Operations Manager is a fun open source role involving a broad set of tasks that need to be taken care of, including ... 
 
 ## Role Requirements
 
-- Capturing, writing and updating work items as [GitHub Issues](https://github.com/finos/cloud-service-certification/issues).
+- Capturing, writing and updating work items as [GitHub Issues](https://github.com/finos/compliant-financial-infrastructure/issues).
 - Updating and running the [Compliant Financial Infrastructure Project Kanban](https://github.com/orgs/finos/projects/1).
-- Scheduling [Compliant Financial Infrastructure Project Meetings](https://github.com/finos/cloud-service-certification/issues?q=label%3Ameeting+).
+- Scheduling [Compliant Financial Infrastructure Project Meetings](https://github.com/finos/compliant-financial-infrastructure/issues?q=label%3Ameeting+).
 - Creating and circulating agendas. 
 - Communicating with the project team.
 - Updating the [FINOS Community](https://github.com/finos/community/issues).
@@ -31,6 +31,6 @@ The Project Operations Manager works closely with the Compliant Financial Infras
 
 ## Contact Compliant Financial Infrastructure
 
-Contact [James McLeod](james@finos.org), FINOS Director of Community, or  [Peter Thomas](peter.thomas@db.com), Compliant Financial Infrastructure Lead Maintainer from Deutsche Bank, for more information or drop into the next [Compliant Financial Infrastructure Project Meeting](https://github.com/finos/cloud-service-certification/issues?q=label%3Ameeting+) to say hello.
+Contact [James McLeod](james@finos.org), FINOS Director of Community, or  [Peter Thomas](peter.thomas@db.com), Compliant Financial Infrastructure Lead Maintainer from Deutsche Bank, for more information or drop into the next [Compliant Financial Infrastructure Project Meeting](https://github.com/finos/compliant-financial-infrastructure/issues?q=label%3Ameeting+) to say hello.
 
 🌤 🚀 🤖

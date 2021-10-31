@@ -17,7 +17,7 @@ git branch -u origin/main main
 git remote set-head origin -a
 ```
 
-For more complex branch changes, please read the following issue comment https://github.com/finos/cloud-service-certification/issues/119#issuecomment-843231539 
+For more complex branch changes, please read the following issue comment https://github.com/finos/compliant-financial-infrastructure/issues/119#issuecomment-843231539 
 
 # Compliant Financial Infrastructure
 Compliant Financial Infrastructure accelerates the development, deployment and adoption of services provided for AWS, Azure and Google in a way that meets existing regulatory and internal security controls.
@@ -40,15 +40,15 @@ Find the [Compliant Financial Infrastructure Project Kanban](https://github.com/
 
 The Agile Workflow for Compliant Financial Infrastructure falls into three main work streams which are overseen by Project Maintainers and fulfilled by the project team and wider FINOS community.
 
-- [Agile Delivery of Prioritised Work Items](https://github.com/finos/cloud-service-certification/tree/main/docs/agile-workflow#agile)
-- [Community Contributions and Pull Requests](https://github.com/finos/cloud-service-certification/tree/main/docs/agile-workflow#community)
-- [Compliant Financial Infrastructure Asynchronous Pull Request and Code Reviews](https://github.com/finos/cloud-service-certification/tree/main/docs/agile-workflow#reviews)
+- [Agile Delivery of Prioritised Work Items](https://github.com/finos/compliant-financial-infrastructure/tree/main/docs/agile-workflow#agile)
+- [Community Contributions and Pull Requests](https://github.com/finos/compliant-financial-infrastructure/tree/main/docs/agile-workflow#community)
+- [Compliant Financial Infrastructure Asynchronous Pull Request and Code Reviews](https://github.com/finos/compliant-financial-infrastructure/tree/main/docs/agile-workflow#reviews)
 
 # Contributing
 
 ## Forking, Feature Branches and Pull Requests
 
-1. Fork it (<https://github.com/finos/cloud-service-certification/fork>)
+1. Fork it (<https://github.com/finos/compliant-financial-infrastructure/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Read our [contribution guidelines](.github/CONTRIBUTING.md) and [Community Code of Conduct](https://www.finos.org/code-of-conduct)
 4. Commit your changes (`git commit -am 'Add some fooBar'`)
@@ -65,7 +65,7 @@ _See AWS Redshift example below_.
 
 ## Contributed Cloud Service by Example, AWS Redshift
 
-The [AWS RedShift Service Definition](https://github.com/finos/cloud-service-certification/tree/master/aws/redshift) has been created to demonstrate through example the assets required with each service contribution to Compliant Financial Infrastructure.
+The [AWS RedShift Service Definition](https://github.com/finos/compliant-financial-infrastructure/tree/master/aws/redshift) has been created to demonstrate through example the assets required with each service contribution to Compliant Financial Infrastructure.
 
 * [Redshift Test Cases](aws/redshift/RedshiftTestCases.md) : 
   * A document containing test cases from the point of view of AWS Redshift. 
