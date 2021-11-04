@@ -3,26 +3,26 @@ name: meeting-minutes-action
 # This GitHub action is used to manage meeting minutes via GitHub Issues:
 # - The issue description contains minutes and other meeting meta info (see .github/ISSUE_TEMPLATE/Meeting.md)
 # - Issue commenters are tracked as meetings attendants, and (eventually, not real time) published on metrics.finos.org
-# 
+#
 # When an issue (with "meeting" label) is closed, this action
 # collects the issue commenters and uses FINOS metadata-tool to generate a CSV
 # file with meeting attendance, which can be submitted for later ingestion and
-# final publication into metrics.finos.org . After successful submission, 
+# final publication into metrics.finos.org . After successful submission,
 # the "indexed" label will be added to the issue.
-# 
-# When the "indexed" label is removed, entries will be removed from the index, 
+#
+# When the "indexed" label is removed, entries will be removed from the index,
 # allowing to amend attendance after the meeting; by re-adding the "indexed", entries will be added again to the index.
 #
 # The date of the meeting is extracted from the date that the issue was closed, therefore:
 # - Do not apply the "indexed" label if the issue is not closed
 # - Only close the issue once, during (or right after) the meeting, regardless of issue contents/comments; use the "indexed" label to trigger a reindexing later on
-# 
+#
 # To run this action, you'll need the following secrets defined in https://github.com/finos/<repo name>/settings/secrets :
 # - FINOS_TOKEN
 # - GIT_CSV_TOKEN
-# 
+#
 # Email help@finos.org to setup the secrets in your repository.
-# 
+#
 # Note. There's a thread regarding org level secrets in GitHub, which may avoid the secret configuration step - https://github.community/t5/GitHub-Actions/Secrets-on-Team-and-Organization-level/td-p/29745
 on:
   issues:
@@ -49,7 +49,7 @@ env:
 jobs:
   submit-meeting-attendance:
     if: contains(github.event.issue.labels.*.name, 'meeting')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Checking out metadata-tool
       uses: actions/checkout@v2

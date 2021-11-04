@@ -23,7 +23,7 @@ env:
 
 jobs:
   validate:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     outputs:
       eks-ok: ${{ steps.check-eks-secrets.outputs.eks-ok }}
     steps:
@@ -43,7 +43,7 @@ jobs:
           fi
 
   ephemeral-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     defaults:
       run:
         working-directory: ${{ env.WORKING_DIRECTORY }}
