@@ -1,9 +1,21 @@
 name: terraform fmt check
 
 on:
-  - push
-  - pull_request
-  - workflow_dispatch
+  push:
+    paths:
+      - ".github/workflows/terraform.yml"
+      - "**/*terraform*/**"
+      - "**.tf"
+      - "**.tfvars"
+      - "!**.md"
+  pull_request:
+    paths:
+      - ".github/workflows/terraform.yml"
+      - "**/*terraform*/**"
+      - "**.tf"
+      - "**.tfvars"
+      - "!**.md"
+  workflow_dispatch:
 
 jobs:
   build:
