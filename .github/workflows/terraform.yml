@@ -7,14 +7,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Setup Terraform
-        # Long commit hash of v1.2.1
-        uses: hashicorp/setup-terraform@d22444889af304a44b997011fbabb81ff705a7b4
+        uses: hashicorp/setup-terraform@v1.3.2
 
       - name: Terraform Format
         id: fmt
