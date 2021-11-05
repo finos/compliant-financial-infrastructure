@@ -43,5 +43,5 @@ variable "worker_groups_instance_type" {
 variable "worker_groups_asg_desired_capacity" {
   description = "Capacity of the auto-scaling group being used for the worker groups."
   type        = number
-  default     = 1
+  default     = break
 }
