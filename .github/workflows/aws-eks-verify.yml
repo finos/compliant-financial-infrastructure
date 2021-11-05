@@ -67,8 +67,38 @@ jobs:
         uses: ./.github/actions/terraform-apply
         with:
           working-directory: ${{ env.WORKING_DIRECTORY }}
+
+      - name: Run Probr Kubernetes CIS Tests
+        id: probr
+        uses: addnab/docker-run-action@v3
+        with:
+          image: eknight/probr:v0.1.1-rc
+          options: |
+            --mount type=bind,source="${{ env.WORKING_DIRECTORY }}"/probr-config.yml,target=/probr/run/config.yml \
+            --mount type=bind,source="${{ env.WORKING_DIRECTORY }}"/run,target=/probr/run
+        continue-on-error: true
+
+      - name: Generate Probr HTML
+        uses: addnab/docker-run-action@v3
+        with:
+          image: eknight/probr-view:v0.1.0
+          options: |
+            	--mount type=bind,source="${{ env.WORKING_DIRECTORY }}"/run,target=/probr/run
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Probr
+          path: /probr/run
+
       - name: Destroy eks terraform
         if: always()
         uses: ./.github/actions/terraform-destroy
         with:
           working-directory: ${{ env.WORKING_DIRECTORY }}
+
+      - name: Check Probr Validation Result
+        if: steps.probr.outcome == 'failure'
+        run: |
+          echo Probr did not successfully validate the EKS cluster.
+          echo Please review the Probr artifact for detailed information.
+          exit 1

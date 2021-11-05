@@ -1,0 +1,6 @@
+Run:
+  - "kubernetes"
+ServicePacks:
+  Kubernetes:
+    AuthorisedContainerImage: "citihub/probr-probe"
+    UnauthorisedContainerImage: "fixme/bad-image-name"
