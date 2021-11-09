@@ -72,7 +72,7 @@ jobs:
         id: probr
         uses: addnab/docker-run-action@v3
         with:
-          image: eknight/probr:v0.1.1-rc
+          image: eknight/probr:v0.1.1-rc # https://github.com/probr/probr-docker
           options: |
             --mount type=bind,source="${{ env.WORKING_DIRECTORY }}"/probr-config.yml,target=/probr/run/config.yml \
             --mount type=bind,source="${{ env.WORKING_DIRECTORY }}"/run,target=/probr/run
@@ -81,7 +81,7 @@ jobs:
       - name: Generate Probr HTML
         uses: addnab/docker-run-action@v3
         with:
-          image: eknight/probr-view:v0.1.0
+          image: eknight/probr-view:v0.1.0 # https://github.com/probr/view-cucumber-html
           options: |
             	--mount type=bind,source="${{ env.WORKING_DIRECTORY }}"/run,target=/probr/run
 
