@@ -101,4 +101,4 @@ jobs:
         run: |
           echo Probr did not successfully validate the EKS cluster.
           echo Please review the Probr artifact for detailed information.
-          exit 1
+        # TODO: Add 'exit 1' for failures
