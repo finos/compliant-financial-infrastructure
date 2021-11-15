@@ -4,7 +4,7 @@ about: To track Compliant Financial Infrastructure meeting agenda and attendance
 ---
 
 ## Date
-Thursday DD MMM yyyy - 10am EST / 3pm BST
+Friday DD MMM yyyy - 10am ET / 3pm UK
 
 ## Untracked attendees
 | Name | Firm | Comment |
