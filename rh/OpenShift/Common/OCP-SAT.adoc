@@ -1,4 +1,4 @@
-= OpenShift Security Configuration
+= OpenShift Security Configuration (Service Accelerator)
 
 == Overview
 
@@ -7,7 +7,7 @@ implementation security controls by domain. Although the approaches may
 not be a fit for all use cases or complete for production use, they are
 meant to guide the reader towards current best practices and design
 considerations to achieve security control objectives. They are also not a
-complete list of potential security configurations, they are a subset that meet 
+complete list of potential security configurations, they are a subset that meet
 some of the requirements for a compliant financial infrastructure cloud.
 
 === *Controls and Architectures*
