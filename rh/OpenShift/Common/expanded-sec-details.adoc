@@ -1,4 +1,4 @@
-= OpenShift Extended Configuration details
+= OpenShift Extended Configuration Patterns
 
 == Overview
 
