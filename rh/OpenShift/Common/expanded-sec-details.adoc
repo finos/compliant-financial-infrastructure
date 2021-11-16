@@ -5,7 +5,6 @@
 This documentation is provided as an addendum to the service accelerator that is part of the standard deployment and configuration of OpenShift.
 
 
-
 === *Controls and Architectures*
 
 The information provided in the table below is compiled from product
