@@ -33,3 +33,15 @@ variable "domain_name_servers" {
   type        = list(string)
   default     = ["AmazonProvidedDNS"]
 }
+
+variable "worker_groups_instance_type" {
+  description = "Type of instance to be used for the worker groups."
+  type        = string
+  default     = "t2.small"
+}
+
+variable "worker_groups_asg_desired_capacity" {
+  description = "Capacity of the auto-scaling group being used for the worker groups."
+  type        = number
+  default     = 1
+}

@@ -1,0 +1,32 @@
+name: terraform fmt check
+
+on:
+  push:
+    paths:
+      - ".github/workflows/terraform.yml"
+      - "**/*terraform*/**"
+      - "**.tf"
+      - "**.tfvars"
+      - "!**.md"
+  pull_request:
+    paths:
+      - ".github/workflows/terraform.yml"
+      - "**/*terraform*/**"
+      - "**.tf"
+      - "**.tfvars"
+      - "!**.md"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1.3.2
+
+      - name: Terraform Format
+        id: fmt
+        run: terraform fmt -check -recursive

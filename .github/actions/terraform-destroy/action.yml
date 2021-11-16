@@ -1,0 +1,16 @@
+name: terraform destroy
+
+inputs:
+  working-directory:
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Terraform Init
+      run: terraform -chdir=${{ inputs.working-directory }} init
+      shell: bash
+
+    - name: Terraform Destroy
+      run: terraform -chdir=${{ inputs.working-directory }} destroy -auto-approve
+      shell: bash

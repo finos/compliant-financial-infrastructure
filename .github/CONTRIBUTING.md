@@ -1,4 +1,4 @@
-# Contributing to Cloud Service Certification
+# Contributing to Compliant Financial Infrastructure
 :+1: First off, thanks for taking the time to contribute! :+1:
 
 ## Contributor License Agreement (CLA)
@@ -68,7 +68,7 @@ Now, with the goals freshly in mind... below is the expected structure that all 
 
 1. Cloud Service Providers
     * Content should be sorted based on the CSP that it addresses
-    * An individual directory for CSP resources should live at the top level of the CSC repo
+    * An individual directory for CSP resources should live at the top level of the Compliant Financial Infrastructure repo
     * The directory should contain any high-level items such as `.md` files that pertain to all resources for that CSP
     * A subdirectory should exist that contains all IaC resources and their corresponding SATs
         * Only Terraform is currently approved for contributions, so that should be the only subdirectory here
@@ -116,7 +116,7 @@ Now, with the goals freshly in mind... below is the expected structure that all 
 
 ### Workflow
 
-Below is the recommended workflow for contributing to CSC. Unless otherwise stated, these are recommendations.
+Below is the recommended workflow for contributing to Compliant Financial Infrastructure. Unless otherwise stated, these are recommendations.
 
 Each step in this workflow should be spread across separate PRs
 to allow for peer review and contribution prior to advancing to the next step.
