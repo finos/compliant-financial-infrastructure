@@ -3,37 +3,8 @@
 
 <img src="https://github.com/finos/branding/blob/master/project-logos/active-project-logos/Cloud%20Service%20Certification%20Logo/Horizontal/2020_CloudServicesCertification_Horizontal.png?raw=true" width="400">
 
-<<<<<<< HEAD
 # Cloud Service Certification
 Cloud Service Certification accelerates the development, deployment and adoption of services provided for AWS, Azure and Google in a way that meets existing regulatory and internal security controls.
-=======
-<<<<<<< HEAD
-# Cloud Service Certification
-Cloud Service Certification accelerates the development, deployment and adoption of services provided for AWS, Azure and Google in a way that meets existing regulatory and internal security controls.
-=======
-### Important Notice
-The Compliant Financial Infrastructure default branch has been renamed. 
-
-`master` is now named `main`
-
-If you have a local clone, you can update it by running:
-
-```
-git branch -m master main
-git fetch origin
-git branch -u origin/main main
-git remote set-head origin -a
-```
-
-For more complex branch changes, please read the following issue comment https://github.com/finos/compliant-financial-infrastructure/issues/119#issuecomment-843231539 
-
-# Compliant Financial Infrastructure
-Compliant Financial Infrastructure accelerates the development, deployment and adoption of services provided for AWS, Azure and Google in a way that meets existing regulatory and internal security controls.
-<<<<<<< HEAD
->>>>>>> 54aa130d6da1e23e2be5d26ac15446ca053212d9
-=======
->>>>>>> 54aa130d6da1e23e2be5d26ac15446ca053212d9
->>>>>>> af0ff26a5c758258007352598f90da1232c6777d
 
 ## Business Problem and Opportunity
 Cloud services controls and tests are used to demonstrate adherence with regulatory and internal compliance requirements mandated for financial institutions when using cloud services. The majority of cloud security incidents are due to misconfiguration; services are not secure by default, configuration is often complex, nuanced and difficult to validate. To some degree or another all financial institutions are re-inventing the wheel – institutions have similar control frameworks and each is trying to secure and stand up the same providers and services within the same regulatory frameworks.
@@ -62,27 +33,9 @@ Find the [Cloud Service Certification Project Kanban](https://github.com/orgs/fi
 
 ## Service Approval Accelerator
 
-<<<<<<< HEAD
 The [Service Approval Accelerator](https://github.com/finos/cloud-service-certification/blob/master/templates/ServiceApprovalAcceleratorTemplate.md) describes each service contributed to Cloud Service Certification alongside test cases and infrastructure as code.
 
 A single [Service Approval Accelerator](https://github.com/finos/cloud-service-certification/blob/master/templates/ServiceApprovalAcceleratorTemplate.md) document should be contributed with every service contributed to Cloud Service Certifcation. 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-The [Service Approval Accelerator](https://github.com/finos/cloud-service-certification/blob/master/templates/ServiceApprovalAcceleratorTemplate.md) describes each service contributed to Cloud Service Certification alongside test cases and infrastructure as code.
-
-A single [Service Approval Accelerator](https://github.com/finos/cloud-service-certification/blob/master/templates/ServiceApprovalAcceleratorTemplate.md) document should be contributed with every service contributed to Cloud Service Certifcation. 
-=======
-The [Service Approval Accelerator](templates/ServiceApprovalAcceleratorTemplate.md) describes each service contributed to Compliant Financial Infrastructure alongside test cases and infrastructure as code.
-
-A single [Service Approval Accelerator](templates/ServiceApprovalAcceleratorTemplate.md) document should be contributed with every service contributed to Compliant Financial Infrastructure. 
->>>>>>> 54aa130d6da1e23e2be5d26ac15446ca053212d9
-=======
-The [Service Approval Accelerator](templates/ServiceApprovalAcceleratorTemplate.md) describes each service contributed to Compliant Financial Infrastructure alongside test cases and infrastructure as code.
-
-A single [Service Approval Accelerator](templates/ServiceApprovalAcceleratorTemplate.md) document should be contributed with every service contributed to Compliant Financial Infrastructure. 
->>>>>>> 54aa130d6da1e23e2be5d26ac15446ca053212d9
->>>>>>> af0ff26a5c758258007352598f90da1232c6777d
 
 _See AWS Redshift example below_.
 
