@@ -25,6 +25,9 @@ For more complex branch changes, please read the following issue comment https:/
 
 # Compliant Financial Infrastructure
 Compliant Financial Infrastructure accelerates the development, deployment and adoption of services provided for AWS, Azure and Google in a way that meets existing regulatory and internal security controls.
+<<<<<<< HEAD
+>>>>>>> 54aa130d6da1e23e2be5d26ac15446ca053212d9
+=======
 >>>>>>> 54aa130d6da1e23e2be5d26ac15446ca053212d9
 
 ## Business Problem and Opportunity
@@ -63,9 +66,15 @@ The Agile Workflow for Compliant Financial Infrastructure falls into three main 
 ## Service Approval Accelerator
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 The [Service Approval Accelerator](https://github.com/finos/cloud-service-certification/blob/master/templates/ServiceApprovalAcceleratorTemplate.md) describes each service contributed to Cloud Service Certification alongside test cases and infrastructure as code.
 
 A single [Service Approval Accelerator](https://github.com/finos/cloud-service-certification/blob/master/templates/ServiceApprovalAcceleratorTemplate.md) document should be contributed with every service contributed to Cloud Service Certifcation. 
+=======
+The [Service Approval Accelerator](templates/ServiceApprovalAcceleratorTemplate.md) describes each service contributed to Compliant Financial Infrastructure alongside test cases and infrastructure as code.
+
+A single [Service Approval Accelerator](templates/ServiceApprovalAcceleratorTemplate.md) document should be contributed with every service contributed to Compliant Financial Infrastructure. 
+>>>>>>> 54aa130d6da1e23e2be5d26ac15446ca053212d9
 =======
 The [Service Approval Accelerator](templates/ServiceApprovalAcceleratorTemplate.md) describes each service contributed to Compliant Financial Infrastructure alongside test cases and infrastructure as code.
 

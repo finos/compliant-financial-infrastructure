@@ -14,11 +14,14 @@ The Agile Workflow for Compliant Financial Infrastructure falls into three main 
   - Pre-sprint planning
   - End of sprint demos
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Sprint cadence is  **monthly**, as agreed with the CSC project, with end of sprint sessions used for team demos and next-sprint planning.
 - Middle of sprint CSC project meetings also act as stand-ups for team updates and any other discussions / demos to demonstrate completed work and as a forum for helping to remove team blockers.
 - Volunteers from the CSC project form sub-teams around given tasks, epics and stories. Sub-teams own their own deliverables, and method of delivery, from start to finish.
 - Teams self organise for completion of tasks within a given sprint(s), including appointing / aligning with the [Project Operations Manager](https://github.com/finos/cloud-service-certification/blob/master/docs/open-roles/project-operations-manager.md) to help coordinate the team's delivery.
 =======
+=======
+>>>>>>> 54aa130d6da1e23e2be5d26ac15446ca053212d9
 - Sprint cadence is  **monthly**, as agreed with the Compliant Financial Infrastructure project, with end of sprint sessions used for team demos and next-sprint planning.
 - Middle of sprint Compliant Financial Infrastructure project meetings also act as stand-ups for team updates and any other discussions / demos to demonstrate completed work and as a forum for helping to remove team blockers.
 - Volunteers from the Compliant Financial Infrastructure project form sub-teams around given tasks, epics and stories. Sub-teams own their own deliverables, and method of delivery, from start to finish.
