@@ -75,9 +75,9 @@ The [AWS RedShift Service Definition](https://github.com/finos/compliant-financi
   * A YAML file containing the description of the AWS Redshift service as code.
 
 ## Compliant Financial Infrastructure Mailing List
-Compliant Financial Infrastructure email communications are conducted through the fdx-cloud-service-certification@finos.org mailing list. Email fdx-cloud-service-certification@finos.org with questions or suggestions related to Compliant Financial Infrastructure.
+Compliant Financial Infrastructure email communications are conducted through the compliant-financial-infrastructure@finos.org mailing list. Email compliant-financial-infrastructure@finos.org with questions or suggestions related to Compliant Financial Infrastructure.
 
-Subscribe to the Compliant Financial Infrastructure mailing list by sending an email to fdx-cloud-service-certification+subscribe@finos.org.
+Subscribe to the Compliant Financial Infrastructure mailing list by sending an email to compliant-financial-infrastructure+subscribe@finos.org.
 
 ## Join the Compliant Financial Infrastructure Slack Channel
 Join Compliant Financial Infrastructure on the FINOS Slack by signing up at https://finos-lf.slack.com/. The Compliant Financial Infrastructure channel on Slack is found directly at https://finos-lf.slack.com/messages/compliant-financial-infrastructure/.
