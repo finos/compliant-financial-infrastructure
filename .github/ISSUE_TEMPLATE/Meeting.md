@@ -4,7 +4,7 @@ about: To track Compliant Financial Infrastructure meeting agenda and attendance
 ---
 
 ## Date
-Thursday DD MMM yyyy - 10am EST / 3pm BST
+Friday DD MMM yyyy - 10am ET / 3pm UK
 
 ## Untracked attendees
 | Name | Firm | Comment |
@@ -51,4 +51,4 @@ https://finos.webex.com/finos/j.php?MTID=m4b1d85127d1f3ca179545d6bd3291975
 
 **Project Wiki Page:** https://finosfoundation.atlassian.net/wiki/spaces/FDX/pages/904626436/Cloud+Service+Certification+Project 
 
-**Mailing List:** Email fdx-cloud-service-certification+subscribe@finos.org to subscribe to our mailing list
+**Mailing List:** Email compliant-financial-infrastructure+subscribe@finos.org to subscribe to our mailing list
