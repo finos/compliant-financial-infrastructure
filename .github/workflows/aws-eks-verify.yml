@@ -82,8 +82,7 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: eknight/probr-view:v0.1.0 # https://github.com/probr/view-cucumber-html
-          options: |
-            	--mount type=bind,source="${{ env.WORKING_DIRECTORY }}"/run,target=/probr/run
+          options: --mount type=bind,source="${{ env.WORKING_DIRECTORY }}"/run,target=/probr/run
 
       - uses: actions/upload-artifact@v2
         with:
