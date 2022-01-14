@@ -49,6 +49,4 @@ https://finos.webex.com/finos/j.php?MTID=m4b1d85127d1f3ca179545d6bd3291975
 
 **Github Repo:** https://github.com/finos/compliant-financial-infrastructure/
 
-**Project Wiki Page:** https://finosfoundation.atlassian.net/wiki/spaces/FDX/pages/904626436/Cloud+Service+Certification+Project 
-
 **Mailing List:** Email compliant-financial-infrastructure+subscribe@finos.org to subscribe to our mailing list
