@@ -31,6 +31,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup terraform
         uses: hashicorp/setup-terraform@v1.3.2
+        with:
+          terraform_version: "~1.0.0"
       - name: Validate eks terraform
         uses: ./.github/actions/terraform-validate
         with:
@@ -55,14 +57,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
       - name: Setup terraform
         uses: hashicorp/setup-terraform@v1.3.2
+        with:
+          terraform_version: "~1.0.0"
+
       - name: Setup kubectl
         uses: azure/setup-kubectl@v1
       - name: Make sure we have destroyed any leftover resources from previous runs
         uses: ./.github/actions/terraform-destroy
         with:
           working-directory: ${{ env.WORKING_DIRECTORY }}
+
       - name: Apply eks terraform
         uses: ./.github/actions/terraform-apply
         with:
@@ -73,17 +80,15 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: eknight/probr:v0.1.1-rc # https://github.com/probr/probr-docker
-          options: |
-            --mount type=bind,source="${{ env.WORKING_DIRECTORY }}"/probr-config.yml,target=/probr/run/config.yml \
-            --mount type=bind,source="${{ env.WORKING_DIRECTORY }}"/run,target=/probr/run
+          options: --mount type=bind,source=${{ github.workspace }}/${{ env.WORKING_DIRECTORY }}/probr-config.yml,target=/probr/run/config.yml
+            -v ${{ github.workspace }}/${{ env.WORKING_DIRECTORY }}/run:/probr/run
         continue-on-error: true
 
       - name: Generate Probr HTML
         uses: addnab/docker-run-action@v3
         with:
           image: eknight/probr-view:v0.1.0 # https://github.com/probr/view-cucumber-html
-          options: |
-            	--mount type=bind,source="${{ env.WORKING_DIRECTORY }}"/run,target=/probr/run
+          options: -v ${{ github.workspace }}/${{ env.WORKING_DIRECTORY }}/run:/probr/run
 
       - uses: actions/upload-artifact@v2
         with:
