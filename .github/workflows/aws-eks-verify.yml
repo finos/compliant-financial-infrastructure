@@ -67,25 +67,25 @@ jobs:
         uses: ./.github/actions/terraform-destroy
         with:
           working-directory: ${{ env.WORKING_DIRECTORY }}
-      - name: Apply eks terraform
-        uses: ./.github/actions/terraform-apply
-        with:
-          working-directory: ${{ env.WORKING_DIRECTORY }}
+      # - name: Apply eks terraform
+      #   uses: ./.github/actions/terraform-apply
+      #   with:
+      #     working-directory: ${{ env.WORKING_DIRECTORY }}
 
       - name: Run Probr Kubernetes CIS Tests
         id: probr
         uses: addnab/docker-run-action@v3
         with:
           image: eknight/probr:v0.1.1-rc # https://github.com/probr/probr-docker
-          options: --mount type=bind,source=${{ env.GITHUB_WORKSPACE }}/${{ env.WORKING_DIRECTORY }}/probr-config.yml,target=/probr/run/config.yml
-            --mount type=bind,source=${{ env.GITHUB_WORKSPACE }}/${{ env.WORKING_DIRECTORY }}/run,target=/probr/run
+          options: --mount type=bind,source=${{ github.workspace }}/${{ env.WORKING_DIRECTORY }}/probr-config.yml,target=/probr/run/config.yml
+            -v ${{ github.workspace }}/${{ env.WORKING_DIRECTORY }}/run:/probr/run
         continue-on-error: true
 
       - name: Generate Probr HTML
         uses: addnab/docker-run-action@v3
         with:
           image: eknight/probr-view:v0.1.0 # https://github.com/probr/view-cucumber-html
-          options: --mount type=bind,source=${{ env.GITHUB_WORKSPACE }}/${{ env.WORKING_DIRECTORY }}/run,target=/probr/run
+          options: -v ${{ github.workspace }}/${{ env.WORKING_DIRECTORY }}/run:/probr/run
 
       - uses: actions/upload-artifact@v2
         with:
