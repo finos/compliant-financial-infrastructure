@@ -20,6 +20,7 @@ env:
   TF_INPUT: false
   TF_CLI_ARGS: "-no-color"
   WORKING_DIRECTORY: aws/eks/eks-terraform-scripts
+  PROBR_DIRECTORY: aws/eks/probr
 
 jobs:
   validate:
@@ -80,20 +81,19 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: eknight/probr:v0.1.1-rc # https://github.com/probr/probr-docker
-          options: --mount type=bind,source=${{ github.workspace }}/${{ env.WORKING_DIRECTORY }}/probr-config.yml,target=/probr/run/config.yml
-            -v ${{ github.workspace }}/${{ env.WORKING_DIRECTORY }}/run:/probr/run
+          options: -v ${{ github.workspace }}/${{ env.PROBR_DIRECTORY }}:/probr/run
         continue-on-error: true
 
       - name: Generate Probr HTML
         uses: addnab/docker-run-action@v3
         with:
           image: eknight/probr-view:v0.1.0 # https://github.com/probr/view-cucumber-html
-          options: -v ${{ github.workspace }}/${{ env.WORKING_DIRECTORY }}/run:/probr/run
+          options: -v ${{ github.workspace }}/${{ env.PROBR_DIRECTORY }}:/probr/run
 
       - uses: actions/upload-artifact@v2
         with:
           name: Probr
-          path: /probr/run
+          path: ${{ github.workspace }}/${{ env.PROBR_DIRECTORY }}
 
       - name: Destroy eks terraform
         if: always()
