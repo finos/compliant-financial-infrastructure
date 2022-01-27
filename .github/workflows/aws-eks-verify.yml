@@ -80,8 +80,9 @@ jobs:
         id: probr
         uses: addnab/docker-run-action@v3
         with:
-          image: eknight/probr:v0.1.1-rc # https://github.com/probr/probr-docker
+          image: eknight/probr:v0.1.1 # https://github.com/probr/probr-docker
           options: -v ${{ github.workspace }}/${{ env.PROBR_DIRECTORY }}:/probr/run
+          run: "/probr/cmd/probr"
         continue-on-error: true
 
       - name: Generate Probr HTML
@@ -89,6 +90,8 @@ jobs:
         with:
           image: eknight/probr-view:v0.1.0 # https://github.com/probr/view-cucumber-html
           options: -v ${{ github.workspace }}/${{ env.PROBR_DIRECTORY }}:/probr/run
+          run: "node parse.js /probr/run/cucumber v0.1.1"
+        continue-on-error: true
 
       - uses: actions/upload-artifact@v2
         with:
