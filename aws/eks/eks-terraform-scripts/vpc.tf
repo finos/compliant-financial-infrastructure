@@ -12,7 +12,7 @@ resource "random_string" "suffix" {
 }
 
 locals {
-  cluster_name = "csc-eks-${random_string.suffix.result}"
+  cluster_name = "cfi-eks"
 }
 
 module "vpc" {
