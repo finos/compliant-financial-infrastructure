@@ -77,8 +77,8 @@ jobs:
           image: eknight/probr:v0.1.2-rc # https://github.com/probr/probr-docker
           options: |
             -v ${{ github.workspace }}/${{ env.PROBR_DIRECTORY }}:/probr/run
-            AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
-            AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            -e 'AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}'
+            -e 'AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}'
           run: "/probr/cmd/probr"
         continue-on-error: true
 
