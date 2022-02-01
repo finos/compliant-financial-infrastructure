@@ -47,13 +47,13 @@ Date: 05-Jun-2020
     <td class="tg-7btt" rowspan="4">Encryption &amp; Secure Data Management</td>
     <td class="tg-fymr">Encryption in Transit</td>
     <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How does the service you are evaluating handle Encryption at Rest?</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How does the service you are evaluating handle Encryption in Transit Rest?</span></td>
     <td class="tg-0pky"></td>
   </tr>
   <tr>
     <td class="tg-fymr">Encryption at Rest</td>
     <td class="tg-f8tv">How will you ensure the service you are evaluating meets this requirement?</td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How does the service you are evaluating handle Encryption in Transit?</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:italic">How does the service you are evaluating handle Encryption at Rest?</span></td>
     <td class="tg-0pky"></td>
   </tr>
   <tr>
