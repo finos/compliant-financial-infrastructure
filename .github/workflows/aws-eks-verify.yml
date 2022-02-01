@@ -74,8 +74,12 @@ jobs:
         id: probr
         uses: addnab/docker-run-action@v3
         with:
-          image: eknight/probr:v0.1.1 # https://github.com/probr/probr-docker
-          options: -v ${{ github.workspace }}/${{ env.PROBR_DIRECTORY }}:/probr/run
+          image: eknight/probr:v0.1.2-rc # https://github.com/probr/probr-docker
+          options: |
+            -v ${{ github.workspace }}/${{ env.PROBR_DIRECTORY }}:/probr/run
+            -v ${{ github.workspace }}/${{ env.WORKING_DIRECTORY }}/kubeconfig_cfi-eks:/root/.kube/config
+            -e 'AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}'
+            -e 'AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}'
           run: "/probr/cmd/probr"
         continue-on-error: true
 
