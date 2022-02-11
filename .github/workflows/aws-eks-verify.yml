@@ -74,7 +74,7 @@ jobs:
         id: probr
         uses: addnab/docker-run-action@v3
         with:
-          image: eknight/probr:v0.1.2-rc # https://github.com/probr/probr-docker
+          image: eknight/probr:v0.1.3-rc # https://github.com/probr/probr-docker
           options: |
             -v ${{ github.workspace }}/${{ env.PROBR_DIRECTORY }}:/probr/run
             -v ${{ github.workspace }}/${{ env.WORKING_DIRECTORY }}/kubeconfig_cfi-eks:/root/.kube/config
