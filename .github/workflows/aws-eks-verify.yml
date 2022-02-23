@@ -94,8 +94,13 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: Probr
+          name: probr-full-output
           path: ${{ github.workspace }}/${{ env.PROBR_DIRECTORY }}
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: probr-report
+          path: ${{ github.workspace }}/${{ env.PROBR_DIRECTORY }}/cucumber/cucumber_report.html
 
       - name: Destroy eks terraform
         if: always()
