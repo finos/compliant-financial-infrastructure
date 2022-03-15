@@ -13,8 +13,8 @@ env:
   TF_IN_AUTOMATION: true
   TF_INPUT: false
   TF_CLI_ARGS: "-no-color"
-  WORKING_DIRECTORY: accelerators/kubernetes/eks
-  PROBR_DIRECTORY: aws/eks/probr
+  WORKING_DIRECTORY: accelerators/kubernetes/eks/tf_cdmc_aws_eks
+  PROBR_DIRECTORY: accelerators/kubernetes/eks/probr
 
 jobs:
   validate:
