@@ -1,0 +1,242 @@
+
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Amazon Redshift Template with KMS encryption at rest'
+
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+    - Label:
+        default: S3 Bucket Settings
+      Parameters:
+        - pS3BucketName
+    - Label:
+        default: Redshift Cluster Settings
+      Parameters:
+        - pClusterIdentifier
+        - pDBName
+        - pMasterUsername
+        - pMasterUserPassword
+        - pAutomatedSnapshotRetentionPeriod
+        - pNodeType
+        - pNodeCount
+        - pSubnetId
+        - pKmsKeyId
+    ParameterLabels:
+      pClusterIdentifier:
+        default: Redshift Cluster Name
+      pDBName:
+        default: Redshift Database Name
+      pMasterUsername:
+        default: Redshift Master Username
+      pMasterUserPassword:
+        default: Redshift Master User Password
+      pAutomatedSnapshotRetentionPeriod:
+        default: Automated Snapshot Retention Period in Days
+      pNodeType:
+        default: Redshift Node Class
+      pNodeCount:
+        default: Redshift Node Count
+      pSubnetId:
+        default: Subnet to associate with the Redshift Cluster
+      pKmsKeyId:
+        default: KMS Key Id for encryption at rest
+      pS3BucketName:
+        default: S3 Bucket for Redshift Logs
+
+
+Parameters:
+  pAutomatedSnapshotRetentionPeriod:
+    Description: Number of days to retain automated SnapshotClusterIdentifier
+    Type: Number
+    Default: 1
+  pClusterIdentifier:
+    Description: The name to identify the Redshift cluster
+    Type: String
+    AllowedPattern: ^[a-z][a-z0-9\-]+$
+  pDBName:
+    Description: The name of the database
+    Type: String
+    AllowedPattern: ^[a-z][a-z0-9\-]+$
+  pKmsKeyId:
+    Description: The KMS key Id
+    Type: String
+  pMasterUsername:
+    Description: Database Master Username
+    Type: String
+    AllowedPattern: ^[a-z][a-z0-9\-]+$
+  pMasterUserPassword:
+    Description: Database Master User Password
+    Type: String
+    NoEcho: true
+  pNodeType:
+    Description: The Redshift node types
+    Type: String
+    AllowedValues:
+      - dc1.large
+      - dc2.large
+      - ds2.xlarge
+      - ds1.8xlarge
+      - dc2.8xlarge
+      - ds2.8xlarge
+  pNodeCount:
+    Description: The number of nodes to provision
+    Type: Number
+    Default: '2'
+    MinValue: '1'
+    MaxValue: '32'
+    ConstraintDescription: must be between 1 and 32
+  pSubnetId:
+    Type: AWS::EC2::Subnet::Id
+  pS3BucketName:
+    Type: String
+    Description: S3 Bucket for logging
+    AllowedPattern: ^[a-zA-Z0-9-\-_.]{3,63}
+    ConstraintDescription: Must be a valid DNS-compliant bucket name
+
+Mappings:
+  mRedshiftAccountMap:
+    us-east-1:
+      mAccount: 193672423079
+    us-east-2:
+      mAccount: 391106570357
+    us-west-1:
+      mAccount: 262260360010
+    us-west-2:
+      mAccount: 902366379725
+    ap-south-1:
+      mAccount: 865932855811
+    ap-northeast-1:
+      mAccount: 404641285394
+    ap-northeast-2:
+      mAccount: 760740231472
+    ap-southeast-1:
+      mAccount: 361669875840
+    ap-southeast-2:
+      mAccount: 762762565011
+    ca-central-1:
+      mAccount: 907379612154
+    eu-central-1:
+      mAccount: 053454850223
+    eu-west-1:
+      mAccount: 210876761215
+    eu-west-2:
+      mAccount: 307160386991
+    eu-west-3:
+      mAccount: 915173422425
+    sa-east-1:
+      mAccount: 075028567923
+
+Conditions:
+  cSingleNodeCluster: !Equals [!Ref pNodeCount, 1]
+
+Resources:
+  rS3Bucket:
+    DeletionPolicy: Retain
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref pS3BucketName
+
+  rS3BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref rS3Bucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          -
+            Sid: Put bucket policy needed for audit logging
+            Effect: Allow
+            Principal:
+              AWS:
+                Fn::Join:
+                  - ''
+                  - - 'arn:aws:iam::'
+                    - Fn::FindInMap:
+                      - "mRedshiftAccountMap"
+                      - Ref: "AWS::Region"
+                      - "mAccount"
+                    - ':user/logs'
+            Action: s3:PutObject
+            Resource:
+              Fn::Join:
+              - ''
+              - - 'arn:aws:s3:::'
+                - Ref: rS3Bucket
+                - "/*"
+          -
+            Sid: Get bucket policy needed for audit logging
+            Effect: Allow
+            Principal:
+              AWS:
+                Fn::Join:
+                  - ''
+                  - - 'arn:aws:iam::'
+                    - Fn::FindInMap:
+                      - "mRedshiftAccountMap"
+                      - Ref: "AWS::Region"
+                      - "mAccount"
+                    - ':user/logs'
+            Action: s3:GetBucketAcl
+            Resource:
+              Fn::Join:
+              - ''
+              - - 'arn:aws:s3:::'
+                - Ref: rS3Bucket
+
+  rRedshiftSubnetGroup:
+    Type: "AWS::Redshift::ClusterSubnetGroup"
+    Properties:
+      Description: !Sub ${AWS::StackName}-RedshiftClusterSubnetGroup
+      SubnetIds:
+        - !Ref pSubnetId
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-RedshiftSubnetGroup-${AWS::Region}
+
+  rRedshiftParameterGroup:
+    Type: "AWS::Redshift::ClusterParameterGroup"
+    Properties:
+      Description: Redshift Cluster Parameter Group
+      ParameterGroupFamily: redshift-1.0
+      Parameters:
+        - ParameterName: "enable_user_activity_logging"
+          ParameterValue: true
+        - ParameterName: "require_ssl"
+          ParameterValue: true
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-RedshiftParameterGroup-${AWS::Region}
+
+  rRedshiftCluster:
+    Type: "AWS::Redshift::Cluster"
+    DependsOn:
+      - rRedshiftParameterGroup
+      - rRedshiftSubnetGroup
+      - rS3BucketPolicy
+    Properties:
+      AutomatedSnapshotRetentionPeriod: !Ref pAutomatedSnapshotRetentionPeriod
+      ClusterIdentifier: !Ref pClusterIdentifier
+      ClusterParameterGroupName: !Ref rRedshiftParameterGroup
+      ClusterSubnetGroupName: !Ref rRedshiftSubnetGroup
+      ClusterType: !If [cSingleNodeCluster, single-node, multi-node]
+      DBName: !Ref pDBName
+      Encrypted: true
+      KmsKeyId: !Ref pKmsKeyId
+      LoggingProperties:
+        BucketName: !Ref rS3Bucket
+      MasterUsername: !Ref pMasterUsername
+      MasterUserPassword: !Ref pMasterUserPassword
+      NodeType: !Ref pNodeType
+      NumberOfNodes: !Ref pNodeCount
+      PubliclyAccessible: No
+      Tags:
+        - Key: Name
+          Value: !Sub ${AWS::StackName}-${AWS::Region}
+
+Outputs:
+  oRedshiftClusterId:
+    Description: Redshift Cluster Id
+    Value: !Ref rRedshiftCluster
+  oRedshiftClusterEndpointAddress:
+    Description: Redshift Endpoint Address
+    Value: !GetAtt rRedshiftCluster.Endpoint.Address
