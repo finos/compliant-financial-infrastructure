@@ -8,7 +8,7 @@ https://user-images.githubusercontent.com/6029572/157091339-1f3da590-e35a-486d-a
 
 - Banks, tech firms, cloud providers or the CDMC are accountable for creating and contributing their own service approval accelerators to Compliant Financial Infrastruture.
 - The creation of service approval accelerators is an agile, open source process and not the accountability of the CDMC Technical Spec Working Group.
-- Service approval accelerator contributors will be made aware of CDMC documentation and will be accountable for including relevant CDMC Policies and Key Control references.
+- Service approval accelerator contributors will be made aware of [CDMC Documentation](https://github.com/finos/compliant-financial-infrastructure/discussions/174#discussion-3715503) and will be accountable for including relevant CDMC Policies and Key Control references.
 - When the CDMC service approval accelerator has been created, the document is contributed by pull request to the Compliant Financial Infrastructure repository under and Apache 2 licence.
 - The Compliant Financial Infrastructure, Open Compliance for CDMC and CDMC Technical Spec Working Group will review what has been contributed by the open source contributor.
 - CDMC Policies and Control references are inherited through the Apache 2 contribution of the service approval accelerator document.
