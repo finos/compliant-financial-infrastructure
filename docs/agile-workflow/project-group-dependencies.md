@@ -17,7 +17,10 @@ https://user-images.githubusercontent.com/6029572/157091339-1f3da590-e35a-486d-a
 - Compliant Financial Infrastructure, Open Compliance for CDMC and CDMC Technical Spec Working Group maintainers review what has been contributed by the open source contributor.
 - CDMC Policies and Key Control references are inherited through the Apache 2 contribution of the service approval accelerator document.
 - If the service approval accelerator is ready for development, the pull request is merged into Compliant Financial Infrastructure and passed to Open Compliance for CDMC ready for development.
-- If the service approval accelerator is not ready for development, feedback is passed back to the original contributor, changes are made to the pull request, and Compliant Financial Infrastructure, Open Compliance for CDMC and CDMC Technical Spec Working Group maintainers review the latest changes.
+- If the service approval accelerator is not ready for development ...
+  - Feedback is passed back to the original contributor.
+  - Changes are made to the pull request.
+  - Compliant Financial Infrastructure, Open Compliance for CDMC and the CDMC Technical Spec Working Group maintainers review the latest changes.
 - The cycle is repeated until the pull request is agreed and merged.
 
 ### Process Illustration
