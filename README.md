@@ -57,7 +57,7 @@ The document and video below describes how Compliant Financial Infrastructure, O
 
 https://user-images.githubusercontent.com/6029572/157091339-1f3da590-e35a-486d-a5e2-462518d65d70.mov
 
-# How to Contribute
+# Contributing to Compliant Financial Infrastructure
 
 ## Forking, Feature Branches and Pull Requests
 
