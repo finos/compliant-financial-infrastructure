@@ -4,7 +4,11 @@ This document describes how Compliant Financial Infrastructure, Open Compliance 
 
 ## Service Approval Accelerator Review Process
 
+### Video Presentation
+
 https://user-images.githubusercontent.com/6029572/157091339-1f3da590-e35a-486d-a5e2-462518d65d70.mov
+
+### Text Description
 
 - Banks, tech firms, cloud providers or the CDMC are accountable for creating and contributing their own service approval accelerators to Compliant Financial Infrastruture.
 - The creation of service approval accelerators is an agile, open source process and not the accountability of the CDMC Technical Spec Working Group.
