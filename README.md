@@ -4,7 +4,8 @@
 <img src="https://github.com/finos/branding/blob/master/project-logos/active-project-logos/Compliant%20Financial%20Infrastructure%20Logo/Horizontal/2021_CFI_Logo_Horizontal.png?raw=true" width="450">
 
 ### Important Notice
-The Compliant Financial Infrastructure default branch has been renamed. 
+
+The Compliant Financial Infrastructure default branch has been renamed.
 
 `master` is now named `main`
 
@@ -17,12 +18,14 @@ git branch -u origin/main main
 git remote set-head origin -a
 ```
 
-For more complex branch changes, please read the following issue comment https://github.com/finos/compliant-financial-infrastructure/issues/119#issuecomment-843231539 
+For more complex branch changes, please read the following issue comment https://github.com/finos/compliant-financial-infrastructure/issues/119#issuecomment-843231539
 
 # Compliant Financial Infrastructure
+
 Compliant Financial Infrastructure accelerates the development, deployment and adoption of services provided for AWS, Azure and Google in a way that meets existing regulatory and internal security controls.
 
 ## Business Problem and Opportunity
+
 Cloud services controls and tests are used to demonstrate adherence with regulatory and internal compliance requirements mandated for financial institutions when using cloud services. The majority of cloud security incidents are due to misconfiguration; services are not secure by default, configuration is often complex, nuanced and difficult to validate. To some degree or another all financial institutions are re-inventing the wheel – institutions have similar control frameworks and each is trying to secure and stand up the same providers and services within the same regulatory frameworks.
 
 Having robust controls and tests developed and in place removes a barrier to faster adoption of cloud services such as those provided by Amazon/AWS, Microsoft/Azure and Google/GCP, among others. Addressing this barrier will benefit both financial services IT departments, many of whom are looking to move more quickly to the cloud, and the providers themselves, who wish to sell more cloud services into financial institutions.
@@ -34,15 +37,27 @@ Controls for cloud service compliance afford banks no particular strategic or co
 This FINOS project produces multiple artifacts (together forming one or multiple accelerators) that provide functional code that implements regulatory compliant configurations of cloud services with BDD tests to validate efficacy. The group review the artifacts for an accelerator and then gather feedback on process and content before iterating on additional services. A key part of the project's approach is to set quality standards across artifacts; members of all tiers can contribute to the project and ensure a common high level of quality is delivered and in less time. The group will also work with cloud service providers to produce more industry specific content and solutions.
 
 ## Project Kanban
+
 Find the [Compliant Financial Infrastructure Project Kanban](https://github.com/orgs/finos/projects/1) in the parent FINOS organisation on GitHub.
 
 # Compliant Financial Infrastructure - Agile Workflow
 
-The Agile Workflow for Compliant Financial Infrastructure falls into three main work streams which are overseen by Project Maintainers and fulfilled by the project team and wider FINOS community.
+The Agile Workflow for Compliant Financial Infrastructure and Open Compliance for CDMC falls into four main work streams which are overseen by Project Maintainers and fulfilled by the project team and wider FINOS community.
 
 - [Agile Delivery of Prioritised Work Items](https://github.com/finos/compliant-financial-infrastructure/tree/main/docs/agile-workflow#agile)
 - [Community Contributions and Pull Requests](https://github.com/finos/compliant-financial-infrastructure/tree/main/docs/agile-workflow#community)
 - [Compliant Financial Infrastructure Asynchronous Pull Request and Code Reviews](https://github.com/finos/compliant-financial-infrastructure/tree/main/docs/agile-workflow#reviews)
+- [FINOS and CDMC Project Group Dependencies](https://github.com/finos/compliant-financial-infrastructure/tree/main/project-group-dependencies.md)
+
+## Contributing CDMC Compliant Services into Compliant Financial Infrastructure and Open Compliance for CDMC
+
+The document and video below describes how Compliant Financial Infrastructure, Open Compliance for CDMC and CDMC Technical Spec Working Group reviews, accepts and merges service approval accelerators contributed into the projects from open source third parties.
+
+[FINOS and CDMC Project Group Dependencies](https://github.com/finos/compliant-financial-infrastructure/tree/main/project-group-dependencies.md)
+
+## Service Approval Accelerator Review Process
+
+https://user-images.githubusercontent.com/6029572/157091339-1f3da590-e35a-486d-a5e2-462518d65d70.mov
 
 # Contributing
 
@@ -59,7 +74,7 @@ The Agile Workflow for Compliant Financial Infrastructure falls into three main 
 
 The [Service Approval Accelerator](templates/ServiceApprovalAcceleratorTemplate.md) describes each service contributed to Compliant Financial Infrastructure alongside test cases and infrastructure as code.
 
-A single [Service Approval Accelerator](templates/ServiceApprovalAcceleratorTemplate.md) document should be contributed with every service contributed to Compliant Financial Infrastructure. 
+A single [Service Approval Accelerator](templates/ServiceApprovalAcceleratorTemplate.md) document should be contributed with every service contributed to Compliant Financial Infrastructure.
 
 _See AWS Redshift example below_.
 
@@ -67,19 +82,21 @@ _See AWS Redshift example below_.
 
 The [AWS RedShift Service Definition](https://github.com/finos/compliant-financial-infrastructure/tree/master/aws/redshift) has been created to demonstrate through example the assets required with each service contribution to Compliant Financial Infrastructure.
 
-* [Redshift Test Cases](aws/redshift/RedshiftTestCases.md) : 
-  * A document containing test cases from the point of view of AWS Redshift. 
-* [Redshift Service Approval Accelerator](aws/redshift/ServiceApprovalAcceleratorRedshift.md) : 
-  * A document containing the Service Approval Accelerator from the point of view of AWS Redshift.
-* [The Redshift Service Definition](aws/redshift/redshift_template_public.yml) : 
-  * A YAML file containing the description of the AWS Redshift service as code.
+- [Redshift Test Cases](aws/redshift/RedshiftTestCases.md) :
+  - A document containing test cases from the point of view of AWS Redshift.
+- [Redshift Service Approval Accelerator](aws/redshift/ServiceApprovalAcceleratorRedshift.md) :
+  - A document containing the Service Approval Accelerator from the point of view of AWS Redshift.
+- [The Redshift Service Definition](aws/redshift/redshift_template_public.yml) :
+  - A YAML file containing the description of the AWS Redshift service as code.
 
 ## Compliant Financial Infrastructure Mailing List
+
 Compliant Financial Infrastructure email communications are conducted through the compliant-financial-infrastructure@finos.org mailing list. Email compliant-financial-infrastructure@finos.org with questions or suggestions related to Compliant Financial Infrastructure.
 
 Subscribe to the Compliant Financial Infrastructure mailing list by sending an email to compliant-financial-infrastructure+subscribe@finos.org.
 
 ## Join the Compliant Financial Infrastructure Slack Channel
+
 Join Compliant Financial Infrastructure on the FINOS Slack by signing up at https://finos-lf.slack.com/. The Compliant Financial Infrastructure channel on Slack is found directly at https://finos-lf.slack.com/messages/compliant-financial-infrastructure/.
 
 [<img src="https://img.shields.io/badge/slack-@finos/cloud%20service%20certification-green.svg?logo=slack">](https://finos-lf.slack.com/messages/compliant-financial-infrastructure/)
