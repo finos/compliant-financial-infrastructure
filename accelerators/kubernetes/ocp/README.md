@@ -1,4 +1,4 @@
-# OpenShift Compliant Financial Infrastructure
+# OpenShift Compliant Financial Infrastructure Introduction
 
 OpenShift is a open hybrid cloud enterprise Kubernetes platform that can be installed on a number of cloud providers including AWS, Azure and GCP. 
 This section provides an opinionated approach, docuemntation and working code to implement a set of security policies laid out in the [OpenShift Security Configuration (Service Accelerator)](accelerators/kubernetes/ocp/sat_rh_ocp.adoc).
