@@ -74,9 +74,9 @@ $ oc get kubeapiserver -o=jsonpath='{range .items[0].status.conditions[?(@.type=
 
 
 a|
-* Configuring the audit log policy: https://docs.openshift.com/container-platform/4.9/security/audit-log-policy-config.html
+* Configuring the audit log policy: https://docs.openshift.com/container-platform/4.10/security/audit-log-policy-config.html
 
-* Viewing audit logs: https://docs.openshift.com/container-platform/4.9/security/audit-log-view.html#audit-log-view
+* Viewing audit logs: https://docs.openshift.com/container-platform/4.10/security/audit-log-view.html#audit-log-view
 
 * Auditing the OS: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/auditing-the-system_security-hardening
 
@@ -95,7 +95,7 @@ To install a cluster in FIPS mode, follow the instructions to install a customiz
 
 a|
 
-* Enabling FIPS Compliance: https://docs.openshift.com/container-platform/4.9/installing/installing-fips.html
+* Enabling FIPS Compliance: https://docs.openshift.com/container-platform/4.10/installing/installing-fips.html
 
 
 
@@ -150,7 +150,7 @@ All resources encrypted: secrets, configmaps
 
 
 a|
-* Encrypting ETCD: https://docs.openshift.com/container-platform/4.9/security/encrypting-etcd.html
+* Encrypting ETCD: https://docs.openshift.com/container-platform/4.10/security/encrypting-etcd.html
 
 |*Examining Encryption in Transit*
 a| With IPsec enabled, all network Types of network traffic between nodes on the OVN-Kubernetes Container Network Interface (CNI) cluster network travels through an encrypted tunnel.
@@ -173,9 +173,9 @@ With IPsec enabled, only the following network traffic flows between pods are en
 
 '''
 
-The encrypted and unencrypted flows are illustrated in this https://docs.openshift.com/container-platform/4.9/networking/ovn_kubernetes_network_provider/about-ipsec-ovn.html[diagram]
+The encrypted and unencrypted flows are illustrated in this https://docs.openshift.com/container-platform/4.10/networking/ovn_kubernetes_network_provider/about-ipsec-ovn.html[diagram]
 
-Enable IPsec for the OVN-Kubernetes network provider https://docs.openshift.com/container-platform/4.9/installing/installing_bare_metal/installing-bare-metal-network-customizations.html#modifying-nwoperator-config-startup_installing-bare-metal-network-customizations[details]:
+Enable IPsec for the OVN-Kubernetes network provider https://docs.openshift.com/container-platform/4.10/installing/installing_bare_metal/installing-bare-metal-network-customizations.html#modifying-nwoperator-config-startup_installing-bare-metal-network-customizations[details]:
 
 '''
 
@@ -219,7 +219,7 @@ spec:
 {sp} +
 
 a|
-* IPsec encryption configuration: https://docs.openshift.com/container-platform/4.9/networking/ovn_kubernetes_network_provider/about-ipsec-ovn.html
+* IPsec encryption configuration: https://docs.openshift.com/container-platform/4.10/networking/ovn_kubernetes_network_provider/about-ipsec-ovn.html
 
 
 |===
