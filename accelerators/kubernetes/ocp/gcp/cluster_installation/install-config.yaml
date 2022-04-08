@@ -21,7 +21,7 @@ networking:
     hostPrefix: 23
   machineNetwork:
   - cidr: 10.0.0.0/16
-  networkType: OVNKubernetes
+  networkType: OVNKubernetes # >>>> change to OVNKubernetes <<<<
   serviceNetwork:
   - 172.30.0.0/16
 platform:
@@ -29,5 +29,5 @@ platform:
     projectID: finos-cfi
     region: europe-west2
 publish: External
-fips: true
-pullSecret: REDACTED PULL SECRET
+fips: true  # >>>> add line to enable FIPS <<<<
+pullSecret: # >>>> REDACTED PULL SECRET <<<<
