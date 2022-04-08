@@ -5,7 +5,8 @@
 
 This documentation is provided as an addendum to the service accelerator that is part of the standard deployment and configuration of OpenShift.
 
-
+Note: This documentation relates to OpenShift 4.10 (Kubernetes 1.23). 
+ 
 === *Controls and Architectures*
 
 The information provided in the table below is compiled from product
