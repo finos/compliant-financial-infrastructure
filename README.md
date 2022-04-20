@@ -52,13 +52,12 @@ to help contributors looking for a task know where best to spend their effort.
 
 ### Key
 
-- :gem: diamond - Post-deployment validation tests exist for every aspect of the Service Accelerator Template,
+- :gem: diamond - Post-deployment validation tests exist for every aspect of the SAA,
 and all tests pass in the CI pipeline testing phase.
-- :trophy: gold - Post-deployment validation tests are automatically run in CI as part of the testing phase,
-and some tests pass in the CI pipeline testing phase.
-- :cd: silver - The service is automatically smoke tested before being merged to `main`,
-through being spun up and destroyed via CI.
-- :cookie: bronze - Infrastructure-as-code has been produced that is able to create and destroy the service,
+- :trophy: gold - Post-deployment validation tests are run in CI as part of the testing phase,
+and some tests pass.
+- :cd: silver - The service is automatically spun up and destroyed via CI before being merged to `main`.
+- :cookie: bronze - IaC has been produced that is able to create and destroy the service,
 where said service meets the SAA specification.
 - :page_facing_up: paper - A complete SAA document for this service has been mergd to `main`.
 
