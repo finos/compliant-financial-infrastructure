@@ -32,7 +32,7 @@ All using the password 'F1n0s_R3dH4t_123'
 
 'oc get oauth -o yaml -n openshift-config > oauth.yaml'
 
-- Using an editor of your choice update the file to define the HTPasswd provider, a sample oauth.yaml file can be found [here](oauth.yaml).
+- Using an editor of your choice update the file to define the HTPasswd provider, a sample oauth.yaml file can be found [here](sample_oauth.yaml).
 
 - Replace the existing OAUTH configuration with the update oauth.yaml file using the follwing command
 
