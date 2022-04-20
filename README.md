@@ -59,7 +59,7 @@ and some tests pass.
 - :cd: silver - The service is automatically spun up and destroyed via CI before being merged to `main`.
 - :cookie: bronze - IaC has been produced that is able to create and destroy the service,
 where said service meets the SAA specification.
-- :page_facing_up: paper - A complete SAA document for this service has been mergd to `main`.
+- :page_facing_up: paper - A complete SAA document for this service has been merged to `main`.
 
 ## Project Kanban
 Find the [Compliant Financial Infrastructure Project Kanban](https://github.com/orgs/finos/projects/1) in the parent FINOS organisation on GitHub.
