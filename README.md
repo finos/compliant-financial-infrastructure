@@ -43,28 +43,28 @@ to help contributors looking for a task know where best to spend their effort.
 
 |                    |         AWS         |         GCP         |        Azure        |    OpenShift     |
 | ------------------:|:-------------------:|:-------------------:|:-------------------:|:----------------:|
-| Kubernetes Cluster | :first_place_medal: | :third_place_medal: |  :page_facing_up:   | :page_facing_up: |
-|  Postgres Database |                     |                     | :third_place_medal: |                  |
-|           DynamoDB |  :page_facing_up:   |         N/A         |         N/A         |       N/A        |
-|           RedShift |  :page_facing_up:   |         N/A         |         N/A         |       N/A        |
-|                SQS |  :page_facing_up:   |         N/A         |         N/A         |       N/A        |
+| Kubernetes Cluster |      :trophy        |       :cookie:      |  :page_facing_up:   | :page_facing_up: |
+|  Postgres Database |                     |                     |      :cookie:       |                  |
+|           DynamoDB |  :page_facing_up:   |                     |                     |                  |
+|           RedShift |  :page_facing_up:   |                     |                     |                  |
+|                SQS |  :page_facing_up:   |                     |                     |                  |
 
 
 ### Key
 
-#### 💎 diamond
+#### :gem: diamond
 - Post-deployment validation tests exist for every aspect of the Service Accelerator Template,
 and all tests pass in the CI pipeline testing phase.
 
-#### :first_place_medal: gold
+#### :trophy: gold
 - Post-deployment validation tests are automatically run in CI as part of the testing phase,
 and some tests pass in the CI pipeline testing phase.
 
-#### :second_place_medal: silver
+#### :cd: silver
 - The service is automatically smoke tested before being committed to `main`,
 through being spun up and destroyed via CI.
 
-#### :third_place_medal: bronze
+#### :cookie: bronze
 - Infrastructure-as-code has been produced that is able to create and destroy the service,
 where said service meets the SAA specification.
 
