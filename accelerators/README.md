@@ -79,7 +79,7 @@ For Terraform:
 
 - Module repositories must use this three-part name format, 
 - where <NAME> reflects the type of infrastructure the module manages
-- and <PROVIDER> is the main provider where it creates that infrastructure.
+- and <CLOUD_PROVIDER> is the main provider where it creates that infrastructure.
 -  The <NAME> segment can contain additional hyphens.
 - Example: `terraform-aws-eks_cdmc`
   - (We will add the control standard to the name with an underscore segmentation)
