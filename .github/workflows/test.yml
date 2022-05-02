@@ -1,0 +1,14 @@
+on:
+  pull_request:
+    branches: 
+      - feature/badge-addition
+  
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./.github/actions/status-badge
+      id: set_badge        
+      with:
+        color: "Gold"
+        badge_name: eks-terraform
