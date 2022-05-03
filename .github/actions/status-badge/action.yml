@@ -7,15 +7,15 @@ runs:
       id: setup_badge
       run: |
         echo ::set-output name=sha::$(git rev-parse --verify HEAD)
-        if [ ${{ inputs.color == "Diamond" }} ]
+        if [[ ${{ inputs.color == "Diamond" }} ]]
         then
           color = "ccca6f"
 
-        elif [ ${{ inputs.color == "Gold" }} ]
+        elif [[ ${{ inputs.color == "Gold" }} ]]
         then
           color = "ccac00"
 
-        elif [ ${{ inputs.color == "Silver" }} ]
+        elif [[ ${{ inputs.color == "Silver" }} ]]
         then
           color = "bec9c4"
 
