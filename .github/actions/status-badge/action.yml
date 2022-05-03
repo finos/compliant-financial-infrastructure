@@ -44,7 +44,7 @@ runs:
         #COLOR: ${{ steps.setup_badge.outputs.color }}
         #GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN  }}
         NAME: eks-terraform
-        LABEL: eks-terraform
+        LABEL: 'eks-terraform'
         STATUS: Status123
         COLOR: ccca6f
         GITHUB_TOKEN: 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

@@ -14,3 +14,13 @@ jobs:
       with:
         color: "Gold"
         badge_name: eks-terraform
+    - name: Setup Badge
+      uses: RubbaBoy/BYOB@v1.2.1
+      with:
+        #NAME: ${{ inputs.badge_name }}
+        #LABEL: ${{ steps.setup_badge.outputs.sha }}
+        NAME: eks-terraform1
+        LABEL: eks-terraform1
+        STATUS: Status2
+        COLOR: ccac00
+        GITHUB_TOKEN: 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
