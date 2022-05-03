@@ -70,12 +70,13 @@ jobs:
         with:
           working-directory: ${{ env.WORKING_DIRECTORY }}
 
-      #- name: Get eks badge
-      #  uses: ./.github/actions/status-badge
-      #  id: set_badge        
-      #  with:
-      #    color: "Gold"
-      #    badge_name: eks-terraform
+      - name: Get eks badge
+        uses: ./.github/actions/status-badge
+        id: set_badge        
+        with:
+          color: "Gold"
+          badge_name: eks-terraform
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run Probr Kubernetes CIS Tests
         id: probr

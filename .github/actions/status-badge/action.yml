@@ -32,21 +32,14 @@ runs:
         fi
 
         echo ::set-output name=color::$(echo $color)    
-        echo ::set-output name=sha::$(git rev-parse --verify HEAD)      
+        echo ::set-output name=sha::$($(git rev-parse --verify HEAD:0:5))      
       shell: bash
 
     - name: Setup Badge
       uses: RubbaBoy/BYOB@v1.2.1
       with:
         NAME: ${{ inputs.badge_name }}
-        #LABEL: ${{ steps.setup_badge.outputs.sha }}
-        #NAME: eks-terraform1
         LABEL: ${{ steps.setup_badge.outputs.sha }}
         STATUS: ${{ inputs.color }}
         COLOR: ${{ steps.setup_badge.outputs.color }}
         GITHUB_TOKEN: ${{ inputs.github_token  }}
-        #NAME: eks-terraform
-        #LABEL: 'eks-terraform'
-        #STATUS: Status123
-        #COLOR: ccca6f
-        #GITHUB_TOKEN: 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
