@@ -31,9 +31,8 @@ runs:
           exit 1
         fi
 
-        echo ::set-output name=color::$(echo $color)
-        git-value=$(git rev-parse --verify HEAD)    
-        echo ::set-output name=sha::${git-value:0:5}
+        echo ::set-output name=color::$(echo $color)  
+        echo ::set-output name=sha::$(git rev-parse --short=5 --verify HEAD)  
       shell: bash
 
     - name: Setup Badge
