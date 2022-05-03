@@ -5,6 +5,8 @@ inputs:
     required: true
   badge_name:
     required: true
+  github_token:
+    required: true
 
 runs:
   using: "composite"
@@ -36,15 +38,15 @@ runs:
     - name: Setup Badge
       uses: RubbaBoy/BYOB@v1.2.1
       with:
-        #NAME: ${{ inputs.badge_name }}
+        NAME: ${{ inputs.badge_name }}
         #LABEL: ${{ steps.setup_badge.outputs.sha }}
         #NAME: eks-terraform
-        #LABEL: ${{ steps.setup_badge.outputs.sha }}
-        #STATUS: ${{ inputs.color }}
-        #COLOR: ${{ steps.setup_badge.outputs.color }}
-        #GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN  }}
-        NAME: eks-terraform
-        LABEL: 'eks-terraform'
-        STATUS: Status123
-        COLOR: ccca6f
-        GITHUB_TOKEN: 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
+        LABEL: ${{ steps.setup_badge.outputs.sha }}
+        STATUS: ${{ inputs.color }}
+        COLOR: ${{ steps.setup_badge.outputs.color }}
+        GITHUB_TOKEN: ${{ inputs.github_token  }}
+        #NAME: eks-terraform
+        #LABEL: 'eks-terraform'
+        #STATUS: Status123
+        #COLOR: ccca6f
+        #GITHUB_TOKEN: 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
