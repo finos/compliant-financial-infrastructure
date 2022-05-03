@@ -42,4 +42,4 @@ runs:
         #LABEL: ${{ steps.setup_badge.outputs.sha }}
         STATUS: ${{ inputs.color }}
         COLOR: ${{ steps.setup_badge.outputs.color }}
-        #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN  }}
