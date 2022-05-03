@@ -1,4 +1,4 @@
-![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/abc)
+![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/abcd)
 [![FINOS - Incubating](https://cdn.jsdelivr.net/gh/finos/contrib-toolbox@master/images/badge-incubating.svg)](https://finosfoundation.atlassian.net/wiki/display/FINOS/Incubating)
 [<img src="https://img.shields.io/badge/slack-@finos/compliant%20financial%20infrastructure-green.svg?logo=slack">](https://finos-lf.slack.com/messages/compliant-financial-infrastructure/)
 
