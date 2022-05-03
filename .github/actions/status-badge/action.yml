@@ -5,8 +5,7 @@ runs:
   steps:
     - name: Badge Content Setup
       id: setup_badge
-      run: |
-        echo ::set-output name=sha::$(git rev-parse --verify HEAD)
+      run: |        
         if [[ ${{ inputs.color == "Diamond" }} ]]
         then
           color = "ccca6f"
@@ -24,7 +23,8 @@ runs:
           exit 1
         fi
 
-        echo ::set-output name=color::$(echo $color)          
+        echo ::set-output name=color::$(echo $color)    
+        echo ::set-output name=sha::$(git rev-parse --verify HEAD)      
       shell: bash
 
     - name: Setup Badge
