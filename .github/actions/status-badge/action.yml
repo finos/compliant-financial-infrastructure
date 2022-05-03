@@ -47,4 +47,4 @@ runs:
         LABEL: eks-terraform
         STATUS: Status123
         COLOR: ccca6f
-        GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN  }}
+        GITHUB_TOKEN: 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
