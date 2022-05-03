@@ -29,8 +29,8 @@ runs:
           exit 1
         fi
 
-        #echo ::set-output name=color::$(echo $color)    
-        #echo ::set-output name=sha::$(git rev-parse --verify HEAD)      
+        echo ::set-output name=color::$(echo $color)    
+        echo ::set-output name=sha::$(git rev-parse --verify HEAD)      
       shell: bash
 
     #- name: Setup Badge
