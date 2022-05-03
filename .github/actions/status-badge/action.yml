@@ -38,8 +38,13 @@ runs:
       with:
         #NAME: ${{ inputs.badge_name }}
         #LABEL: ${{ steps.setup_badge.outputs.sha }}
+        #NAME: eks-terraform
+        #LABEL: ${{ steps.setup_badge.outputs.sha }}
+        #STATUS: ${{ inputs.color }}
+        #COLOR: ${{ steps.setup_badge.outputs.color }}
+        #GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN  }}
         NAME: eks-terraform
-        LABEL: ${{ steps.setup_badge.outputs.sha }}
-        STATUS: ${{ inputs.color }}
-        COLOR: ${{ steps.setup_badge.outputs.color }}
+        LABEL: label
+        STATUS: Status123
+        COLOR: ccca6f
         #GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN  }}
