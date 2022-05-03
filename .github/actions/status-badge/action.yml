@@ -33,13 +33,13 @@ runs:
         echo ::set-output name=sha::$(git rev-parse --verify HEAD)      
       shell: bash
 
-    #- name: Setup Badge
-    #    uses: RubbaBoy/BYOB@v1.2.1
-    #    with:
-    #      NAME: ${{ inputs.badge_name }}
-    #      LABEL: ${{ steps.setup_badge.outputs.sha }}
-    #      #NAME: eks-terraform
-    #      #LABEL: ${{ steps.setup_badge.outputs.sha }}
-    #      STATUS: ${{ inputs.color }}
-    #      COLOR: ${{ steps.setup_badge.outputs.color }}
-    #      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Setup Badge
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: ${{ inputs.badge_name }}
+          LABEL: ${{ steps.setup_badge.outputs.sha }}
+          #NAME: eks-terraform
+          #LABEL: ${{ steps.setup_badge.outputs.sha }}
+          STATUS: ${{ inputs.color }}
+          COLOR: ${{ steps.setup_badge.outputs.color }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
