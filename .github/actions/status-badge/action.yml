@@ -8,18 +8,18 @@ runs:
       run: |        
         if [[ ${{ inputs.color == 'Diamond' }} ]]
         then
-          color = "ccca6f"
+          color = 'ccca6f'
 
-        elif [[ ${{ inputs.color == "Gold" }} ]]
+        elif [[ ${{ inputs.color == 'Gold' }} ]]
         then
-          color = "ccac00"
+          color = 'ccac00'
 
-        elif [[ ${{ inputs.color == "Silver" }} ]]
+        elif [[ ${{ inputs.color == 'Silver' }} ]]
         then
-          color = "bec9c4"
+          color = 'bec9c4'
 
         else
-          echo "Expected input value for status badge action: Diamond, Gold, Silver"
+          echo 'Expected input value for status badge action: Diamond, Gold, Silver'
           exit 1
         fi
 
