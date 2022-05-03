@@ -15,13 +15,13 @@ jobs:
         color: "Gold"
         badge_name: eks-terraform
         github_token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Setup Badge
-      uses: RubbaBoy/BYOB@v1.2.1
-      with:
-        NAME: abcd
-        LABEL: 'abcd'
-        STATUS: Status2
-        COLOR: ccac00
-        #GITHUB_TOKEN: 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
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        #GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
+    #- name: Setup Badge
+    #  uses: RubbaBoy/BYOB@v1.2.1
+    #  with:
+    #    NAME: abcd
+    #    LABEL: 'abcd'
+    #    STATUS: Status2
+    #    COLOR: ccac00
+    #    #GITHUB_TOKEN: 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
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #    #GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}

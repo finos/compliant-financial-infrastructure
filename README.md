@@ -1,4 +1,3 @@
-![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/abcd)
 [![FINOS - Incubating](https://cdn.jsdelivr.net/gh/finos/contrib-toolbox@master/images/badge-incubating.svg)](https://finosfoundation.atlassian.net/wiki/display/FINOS/Incubating)
 [<img src="https://img.shields.io/badge/slack-@finos/compliant%20financial%20infrastructure-green.svg?logo=slack">](https://finos-lf.slack.com/messages/compliant-financial-infrastructure/)
 
@@ -45,11 +44,11 @@ to help contributors looking for a task know where best to spend their effort.
 
 |                    |         AWS         |         GCP         |        Azure        |    OpenShift     |
 | ------------------:|:-------------------:|:-------------------:|:-------------------:|:----------------:|
-| Kubernetes Cluster |  ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/eks-terraform)       |       :cookie:      |  :page_facing_up:   | :page_facing_up: |
+| Kubernetes Cluster |  ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/eks-terraform1)       |       :cookie:      |  :page_facing_up:   | :page_facing_up: |
 |  Postgres Database |                     |                     |      :cookie:       |                  |
 |           DynamoDB |  :page_facing_up:   |                     |                     |                  |
 |           RedShift |  :page_facing_up:   |                     |                     |                  |
-|                SQS |  ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/eks-terraform)   |                     |                     |                  |
+|                SQS |  ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/eks-terraform1)   |                     |                     |                  |
 
 
 ### Key
