@@ -47,7 +47,7 @@ to help contributors looking for a task know where best to spend their effort.
 |  Postgres Database |                     |                     |      :cookie:       |                  |
 |           DynamoDB |  :page_facing_up:   |                     |                     |                  |
 |           RedShift |  :page_facing_up:   |                     |                     |                  |
-|                SQS |  :page_facing_up:   |                     |                     |                  |
+|                SQS |  ![](https://byob.yarr.is/probr/probr-core/eks-terraform)   |                     |                     |                  |
 
 
 ### Key
