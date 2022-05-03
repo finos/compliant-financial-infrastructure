@@ -1,5 +1,11 @@
 name: Status Badge Action
 
+inputs:
+  color:
+    required: true
+  badge_name:
+    required: true
+
 runs:
   using: "composite"
   steps:
