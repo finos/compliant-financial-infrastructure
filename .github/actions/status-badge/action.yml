@@ -6,7 +6,7 @@ runs:
     - name: Badge Content Setup
       id: setup_badge
       run: |        
-        if [[ ${{ inputs.color == "Diamond" }} ]]
+        if [[ ${{ inputs.color == 'Diamond' }} ]]
         then
           color = "ccca6f"
 
