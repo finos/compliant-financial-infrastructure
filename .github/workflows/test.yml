@@ -18,7 +18,7 @@ jobs:
       uses: RubbaBoy/BYOB@v1.2.1
       with:
         NAME: abc
-        LABEL: abc
+        LABEL: 'abc'
         STATUS: Status2
         COLOR: ccac00
         GITHUB_TOKEN: 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
