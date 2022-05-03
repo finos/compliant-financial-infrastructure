@@ -38,9 +38,9 @@ runs:
     - name: Setup Badge
       uses: RubbaBoy/BYOB@v1.2.1
       with:
-        #NAME: ${{ inputs.badge_name }}
+        NAME: ${{ inputs.badge_name }}
         #LABEL: ${{ steps.setup_badge.outputs.sha }}
-        NAME: eks-terraform1
+        #NAME: eks-terraform1
         LABEL: ${{ steps.setup_badge.outputs.sha }}
         STATUS: ${{ inputs.color }}
         COLOR: ${{ steps.setup_badge.outputs.color }}

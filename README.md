@@ -44,11 +44,11 @@ to help contributors looking for a task know where best to spend their effort.
 
 |                    |         AWS         |         GCP         |        Azure        |    OpenShift     |
 | ------------------:|:-------------------:|:-------------------:|:-------------------:|:----------------:|
-| Kubernetes Cluster |  ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/eks-terraform1)       |       :cookie:      |  :page_facing_up:   | :page_facing_up: |
+| Kubernetes Cluster |  ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/eks-terraform)       |       :cookie:      |  :page_facing_up:   | :page_facing_up: |
 |  Postgres Database |                     |                     |      :cookie:       |                  |
 |           DynamoDB |  :page_facing_up:   |                     |                     |                  |
 |           RedShift |  :page_facing_up:   |                     |                     |                  |
-|                SQS |  ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/eks-terraform1)   |                     |                     |                  |
+|                SQS |  ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/eks-terraform)   |                     |                     |                  |
 
 
 ### Key
