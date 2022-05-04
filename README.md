@@ -53,14 +53,14 @@ to help contributors looking for a task know where best to spend their effort.
 
 ### Key
 
-- <img src="docs/_images/diamond.png" alt="diamond" width="50"/> - Post-deployment validation tests exist for every aspect of the SAA,
+- <img src="docs/_images/diamond.png" alt="diamond" width="60"/> - Post-deployment validation tests exist for every aspect of the SAA,
 and all tests pass in the CI pipeline testing phase.
-- <img src="docs/_images/gold.png" alt="diamond" width="40"/> - Post-deployment validation tests are run in CI as part of the testing phase,
+- <img src="docs/_images/gold.png" alt="gold" width="40"/> - Post-deployment validation tests are run in CI as part of the testing phase,
 and some tests pass.
-- <img src="docs/_images/silver.png" alt="diamond" width="60"/> - The service is automatically spun up and destroyed via CI before being merged to `main`.
-- <img src="docs/_images/bronze.png"  alt="diamond" width="70"/> - IaC has been produced that is able to create and destroy the service,
+- <img src="docs/_images/silver.png" alt="silver" width="60"/> - The service is automatically spun up and destroyed via CI before being merged to `main`.
+- <img src="docs/_images/bronze.png"  alt="bronze" width="40"/> - IaC has been produced that is able to create and destroy the service,
 where said service meets the SAA specification.
-- <img src="docs/_images/paper.png" alt="diamond" width="30"/> - A complete SAA document for this service has been merged to `main`.
+- <img src="docs/_images/paper.png" alt="paper" width="50"/> - A complete SAA document for this service has been merged to `main`.
 
 ## Project Kanban
 Find the [Compliant Financial Infrastructure Project Kanban](https://github.com/orgs/finos/projects/1) in the parent FINOS organisation on GitHub.
