@@ -6,8 +6,8 @@ on:
 jobs:
   badge_for_key:
     strategy:
-      matrix:
-        max-parallel: 1
+      max-parallel: 1
+      matrix:        
         badge_name: [Diamond, Gold, Silver]
     runs-on: ubuntu-latest
     steps:
