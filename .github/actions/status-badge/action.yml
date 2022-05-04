@@ -16,7 +16,7 @@ runs:
       run: |
         color=""        
         if [[ ${{ inputs.color1 == 'Diamond' }} ]]; then
-          color="ccca6f"
+          color="bec9c4"
 
         elif [[ ${{ inputs.color1 == 'Gold' }} ]]; then
           color="ccac00"
