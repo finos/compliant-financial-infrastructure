@@ -21,7 +21,7 @@ runs:
         elif [[ ${{ inputs.color }} == 'Gold' ]]; then
           badge_color="ccac00"
 
-        elif [[ ${{ inputs.color  }} == 'Paper' ]]; then
+        elif [[ ${{ inputs.color  }} == 'Silver' ]]; then
           badge_color="999999"
 
         else
