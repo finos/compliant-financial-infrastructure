@@ -16,16 +16,13 @@ runs:
       run: |
         badge_color=""        
         if [[ ${{ inputs.color }} == 'Diamond' ]]; then
-          badge_color="ccca6f"
-          echo "DEF"
+          badge_color="00007f"
 
         elif [[ ${{ inputs.color }} == 'Gold' ]]; then
           badge_color="ccac00"
 
         elif [[ ${{ inputs.color  }} == 'Silver' ]]; then
-          echo "ABC"
-          badge_color="bec9c4"
-          echo $color
+          badge_color="999999"
 
         else
           echo "Expected input value for status badge action: Diamond, Gold, Silver"
