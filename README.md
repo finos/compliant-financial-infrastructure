@@ -42,13 +42,13 @@ and automatically tested for compliance with the CDMC framework.
 This feature matrix is intended to show all current and planned services along with the current status of each,
 to help contributors looking for a task know where best to spend their effort.
 
-|                    |         AWS         |         GCP         |        Azure        |    OpenShift     |
-| ------------------:|:-------------------:|:-------------------:|:-------------------:|:----------------:|
-| Kubernetes Cluster |  ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/eks-terraform)       |       :cookie:      |  :page_facing_up:   | :page_facing_up: |
-|  Postgres Database |                                                                                              |                     |      :cookie:       |                  |
-|           DynamoDB |  :page_facing_up:                                                                            |                     |                     |                  |
-|           RedShift |  :page_facing_up:                                                                            |                     |                     |                  |
-|                SQS |                                                                                              |                     |                     |                  |
+|                    |         AWS                                                                             |         GCP                                                     |        Azure                                                 |    OpenShift                                               |
+| ------------------:|:---------------------------------------------------------------------------------------:|:--------------------------------------------------------------: |:------------------------------------------------------------:|:----------------------------------------------------------:|
+| Kubernetes Cluster | ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/eks-terraform)   | <img src="docs/_images/bronze.png"  alt="bronze" width="50"/>   |  <img src="docs/_images/paper.png" alt="paper" width="50"/>  | <img src="docs/_images/paper.png" alt="paper" width="50"/> |
+|  Postgres Database |                                                                                         |                                                                 |  <img src="docs/_images/bronze.png" alt="bronze" width="50"/>|                                                            |
+|           DynamoDB |  <img src="docs/_images/paper.png" alt="paper" width="50"/>                             |                                                                 |                                                              |                                                            |
+|           RedShift |  <img src="docs/_images/paper.png" alt="paper" width="50"/>                             |                                                                 |                                                              |                                                            |
+|                SQS |                                                                                         |                                                                 |                                                              |                                                            |
 
 
 ### Key
