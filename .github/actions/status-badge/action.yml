@@ -21,8 +21,9 @@ runs:
         elif [[ ${{ inputs.color }} == 'Gold' ]]; then
           badge_color="ccac00"
 
-        elif [[ ${{ inputs.color  }} == 'Silver' ]]; then
-          badge_color="999999"
+        elif [[ ${{ inputs.color  }} == 'Bronze' ]]; then
+          #badge_color="999999"
+          badge_color="CD7F32"
 
         else
           echo "Expected input value for status badge action: Diamond, Gold, Silver"
