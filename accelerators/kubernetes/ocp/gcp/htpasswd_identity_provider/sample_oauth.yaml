@@ -2,9 +2,9 @@ apiVersion: config.openshift.io/v1
 kind: OAuth
 metadata:
   name: cluster
-spec: # >>>> the following lines should be added <<<<
+spec:
   identityProviders:
-  - name: my_htpasswd_provider 
+  - name: htpasswd_provider 
     mappingMethod: claim 
     type: HTPasswd
     htpasswd:
