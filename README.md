@@ -55,7 +55,7 @@ to help contributors looking for a task know where best to spend their effort.
 
 - <img src="docs/_images/diamond.png" alt="diamond" width="60"/> - Post-deployment validation tests exist for every aspect of the SAA,
 and all tests pass in the CI pipeline testing phase.
-- <img src="docs/_images/gold.png" alt="gold" width="10"/> - Post-deployment validation tests are run in CI as part of the testing phase,
+- <img src="docs/_images/gold.png" alt="gold" width="40"/> - Post-deployment validation tests are run in CI as part of the testing phase,
 and some tests pass.
 - <img src="docs/_images/silver.png" alt="silver" width="50"/> - The service is automatically spun up and destroyed via CI before being merged to `main`.
 - <img src="docs/_images/bronze.png"  alt="bronze" width="50"/> - IaC has been produced that is able to create and destroy the service,

@@ -39,8 +39,7 @@ runs:
       uses: RubbaBoy/BYOB@v1.2.1
       with:
         NAME: ${{ inputs.badge_name }}
-        #LABEL: ${{ steps.setup_badge.outputs.sha }}
-        LABEL:
+        LABEL: ${{ steps.setup_badge.outputs.sha }}
         STATUS: ${{ inputs.color }}
         COLOR: ${{ steps.setup_badge.outputs.badge_color }}
         GITHUB_TOKEN: ${{ inputs.github_token  }}
