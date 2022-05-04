@@ -33,6 +33,8 @@ runs:
 
         echo ::set-output name=color::$(echo $color)  
         echo ::set-output name=sha::$(git rev-parse --short=5 --verify HEAD)  
+
+        echo $color
       shell: bash
 
     - name: Setup Badge
