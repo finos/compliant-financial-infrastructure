@@ -15,14 +15,14 @@ runs:
       id: setup_badge
       run: |
         color=""        
-        if [[ ${{ inputs.color1 == 'Diamond' }} ]]; then
-          color="bec9c4"
-          echo "ABC"
+        if [[ ${{ inputs.color1 }} == 'Diamond' ]]; then
+          color="ccca6f"
+          echo "DEF"
 
-        elif [[ ${{ inputs.color1 == 'Gold' }} ]]; then
+        elif [[ ${{ inputs.color1 }} == 'Gold' ]]; then
           color="ccac00"
 
-        elif [[ ${{ inputs.color1 == 'Silver' }} ]]; then
+        elif [[ ${{ inputs.color1  }} == 'Silver' ]]; then
           echo "ABC"
           color="bec9c4"
           echo $color
