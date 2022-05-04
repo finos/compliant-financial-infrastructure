@@ -53,7 +53,7 @@ to help contributors looking for a task know where best to spend their effort.
 
 ### Key
 
-- ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/Diamond) diamond - Post-deployment validation tests exist for every aspect of the SAA,
+- ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/eks-terraform) diamond - Post-deployment validation tests exist for every aspect of the SAA,
 and all tests pass in the CI pipeline testing phase.
 - ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/Gold) gold - Post-deployment validation tests are run in CI as part of the testing phase,
 and some tests pass.
