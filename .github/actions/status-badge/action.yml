@@ -25,6 +25,7 @@ runs:
         elif [[ ${{ inputs.color == 'Silver' }} ]]
         then
           color="bec9c4"
+          echo $color
 
         else
           echo "Expected input value for status badge action: Diamond, Gold, Silver"
