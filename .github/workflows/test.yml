@@ -16,7 +16,7 @@ jobs:
     - uses: ./.github/actions/status-badge
       id: set_badge        
       with:
-        color: "Gold"
+        color: "Paper"
         badge_name: eks-terraform
         github_token: ${{ secrets.GITHUB_TOKEN }}
     #- name: Setup Badge
