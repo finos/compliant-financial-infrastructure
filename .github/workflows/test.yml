@@ -4,16 +4,18 @@ on:
       - feature/badge-addition
   
 jobs:
-  test:
+  badge_for_key:
+    strategy:
+      matrix:
+        badge_name: [Diamond, Gold, Silver]
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-    - uses: ./.github/actions/status-badge
+    - uses: ./.github/actions/key-badge
       id: set_badge        
       with:
-        color: "Gold"
-        badge_name: eks-terraform
+        badge_name: ${{ matrix.badge_name }}
         github_token: ${{ secrets.GITHUB_TOKEN }}
     #- name: Setup Badge
     #  uses: RubbaBoy/BYOB@v1.2.1

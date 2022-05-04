@@ -45,19 +45,19 @@ to help contributors looking for a task know where best to spend their effort.
 |                    |         AWS         |         GCP         |        Azure        |    OpenShift     |
 | ------------------:|:-------------------:|:-------------------:|:-------------------:|:----------------:|
 | Kubernetes Cluster |  ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/eks-terraform)       |       :cookie:      |  :page_facing_up:   | :page_facing_up: |
-|  Postgres Database |                     |                     |      :cookie:       |                  |
-|           DynamoDB |  :page_facing_up:   |                     |                     |                  |
-|           RedShift |  :page_facing_up:   |                     |                     |                  |
-|                SQS |  ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/eks-terraform)   |                     |                     |                  |
+|  Postgres Database |                                                                                              |                     |      :cookie:       |                  |
+|           DynamoDB |  :page_facing_up:                                                                            |                     |                     |                  |
+|           RedShift |  :page_facing_up:                                                                            |                     |                     |                  |
+|                SQS |                                                                                              |                     |                     |                  |
 
 
 ### Key
 
-- :gem: diamond - Post-deployment validation tests exist for every aspect of the SAA,
+- ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/Diamond) diamond - Post-deployment validation tests exist for every aspect of the SAA,
 and all tests pass in the CI pipeline testing phase.
-- :trophy: gold - Post-deployment validation tests are run in CI as part of the testing phase,
+- ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/Gold) gold - Post-deployment validation tests are run in CI as part of the testing phase,
 and some tests pass.
-- :cd: silver - The service is automatically spun up and destroyed via CI before being merged to `main`.
+- ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/Silver) silver - The service is automatically spun up and destroyed via CI before being merged to `main`.
 - :cookie: bronze - IaC has been produced that is able to create and destroy the service,
 where said service meets the SAA specification.
 - :page_facing_up: paper - A complete SAA document for this service has been merged to `main`.
