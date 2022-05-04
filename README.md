@@ -53,11 +53,11 @@ to help contributors looking for a task know where best to spend their effort.
 
 ### Key
 
-- ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/eks-terraform) diamond - Post-deployment validation tests exist for every aspect of the SAA,
+- ![Diamond](docs\_images\diamond.png) diamond - Post-deployment validation tests exist for every aspect of the SAA,
 and all tests pass in the CI pipeline testing phase.
-- ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/Gold) gold - Post-deployment validation tests are run in CI as part of the testing phase,
+- ![Gold](docs\_images\gold.png) gold - Post-deployment validation tests are run in CI as part of the testing phase,
 and some tests pass.
-- ![](https://byob.yarr.is/shuchitach/compliant-financial-infrastructure/Silver) silver - The service is automatically spun up and destroyed via CI before being merged to `main`.
+- ![Silver](docs\_images\silver.png) silver - The service is automatically spun up and destroyed via CI before being merged to `main`.
 - :cookie: bronze - IaC has been produced that is able to create and destroy the service,
 where said service meets the SAA specification.
 - :page_facing_up: paper - A complete SAA document for this service has been merged to `main`.
