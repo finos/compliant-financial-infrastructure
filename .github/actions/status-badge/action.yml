@@ -22,6 +22,7 @@ runs:
           color="ccac00"
 
         elif [[ ${{ inputs.color1 == 'Silver' }} ]]; then
+          echo "ABC"
           color="bec9c4"
           echo $color
 
