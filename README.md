@@ -60,7 +60,7 @@ and some tests pass.
 - <img src="docs/_images/silver.png" alt="silver" width="50"/> - The service is automatically spun up and destroyed via CI before being merged to `main`.
 - <img src="docs/_images/bronze.png"  alt="bronze" width="50"/> - IaC has been produced that is able to create and destroy the service,
 where said service meets the SAA specification.
-- <img src="docs/_images/paper.png" alt="paper" width="50"/> - A complete SAA document for this service has been merged to `main`.
+- <img src="docs/_images/paper.png" alt="paper" width="45"/> - A complete SAA document for this service has been merged to `main`.
 
 ## Project Kanban
 Find the [Compliant Financial Infrastructure Project Kanban](https://github.com/orgs/finos/projects/1) in the parent FINOS organisation on GitHub.

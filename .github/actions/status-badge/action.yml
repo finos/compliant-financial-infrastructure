@@ -22,8 +22,7 @@ runs:
           badge_color="ccac00"
 
         elif [[ ${{ inputs.color  }} == 'Paper' ]]; then
-          #badge_color="999999"
-          badge_color="9FC5E8"
+          badge_color="999999"
 
         else
           echo "Expected input value for status badge action: Diamond, Gold, Silver"
@@ -40,8 +39,7 @@ runs:
       uses: RubbaBoy/BYOB@v1.2.1
       with:
         NAME: ${{ inputs.badge_name }}
-        #LABEL: ${{ steps.setup_badge.outputs.sha }}
-        LABEL:
+        LABEL: ${{ steps.setup_badge.outputs.sha }}
         STATUS: ${{ inputs.color }}
         COLOR: ${{ steps.setup_badge.outputs.badge_color }}
         GITHUB_TOKEN: ${{ inputs.github_token  }}
