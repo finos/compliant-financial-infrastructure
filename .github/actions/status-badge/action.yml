@@ -1,7 +1,7 @@
 name: Status Badge Action
 
 inputs:
-  color1:
+  color:
     required: true
   badge_name:
     required: true
@@ -14,29 +14,28 @@ runs:
     - name: Badge Content Setup
       id: setup_badge
       run: |
-        color=""        
-        if [[ ${{ inputs.color1 }} == 'Diamond' ]]; then
-          color="ccca6f"
+        badge_color=""        
+        if [[ ${{ inputs.color }} == 'Diamond' ]]; then
+          badge_color="ccca6f"
           echo "DEF"
 
-        elif [[ ${{ inputs.color1 }} == 'Gold' ]]; then
-          color="ccac00"
+        elif [[ ${{ inputs.color }} == 'Gold' ]]; then
+          badge_color="ccac00"
 
-        elif [[ ${{ inputs.color1  }} == 'Silver' ]]; then
+        elif [[ ${{ inputs.color  }} == 'Silver' ]]; then
           echo "ABC"
-          color="bec9c4"
+          badge_color="bec9c4"
           echo $color
 
         else
           echo "Expected input value for status badge action: Diamond, Gold, Silver"
-          color=""
           exit 1
         fi
 
-        echo ::set-output name=color::$(echo $color)  
+        echo ::set-output name=badge_color::$(echo $badge_color)  
         echo ::set-output name=sha::$(git rev-parse --short=5 --verify HEAD)  
 
-        echo $color
+        echo $badge_color
       shell: bash
 
     - name: Setup Badge
@@ -45,5 +44,5 @@ runs:
         NAME: ${{ inputs.badge_name }}
         LABEL: ${{ steps.setup_badge.outputs.sha }}
         STATUS: ${{ inputs.color }}
-        COLOR: ${{ steps.setup_badge.outputs.color }}
+        COLOR: ${{ steps.setup_badge.outputs.badge_color }}
         GITHUB_TOKEN: ${{ inputs.github_token  }}
