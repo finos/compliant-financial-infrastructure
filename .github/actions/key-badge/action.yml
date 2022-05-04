@@ -1,0 +1,45 @@
+name: Status Badge Action
+
+inputs:
+  color:
+    required: true
+  badge_name:
+    required: true
+  github_token:
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Badge Content Setup
+      id: setup_badge
+      run: |        
+        if [[ ${{ inputs.badge_name == 'Diamond' }} ]]
+        then
+          color="ccca6f"
+
+        elif [[ ${{ inputs.badge_name == 'Gold' }} ]]
+        then
+          color="ccac00"
+
+        elif [[ ${{ inputs.badge_name == 'Silver' }} ]]
+        then
+          color="bec9c4"
+
+        else
+          echo "Expected input value for status badge action: Diamond, Gold, Silver"
+          exit 1
+        fi
+
+        echo ::set-output name=color::$(echo $color)  
+        echo ::set-output name=sha::$(git rev-parse --short=5 --verify HEAD)  
+      shell: bash
+
+    - name: Setup Key Badge
+      uses: RubbaBoy/BYOB@v1.2.1
+      with:
+        NAME: ${{ inputs.badge_name }}
+        LABEL: 
+        STATUS: ${{ inputs.badge_name }}
+        COLOR: ${{ steps.setup_badge.outputs.color }}
+        GITHUB_TOKEN: ${{ inputs.github_token  }}
