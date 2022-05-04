@@ -1,7 +1,7 @@
 name: Status Badge Action
 
 inputs:
-  color:
+  color1:
     required: true
   badge_name:
     required: true
@@ -13,19 +13,21 @@ runs:
   steps:
     - name: Badge Content Setup
       id: setup_badge
-      run: |        
-        if [[ ${{ inputs.color == 'Diamond' }} ]]; then
+      run: |
+        color=""        
+        if [[ ${{ inputs.color1 == 'Diamond' }} ]]; then
           color="ccca6f"
 
-        elif [[ ${{ inputs.color == 'Gold' }} ]]; then
+        elif [[ ${{ inputs.color1 == 'Gold' }} ]]; then
           color="ccac00"
 
-        elif [[ ${{ inputs.color == 'Silver' }} ]]; then
+        elif [[ ${{ inputs.color1 == 'Silver' }} ]]; then
           color="bec9c4"
           echo $color
 
         else
           echo "Expected input value for status badge action: Diamond, Gold, Silver"
+          color=""
           exit 1
         fi
 
