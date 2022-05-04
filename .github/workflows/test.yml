@@ -5,18 +5,19 @@ on:
   
 jobs:
   badge_for_key:
-    strategy:
-      max-parallel: 1
-      matrix:        
-        badge_name: [Diamond, Gold, Silver]
+    #strategy:
+    #  max-parallel: 1
+    #  matrix:        
+    #    badge_name: [Diamond, Gold, Silver]
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-    - uses: ./.github/actions/key-badge
+    - uses: ./.github/actions/status-badge
       id: set_badge        
       with:
-        badge_name: ${{ matrix.badge_name }}
+        color: "Diamond"
+        badge_name: eks-terraform
         github_token: ${{ secrets.GITHUB_TOKEN }}
     #- name: Setup Badge
     #  uses: RubbaBoy/BYOB@v1.2.1
