@@ -14,16 +14,13 @@ runs:
     - name: Badge Content Setup
       id: setup_badge
       run: |        
-        if [[ ${{ inputs.color == 'Diamond' }} ]]
-        then
+        if [[ ${{ inputs.color == 'Diamond' }} ]]; then
           color="ccca6f"
 
-        elif [[ ${{ inputs.color == 'Gold' }} ]]
-        then
+        elif [[ ${{ inputs.color == 'Gold' }} ]]; then
           color="ccac00"
 
-        elif [[ ${{ inputs.color == 'Silver' }} ]]
-        then
+        elif [[ ${{ inputs.color == 'Silver' }} ]]; then
           color="bec9c4"
           echo $color
 
