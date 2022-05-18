@@ -1,0 +1,18 @@
+apiVersion: compliance.openshift.io/v1alpha1
+kind: ScanSettingBinding
+metadata:
+  name: cis
+  namespace: openshift-compliance
+profiles:
+  # Node checks
+  - name: ocp4-cis-nodes
+    kind: Profile
+    apiGroup: compliance.openshift.io/v1alpha1
+  # Platform checks
+  - name: ocp4-cis
+    kind: Profile
+    apiGroup: compliance.openshift.io/v1alpha1
+settingsRef:
+  name: finos-setting
+  kind: ScanSetting
+  apiGroup: compliance.openshift.io/v1alpha1

@@ -1,0 +1,12 @@
+apiVersion: compliance.openshift.io/v1alpha1
+kind: ScanSetting
+metadata:
+  name: periodic-setting
+  namespace: openshift-compliance
+schedule: "0 1 * * *"
+rawResultStorage:
+    size: "2Gi"
+    rotation: 5
+roles:
+  - worker
+  - master

@@ -1,0 +1,18 @@
+apiVersion: compliance.openshift.io/v1alpha1
+kind: ScanSettingBinding
+metadata:
+  name: periodic-e8
+  namespace: openshift-compliance
+profiles:
+  # Node checks
+  - name: rhcos4-e8
+    kind: Profile
+    apiGroup: compliance.openshift.io/v1alpha1
+  # Platform checks
+  - name: ocp4-e8
+    kind: Profile
+    apiGroup: compliance.openshift.io/v1alpha1
+settingsRef:
+  name: periodic-setting
+  kind: ScanSetting
+  apiGroup: compliance.openshift.io/v1alpha1

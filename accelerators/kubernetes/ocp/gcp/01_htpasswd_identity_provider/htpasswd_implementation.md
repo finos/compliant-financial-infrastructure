@@ -50,5 +50,9 @@ A sample [script](add_cluster_admin_role.sh) is provided to automate this.
 
 Once the above steps have been completed you can now login into the OCP cluster using the new credentials. 
 
+5. Delete the KubeAdmin user 
+
+'oc delete secrets kubeadmin -n kube-system'
+
 ## The next step is to complete the day 2 customisations needed to meet the policied in the service accelerator. 
 
