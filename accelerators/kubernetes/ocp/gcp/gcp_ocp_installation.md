@@ -4,6 +4,6 @@ This folder provides documentation and working code to install and customise Ope
 
 There are three main steps to complete installation and customisation:
 
-1. [Cluster Installation](accelerators/kubernetes/ocp/gcp/cluster_installation)
-2. [Configure an identity provider](accelerators/kubernetes/ocp/gcp/htpasswd-identity-provider)
+1. [Cloud provider setup and Cluster Installation](accelerators/kubernetes/ocp/gcp/cluster_installation)
+2. [Identity provider configuration](accelerators/kubernetes/ocp/gcp/htpasswd-identity-provider)
 3. [Day Two Customisation](accelerators/kubernetes/ocp/gcp/day2_customisation)
