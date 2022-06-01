@@ -95,14 +95,12 @@ rhcos4-e8                  83s
 rhcos4-moderate            82s
 rhcos4-nerc-cip            82s
 
-
-
 2. The next step is to set up the compliance scanning
 
 'oc create -f 05-scansettingbinding-finos-default.yaml'
 'oc create -f 06-scansettingbinding-finos-default.yaml'
 
-We can now check that the compliance scan is running 
+3. We can now check that the compliance scan is running 
 
 'oc get compliancesuite -w'
 
@@ -114,7 +112,7 @@ finos-compliance-rhcos4   RUNNING     NOT-AVAILABLE
 finos-compliance-rhcos4   AGGREGATING   NOT-AVAILABLE
 finos-compliance-rhcos4   DONE          COMPLIANT
 
-Once the scan is complete the following command can be used to check the complaince scan results so that an compliance scan failures can be remediated
+4. Once the scan is complete the following command can be used to check the complaince scan results so that an compliance scan failures can be remediated
 
 'oc get ccr'
 
@@ -122,44 +120,9 @@ To just list the compliance checks that failed the following command can be used
 
 'oc get compliancecheckresults -lcompliance.openshift.io/scan-name=rhcos4-finos-finos-master,compliance.openshift.io/check-status=FAIL'
 
-Once any remediation have be made the following command can be used to rescan a scan, in this example we are again looking at the *rhcos4-finos-finos-master* scan
+Once any remediation have be made the following command can be used to rescan a scan, in this example we are again looking at the *rhcos4-finos-finos-master* scan. A [script](rescan.sh) to trigger a rescan of all scans has been provided. 
 
 'oc annotate compliancescans/ocp4-finos-finos-node-master compliance.openshift.io/rescan='
 
-
-
-
-adrianhammond@adhammon-mac 02_day2_customisation % oc get compliancescans
-NAME                           PHASE     RESULT
-ocp4-finos-finos               DONE      NON-COMPLIANT
-ocp4-finos-finos-node-master   DONE      NON-COMPLIANT
-ocp4-finos-finos-node-worker   DONE      NON-COMPLIANT
-rhcos4-finos-finos-master      RUNNING   NOT-AVAILABLE
-rhcos4-finos-finos-worker      RUNNING   NOT-AVAILABLE
-adrianhammond@adhammon-mac 02_day2_customisation % oc annotate compliancescans/ocp4-finos-finos compliance.openshift.io/rescan= --overwrite
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-install the operator
-oc project openshift-compliance
-oc get profilebundle.compliance
-oc get profilebundle.compliance ocp4 -o yaml
-oc get profile.compliance -lcompliance.openshift.io/profile-bundle=rhcos4
-oc get profile.compliance -lcompliance.openshift.io/profile-bundle=ocp4
-oc get profile.compliance ocp4-cis -o yaml
-oc get rule.compliance ocp4-scc-limit-privilege-escalation -n openshift-compliance -oyaml
 
 
