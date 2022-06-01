@@ -1,4 +1,5 @@
-#! bin/bash
+#!/bin/bash
+# Script to trigger rescan
 oc annotate compliancescans/ocp4-finos-finos compliance.openshift.io/rescan=
 oc annotate compliancescans/ocp4-finos-finos-node-master compliance.openshift.io/rescan=
 oc annotate compliancescans/ocp4-finos-finos-node-worker compliance.openshift.io/rescan=
