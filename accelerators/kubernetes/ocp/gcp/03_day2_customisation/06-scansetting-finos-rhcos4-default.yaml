@@ -1,0 +1,12 @@
+apiVersion: compliance.openshift.io/v1alpha1
+kind: ScanSettingBinding
+metadata:
+  name: finos-compliance-rhcos4
+profiles:
+  - name: rhcos4-finos-finos
+    kind: Profile
+    apiGroup: compliance.openshift.io/v1alpha1
+settingsRef:
+  name: default-auto-apply
+  kind: ScanSetting
+  apiGroup: compliance.openshift.io/v1alpha1
