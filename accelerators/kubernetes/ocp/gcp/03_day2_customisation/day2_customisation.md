@@ -106,24 +106,13 @@ We can now check that the compliance scan is running
 
 'oc get compliancesuite -w'
 
-NAME                      PHASE       RESULT
-finos-compliance-ocp4     LAUNCHING   NOT-AVAILABLE
-finos-compliance-rhcos4   PENDING     
-finos-compliance-rhcos4   PENDING     
-finos-compliance-rhcos4   PENDING     
-finos-compliance-ocp4     LAUNCHING   NOT-AVAILABLE
-finos-compliance-ocp4     LAUNCHING   NOT-AVAILABLE
-finos-compliance-rhcos4   PENDING     NOT-AVAILABLE
-finos-compliance-ocp4     RUNNING     NOT-AVAILABLE
-finos-compliance-rhcos4   LAUNCHING   NOT-AVAILABLE
+NAME                      PHASE     RESULT
+finos-compliance-ocp4     DONE      NON-COMPLIANT
+finos-compliance-rhcos4   RUNNING   NOT-AVAILABLE
 finos-compliance-rhcos4   LAUNCHING   NOT-AVAILABLE
 finos-compliance-rhcos4   RUNNING     NOT-AVAILABLE
-finos-compliance-ocp4     RUNNING     NOT-AVAILABLE
-finos-compliance-ocp4     RUNNING     NOT-AVAILABLE
-finos-compliance-ocp4     AGGREGATING   NOT-AVAILABLE
-finos-compliance-ocp4     AGGREGATING   NOT-AVAILABLE
-finos-compliance-ocp4     AGGREGATING   NOT-AVAILABLE
-finos-compliance-ocp4     DONE          NON-COMPLIANT
+finos-compliance-rhcos4   AGGREGATING   NOT-AVAILABLE
+finos-compliance-rhcos4   DONE          COMPLIANT
 
 Once the scan is complete the following command can be used to check the complaince scan results so that an compliance scan failures can be remediated
 
