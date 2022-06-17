@@ -4,4 +4,4 @@ azure/postgresql/.DS_Store
 .DS_Store
 .terraform*
 terraform.tfstate*
-oauth.yaml
+accelerators/kubernetes/ocp/gcp/01_htpasswd_identity_provider/oauth.yaml
