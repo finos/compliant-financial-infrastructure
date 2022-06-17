@@ -4,3 +4,4 @@ azure/postgresql/.DS_Store
 .DS_Store
 .terraform*
 terraform.tfstate*
+oauth.yaml
