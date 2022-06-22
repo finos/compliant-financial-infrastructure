@@ -78,7 +78,7 @@ to ensure that they are ready for quick and easy adoption by users in highly reg
 
 ## Feature Matrix
 
-CFI provides IaC for multiple services in multiple environments. 
+CFI addresses multiple services, across multiple providers.
 These services range from not-yet-implemented, to fully featured,
 and automatically tested for compliance with the CDMC framework.
 
