@@ -11,7 +11,7 @@ Cloud services controls and tests are used to demonstrate adherence with regulat
 
 Having robust controls and tests developed and in place removes a barrier to faster adoption of cloud services such as those provided by Amazon/AWS, Microsoft/Azure and Google/GCP, among others. Addressing this barrier will benefit both financial services IT departments, many of whom are looking to move more quickly to the cloud, and the providers themselves, who wish to sell more cloud services into financial institutions.
 
-Controls for cloud service compliance afford banks no particular strategic or competitive advantage while also representing a task something all banks who look to deploy more applications onto the cloud needs to do, and as such are conducive to being developed together as part of the "public commons". The focused project and collaboration with other banks will increase the amount of controls produced and, it's expected, help increase the rate of adoption of cloud services.
+Controls for cloud service compliance afford firms no particular strategic or competitive advantage while also representing a task something all firms who look to deploy more applications onto the cloud needs to do, and as such are conducive to being developed together as part of the "public commons". The focused project and collaboration with other firms will increase the amount of controls produced and, it's expected, help increase the rate of adoption of cloud services.
 
 ## What is the meaning of "compliant" in CFI?
 
@@ -33,7 +33,7 @@ A template for the Service Approval Accelerator can be found [here](templates/Se
 
 ### Creating Compliant Infrastructure
 
-Infrastructure as Code (IaC) is a key component of every modern bank's infrastructure efforts. 
+Infrastructure as Code (IaC) is a key component of every modern firm's infrastructure efforts. 
 
 Many times, however, our community has seen the task of IaC development fall on the shoulders of engineers and developers who are not fully familiar with the required technologies.
 This results in added time, stress, and risks as teams become familiar with the necessary technologies.
