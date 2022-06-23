@@ -29,6 +29,8 @@ instead our goal is to streamline adoption and free up security teams to focus o
 
 This effort is only made possible through the efforts of our Financial Institution members to provide insight and guidance in the development of Service Approval Accelerators.
 
+A template for the Service Approval Accelerator can be found [here](templates/ServiceApprovalAcceleratorTemplate.md).
+
 ### Creating Compliant Infrastructure
 
 Infrastructure as Code (IaC) is a key component of every modern bank's infrastructure efforts. 
