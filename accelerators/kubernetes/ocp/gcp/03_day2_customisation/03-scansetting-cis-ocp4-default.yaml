@@ -1,12 +1,12 @@
 apiVersion: compliance.openshift.io/v1alpha1
 kind: ScanSettingBinding
 metadata:
-  name: finos-compliance-ocp4
+  name: cis-compliance-ocp4
 profiles:
-  - name: ocp4-finos-finos
+  - name: ocp4-cis
     kind: Profile
     apiGroup: compliance.openshift.io/v1alpha1
-  - name: ocp4-finos-finos-node
+  - name: ocp4-cis-node
     kind: Profile
     apiGroup: compliance.openshift.io/v1alpha1
 settingsRef:

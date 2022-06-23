@@ -1,8 +1,0 @@
-apiVersion: compliance.openshift.io/v1alpha1
-kind: ProfileBundle
-metadata:
-  name: rhcos4-finos
-  namespace: openshift-compliance
-spec:
-  contentFile: ssg-rhcos4-ds.xml
-  contentImage: quay.io/jhrozek/ocp4-openscap-content:finos-wip
