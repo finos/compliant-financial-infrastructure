@@ -2,7 +2,7 @@
 
 To complete the setup of the cluster to meet the policy requirements laid out in the [OpenShift Security Configuration (Service Accelerator)](accelerators/kubernetes/ocp/sat_rh_ocp.adoc) we will use the [OpenShift Compliance Operator](https://docs.openshift.com/container-platform/4.10/security/compliance_operator/compliance-operator-release-notes.html). The Compliance Operator lets OpenShift Container Platform administrators describe the required compliance state of a cluster and provides them with an overview of gaps and ways to remediate them. The compliance operator support a number of [compliance standards](https://docs.openshift.com/container-platform/4.10/security/compliance_operator/compliance-operator-supported-profiles.html for example NIST and CIS. 
 
-To meet the policies as laid out in the service accelerator the CIS OpenShuft Benchamrk profile will be used.
+To meet the policies as laid out in the service accelerator the OpenShift CIS Benchamrk profile will be used.
 
 The compliance operator is a Customer Resource Definition (CRD) and includes a number of kubernetes objects, more details on these object can be found in [here](https://github.com/openshift/compliance-operator/blob/master/doc/crds.md). 
 
@@ -68,11 +68,11 @@ rhcos4-moderate      23s
 rhcos4-nerc-cip      23s*
 
 
-7. The next step is to set up the compliance scanning, the profile that is being used will auto-remiate any complaince issues where possible
+7. The next step is to set up the compliance scanning, the default profiles that is being used will run scans on a daily base and, where possible. auto-remiate any complaince issues.
 
 `oc create -f 03-scansettingbinding-cis-default.yaml`
 
-8. We can now check that the compliance scan is running 
+8. The creation of the scan object will trigger the initial complaince scan to take please, to check that the compliance scan is running use the following command: 
 
 `oc get compliancesuite -w`
 
@@ -93,7 +93,15 @@ cis-compliance-ocp4   DONE          NON-COMPLIANT*
 
 `oc get ccr`
 
-To just list the compliance checks that failed the following command can be used, in this example we are looking at the *rhcos-finos-finos-master' scan is being reviewed
+Initially a number of the compliance checks will FAIL, many of them will be remediated automatically by the compliance operator. This remediation process can take sometime (hours). 
+
+The OCP CIS Benchmark consists of three sets of policies:
+
+- *ocp-cis* for Cluster polies
+- *ocp-node-master* for control node policies
+- *ocp-node-worker* for compute node policies
+
+The following commmands can be used to do compliance checks for each of the above policies. The examples below look for compliance checks that have *FAILED*, to check for policies that have passed use *PASS* or policies that require manual remediation use *MANUAL*.
 
 `oc get compliancecheckresults -l compliance.openshift.io/scan-name=ocp4-cis,compliance.openshift.io/check-status=FAIL`
 
@@ -101,7 +109,7 @@ To just list the compliance checks that failed the following command can be used
 
 `oc get compliancecheckresults -l compliance.openshift.io/scan-name=ocp4-cis-node-worker,compliance.openshift.io/check-status=FAIL`
 
-Once any remediation have be made the following command can be used to rescan a scan, in this example we are again looking at the *rhcos4-finos-finos-master* scan. A [script](rescan.sh) to trigger a rescan of all scans has been provided. 
+Once any remediation have be made the following commands can be used to trigger a compliance rescan. A [script](rescan.sh) to trigger a rescan of all scans has been provided. 
 
 `oc annotate compliancescans/ocp4-cis compliance.openshift.io/rescan=`
 
@@ -109,4 +117,4 @@ Once any remediation have be made the following command can be used to rescan a 
 
 `oc annotate compliancescans/ocp4-cis-node-worker compliance.openshift.io/rescan=`
 
-
+The compliance operator will auto-remiate all CIS policies with the exception of those policies that the CIS define as requirement manual rediation. In the next section we will address these [manual remdiations](accelerators/kubernetes/ocp/gcp/04_remediation_of_manual_CIS_controls).

@@ -31,14 +31,10 @@ Following are the high level steps to complete OCP installation, including the s
 
 Once the cluster installation completes, which normally takes 30-40 minutes, the installer output includes the OCP console url, kubeadmin userid and password and KUBECONFIG.
 
-To confirm that FIPS and OVNKubernetes changes have been implemeted log onto the cluster and run the following commands.
-
-1. ## NEED TO ADD A CHECK FOR FIPS - CAN THIS BE DONE VIA OC?
-2. Check OVNKubernetes by using the follwing command 
+FIPS compliance is managed via the OpenShift Compliance Operator, which will be discussed later. To confirm that the OVNKubernetes SDN has been  implemeted log into the cluster and run the following commands.
 
 `oc describe network.config/cluster` 
 
 Check the output for 'Network Type:  OVNKubernetes'
-
 
 The next step of the installation process is to set up an identity provider. An example using [HTPASSWD](htpassed-identity-provider) has been provided. OCP supports a number of identity providers, more detail can be found [here](https://docs.openshift.com/container-platform/4.10/authentication/understanding-identity-provider.html)

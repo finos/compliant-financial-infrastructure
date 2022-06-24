@@ -1,9 +1,8 @@
 # OpenShift Compliant Financial Infrastructure
 
-OpenShift uses certificates to encrypt the communication with the Web Console as well as applications exposed as Routes. Without any further customisation the install process will create self-signed certificates. While these work they usually trigger severe security warnings about unknown certificates in Web Browsers and should be replace with approved certificates for both the API and router endpoints. The following uses [acme.sh](https://github.com/acmesh-official/acme.sh) and [Let's Encrypt](https://letsencrypt.org/) and can be used for PoC purposes only.
+OpenShift uses certificates to encrypt the communication with the Web Console as well as applications exposed as Routes. Without any further customisation the install process will create self-signed certificates. While these work they usually trigger severe security warnings about unknown certificates in Web Browsers and should be replaced with approved certificates for both the API and router endpoints. The following steps uses [acme.sh](https://github.com/acmesh-official/acme.sh) and [Let's Encrypt](https://letsencrypt.org/) this example is for PoC purposes and should a firms approved certificates should be used for a production deployment. 
 
 ## Day 2 Replace API and Router Certificates
-
 
 1. Install [acme.sh](https://github.com/acmesh-official/acme.sh) a number of installation options are provided in [here](https://github.com/acmesh-official/acme.sh#1-how-to-install)
 
