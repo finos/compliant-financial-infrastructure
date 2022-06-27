@@ -101,7 +101,7 @@ The OCP CIS Benchmark consists of three sets of policies:
 - *ocp-node-master* for control node policies
 - *ocp-node-worker* for compute node policies
 
-The following commmands can be used to do compliance checks for each of the above policies. The examples below look for compliance checks that have *FAILED*, to check for policies that have passed use *PASS* or policies that require manual remediation use *MANUAL*.
+The following commmands can be used to do compliance checks for each of the above policies. The examples below look for compliance checks that have *FAILED*, to check for policies that have passed use *PASS* or policies that require manual evaluation use *MANUAL*.
 
 `oc get compliancecheckresults -l compliance.openshift.io/scan-name=ocp4-cis,compliance.openshift.io/check-status=FAIL`
 
