@@ -26,7 +26,7 @@ _**Template Notes:**_
 
 - _If anything in the above baseline is to be excluded or handled differently, provide details in this section_
 _following the format demonstrated in section 3: [Extensions to the Baseline](#3-extensions-to-the-baseline)._
-- _If no ammendments are necessary, simply provide the following text:_
+- _If no amendments are necessary, simply provide the following text:_
 
 All guidelines provided by the aforementioned baseline are to be followed without modification or exception.
 
@@ -39,7 +39,7 @@ _**Template Notes:**_
 - _The example below is actually covered by a different CIS control, 5.5.1,_
 _but I'm adding a custom version here simply for demonstration of formatting._
 
-### 1.2.32 Ensure deployment from an unauthorized container registry is denied
+### 1. Ensure deployment from an unauthorized container registry is denied
 
 **Profile Applicability:**
 - Level 2 - Master Node
