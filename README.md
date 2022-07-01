@@ -24,8 +24,8 @@ comprehensive standard that is suited to accelerate adoption in highly regulated
 ### Defining Compliant Infrastructure
 
 It must be noted that every institution is made up of highly skilled professionals who collaborate to define what _compliance_ means within their firm.
-As such, _compliance_ may mean something different from one institution to the next. The goal of CFI is _not_ to create a single solution that all firms must adhere to,
-instead our goal is to streamline adoption and free up security teams to focus on less redundant activities.
+As such, _compliance_ may mean something different from one institution to the next. The goal of CFI is _not_ to create a single solution 
+that all firms must adhere to, instead our goal is to streamline adoption and free up security teams to focus on non-redundant activities.
 
 This effort is only made possible through the efforts of our Financial Institution members to provide insight and guidance in the development of Service Approval Accelerators.
 
