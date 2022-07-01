@@ -35,7 +35,7 @@ All guidelines provided by the aforementioned baseline are to be followed withou
 _**Template Notes:**_
 
 - _Use this section to provide a summary of any additional measures that must be taken in addition to the baseline._
-- _Formatting for extensions and ammendments should imitate the CIS benchmark format as closely as possible._
+- _Formatting for extensions and amendments should imitate the CIS benchmark format as closely as possible._
 - _The example below is actually covered by a different CIS control, 5.5.1,_
 _but I'm adding a custom version here simply for demonstration of formatting._
 
