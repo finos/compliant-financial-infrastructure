@@ -9,18 +9,18 @@ _**Template Notes:**_
 
 _**Template Notes:**_
 
-- _Text here may be ommitted, or optionally used to provide any supplemental information related to the baseline._
+- _Text here may be omitted, or optionally used to provide any supplemental information related to the baseline._
 - _We will aim to stick to CIS as much as possible, though the specific benchmark will be changed on a case-by-case basis._
 - _Multiple benchmarks may be linked if required for full compliance coverage._
 
 The policies included in the following document(s) are required for compliance,
-unless otherwise noted in section 2: [Ammendments to the Baseline](#2-ammendments-to-the-baseline)
+unless otherwise noted in section 2: [Amendments to the Baseline](#2-ammendments-to-the-baseline)
 
 | Standard | Name | Link |
 |---|---|---|
 | CIS      | Kubernetes V1.23 Benchmark v1.0.1 | [downloads.cisecurity.org](https://downloads.cisecurity.org/#/) |
 
-## 2. Ammendments to the Baseline
+## 2. Amendments to the Baseline
 
 _**Template Notes:**_
 
