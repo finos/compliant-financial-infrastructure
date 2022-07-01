@@ -38,7 +38,7 @@ Infrastructure as Code (IaC) is a key component of every modern firm's infrastru
 Many times, however, our community has seen the task of IaC development fall on the shoulders of engineers and developers who are not fully familiar with the required technologies.
 This results in added time, stress, and risks as teams become familiar with the necessary technologies.
 
-In other cases, we see nearly identical IaC efforts being undertaken by multiple teams within a single business unit, resulting in uncessesary costs and delays.
+In other cases, we see nearly identical IaC efforts being undertaken by multiple teams within a single business unit, resulting in unncessesary costs and delays.
 
 And most importantly, we have seen teams struggling to follow best-practices
 (even when their most senior people are leading the charge) because these technologies are constantly changing.
@@ -55,7 +55,7 @@ A key element to compliance is _validating the result of an activity_. This is a
 In addition to technology-specific automated tests and scans in the code repository, our community believes that it is essential to provide
 the tools necessary to ensure that infrastructure is compliant after it has been deployed into an environment.
 
-In some cases, full compliance may only be possible (or preferrable) when deployed behind a firewall or with other similar contexts not reflected by the IaC code.
+In some cases, full compliance may only be possible (or preferable) when deployed behind a firewall or with other similar contexts not reflected by the IaC code.
 In these cases, only post-deployment validation will provide confidence that a deployment is actually prod-ready.
 
 To organize and facilitate these tests, our community uses the (Probr)[http://github.com/probr] test harness to create tests for each service.
