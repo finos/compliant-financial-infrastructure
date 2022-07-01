@@ -11,11 +11,60 @@ Cloud services controls and tests are used to demonstrate adherence with regulat
 
 Having robust controls and tests developed and in place removes a barrier to faster adoption of cloud services such as those provided by Amazon/AWS, Microsoft/Azure and Google/GCP, among others. Addressing this barrier will benefit both financial services IT departments, many of whom are looking to move more quickly to the cloud, and the providers themselves, who wish to sell more cloud services into financial institutions.
 
-Controls for cloud service compliance afford banks no particular strategic or competitive advantage while also representing a task something all banks who look to deploy more applications onto the cloud needs to do, and as such are conducive to being developed together as part of the "public commons". The focused project and collaboration with other banks will increase the amount of controls produced and, it's expected, help increase the rate of adoption of cloud services.
+Controls for cloud service compliance afford firms no particular strategic or competitive advantage while also representing a task something all firms who look to deploy more applications onto the cloud needs to do, and as such are conducive to being developed together as part of the "public commons". The focused project and collaboration with other firms will increase the amount of controls produced and, it's expected, help increase the rate of adoption of cloud services.
 
-## Approach and Proposed Solution
+## What is the meaning of "compliant" in CFI?
 
-This FINOS project produces multiple artifacts for each CFI service.
+Our community intends to create an authoritative source for _defining, creating, and validating_ compliant infrastructure for financial services.
+As detailed in [the following section](#services--workflows), our community focuses on these three key offerings.
+
+Our compliance definition comes from the an extension of a baseline into a
+comprehensive standard that is suited to accelerate adoption in highly regulated environements.
+
+### Defining Compliant Infrastructure
+
+It must be noted that every institution is made up of highly skilled professionals who collaborate to define what _compliance_ means within their firm.
+As such, _compliance_ may mean something different from one institution to the next. The goal of CFI is _not_ to create a single solution 
+that all firms must adhere to, instead our goal is to streamline adoption and free up security teams to focus on non-redundant activities.
+
+This effort is only made possible through the efforts of our Financial Institution members to provide insight and guidance in the development of Service Approval Accelerators.
+
+A template for the Service Approval Accelerator can be found [here](templates/ServiceApprovalAcceleratorTemplate.md).
+
+### Creating Compliant Infrastructure
+
+Infrastructure as Code (IaC) is a key component of every modern firm's infrastructure efforts. 
+
+Many times, however, our community has seen the task of IaC development fall on the shoulders of engineers and developers who are not fully familiar with the required technologies.
+This results in added time, stress, and risks as teams become familiar with the necessary technologies.
+
+In other cases, we see nearly identical IaC efforts being undertaken by multiple teams within a single business unit, resulting in unncessesary costs and delays.
+
+And most importantly, we have seen teams struggling to follow best-practices
+(even when their most senior people are leading the charge) because these technologies are constantly changing.
+
+By developing _registry-ready resources_ in an open source context, specialists from all over can come together to create a solid foundation for IaC efforts.
+
+In most cases, our community uses Terraform for our IaC. As noted [below](#services--workflows), these are developed in a way that can be
+individually reviewed by your security teams and imported to a firm registry for extention or consumption.
+
+### Validating Compliant Infrastructure
+
+A key element to compliance is _validating the result of an activity_. This is a pillar to the CFI efforts.
+
+In addition to technology-specific automated tests and scans in the code repository, our community believes that it is essential to provide
+the tools necessary to ensure that infrastructure is compliant after it has been deployed into an environment.
+
+In some cases, full compliance may only be possible (or preferable) when deployed behind a firewall or with other similar contexts not reflected by the IaC code.
+In these cases, only post-deployment validation will provide confidence that a deployment is actually prod-ready.
+
+To organize and facilitate these tests, our community uses the (Probr)[http://github.com/probr] test harness to create tests for each service.
+These tests are run in our validation pipelines after a deployment is complete,
+and can also be run independently in any environment regardless of how the service was deployed.
+
+## Services & Workflows
+
+As noted [above](#what-is-the-meaning-of-compliant-in-cfi), our community produces multiple artifacts for each CFI service.
 Where necessary, we have segmented the aforementioned artifacts across multiple repositories
 to ensure that they are ready for quick and easy adoption by users in highly regulated environments.
 
@@ -29,12 +78,9 @@ to ensure that they are ready for quick and easy adoption by users in highly reg
 1. An automated pipeline to execute the post-deployment tests and apply accurate badges to the service
     - CI pipelines should exist in this repo to tie together all other elements
 
-Continue reading the following section, _Feature Matrix_,
-for more information about the current status of CFI services.
-
 ## Feature Matrix
 
-CFI provides multiple services, across multiple clouds. 
+CFI addresses multiple services, across multiple providers.
 These services range from not-yet-implemented, to fully featured,
 and automatically tested for compliance with the CDMC framework.
 
