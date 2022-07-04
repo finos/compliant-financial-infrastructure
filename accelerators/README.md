@@ -70,16 +70,18 @@ pending relocation).
 If the code has not yet been extracted, it should be in a subdirectory.
 Otherwise, it should be linked as a git submodule.
 
-Be sure to follow the technology-specific registry guidelines in the event
-that they conflict with these naming guidelines.
-
 #### Naming Conventions for IaC
 
-- All lowercase
-- Underscore delimiters
-- First value is an abbreviation of the IaC technology name
-- Second value is an abbreviation of the control standard
-- Third and final value is the service name, matching the directory name
-- Format:
-`<technology-abbreviation>_<control-standard>_<cloud-provider>_<service-name>`
-- Example: `tf_cdmc_gcp_gke`
+Be sure to follow the technology-specific registry guidelines in the event
+that they conflict with the guidelines noted below.
+
+For Terraform:
+
+- Module repositories must use this three-part name format, 
+- where <NAME> reflects the type of infrastructure the module manages
+- and <CLOUD_PROVIDER> is the main provider where it creates that infrastructure.
+-  The <NAME> segment can contain additional hyphens.
+- Example: `terraform-aws-eks_cdmc`
+  - (We will add the control standard to the name with an underscore segmentation)
+
+<sub>Adapted from [Terraform Registry - Publishing Modules](https://www.terraform.io/registry/modules/publish)</sub>
