@@ -30,14 +30,18 @@ Router endpoint:
     - authenticate with GCP using 'gcloud init' go through the dialog to initiase the connection 
     - in the .acme.sh use following command to issue the certificates
       
-      `acme.sh --issue -d api.finos1.ahamgcp.com --dns dns_gcloud`
-      `acme.sh --issue -d *.apps.finos1.ahamgcp.com --dns dns_gcloud`
+      ```bash
+      acme.sh --issue -d api.finos1.ahamgcp.com --dns dns_gcloud
+      acme.sh --issue -d *.apps.finos1.ahamgcp.com --dns dns_gcloud
+      ```
 
     - move the certificates from the acme.sh path to a known working directory, for this example we are using *home*/certificates/api and *home*/certificates/router
 
-      ```acme.sh --install-cert -d api.finos1.ahamgcp.com --cert-file /Users/*home*/certificates/api/cert.pem --key-file /Users/*home*/certificates/api/key.pem --fullchain-file /Users/*home*/certificates/api/fullchain.pem --ca-file /Users/*home*/certificates/api/ca.cer```
+      ```bash
+      acme.sh --install-cert -d api.finos1.ahamgcp.com --cert-file /Users/*home*/certificates/api/cert.pem --key-file /Users/*home*/certificates/api/key.pem --fullchain-file /Users/*home*/certificates/api/fullchain.pem --ca-file /Users/*home*/certificates/api/ca.cer
 
-      ```acme.sh --install-cert -d *.apps.finos1.ahamgcp.com --cert-file /Users/*home*/certificates/router/cert.pem --key-file /Users/*home*/certificates/router/key.pem --fullchain-file /Users/*home*/certificates/router/fullchain.pem --ca-file /Users/*home*/certificates/router/ca.cer```
+      acme.sh --install-cert -d *.apps.finos1.ahamgcp.com --cert-file /Users/*home*/certificates/router/cert.pem --key-file /Users/*home*/certificates/router/key.pem --fullchain-file /Users/*home*/certificates/router/fullchain.pem --ca-file /Users/*home*/certificates/router/ca.cer
+      ```
 
       check that the certificates exist in the target directories.
 
@@ -55,12 +59,14 @@ Router endpoint:
 
     `oc get apiserver cluster -o yaml`
     
-    *servingCerts:
+    *servingCerts:*
+    ```yaml
     namedCertificates:
     - names:
       - api.finos1.ahamgcp.com
       servingCertificate:
-        name: api-certs*
+        name: api-certs
+     ```
 
     - The changes will be rolled out which will take a few minutes to check progress use the following command
 
@@ -69,13 +75,14 @@ Router endpoint:
       The following output shows that the change has been made, do not proceed until progressing is false
 
 
-      *NAME             VERSION   AVAILABLE   PROGRESSING   DEGRADED   SINCE   MESSAGE
-kube-apiserver   4.10.3    True        True          False      98m     NodeInstallerProgressing: 3 nodes are at revision 9; 0 nodes have achieved new revision 10
-kube-apiserver   4.10.3    True        True          False      98m     NodeInstallerProgressing: 3 nodes are at revision 9; 0 nodes have achieved new revision 10
-kube-apiserver   4.10.3    True        True          False      98m     NodeInstallerProgressing: 3 nodes are at revision 9; 0 nodes have achieved new revision 10
-kube-apiserver   4.10.3    True        True          False      98m     NodeInstallerProgressing: 3 nodes are at revision 9; 0 nodes have achieved new revision 11
-kube-apiserver   4.10.3    True        True          False      102m    NodeInstallerProgressing: 2 nodes are at revision 9; 1 nodes are at revision 11
-kube-apiserver   4.10.3    True        False         False      122m *
+|NAME         |VERSION  |AVAILABLE    |PROGRESSING |DEGRADED |SINCE |MESSAGE |
+| ----------- | ------- | ----------- | ---------- | ------- | ---- | --------- |
+|kube-apiserver  | 4.10.3  |  True    |    True     |     False   |   98m   |  NodeInstallerProgressing: 3 nodes are at revision 9; 0 nodes have achieved new revision 10 |
+|kube-apiserver  | 4.10.3  |  True    |    True     |     False   |   98m  |   NodeInstallerProgressing: 3 nodes are at revision 9; 0 nodes have achieved new revision 10 |
+|kube-apiserver |  4.10.3  |  True    |    True      |    False    |  98m   |  NodeInstallerProgressing: 3 nodes are at revision 9; 0 nodes have achieved new revision 10 |
+|kube-apiserver  | 4.10.3  |  True    |    True     |     False   |   98m   |  NodeInstallerProgressing: 3 nodes are at revision 9; 0 nodes have achieved new revision 11 |
+|kube-apiserver |  4.10.3  |  True    |    True     |     False   |   102m  |  NodeInstallerProgressing: 2 nodes are at revision 9; 1 nodes are at revision 11 |
+|kube-apiserver |  4.10.3  |  True    |    False    |     False   |   122m |
 
 Once completed you will need to log back into the API server. To confirm that the new certificate is being used the following curl command can be used:
 

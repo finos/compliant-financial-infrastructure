@@ -34,14 +34,16 @@ Below we will decribe both the installation and configuration of the FINOS profi
 
 `oc get csv -n openshift-compliance -w`
 
-*NAME                          DISPLAY               VERSION   REPLACES   PHASE
-compliance-operator.v0.1.49   Compliance Operator   0.1.49               Pending
+```console
+NAME                         DISPLAY             VERSION   REPLACES   PHASE   
+compliance-operator.v0.1.49  Compliance Operator 0.1.49               Pending 
 
-NAME                          DISPLAY               VERSION   REPLACES   PHASE
-compliance-operator.v0.1.49   Compliance Operator   0.1.49               Installing
+NAME                         DISPLAY             VERSION   REPLACES   PHASE   
+compliance-operator.v0.1.49  Compliance Operator 0.1.49              Installing
 
-NAME                          DISPLAY               VERSION   REPLACES   PHASE
-compliance-operator.v0.1.49   Compliance Operator   0.1.49               Succeeded*
+NAME                         DISPLAY             VERSION   REPLACES   PHASE   
+compliance-operator.v0.1.49  Compliance Operator 0.1.49              Succeeded
+```
 
 `oc get deploy -n openshift-compliance`
 
@@ -53,7 +55,8 @@ compliance-operator   1/1     1            1           66s*
 
 `oc get profiles.compliance`
 
-*NAME                 AGE
+```console
+NAME                 AGE
 ocp4-cis             31s
 ocp4-cis-node        32s
 ocp4-e8              31s
@@ -65,7 +68,8 @@ ocp4-pci-dss         31s
 ocp4-pci-dss-node    31s
 rhcos4-e8            24s
 rhcos4-moderate      23s
-rhcos4-nerc-cip      23s*
+rhcos4-nerc-cip      23s
+```
 
 
 7. The next step is to set up the compliance scanning, the default profiles that is being used will run scans on a daily base and, where possible. auto-remiate any complaince issues.
@@ -76,7 +80,8 @@ rhcos4-nerc-cip      23s*
 
 `oc get compliancesuite -w`
 
-*NAME                  PHASE       RESULT
+```console
+NAME                  PHASE       RESULT
 cis-compliance-ocp4   LAUNCHING   NOT-AVAILABLE
 cis-compliance-ocp4   LAUNCHING   NOT-AVAILABLE
 cis-compliance-ocp4   LAUNCHING   NOT-AVAILABLE
@@ -87,7 +92,8 @@ cis-compliance-ocp4   AGGREGATING   NOT-AVAILABLE
 cis-compliance-ocp4   AGGREGATING   NOT-AVAILABLE
 cis-compliance-ocp4   AGGREGATING   NOT-AVAILABLE
 cis-compliance-ocp4   DONE          NON-COMPLIANT
-cis-compliance-ocp4   DONE          NON-COMPLIANT*
+cis-compliance-ocp4   DONE          NON-COMPLIANT
+```
 
 9. Once the scan is complete the following command can be used to check the complaince scan results so that an compliance scan failures can be remediated
 
@@ -103,18 +109,22 @@ The OCP CIS Benchmark consists of three sets of policies:
 
 The following commmands can be used to do compliance checks for each of the above policies. The examples below look for compliance checks that have *FAILED*, to check for policies that have passed use *PASS* or policies that require manual evaluation use *MANUAL*.
 
-`oc get compliancecheckresults -l compliance.openshift.io/scan-name=ocp4-cis,compliance.openshift.io/check-status=FAIL`
+```bash
+oc get compliancecheckresults -l compliance.openshift.io/scan-name=ocp4-cis,compliance.openshift.io/check-status=FAIL
 
-`oc get compliancecheckresults -l compliance.openshift.io/scan-name=ocp4-cis-node-master,compliance.openshift.io/check-status=FAIL`
+oc get compliancecheckresults -l compliance.openshift.io/scan-name=ocp4-cis-node-master,compliance.openshift.io/check-status=FAIL
 
-`oc get compliancecheckresults -l compliance.openshift.io/scan-name=ocp4-cis-node-worker,compliance.openshift.io/check-status=FAIL`
+oc get compliancecheckresults -l compliance.openshift.io/scan-name=ocp4-cis-node-worker,compliance.openshift.io/check-status=FAIL
+```
 
 Once any remediation have be made the following commands can be used to trigger a compliance rescan. A [script](rescan.sh) to trigger a rescan of all scans has been provided. 
 
-`oc annotate compliancescans/ocp4-cis compliance.openshift.io/rescan=`
+```bash
+oc annotate compliancescans/ocp4-cis compliance.openshift.io/rescan=
 
-`oc annotate compliancescans/ocp4-cis-node-master compliance.openshift.io/rescan=`
+oc annotate compliancescans/ocp4-cis-node-master compliance.openshift.io/rescan=
 
-`oc annotate compliancescans/ocp4-cis-node-worker compliance.openshift.io/rescan=`
+oc annotate compliancescans/ocp4-cis-node-worker compliance.openshift.io/rescan=
+```
 
 The compliance operator will auto-remiate all CIS policies with the exception of those policies that the CIS define as requirement manual rediation. In the next section we will address these [manual remdiations](accelerators/kubernetes/ocp/gcp/04_remediation_of_manual_CIS_controls).
