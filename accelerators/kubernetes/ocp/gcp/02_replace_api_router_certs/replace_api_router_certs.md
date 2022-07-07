@@ -75,7 +75,7 @@ Router endpoint:
       The following output shows that the change has been made, do not proceed until progressing is false
 
 
-``console`
+``console
 NAME              VERSION    AVAILABLE    PROGRESSING   DEGRADED   SINCE    MESSAGE 
 kube-apiserver    4.10.3     True         True          False      98m     NodeInstallerProgressing: 3 nodes are at revision 9; 0 nodes have achieved new revision 10 
 kube-apiserver    4.10.3     True         True          False      98m     NodeInstallerProgressing: 3 nodes are at revision 9; 0 nodes have achieved new revision 10 
@@ -84,6 +84,7 @@ kube-apiserver    4.10.3     True         True          False      98m     NodeI
 kube-apiserver    4.10.3     True         True          False      102m    NodeInstallerProgressing: 2 nodes are at revision 9; 1 nodes are at revision 11 
 kube-apiserver    4.10.3     True         False         False      122m 
 ```
+
 
 Once completed you will need to log back into the API server. To confirm that the new certificate is being used the following curl command can be used:
 
