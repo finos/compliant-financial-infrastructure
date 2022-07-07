@@ -69,6 +69,7 @@ ocp4-pci-dss-node    31s
 rhcos4-e8            24s
 rhcos4-moderate      23s
 rhcos4-nerc-cip      23s
+```
 
 
 7. The next step is to set up the compliance scanning, the default profiles that is being used will run scans on a daily base and, where possible. auto-remiate any complaince issues.
