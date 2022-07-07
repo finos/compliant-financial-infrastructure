@@ -79,7 +79,8 @@ compliance-operator   1/1     1            1           66s*
 
 `oc get compliancesuite -w`
 
-*NAME                  PHASE       RESULT
+```console
+NAME                  PHASE       RESULT
 cis-compliance-ocp4   LAUNCHING   NOT-AVAILABLE
 cis-compliance-ocp4   LAUNCHING   NOT-AVAILABLE
 cis-compliance-ocp4   LAUNCHING   NOT-AVAILABLE
@@ -90,7 +91,8 @@ cis-compliance-ocp4   AGGREGATING   NOT-AVAILABLE
 cis-compliance-ocp4   AGGREGATING   NOT-AVAILABLE
 cis-compliance-ocp4   AGGREGATING   NOT-AVAILABLE
 cis-compliance-ocp4   DONE          NON-COMPLIANT
-cis-compliance-ocp4   DONE          NON-COMPLIANT*
+cis-compliance-ocp4   DONE          NON-COMPLIANT
+```
 
 9. Once the scan is complete the following command can be used to check the complaince scan results so that an compliance scan failures can be remediated
 
