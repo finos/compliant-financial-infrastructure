@@ -55,20 +55,20 @@ compliance-operator   1/1     1            1           66s*
 
 `oc get profiles.compliance`
 
-|NAME|                 AGE|
-| --- | --- |
-|ocp4-cis |            31s|
-|ocp4-cis-node  |      32s|
-|ocp4-e8      |        31s|
-|ocp4-moderate   |     31s|
-|ocp4-moderate-node |  31s|
-|ocp4-nerc-cip  |      31s|
-|ocp4-nerc-cip-node  | 31s|
-|ocp4-pci-dss    |     31s|
-|ocp4-pci-dss-node  |  31s|
-|rhcos4-e8      |      24s|
-|rhcos4-moderate  |    23s|
-|rhcos4-nerc-cip   |   23s|
+```console
+NAME                 AGE
+ocp4-cis             31s
+ocp4-cis-node        32s
+ocp4-e8              31s
+ocp4-moderate        31s
+ocp4-moderate-node   31s
+ocp4-nerc-cip        31s
+ocp4-nerc-cip-node   31s
+ocp4-pci-dss         31s
+ocp4-pci-dss-node    31s
+rhcos4-e8            24s
+rhcos4-moderate      23s
+rhcos4-nerc-cip      23s
 
 
 7. The next step is to set up the compliance scanning, the default profiles that is being used will run scans on a daily base and, where possible. auto-remiate any complaince issues.
