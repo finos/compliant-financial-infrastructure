@@ -35,12 +35,15 @@ Below we will decribe both the installation and configuration of the FINOS profi
 `oc get csv -n openshift-compliance -w`
 
 |NAME                         |DISPLAY             |VERSION   |REPLACES  | PHASE   |
+| -------                     | --------           | -------- | -------- | --------|
 |compliance-operator.v0.1.49  |Compliance Operator |0.1.49    |          | Pending |
 
 |NAME                         |DISPLAY             |VERSION   |REPLACES  | PHASE   |
+| -------                     | --------           | -------- | -------- | --------|
 |compliance-operator.v0.1.49  |Compliance Operator |0.1.49    |          |Installing|
 
 |NAME                         |DISPLAY             |VERSION   |REPLACES  | PHASE   |
+| -------                     | --------           | -------- | -------- | --------|
 |compliance-operator.v0.1.49  |Compliance Operator |0.1.49    |          |Succeeded |
 
 `oc get deploy -n openshift-compliance`
