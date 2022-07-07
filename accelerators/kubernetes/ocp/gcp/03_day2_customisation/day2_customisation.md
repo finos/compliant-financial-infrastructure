@@ -34,17 +34,16 @@ Below we will decribe both the installation and configuration of the FINOS profi
 
 `oc get csv -n openshift-compliance -w`
 
-|NAME                         |DISPLAY             |VERSION   |REPLACES  | PHASE   |
-| -------                     | --------           | -------- | -------- | --------|
-|compliance-operator.v0.1.49  |Compliance Operator |0.1.49    |          | Pending |
+```console
+NAME                         DISPLAY             VERSION   REPLACES   PHASE   
+compliance-operator.v0.1.49  Compliance Operator 0.1.49               Pending 
 
-|NAME                         |DISPLAY             |VERSION   |REPLACES  | PHASE   |
-| -------                     | --------           | -------- | -------- | --------|
-|compliance-operator.v0.1.49  |Compliance Operator |0.1.49    |          |Installing|
+NAME                         DISPLAY             VERSION   REPLACES   PHASE   
+compliance-operator.v0.1.49  Compliance Operator 0.1.49              Installing
 
-|NAME                         |DISPLAY             |VERSION   |REPLACES  | PHASE   |
-| -------                     | --------           | -------- | -------- | --------|
-|compliance-operator.v0.1.49  |Compliance Operator |0.1.49    |          |Succeeded |
+NAME                         DISPLAY             VERSION   REPLACES   PHASE   
+compliance-operator.v0.1.49  Compliance Operator 0.1.49              Succeeded
+```
 
 `oc get deploy -n openshift-compliance`
 
@@ -57,6 +56,7 @@ compliance-operator   1/1     1            1           66s*
 `oc get profiles.compliance`
 
 |NAME|                 AGE|
+| --- | --- |
 |ocp4-cis |            31s|
 |ocp4-cis-node  |      32s|
 |ocp4-e8      |        31s|
