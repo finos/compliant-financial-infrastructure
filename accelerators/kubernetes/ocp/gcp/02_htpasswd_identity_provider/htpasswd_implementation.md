@@ -15,7 +15,7 @@ An example htpasswd file can be found [here](htpasswd), this file contains the f
 finos-admin-1, finos-admin-2, finos-admin-3 
 finos-user-1, finos-user-2, finos-user-3 
 
-All using the password *F1n0s_R3dH4t_123* If this file is used then start at step 3.
+All using the password *F1n0s_R3dH4t_123* If this file is to be used then start at step 3.
 
 1. Create an HTPasswd file with the first administrator or user acounts that you require
 
@@ -43,6 +43,43 @@ oc get oauth -o yaml -n openshift-config > oauth.yaml
 ```
 
     - Using an editor of your choice update *oauth.yaml* to define the HTPasswd provider, a sample *spec:* definition can be found [here](sample_htpassed_provider_oauth.yaml).
+
+    Below is an example of an updated oauth.yaml
+
+    ```yaml
+    apiVersion: v1
+items:
+- apiVersion: config.openshift.io/v1
+  kind: OAuth
+  metadata:
+    annotations:
+      include.release.openshift.io/ibm-cloud-managed: "true"
+      include.release.openshift.io/self-managed-high-availability: "true"
+      include.release.openshift.io/single-node-developer: "true"
+      release.openshift.io/create-only: "true"
+    creationTimestamp: "2022-07-08T08:08:43Z"
+    generation: 2
+    name: cluster
+    ownerReferences:
+    - apiVersion: config.openshift.io/v1
+      kind: ClusterVersion
+      name: version
+      uid: 57050271-afec-463f-81e5-78f7089805ad
+    resourceVersion: "120271"
+    uid: a9270143-99a1-43f7-ab89-519d5705d740
+  spec:   
+    identityProviders:
+    - name: my_htpasswd_provider
+      mappingMethod: claim
+      type: HTPasswd
+      htpasswd:
+        fileData:
+          name: htpass-secret
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
+    ```
 
     - Replace the existing OAUTH configuration with the updated oauth.yaml file using the follwing command
 
@@ -104,5 +141,5 @@ oc delete secrets kubeadmin -n kube-system
 ```
 
 
-The next [step](accelerators/kubernetes/ocp/gcp/02_replace_api_router_certs) is replace the self signed certificates for the API Server and Router. 
+The next [step](accelerators/kubernetes/ocp/gcp/03_replace_api_router_certs) will replace the self signed certificates for the API Server and Router. 
 

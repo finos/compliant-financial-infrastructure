@@ -23,14 +23,14 @@ Following are the high level steps to complete OCP installation, including the s
     - Run the OCP installer to create the *install-config* file that will be used to implement install time customisations. Here is an example command: 
 
 ```shell
-./openshift-install create cluster-config --dir=/Users/adrianhammond/ocp_clusters/finosocp
+./openshift-install create cluster-config --dir=/Users/*home*/ocp_clusters/finosocp
 ```
 
     - Edit the install-config YAML file to implement FIPS and OVNKubernetes, here is an example [config-yaml](sample-install-config.yaml)
     - Run the OCP installer to create the cluster. Here is an example command:
 
 ```shell
-./openshift-install create cluster --dir=/Users/adrianhammond/ocp_clusters/finosocp --log-level debug
+./openshift-install create cluster --dir=/Users/*home*/ocp_clusters/finosocp --log-level debug
 ```
 
 Once the cluster installation completes, which normally takes 30-40 minutes, the installer output includes the OCP console url, kubeadmin userid and password and KUBECONFIG. 
@@ -38,7 +38,7 @@ Once the cluster installation completes, which normally takes 30-40 minutes, the
 To access the cluster via a system:admin user use the following command:
 
 ```shell
-export KUBECONFIG=/Users/adrianhammond/ocp_clusters/finosocp/auth/kubeconfig
+export KUBECONFIG=/Users/*home*/ocp_clusters/finosocp/auth/kubeconfig
 ```
 
 
@@ -61,4 +61,4 @@ Status:
     172.30.0.0/16
 ```
 
-The next step of the installation process is to set up an identity provider. An example using [HTPASSWD](htpassed-identity-provider) has been provided. OCP supports a number of identity providers, more detail can be found [here](https://docs.openshift.com/container-platform/4.10/authentication/understanding-identity-provider.html)
+The next step of the installation process is to set up an identity provider. An example using [HTPASSWD](accelerators/kubernetes/ocp/gcp/02_htpasswd_identity_provider) has been provided. OCP supports a number of identity providers, more detail can be found [here](https://docs.openshift.com/container-platform/4.10/authentication/understanding-identity-provider.html)
