@@ -16,23 +16,33 @@ Below we will decribe both the installation and configuration of the FINOS profi
 
 1. Create the compliance operator namespace
 
-`oc create -f 00-namespace-object.yaml`
+```shell
+oc create -f 00-namespace-object.yaml
+```
 
 2. Go into the openshift-compliance project
 
-`oc project openshift-compliance`
+```shell
+oc project openshift-compliance
+```
 
 3. Create the compliance operator OperatorGroup object
 
-`oc create -f 01-operator-group-object.yaml`
+```shell
+oc create -f 01-operator-group-object.yaml
+```
 
 4. Create the compliance operator subscription object, this will initiate the operator installation 
 
-`oc create -f 02-subscription-object.yaml`
+```shell
+oc create -f 02-subscription-object.yaml
+```
 
 5. Verify that the installation was sucessful and that the operator is running
 
-`oc get csv -n openshift-compliance -w`
+```shell
+oc get csv -n openshift-compliance -w
+```
 
 ```console
 NAME                         DISPLAY             VERSION   REPLACES   PHASE   
@@ -45,15 +55,21 @@ NAME                         DISPLAY             VERSION   REPLACES   PHASE
 compliance-operator.v0.1.49  Compliance Operator 0.1.49              Succeeded
 ```
 
-`oc get deploy -n openshift-compliance`
+```shell
+oc get deploy -n openshift-compliance
+```
 
-*NAME                  READY   UP-TO-DATE   AVAILABLE   AGE
-compliance-operator   1/1     1            1           66s*
+```bash
+NAME                  READY   UP-TO-DATE   AVAILABLE   AGE
+compliance-operator   1/1     1            1           66s
+```
 
 
 6. The compliance operator ships with a number of complaince profiles, these can be seen using the following command
 
-`oc get profiles.compliance`
+```shell
+oc get profiles.compliance
+```
 
 ```console
 NAME                 AGE
@@ -74,11 +90,15 @@ rhcos4-nerc-cip      23s
 
 7. The next step is to set up the compliance scanning, the default profiles that is being used will run scans on a daily base and, where possible. auto-remiate any complaince issues.
 
-`oc create -f 03-scansettingbinding-cis-default.yaml`
+```shell
+oc create -f 03-scansettingbinding-cis-default.yaml
+```
 
 8. The creation of the scan object will trigger the initial complaince scan to take please, to check that the compliance scan is running use the following command: 
 
-`oc get compliancesuite -w`
+```shell
+oc get compliancesuite -w
+```
 
 ```console
 NAME                  PHASE       RESULT
@@ -97,7 +117,9 @@ cis-compliance-ocp4   DONE          NON-COMPLIANT
 
 9. Once the scan is complete the following command can be used to check the complaince scan results so that an compliance scan failures can be remediated
 
-`oc get ccr`
+```shell
+oc get ccr
+```
 
 Initially a number of the compliance checks will FAIL, many of them will be remediated automatically by the compliance operator. This remediation process can take sometime (hours). 
 
@@ -127,4 +149,4 @@ oc annotate compliancescans/ocp4-cis-node-master compliance.openshift.io/rescan=
 oc annotate compliancescans/ocp4-cis-node-worker compliance.openshift.io/rescan=
 ```
 
-The compliance operator will auto-remiate all CIS policies with the exception of those policies that the CIS define as requirement manual rediation. In the next section we will address these [manual remdiations](accelerators/kubernetes/ocp/gcp/04_remediation_of_manual_CIS_controls).
+The compliance operator will auto-remediate all CIS policies with the exception of those policies that the CIS define as requireing manual rediation. In the next section we will address these [manual remdiations](accelerators/kubernetes/ocp/gcp/04_remediation_of_manual_CIS_controls).
