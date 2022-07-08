@@ -52,9 +52,16 @@ Several attributes are useful in the describe output:
 
 Let's find more information from the rule object:
 ```shell
-$ oc get rules | grep audit-log-forwarding-enabled
+oc get rules | grep audit-log-forwarding-enabled
+,,,
+
+,,,bash
 ocp4-audit-log-forwarding-enabled                                                            117m
-$ oc describe rules ocp4-audit-log-forwarding-enabled
+```
+To get more detail on this rule use the following command:
+
+```shell
+oc describe rules ocp4-audit-log-forwarding-enabled
 ```
 
 The `rule` object contains some of the same data as the `ComplianceCheckResult`
@@ -72,7 +79,7 @@ because it lacks the knowledge that pertains to the particular environment and
 would allow to evaluate the result. List the manual checks with:
 
 ```shell
-$ oc get compliancecheckresults -l compliance.openshift.io/scan-name=ocp4-cis,compliance.openshift.io/check-status=MANUAL
+oc get compliancecheckresults -l compliance.openshift.io/scan-name=ocp4-cis,compliance.openshift.io/check-status=MANUAL
 ```
 
 Let's pick one check at random:
