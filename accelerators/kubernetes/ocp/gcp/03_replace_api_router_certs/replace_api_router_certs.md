@@ -21,8 +21,7 @@ API endpoint:
 ```shell
 oc whoami --show-server | cut -f 2 -d ':' | cut -f 3 -d '/' | sed 's/-api././'
 ```
-
-*api.finos1.ahamgcp.com*
+*api.<clustername>.><domainname>.com*
 
 Router endpoint:
 
@@ -30,7 +29,7 @@ Router endpoint:
 oc get ingresscontroller default -n openshift-ingress-operator -o jsonpath='{.status.domain}'
 ```
 
-*apps.finos1.ahamgcp.com*
+*apps.<clustername>.><domainname>.com*
 
 
 4. acme.sh support a large number of DNS providers including Google Cloud DNS, this [link](https://github.com/acmesh-official/acme.sh/wiki/dnsapi#49-use-google-cloud-dns-api-to-automatically-issue-cert) provides more information. To issue a certificate use the following steps:
@@ -39,21 +38,21 @@ oc get ingresscontroller default -n openshift-ingress-operator -o jsonpath='{.st
     - in the .acme.sh use following command to issue the certificates
       
       ```bash
-      acme.sh --issue -d api.finos1.ahamgcp.com --dns dns_gcloud
-      acme.sh --issue -d *.apps.finos1.ahamgcp.com --dns dns_gcloud
+      acme.sh --issue -d api.<clustername>.><domainname>.com --dns dns_gcloud
+      acme.sh --issue -d *.apps.<clustername>.><domainname>.com --dns dns_gcloud
       ```
 
     - move the certificates from the acme.sh path to a known working directory, for this example we are using *home*/certificates/api and *home*/certificates/router
 
       ```bash
-      acme.sh --install-cert -d api.finos1.ahamgcp.com --cert-file /Users/*home*/certificates/api/cert.pem --key-file /Users/*home*/certificates/api/key.pem --fullchain-file /Users/*home*/certificates/api/fullchain.pem --ca-file /Users/*home*/certificates/api/ca.cer
+      acme.sh --install-cert -d api.<clustername>.><domainname>.com --cert-file /Users/*home*/certificates/api/cert.pem --key-file /Users/*home*/certificates/api/key.pem --fullchain-file /Users/*home*/certificates/api/fullchain.pem --ca-file /Users/*home*/certificates/api/ca.cer
 
-      acme.sh --install-cert -d *.apps.finos1.ahamgcp.com --cert-file /Users/*home*/certificates/router/cert.pem --key-file /Users/*home*/certificates/router/key.pem --fullchain-file /Users/*home*/certificates/router/fullchain.pem --ca-file /Users/*home*/certificates/router/ca.cer
+      acme.sh --install-cert -d *.apps.<clustername>.><domainname>.com --cert-file /Users/*home*/certificates/router/cert.pem --key-file /Users/*home*/certificates/router/key.pem --fullchain-file /Users/*home*/certificates/router/fullchain.pem --ca-file /Users/*home*/certificates/router/ca.cer
       ```
 
       check that the certificates exist in the target directories.
 
-5. To replace the API endpoint certificate use following command, more details can be found in the [OCP documentation]{https://docs.openshift.com/container-platform/4.10/security/certificates/api-server.html}. Before running the command below CD into the directory with the appropriate certificates. 
+5. To replace the API endpoint certificate use following command, more details can be found in the [OCP documentation]{https://docs.openshift.com/container-platform/4.10/security/certificates/api-server.html}. Before running the command below CD into the directory with the API certificates, e.g. /Users/*home*/certificates/api/ 
 
       - Create a secret using the API endpoint certifcate chain and private key created in the previous step
 
@@ -77,7 +76,7 @@ oc get ingresscontroller default -n openshift-ingress-operator -o jsonpath='{.st
     ```yaml
     namedCertificates:
     - names:
-      - api.finos1.ahamgcp.com
+      - api.<clustername>.<domainname>.com
       servingCertificate:
         name: api-certs
      ```
@@ -104,9 +103,11 @@ kube-apiserver    4.10.3     True         False         False      122m
 
 Once completed you will need to log back into the API server. To confirm that the new certificate is being used the following curl command can be used:
 
-`curl -v https://api.finos1.ahamgcp.com:6443`
+```shell
+curl -v https://api.<clustername>.<domainname>.com:6443
+```
 
-6. To replace the default Router endpoint certificate use following command, more details can be founfd in the [OCP documentation]{https://docs.openshift.com/container-platform/4.10/security/certificates/replacing-default-ingress-certificate.html}
+6. To replace the default Router endpoint certificate use following command, more details can be founfd in the [OCP documentation]{https://docs.openshift.com/container-platform/4.10/security/certificates/replacing-default-ingress-certificate.html}. Before running the command below CD into the directory with the API certificates, e.g. /Users/*home*/certificates/router/ 
 
  - Create a secret using the Router endpoint certifcate chain and private key created in the previous step
 
@@ -122,4 +123,4 @@ Once completed you will need to log back into the API server. To confirm that th
 
 It will take a few minutes for the update to replicate, to check login to the OCP Console and check that the connection is secure and using the new certificate. 
 
-The next step is to complete the [day 2 customisation](/accelerators/kubernetes/ocp/gcp/03_day2_customisation).
+The next step is to complete the [day 2 customisation](/accelerators/kubernetes/ocp/gcp/04_day2_customisation).

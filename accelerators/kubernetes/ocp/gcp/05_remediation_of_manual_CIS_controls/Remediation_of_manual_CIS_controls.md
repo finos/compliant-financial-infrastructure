@@ -24,7 +24,7 @@ or a rule - why does the check exist, why could it fail etc.
 
 After applying all the remediations, the following command:
 ```shell
-$ oc get compliancecheckresults -l compliance.openshift.io/scan-name=ocp4-cis,compliance.openshift.io/check-status=FAIL
+oc get compliancecheckresults -l compliance.openshift.io/scan-name=ocp4-cis,compliance.openshift.io/check-status=FAIL
 ```
 
 Should return two rules that are still failing:
@@ -42,7 +42,7 @@ remediated already.
 Let's illustrate that on the first check that enables log forwarding.
 We'll examine the check first:
 ```shell
-$ oc describe ccr ocp4-cis-audit-log-forwarding-enabled
+oc describe ccr ocp4-cis-audit-log-forwarding-enabled
 ```
 
 Several attributes are useful in the describe output:

@@ -91,7 +91,7 @@ rhcos4-nerc-cip      23s
 7. The next step is to set up the compliance scanning, the default profiles that is being used will run scans on a daily base and, where possible. auto-remiate any complaince issues.
 
 ```shell
-oc create -f 03-scansettingbinding-cis-default.yaml
+oc create -f 03-scansetting-cis-ocp4-default.yaml
 ```
 
 8. The creation of the scan object will trigger the initial complaince scan to take please, to check that the compliance scan is running use the following command: 
@@ -149,4 +149,4 @@ oc annotate compliancescans/ocp4-cis-node-master compliance.openshift.io/rescan=
 oc annotate compliancescans/ocp4-cis-node-worker compliance.openshift.io/rescan=
 ```
 
-The compliance operator will auto-remediate all CIS policies with the exception of those policies that the CIS define as requireing manual rediation. In the next section we will address these [manual remdiations](accelerators/kubernetes/ocp/gcp/04_remediation_of_manual_CIS_controls).
+The compliance operator will auto-remediate all CIS policies with the exception of those policies that the CIS define as requireing manual rediation. In the next section we will address these [manual remdiations](accelerators/kubernetes/ocp/gcp/05_remediation_of_manual_CIS_controls).
