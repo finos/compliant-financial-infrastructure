@@ -2,7 +2,7 @@
 
 OpenShift uses certificates to encrypt the communication with the Web Console as well as applications exposed as Routes. Without any further customisation the install process will create self-signed certificates. While these work they usually trigger security warnings about unknown certificates in Web Browsers and should be replaced with approved certificates for both the API and router endpoints. 
 
-The following steps uses [acme.sh](https://github.com/acmesh-official/acme.sh) and [Let's Encrypt](https://letsencrypt.org/) this example is for PoC purposes and a firms approved certificates should be used for a production deployment. 
+The following steps uses [acme.sh](https://github.com/acmesh-official/acme.sh) and [Let's Encrypt](https://letsencrypt.org/) this example is for PoC purposes and a firms approved certificates should be used for ots OCP deployments. 
 
 ## Day 2 Replace API and Router Certificates
 
@@ -38,16 +38,16 @@ oc get ingresscontroller default -n openshift-ingress-operator -o jsonpath='{.st
     - in the .acme.sh use following command to issue the certificates
       
       ```bash
-      acme.sh --issue -d api.<clustername>.><domainname>.com --dns dns_gcloud
-      acme.sh --issue -d *.apps.<clustername>.><domainname>.com --dns dns_gcloud
+      acme.sh --issue -d api.<cluster____name>.><domain_name>.com --dns dns_gcloud
+      acme.sh --issue -d *.apps.<cluster_name>.><domain_name>.com --dns dns_gcloud
       ```
 
     - move the certificates from the acme.sh path to a known working directory, for this example we are using *home*/certificates/api and *home*/certificates/router
 
       ```bash
-      acme.sh --install-cert -d api.<clustername>.><domainname>.com --cert-file /Users/*home*/certificates/api/cert.pem --key-file /Users/*home*/certificates/api/key.pem --fullchain-file /Users/*home*/certificates/api/fullchain.pem --ca-file /Users/*home*/certificates/api/ca.cer
+      acme.sh --install-cert -d api.<cluster_name>.><domain_name>.com --cert-file /Users/*home*/certificates/api/cert.pem --key-file /Users/*home*/certificates/api/key.pem --fullchain-file /Users/*home*/certificates/api/fullchain.pem --ca-file /Users/*home*/certificates/api/ca.cer
 
-      acme.sh --install-cert -d *.apps.<clustername>.><domainname>.com --cert-file /Users/*home*/certificates/router/cert.pem --key-file /Users/*home*/certificates/router/key.pem --fullchain-file /Users/*home*/certificates/router/fullchain.pem --ca-file /Users/*home*/certificates/router/ca.cer
+      acme.sh --install-cert -d *.apps.<cluster_name>.><domain_name>.com --cert-file /Users/*home*/certificates/router/cert.pem --key-file /Users/*home*/certificates/router/key.pem --fullchain-file /Users/*home*/certificates/router/fullchain.pem --ca-file /Users/*home*/certificates/router/ca.cer
       ```
 
       check that the certificates exist in the target directories.
@@ -107,7 +107,7 @@ Once completed you will need to log back into the API server. To confirm that th
 curl -v https://api.<clustername>.<domainname>.com:6443
 ```
 
-6. To replace the default Router endpoint certificate use following command, more details can be founfd in the [OCP documentation]{https://docs.openshift.com/container-platform/4.10/security/certificates/replacing-default-ingress-certificate.html}. Before running the command below CD into the directory with the API certificates, e.g. /Users/*home*/certificates/router/ 
+6. To replace the default Router endpoint certificate use following command, more details can be founfd in the [OCP documentation](https://docs.openshift.com/container-platform/4.10/security/certificates/replacing-default-ingress-certificate.html). Before running the command below CD into the directory with the API certificates, e.g. /Users/*home*/certificates/router/ 
 
  - Create a secret using the Router endpoint certifcate chain and private key created in the previous step
 
@@ -123,4 +123,4 @@ curl -v https://api.<clustername>.<domainname>.com:6443
 
 It will take a few minutes for the update to replicate, to check login to the OCP Console and check that the connection is secure and using the new certificate. 
 
-The next step is to complete the [day 2 customisation](/accelerators/kubernetes/ocp/gcp/04_day2_customisation).
+The next step is to complete the [day 2 customisation](/accelerators/kubernetes/ocp/gcp/04_day2_customisation/day2_customisation.md).
