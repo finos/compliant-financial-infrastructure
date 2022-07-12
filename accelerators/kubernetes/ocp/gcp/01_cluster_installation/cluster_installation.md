@@ -14,23 +14,22 @@ Following are the high level steps to complete OCP installation, including the s
     - Creating the GCP project Folder
     - Enabling the API's that the OCP Installer requires
     - Create a DNS public zone
-    - Increasing GCP quotas (if needed)
+    - Increasing GCP quotas (if needed).
     - Creating a GCP service account for the OCP Installer and give it the required permissions
     - [download the OCP installer and service account key](https://docs.openshift.com/container-platform/4.10/installing/installing_gcp/installing-gcp-customizations.html) onto a local machine or a bastion where the installer is run and the installer state files can be stored.   
 
 3. Create the [installation configuration file](https://docs.openshift.com/container-platform/4.10/installing/installing_gcp/installing-gcp-customizations.html#installation-initializing_installing-gcp-customizations)
-    - Create an OCP installation directory
+
     - Run the OCP installer to create the *install-config* file that will be used to implement install time customisations. Here is an example command: 
 
 ```shell
-./openshift-install create cluster-config --dir=/Users/*home*/ocp_clusters/finosocp
+./openshift-install create install-config --dir=/Users/*home*/ocp_clusters/<cluster_name>
 ```
-
-    - Edit the install-config YAML file to implement FIPS and OVNKubernetes, here is an example [config-yaml](sample-install-config.yaml)
-    - Run the OCP installer to create the cluster. Here is an example command:
+  - Edit the install-config YAML file to implement FIPS and OVNKubernetes, here is an example [config yaml](/accelerators/kubernetes/ocp/gcp/01_cluster_installation/install-config.yaml) 
+  - Run the OCP installer to create the cluster. Here is an example command
 
 ```shell
-./openshift-install create cluster --dir=/Users/*home*/ocp_clusters/finosocp --log-level debug
+./openshift-install create cluster --dir=/Users/*home*/ocp_clusters/<cluster_name> --log-level debug
 ```
 
 Once the cluster installation completes, which normally takes 30-40 minutes, the installer output includes the OCP console url, kubeadmin userid and password and KUBECONFIG. 
@@ -38,11 +37,11 @@ Once the cluster installation completes, which normally takes 30-40 minutes, the
 To access the cluster via a system:admin user use the following command:
 
 ```shell
-export KUBECONFIG=/Users/*home*/ocp_clusters/finosocp/auth/kubeconfig
+export KUBECONFIG=/Users/*home*/ocp_clusters/<cluster_name>/auth/kubeconfig
 ```
 
 
-FIPS compliance is managed via the OpenShift Compliance Operator, which will be discussed later. To confirm that the OVNKubernetes SDN has been  implemeted log into the cluster and run the following commands.
+FIPS compliance is managed via the OpenShift Compliance Operator, which will be discussed later. To confirm that the OVNKubernetes SDN has been implemeted log into the cluster and run the following commands.
 
 ```shell
 oc describe network.config/cluster
@@ -61,4 +60,4 @@ Status:
     172.30.0.0/16
 ```
 
-The next step of the installation process is to set up an identity provider. An example using [HTPASSWD](accelerators/kubernetes/ocp/gcp/02_htpasswd_identity_provider) has been provided. OCP supports a number of identity providers, more detail can be found [here](https://docs.openshift.com/container-platform/4.10/authentication/understanding-identity-provider.html)
+The next step of the installation process is to set up an identity provider. An example using [HTPASSWD](/accelerators/kubernetes/ocp/gcp/02_htpasswd_identity_provider/htpasswd_implementation.md) has been provided. OCP supports a number of identity providers, more detail can be found [here](https://docs.openshift.com/container-platform/4.10/authentication/understanding-identity-provider.html)
