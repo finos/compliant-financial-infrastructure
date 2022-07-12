@@ -8,16 +8,16 @@ items:
       include.release.openshift.io/self-managed-high-availability: "true"
       include.release.openshift.io/single-node-developer: "true"
       release.openshift.io/create-only: "true"
-    creationTimestamp: "2022-07-08T08:08:43Z"
-    generation: 2
+    creationTimestamp: "2022-07-12T11:55:27Z"
+    generation: 1
     name: cluster
     ownerReferences:
     - apiVersion: config.openshift.io/v1
       kind: ClusterVersion
       name: version
-      uid: 57050271-afec-463f-81e5-78f7089805ad
-    resourceVersion: "120271"
-    uid: a9270143-99a1-43f7-ab89-519d5705d740
+      uid: 1ca64482-ba72-4021-8ae2-cfc1140449a8
+    resourceVersion: "1684"
+    uid: b21d7582-8b97-464e-bff0-a7451cbc51de
   spec:
     identityProviders:
     - name: my_htpasswd_provider 

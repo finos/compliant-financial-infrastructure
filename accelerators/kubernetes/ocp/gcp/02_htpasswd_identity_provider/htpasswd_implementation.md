@@ -8,7 +8,7 @@ So that the KubeAdmin user can be deleted we must first create additional admini
 
 ## Setting up HTPasswd 
 
-The following steps provide guidance on how this can be done. To follow the steps below login into the cluster that was deployed in the previous step as the KubeAdmin user. 
+The following steps provide guidance on how this can be done. To follow the steps below login into the cluster that was deployed in the previous step as the KubeAdmin or system:admin user. 
 
 An example htpasswd file can be found [here](htpasswd), this file contains the following accounts:
 
@@ -42,12 +42,12 @@ oc create secret generic htpass-secret --from-file=htpasswd=htpasswd -n openshif
 oc get oauth -o yaml -n openshift-config > oauth.yaml
 ```
 
-    - Using an editor of your choice update *oauth.yaml* to define the HTPasswd provider, a sample *spec:* definition can be found [here](sample_htpassed_provider_oauth.yaml).
+  - Using an editor of your choice update *oauth.yaml* to define the HTPasswd provider, a sample *spec:* definition can be found [here](sample_htpassed_provider_oauth.yaml).
 
     Below is an example of an updated oauth.yaml
 
-    ```yaml
-    apiVersion: v1
+```yaml
+apiVersion: v1
 items:
 - apiVersion: config.openshift.io/v1
   kind: OAuth
@@ -57,17 +57,17 @@ items:
       include.release.openshift.io/self-managed-high-availability: "true"
       include.release.openshift.io/single-node-developer: "true"
       release.openshift.io/create-only: "true"
-    creationTimestamp: "2022-07-08T08:08:43Z"
-    generation: 2
+    creationTimestamp: "2022-07-12T11:55:27Z"
+    generation: 1
     name: cluster
     ownerReferences:
     - apiVersion: config.openshift.io/v1
       kind: ClusterVersion
       name: version
-      uid: 57050271-afec-463f-81e5-78f7089805ad
-    resourceVersion: "120271"
-    uid: a9270143-99a1-43f7-ab89-519d5705d740
-  spec:   
+      uid: 1ca64482-ba72-4021-8ae2-cfc1140449a8
+    resourceVersion: "1684"
+    uid: b21d7582-8b97-464e-bff0-a7451cbc51de
+  spec:
     identityProviders:
     - name: my_htpasswd_provider
       mappingMethod: claim
@@ -79,15 +79,15 @@ kind: List
 metadata:
   resourceVersion: ""
   selfLink: ""
-    ```
+```
 
-    - Replace the existing OAUTH configuration with the updated oauth.yaml file using the follwing command
+  - Replace the existing OAUTH configuration with the updated oauth.yaml file using the follwing command
 
 ```shell
 oc replace -f oauth.yaml
 ```
 
-    - The oauth pods should then restart using the new configuration, you can check they are updated using the following command
+  - The oauth pods should then restart using the new configuration, you can check they are updated using the following command
 
 ```shell
 oc get pods -n openshift-authentication
@@ -102,13 +102,13 @@ oauth-openshift-7cdbdd45ff-8xkt4   0/1     Pending       0          25s
 ```
 
 
-    - The last step is to give the newly created administrator account *cluster admin* priveledges, this can be done using the following command
+  - The last step is to give the newly created administrator account *cluster admin* priveledges, this can be done using the following command
 
 ```shell
 oc adm policy add-cluster-role-to-user cluster-admin finos-admin-1
 ```
 
-A sample [script](add_cluster_admin_role.sh) is provided to automate this.
+A sample [script](add_cluster_admin_role.sh) is provided to automate this. The response that the user is not found can be ignored. 
 
 Once the above steps have been completed it should now be possible to login into the OCP cluster using the new credentials. 
 
@@ -141,5 +141,5 @@ oc delete secrets kubeadmin -n kube-system
 ```
 
 
-The next [step](accelerators/kubernetes/ocp/gcp/03_replace_api_router_certs) will replace the self signed certificates for the API Server and Router. 
+The next [step](/accelerators/kubernetes/ocp/gcp/03_replace_api_router_certs/replace_api_router_certs.md) will replace the self signed certificates for the API Server and Router. 
 
