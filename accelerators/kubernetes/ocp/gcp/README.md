@@ -9,6 +9,6 @@ There are six steps to complete cluster installation and customisation:
 3. [Setup default network policies](/accelerators/kubernetes/ocp/gcp/03_default_network_policy/default_network_policy_implementation.md)
 4. [Updating the self signed certificates for the API Server and Router](/accelerators/kubernetes/ocp/gcp/04_replace_api_router_certs/replace_api_router_certs.md)
 5. [Implement OCP Compliance Operator](/accelerators/kubernetes/ocp/gcp/05_implement_ocp_compliance_operator/implement_ocp_compliance_operator.md)
-6. [Manual Remiadation of CIS Controls](/accelerators/kubernetes/ocp/gcp/06_remediation_of_manual_CIS_controls/Remediation_of_manual_CIS_controls.md)
+6. [Manual Remediation of CIS Controls](/accelerators/kubernetes/ocp/gcp/06_remediation_of_manual_CIS_controls/Remediation_of_manual_CIS_controls.md)
 
 

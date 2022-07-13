@@ -14,5 +14,5 @@ For each cloud provider documentation and working code will be provided to:
 3. Setup default network policies
 4. Updating the self signed certificates for the API Server and Router
 5. Implement OCP Compliance Operator
-6. Manual Remiadation of CIS Controls
+6. Manual Remediation of CIS Controls
 
