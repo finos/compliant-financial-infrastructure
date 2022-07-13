@@ -27,20 +27,18 @@ After applying all the remediations, the following command:
 oc get compliancecheckresults -l compliance.openshift.io/scan-name=ocp4-cis,compliance.openshift.io/check-status=FAIL
 ```
 
-Should return two rules that are still failing:
+Should return one rule that are still failing:
 ```shell
 NAME                                                      STATUS   SEVERITY
 ocp4-cis-audit-log-forwarding-enabled            FAIL     medium
-ocp4-cis-configure-network-policies-namespaces   FAIL     high
 ```
 
 Note that if you started from a default installation, there would have been
-more failing checks, e.g. one that tests that kubeadmin had been removed
-or that an IDP is configured, but by following this guide, those had been
-remediated already.
+more failing checks, e.g. one that tests that kubeadmin had been removed, that an IDP is configured or network policies have been set, but by following this guide those had been remediated already.
 
 Let's illustrate that on the first check that enables log forwarding.
 We'll examine the check first:
+
 ```shell
 oc describe ccr ocp4-cis-audit-log-forwarding-enabled
 ```
@@ -51,11 +49,11 @@ Several attributes are useful in the describe output:
  - annotations.compliance.openshift.io/rule: Which rule.compliance object does this check represent
 
 Let's find more information from the rule object:
+
 ```shell
 oc get rules | grep audit-log-forwarding-enabled
-,,,
-
-,,,bash
+```
+```bash
 ocp4-audit-log-forwarding-enabled                                                            117m
 ```
 To get more detail on this rule use the following command:
@@ -84,11 +82,11 @@ oc get compliancecheckresults -l compliance.openshift.io/scan-name=ocp4-cis,comp
 
 Let's pick one check at random:
 ```shell
-$ oc get ccr ocp4-cis-scc-limit-privileged-containers
+$ oc describe ccr ocp4-cis-scc-limit-privileged-containers
 ```
 
 The instructions attribute of the check contains:
-```shell
+```console
 Inspect each SCC returned from running the following command:
 $ oc get scc
 Review each SCC for those that have allowPrivilegedContainer set to true.
