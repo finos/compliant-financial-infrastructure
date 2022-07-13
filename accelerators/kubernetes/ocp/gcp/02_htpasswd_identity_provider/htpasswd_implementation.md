@@ -141,5 +141,4 @@ oc delete secrets kubeadmin -n kube-system
 ```
 
 
-The next [step](/accelerators/kubernetes/ocp/gcp/03_replace_api_router_certs/replace_api_router_certs.md) will replace the self signed certificates for the API Server and Router. 
-
+The next [step](/accelerators/kubernetes/ocp/gcp/03_default_network_policy/default_network_policy_implementation.md) will be to add default network policies for non control plane projects. 
