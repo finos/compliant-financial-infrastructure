@@ -9,9 +9,10 @@ The initial focus of the project team is to implement the Service Accelerator po
 
 For each cloud provider documentation and working code will be provided to:
 
-1. Configure the cloud environment ready for an OCP installation.
-2. Install OCP with any day 1 configuration changes to ensure compliance to the service accelerator.
-3. Implement HTPasswd as an Identify Provider and remove KubeAdmin access.
-4. Implement custom certifcate for the API server and Ingress Router
-5. Complete day two configuration for remaining policies and implement the [OpenShift Compliance Operator](https://docs.openshift.com/container-platform/4.10/security/compliance_operator/compliance-operator-understanding.html#understanding-compliance-operator) which asseses compliance of the clusters kubernetes API and the nodes running the cluster. 
+1. Cloud provider setup and Cluster Installation
+2. Identity provider configuration
+3. Setup default network policies
+4. Updating the self signed certificates for the API Server and Router
+5. Implement OCP Compliance Operator
+6. Manual Remiadation of CIS Controls
 
