@@ -233,4 +233,4 @@ oc annotate compliancescans/ocp4-cis-node-master compliance.openshift.io/rescan=
 oc annotate compliancescans/ocp4-cis-node-worker compliance.openshift.io/rescan=
 ```
 
-The compliance operator will auto-remediate all CIS policies with the exception of those policies that the CIS define as requireing manual rediation. In the next section we will address these [manual remdiations](/accelerators/kubernetes/ocp/gcp/05_remediation_of_manual_CIS_controls/Remediation_of_manual_CIS_controls.md).
+The compliance operator will auto-remediate all CIS policies with the exception of those policies that the CIS define as requiring manual rediation. In the next section we will address these [manual remdiations](/accelerators/kubernetes/ocp/gcp/06_remediation_of_manual_CIS_controls/Remediation_of_manual_CIS_controls.md).

@@ -123,4 +123,4 @@ curl -v https://api.<clustername>.<domainname>.com:6443
 
 It will take a few minutes for the update to replicate, to check login to the OCP Console and check that the connection is secure and using the new certificate. 
 
-The next step is to complete the [day 2 customisation](/accelerators/kubernetes/ocp/gcp/04_day2_customisation/day2_customisation.md).
+The next step is to complete the [day 2 customisation](/accelerators/kubernetes/ocp/gcp/05_day2_customisation/day2_customisation.md).

@@ -1,6 +1,6 @@
 # OpenShift Compliant Financial Infrastructure
 
-A CIS policy requirement is for non control plan name sapces to have network policies to isolate traffic in the cluster network
+A CIS policy requirement is for non control plane projects/namespaces to have network policies to isolate traffic in the cluster network.
 
 OCP and the OVNKubernetes CNI support network policies. To implement network policies as a default we will use a [default project template](https://docs.openshift.com/container-platform/4.10/networking/network_policy/default-network-policy.html) to define these network policies.
 
@@ -180,4 +180,4 @@ allow-from-openshift-monitoring   <none>         16s
 allow-same-namespace              <none>         16s
 ```
 
-The next [step](/accelerators/kubernetes/ocp/gcp/03_replace_api_router_certs/replace_api_router_certs.md) will replace the self signed certificates for the API Server and Router. 
+The next [step](/accelerators/kubernetes/ocp/gcp/04_replace_api_router_certs/replace_api_router_certs.md) will replace the self signed certificates for the API Server and Router. 
