@@ -14,7 +14,7 @@ _**Template Notes:**_
 - _Multiple benchmarks may be linked if required for full compliance coverage._
 
 The policies included in the following document(s) are required for compliance,
-unless otherwise noted in section 2: [Amendments to the Baseline](#2-ammendments-to-the-baseline)
+unless otherwise noted in section 2: [Amendments to the Baseline](#2-amendments-to-the-baseline)
 
 | Standard | Name | Link |
 |---|---|---|
