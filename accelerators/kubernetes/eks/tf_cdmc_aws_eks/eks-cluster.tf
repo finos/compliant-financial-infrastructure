@@ -17,7 +17,7 @@ module "eks" {
   ]
 
   tags = {
-    "environment" = "cloud-service-certification"
+    "environment" = "compliant-financial-infrastructure"
   }
 
   vpc_id = module.vpc.vpc_id
