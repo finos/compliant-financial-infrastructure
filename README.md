@@ -18,8 +18,8 @@ Controls for cloud service compliance afford firms no particular strategic or co
 Our community intends to create an authoritative source for _defining, creating, and validating_ compliant infrastructure for financial services.
 As detailed in [the following section](#services--workflows), our community focuses on these three key offerings.
 
-Our compliance definition comes from the an extension of a baseline into a
-comprehensive standard that is suited to accelerate adoption in highly regulated environements.
+Our compliance definition comes from the extension of a baseline into a
+comprehensive standard that is suited to accelerate adoption in highly regulated environments.
 
 ### Defining Compliant Infrastructure
 
@@ -58,7 +58,7 @@ the tools necessary to ensure that infrastructure is compliant after it has been
 In some cases, full compliance may only be possible (or preferable) when deployed behind a firewall or with other similar contexts not reflected by the IaC code.
 In these cases, only post-deployment validation will provide confidence that a deployment is actually prod-ready.
 
-To organize and facilitate these tests, our community uses the (Probr)[http://github.com/probr] test harness to create tests for each service.
+To organize and facilitate these tests, our community uses the [Probr](https://github.com/probr) test harness to create tests for each service.
 These tests are run in our validation pipelines after a deployment is complete,
 and can also be run independently in any environment regardless of how the service was deployed.
 
