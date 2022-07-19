@@ -17,7 +17,7 @@ module "eks" {
   ]
 
   tags = {
-    "environment" = "cloud-service-certification"
+    "environment" = "compliant-financial-infrastructure"
   }
 
   vpc_id = module.vpc.vpc_id
@@ -31,13 +31,13 @@ module "eks" {
       name                          = "worker-group-1"
       instance_type                 = var.worker_groups_instance_type
       asg_desired_capacity          = var.worker_groups_asg_desired_capacity
-      additional_security_group_ids = [aws_security_group.worker_group_one.id]
+      additional_security_group_ids = [aws_security_group.worker_group_mgmt_one.id]
     },
     {
       name                          = "worker-group-2"
       instance_type                 = var.worker_groups_instance_type
       asg_desired_capacity          = var.worker_groups_asg_desired_capacity
-      additional_security_group_ids = [aws_security_group.worker_group_two.id]
+      additional_security_group_ids = [aws_security_group.worker_group_mgmt_two.id]
     },
   ]
 }
