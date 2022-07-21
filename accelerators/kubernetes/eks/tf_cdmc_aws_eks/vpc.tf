@@ -17,7 +17,7 @@ locals {
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "3.2.0"
+  version = "3.14.2"
 
   name                 = "cfi-vpc"
   cidr                 = "10.0.0.0/16"
