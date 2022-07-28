@@ -3,6 +3,7 @@
 
 <img src="https://github.com/finos/branding/blob/master/project-logos/active-project-logos/Compliant%20Financial%20Infrastructure%20Logo/Horizontal/2021_CFI_Logo_Horizontal.png?raw=true" width="450">
 
+
 # Compliant Financial Infrastructure
 Compliant Financial Infrastructure (CFI) accelerates the development, deployment and adoption of services provided for _AWS_, _Azure_, _Google Cloud_, and _IBM Cloud_ in a way that meets existing regulatory and internal security controls.
 
@@ -87,25 +88,25 @@ and automatically tested for compliance with the CDMC framework.
 This feature matrix is intended to show all current and planned services along with the current status of each,
 to help contributors looking for a task know where best to spend their effort.
 
-|                    |         AWS         |         GCP         |        Azure        |    OpenShift     |
-| ------------------:|:-------------------:|:-------------------:|:-------------------:|:----------------:|
-| Kubernetes Cluster |      :trophy:       |       :cookie:      |  :page_facing_up:   | :page_facing_up: |
-|  Postgres Database |                     |                     |      :cookie:       |                  |
-|           DynamoDB |  :page_facing_up:   |                     |                     |                  |
-|           RedShift |  :page_facing_up:   |                     |                     |                  |
-|                SQS |  :page_facing_up:   |                     |                     |                  |
+|                    |         AWS                                                                             |         GCP                                                     |        Azure                                                 |    OpenShift                                               |
+| ------------------:|:---------------------------------------------------------------------------------------:|:--------------------------------------------------------------: |:------------------------------------------------------------:|:----------------------------------------------------------:|
+| Kubernetes Cluster | ![](https://byob.yarr.is/finos/compliant-financial-infrastructure/eks-terraform)        | <img src="docs/_images/bronze.png"  alt="bronze" height="20"/>  | <img src="docs/_images/paper.png" alt="paper" height="20"/>  |<img src="docs/_images/paper.png" alt="paper" height="20"/> |
+|  Postgres Database |                                                                                         |                                                                 | <img src="docs/_images/bronze.png" alt="bronze" height="20"/>|                                                            |
+|           DynamoDB |  <img src="docs/_images/paper.png" alt="paper" height="20"/>                            |                                                                 |                                                              |                                                            |
+|           RedShift |  <img src="docs/_images/paper.png" alt="paper" height="20"/>                            |                                                                 |                                                              |                                                            |
+|                SQS |                                                                                         |                                                                 |                                                              |                                                            |
 
 
 ### Key
 
-- :gem: diamond - Post-deployment validation tests exist for every aspect of the SAA,
+- <img src="docs/_images/diamond.png" alt="diamond" height="20"/> - Post-deployment validation tests exist for every aspect of the SAA,
 and all tests pass in the CI pipeline testing phase.
-- :trophy: gold - Post-deployment validation tests are run in CI as part of the testing phase,
+- <img src="docs/_images/gold.png" alt="gold" height="20"/> - Post-deployment validation tests are run in CI as part of the testing phase,
 and some tests pass.
-- :cd: silver - The service is automatically spun up and destroyed via CI before being merged to `main`.
-- :cookie: bronze - IaC has been produced that is able to create and destroy the service,
+- <img src="docs/_images/silver.png" alt="silver" height="20"/> - The service is automatically spun up and destroyed via CI before being merged to `main`.
+- <img src="docs/_images/bronze.png"  alt="bronze" height="20"/> - IaC has been produced that is able to create and destroy the service,
 where said service meets the SAA specification.
-- :page_facing_up: paper - A complete SAA document for this service has been merged to `main`.
+- <img src="docs/_images/paper.png" alt="paper" height="20"/> - A complete SAA document for this service has been merged to `main`.
 
 ## Project Kanban
 Find the [Compliant Financial Infrastructure Project Kanban](https://github.com/orgs/finos/projects/1) in the parent FINOS organisation on GitHub.
