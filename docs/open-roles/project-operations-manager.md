@@ -25,7 +25,7 @@ The Project Operations Manager will need to be (or become) ...
 - Comfortable using GitHub.
 - Comfortable coordinating meetings using WebEx. 
 
-The Project Operations Manager will have to understand the [FINOS Landscape](https://landscape.finos.org), [Open Developer Platform](https://github.com/finos/open-developer-platform) and [FINOS Governance and Policies](https://github.com/finos/community/tree/master/governance). 
+The Project Operations Manager will have to understand the [FINOS Landscape](https://landscape.finos.org), [Open Developer Platform](https://github.com/finos/open-developer-platform) and [FINOS Governance and Policies](https://community.finos.org/docs/governance/#open-source-software-projects). 
 
 The Project Operations Manager works closely with the Compliant Financial Infrastructure Lead Maintainer and ensures the project team can collaborate smoothly. The Project Operations Manager will reach out to FINOS for assistance and support as they need it.
 
