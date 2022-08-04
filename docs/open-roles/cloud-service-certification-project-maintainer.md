@@ -25,7 +25,7 @@ The Compliant Financial Infrastructure Project Maintainer should ...
 - Be proactive and ask questions.
 - Be flexible and responsive.
  
-The Compliant Financial Infrastructure Project Maintainer will have to understand the [FINOS Landscape](https://landscape.finos.org), [Open Developer Platform](https://github.com/finos/open-developer-platform) and [FINOS Governance and Policies](https://github.com/finos/community/tree/master/governance). 
+The Compliant Financial Infrastructure Project Maintainer will have to understand the [FINOS Landscape](https://landscape.finos.org), [Open Developer Platform](https://github.com/finos/open-developer-platform) and [FINOS Governance and Policies](https://community.finos.org/docs/governance/#open-source-software-projects). 
 
 The Compliant Financial Infrastructure Project Maintainer will reach out to FINOS for assistance and support as they need it.
 
