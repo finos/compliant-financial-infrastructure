@@ -5,22 +5,36 @@
 
 
 # Compliant Financial Infrastructure
-Compliant Financial Infrastructure (CFI) accelerates the development, deployment and adoption of services provided for _AWS_, _Azure_, _Google Cloud_, and _IBM Cloud_ in a way that meets existing regulatory and internal security controls.
+Compliant Financial Infrastructure (CFI) accelerates the development, deployment and adoption of services provided for infrastructure in a way that meets existing regulatory and internal security controls.
 
-## Business Problem and Opportunity
-Cloud services controls and tests are used to demonstrate adherence with regulatory and internal compliance requirements mandated for financial institutions when using cloud services. The majority of cloud security incidents are due to misconfiguration; services are not secure by default, configuration is often complex, nuanced and difficult to validate. To some degree or another all financial institutions are re-inventing the wheel – institutions have similar control frameworks and each is trying to secure and stand up the same providers and services within the same regulatory frameworks.
+## What's the value?
 
-Having robust controls and tests developed and in place removes a barrier to faster adoption of cloud services such as those provided by Amazon/AWS, Microsoft/Azure and Google/GCP, among others. Addressing this barrier will benefit both financial services IT departments, many of whom are looking to move more quickly to the cloud, and the providers themselves, who wish to sell more cloud services into financial institutions.
+### What does this project provide to financial institutions?
 
-Controls for cloud service compliance afford firms no particular strategic or competitive advantage while also representing a task something all firms who look to deploy more applications onto the cloud needs to do, and as such are conducive to being developed together as part of the "public commons". The focused project and collaboration with other firms will increase the amount of controls produced and, it's expected, help increase the rate of adoption of cloud services.
+Our community collaboratively creates accelerators to aid in the adoption of specific infrastructure based on input and experience from professionals across a variety of roles and firms.
+
+A firm may take benefit from one or more of the following:
+
+- Opinionated compliance documentation provided by our *service approval accelerators*
+- Vetted *infrastructure as code* that is ready to import to your internal registry
+- CI/CD-friendly *post-deployment validation tests* to ensure your deployed resources are compliant
+
+### Why should I contribute to this project?
+
+Every active community member serves to accelerate the frequency that we are able to make resources available! Participation from security and compiliance professionals helps to ensure that opinions made by our community are aligned to every firm's needs. Contribution from infrastructure engineers helps the community create more and better infrastructure as code. Collaboration from programmers and testers helps the community more quickly offer validation tests for more services.
+
+Anything you are interested in contributing to the project will make a huge impact! Contributions will be publicly displayed on the project's Github history and often highlighted within FINOS and CFI community sessions.
+
+### How does this project add to FINOS?
+
+This question is answered fully in the [project charter](docs/project-charter.md).
 
 ## What is the meaning of "compliant" in CFI?
 
-Our community intends to create an authoritative source for _defining, creating, and validating_ compliant infrastructure for financial services.
+Our community has created an authoritative source for _defining, creating, and validating_ infrastructure for financial services that is compliant with regulatory standards.
 As detailed in [the following section](#services--workflows), our community focuses on these three key offerings.
 
-Our compliance definition comes from the extension of a baseline into a
-comprehensive standard that is suited to accelerate adoption in highly regulated environments.
+Our compliance definition comes from the extension of a baseline into a comprehensive standard that is suited to accelerate adoption in highly regulated environments.
 
 ### Defining Compliant Infrastructure
 
@@ -108,45 +122,9 @@ and some tests pass.
 where said service meets the SAA specification.
 - <img src="docs/_images/paper.png" alt="paper" height="20"/> - A complete SAA document for this service has been merged to `main`.
 
-## Project Kanban
-Find the [Compliant Financial Infrastructure Project Kanban](https://github.com/orgs/finos/projects/1) in the parent FINOS organisation on GitHub.
+## Join the Community!
 
-### Compliant Financial Infrastructure - Agile Workflow
-
-The Agile Workflow for Compliant Financial Infrastructure falls into three main work streams which are overseen by Project Maintainers and fulfilled by the project team and wider FINOS community.
-
-- [Agile Delivery of Prioritised Work Items](https://github.com/finos/compliant-financial-infrastructure/tree/main/docs/agile-workflow#agile)
-- [Community Contributions and Pull Requests](https://github.com/finos/compliant-financial-infrastructure/tree/main/docs/agile-workflow#community)
-- [Compliant Financial Infrastructure Asynchronous Pull Request and Code Reviews](https://github.com/finos/compliant-financial-infrastructure/tree/main/docs/agile-workflow#reviews)
-
-### Contributing - Forking, Feature Branches and Pull Requests
-
-1. Fork it (<https://github.com/finos/compliant-financial-infrastructure/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Read our [contribution guidelines](.github/CONTRIBUTING.md) and [Community Code of Conduct](https://www.finos.org/code-of-conduct)
-4. Commit your changes (`git commit -am 'Add some fooBar'`)
-5. Push to the branch (`git push origin feature/fooBar`)
-6. Create a new Pull Request
-
-## Service Approval Accelerator
-
-The [Service Approval Accelerator](templates/ServiceApprovalAcceleratorTemplate.md) (SAA) describes each service contributed to Compliant Financial Infrastructure alongside test cases and infrastructure as code.
-
-A single SAA should be contributed with every service contributed to Compliant Financial Infrastructure. 
-
-You may review existing services for examples of existing SAAs.
-
-## Compliant Financial Infrastructure Mailing List
-Compliant Financial Infrastructure email communications are conducted through the compliant-financial-infrastructure@finos.org mailing list. Email compliant-financial-infrastructure@finos.org with questions or suggestions related to Compliant Financial Infrastructure.
-
-Subscribe to the Compliant Financial Infrastructure mailing list by sending an email to compliant-financial-infrastructure+subscribe@finos.org.
-
-## Join the Compliant Financial Infrastructure Slack Channel
-Join Compliant Financial Infrastructure on the FINOS Slack by signing up at https://finos-lf.slack.com/. The Compliant Financial Infrastructure channel on Slack is found directly at https://finos-lf.slack.com/messages/compliant-financial-infrastructure/.
-
-[<img src="https://img.shields.io/badge/slack-@finos/cloud%20service%20certification-green.svg?logo=slack">](https://finos-lf.slack.com/messages/compliant-financial-infrastructure/)
-
-Reach out to help@finos.org for any issues when joining Compliant Financial Infrastructure on the FINOS Slack.
+For more information about how to communicate with the rest of the community and contribute to the project, view the documentation and links [here](docs/CONTRIBUTING.md).
 
 ## License
 
