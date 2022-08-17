@@ -124,7 +124,7 @@ where said service meets the SAA specification.
 
 ## Join the Community!
 
-For more information about how to communicate with the rest of the community and contribute to the project, view the documentation and links [here](docs/CONTRIBUTING.md).
+For more information about how to engage with the rest of the community and contribute to the project, view the documentation and links [here](docs/CONTRIBUTING.md).
 
 ## License
 
