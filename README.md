@@ -21,9 +21,9 @@ A firm may take benefit from one or more of the following:
 
 ### Why should I contribute to this project?
 
-Every active community member serves to accelerate the frequency that we are able to make resources available! Participation from security and compiliance professionals helps to ensure that opinions made by our community are aligned to every firm's needs. Contribution from infrastructure engineers helps the community create more and better infrastructure as code. Collaboration from programmers and testers helps the community more quickly offer validation tests for more services.
+Every active community member serves to accelerate the frequency that we are able to make resources available! Participation from security and compliance professionals helps to ensure that opinions made by our community are aligned to every firm's needs. Contribution from infrastructure engineers helps the community create more and better infrastructure as code. Collaboration from programmers and testers helps the community more quickly offer validation tests for more services.
 
-Anything you are interested in contributing to the project will make a huge impact! Contributions will be publicly displayed on the project's Github history and often highlighted within FINOS and CFI community sessions.
+Anything you are interested in contributing to the project will make a huge impact! Contributions will be publicly displayed on the project's GitHub history and often highlighted within FINOS and CFI community sessions.
 
 ### How does this project add to FINOS?
 
