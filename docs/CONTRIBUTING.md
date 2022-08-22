@@ -20,6 +20,10 @@ The Agile Workflow for Compliant Financial Infrastructure falls into three main 
 5. Push to the branch (`git push origin feature/fooBar`)
 6. Create a new Pull Request
 
+## Feature Requests & Bug Reports
+
+If you'd like to report a bug or request a new feature, create an issue on the associated repository. If you're not sure, feel free to just make an issue on [this repo](https://github.com/finos/compliant-financial-infrastructure/issues). If you'd like to discuss the matter with a maintainer or other contributors first, see below for information about Slack and community meetings.
+
 ## Service Approval Accelerators
 
 The [Service Approval Accelerator](templates/ServiceApprovalAcceleratorTemplate.md) (SAA) describes each service contributed to Compliant Financial Infrastructure alongside test cases and infrastructure as code.
