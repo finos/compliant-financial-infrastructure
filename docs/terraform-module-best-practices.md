@@ -16,7 +16,7 @@ For Terraform Enterprise users, _submodules_ are also visible in [the documentat
 This section details bullets which draw attention to good practices when handling Terraform deployments. Items referred in linked references are reproduced here to drive home specific best practices.
 
 - Read the documentation, which form the main best practices:
-  - Read the [Terraform module documentation]([Terraform Modules](https://www.terraform.io/language/modules)) before attempting to develop one's own child module.
+  - Read the [Terraform module documentation](https://www.terraform.io/language/modules) before attempting to develop one's own child module.
   - Further read the [Module Creation - Recommended Pattern](https://learn.hashicorp.com/tutorials/terraform/pattern-module-creation?in=terraform/recommended-patterns).
 - Do not put resources in root modules, only put them into child modules.
   - Doing so drives duplication of effort which already blights financial services.
