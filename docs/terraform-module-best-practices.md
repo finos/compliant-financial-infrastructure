@@ -32,6 +32,7 @@ This section details bullets which draw attention to good practices when handlin
   - Provide the bulk of the attributes for contained resource as input variables to the child module - others will be able to configure the child module from their root modules without having to contribute changes to the repository in order to get what they want.
   - Output the bulk of the attributes and argument values exported by instantiation of resources in your child module via the outputs.tf file.  Together with the previous practice, this means that the child module will provide the maximal usable dynamic data items back to the calling root module so that they can be used without modification.
   - These practices will save you future time reviewing PRs to your module repository.
+- In certain circumstances, modules may return large numbers of outputs, and these may need to be returned to an orchestrator by the calling root module.  In this case, definition of a naming convention for your outputs would be required to more easily machine returned information (such as VPC ID) which would then be used down-pipe by the orchestrator for the purposes of application component deployment on infrastructure Terraform has just deployed.
 - Enumerate resources with switches.
   - Some resources in your child module will be deployed in every case.
   - For those resources which are only deployed in certain circumstances, control these with `count` like so:
