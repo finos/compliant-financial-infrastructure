@@ -16,3 +16,4 @@ For each cloud provider documentation and working code will be provided to:
 5. Implement OCP Compliance Operator
 6. Manual Remediation of CIS Controls
 
+## NOTE:  Need to add a section here that covers requirement to have a secure and compliant bastion to install OCP from, maybe as Joe to write??
