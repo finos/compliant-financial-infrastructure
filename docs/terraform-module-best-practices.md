@@ -5,12 +5,12 @@ This document will evolve over time, as the feature set supplied evolves corresp
 The best practices listed here are devised with scale in mind, typical of financial services organisations, most of which already have national or international presence, or have such as an element of the mission statement.  However, it is recommended that all practitioners apply these everywhere.
 
 ## Preamble
-A distinction should be made between terminology as there are functional and architectural implications as expounded below.
-A _child module_ (the default meaning if documentation refers to a _module_) is defined [here](https://www.terraform.io/language/modules#child-modules).
-Child modules are called in a root module configuration.
-A _root module_ is the top level Terraform configuration on which a `terraform plan` would be run.  It is defined [here](https://www.terraform.io/language/modules#the-root-module).
-A _terraform configuration_ generally refers to a whole configuration processed by Terraform during a run, but colloquially may be meant to refer to the root module.
-For Terraform Enterprise users, _submodules_ are also visible in [the documentation](https://www.terraform.io/enterprise/registry/using#viewing-nested-modules-and-examples) which are nested modules in subdirectories of configuration repositories.  These can also be structured in open source.
+- A distinction should be made between terminology as there are functional and architectural implications as expounded below.
+- A _child module_ (the default meaning if documentation refers to a _module_) is defined [here](https://www.terraform.io/language/modules#child-modules).
+- Child modules are called in a root module configuration.
+- A _root module_ is the top level Terraform configuration on which a `terraform plan` would be run.  It is defined [here](https://www.terraform.io/language/modules#the-root-module).
+- A _terraform configuration_ generally refers to a whole configuration processed by Terraform during a run, but colloquially may be meant to refer to the root module.
+- For Terraform Enterprise users, _submodules_ are also visible in [the documentation](https://www.terraform.io/enterprise/registry/using#viewing-nested-modules-and-examples) which are nested modules in subdirectories of configuration repositories.  These can also be structured in open source.
 
 ## Best Practices
 This section details bullets which draw attention to good practices when handling Terraform deployments. Items referred in linked references are reproduced here to drive home specific best practices.
