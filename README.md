@@ -131,3 +131,7 @@ For more information about how to engage with the rest of the community and cont
 Distributed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 SPDX-License-Identifier: [Apache-2.0](https://spdx.org/licenses/Apache-2.0)
+
+## Security Concerns
+
+If you have any security concerns related to this project, please [create an issue on this repository](https://github.com/finos/compliant-financial-infrastructure/issues/new/choose) _or_ create an issue on the repository associated with your concern.
