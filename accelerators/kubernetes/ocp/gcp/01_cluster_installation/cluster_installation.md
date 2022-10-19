@@ -25,7 +25,7 @@ Following are the high level steps to complete OCP installation, including the s
 ```shell
 ./openshift-install create install-config --dir=/Users/*home*/ocp_clusters/<cluster_name>
 ```
-  - Edit the install-config YAML file to implement FIPS and OVNKubernetes, here is an example [config yaml](/accelerators/kubernetes/ocp/gcp/01_cluster_installation/install-config.yaml) 
+  - Edit the install-config YAML file to implement FIPS and OVNKubernetes, here is an example [config yaml](install-config.yaml) 
   - Run the OCP installer to create the cluster. Here is an example command
 
 ```shell
@@ -60,4 +60,4 @@ Status:
     172.30.0.0/16
 ```
 
-The next step of the installation process is to set up an identity provider. An example using [HTPASSWD](/accelerators/kubernetes/ocp/gcp/02_htpasswd_identity_provider/htpasswd_implementation.md) has been provided. OCP supports a number of identity providers, more detail can be found [here](https://docs.openshift.com/container-platform/4.10/authentication/understanding-identity-provider.html)
+The next step of the installation process is to set up an identity provider. An example using [HTPASSWD](/gcp/02_htpasswd_identity_provider/htpasswd_implementation.md) has been provided. OCP supports a number of identity providers, more detail can be found [here](https://docs.openshift.com/container-platform/4.10/authentication/understanding-identity-provider.html)
