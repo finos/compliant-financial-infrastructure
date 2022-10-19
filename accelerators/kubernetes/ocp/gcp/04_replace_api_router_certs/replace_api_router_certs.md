@@ -52,7 +52,7 @@ oc get ingresscontroller default -n openshift-ingress-operator -o jsonpath='{.st
 
       check that the certificates exist in the target directories.
 
-5. To replace the API endpoint certificate use following command, more details can be found in the [OCP documentation]{https://docs.openshift.com/container-platform/4.10/security/certificates/api-server.html}. Before running the command below CD into the directory with the API certificates, e.g. /Users/*home*/certificates/api/ 
+5. To replace the API endpoint certificate use following command, more details can be found in the [OCP documentation]{https://docs.openshift.com/container-platform/4.11/security/certificates/api-server.html}. Before running the command below CD into the directory with the API certificates, e.g. /Users/*home*/certificates/api/ 
 
       - Create a secret using the API endpoint certifcate chain and private key created in the previous step
 
@@ -107,7 +107,7 @@ Once completed you will need to log back into the API server. To confirm that th
 curl -v https://api.<clustername>.<domainname>.com:6443
 ```
 
-6. To replace the default Router endpoint certificate use following command, more details can be founfd in the [OCP documentation](https://docs.openshift.com/container-platform/4.10/security/certificates/replacing-default-ingress-certificate.html). Before running the command below CD into the directory with the API certificates, e.g. /Users/*home*/certificates/router/ 
+6. To replace the default Router endpoint certificate use following command, more details can be founfd in the [OCP documentation](https://docs.openshift.com/container-platform/4.11/security/certificates/replacing-default-ingress-certificate.html). Before running the command below CD into the directory with the API certificates, e.g. /Users/*home*/certificates/router/ 
 
  - Create a secret using the Router endpoint certifcate chain and private key created in the previous step
 
