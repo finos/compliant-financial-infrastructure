@@ -42,7 +42,7 @@ oc create secret generic htpass-secret --from-file=htpasswd=htpasswd -n openshif
 oc get oauth -o yaml -n openshift-config > oauth.yaml
 ```
 
-  - Using an editor of your choice update *oauth.yaml* to define the HTPasswd provider, a sample *spec:* definition can be found [here](sample_htpassed_provider_oauth.yaml).
+  - Using an editor of your choice update *oauth.yaml* to define the HTPasswd provider, a sample *spec:* definition can be found [here](sample_htpasswd_provider_oauth.yaml).
 
     Below is an example of an updated oauth.yaml
 
@@ -108,7 +108,7 @@ oauth-openshift-7cdbdd45ff-8xkt4   0/1     Pending       0          25s
 oc adm policy add-cluster-role-to-user cluster-admin finos-admin-1
 ```
 
-A sample [script](add_cluster_admin_role.sh) is provided to automate this. The response that the user is not found can be ignored. 
+A sample [script](add_cluster_admin_role.sh) is provided to automate this. The response that the user is not found can be ignored as it is due to the user having not yet logged into the cluster.  
 
 Once the above steps have been completed it should now be possible to login into the OCP cluster using the new credentials. 
 
@@ -118,7 +118,7 @@ Once the above steps have been completed it should now be possible to login into
 oc login -u finos-admin-1 -p F1n0s_R3dH4t_123
 ```
 
-6. Check that the account has admin privedledges: this can be done by using the following command, if the cluster nodes are not displayed the account being used does not have admin priveledges so do not proceed with the next step until corrected.
+6. Check that the account has admin privileges: this can be done by using the following command, if the cluster nodes are not displayed the account being used does not have admin privileges so do not proceed with the next step until corrected.
 
 ```shell
 oc get nodes
@@ -141,4 +141,4 @@ oc delete secrets kubeadmin -n kube-system
 ```
 
 
-The next [step](/accelerators/kubernetes/ocp/gcp/03_default_network_policy/default_network_policy_implementation.md) will be to add default network policies for non control plane projects. 
+The next [step](/gcp/03_default_network_policy/default_network_policy_implementation.md) will be to add default network policies for non control plane projects. 
