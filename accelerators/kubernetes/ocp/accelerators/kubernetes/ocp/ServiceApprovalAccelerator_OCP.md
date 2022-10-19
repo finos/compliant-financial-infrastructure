@@ -2,6 +2,8 @@
 
 _**Template Notes:**_
 
+*DRAFT WORK IN PROGRESS*
+
 This is the Service Approval Accelerator (SAA) for Red Hat OpenShift (OCP).  
 
 The documentation provided to implement OCP so that it is compliant to this SAA will be achieved through both day one and day two configuration, the majority of day two changes being made through the use of the [Red Hat OpenShift Compliance Operator](https://docs.openshift.com/container-platform/4.11/security/compliance_operator/compliance-operator-understanding.html)
