@@ -75,7 +75,7 @@ To add these policies to the default project template we will edit the default p
 oc edit template project-request -n openshift-config
 ```
 
-Copy the network policies yaml from this [sample](/accelerators/kubernetes/ocp/gcp/03_default_network_policy/multi_tenant_isolation_netpol.yaml) 
+Copy the network policies yaml from this [sample](multi_tenant_isolation_netpol.yaml) 
 
 Sample can be seen below:
 
@@ -180,4 +180,4 @@ allow-from-openshift-monitoring   <none>         16s
 allow-same-namespace              <none>         16s
 ```
 
-The next [step](/accelerators/kubernetes/ocp/gcp/04_replace_api_router_certs/replace_api_router_certs.md) will replace the self signed certificates for the API Server and Router. 
+The next [step](/gcp/04_replace_api_router_certs/replace_api_router_certs.md) will replace the self signed certificates for the API Server and Router. 
