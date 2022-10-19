@@ -2,9 +2,9 @@
 
 OCP supports a number of password providers, HTPasswd is used in this implementation of the FINOS CFI service accelerator, this should be updated where a different identity provider is being used.
 
-OCP supports these [identify providers](https://docs.openshift.com/container-platform/4.10/authentication/understanding-identity-provider.html), including LDAP, OpenID Connect, GitHub, Google and others. 
+OCP supports these [identify providers](https://docs.openshift.com/container-platform/4.11/authentication/understanding-identity-provider.html), including LDAP, OpenID Connect, GitHub, Google and others. 
 
-So that the KubeAdmin user can be deleted we must first create additional administrator account(s) for the cluster. The following provides a working example using an [HTPasswd](https://docs.openshift.com/container-platform/4.10/authentication/identity_providers/configuring-htpasswd-identity-provider.html) provider.
+So that the KubeAdmin user can be deleted we must first create additional administrator account(s) for the cluster. The following provides a working example using an [HTPasswd](https://docs.openshift.com/container-platform/4.11/authentication/identity_providers/configuring-htpasswd-identity-provider.html) provider.
 
 ## Setting up HTPasswd 
 
