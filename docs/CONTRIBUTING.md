@@ -36,7 +36,7 @@ You may review existing services for examples of existing SAAs.
 
 All IaC should live in external repositories that are independently tested and ready for users to import into their own module registries. Initial contributions do not need to be 100% compliant, but a badge or other documentation should be included to demonstrate the module's level of maturity.
 
-A [child module template repository](https://github.com/finos/cfi-terraform-template-child-module) is currently under construction (as of August 2022). This template repo is designed to streamline the creation of compliant Terraform child modules.
+The [child module template repository](https://github.com/finos/cfi-terraform-template-child-module) is designed to streamline the creation of compliant Terraform child modules. This template repo comes with CI tests that will be run automatically when a pull request is made to the respective repo. You may replicate these tests locally by reviewing the CI to see how the tests are installed and executed.
 
 ## Post-Deployment Validation Tests
 
