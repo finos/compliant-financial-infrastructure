@@ -1,12 +1,12 @@
 # OpenShift Compliant Financial Infrastructure
 
-To complete the setup of the cluster to meet the policy requirements laid out in the [OpenShift Security Configuration (Service Accelerator)](/accelerators/kubernetes/ocp/sat_rh_ocp.adoc) we will use the [OpenShift Compliance Operator](https://docs.openshift.com/container-platform/4.10/security/compliance_operator/compliance-operator-release-notes.html). The Compliance Operator lets OpenShift Container Platform administrators describe the required compliance state of a cluster and it provides them with an overview of gaps and ways to remediate them. The compliance operator supports a number of [compliance standards](https://docs.openshift.com/container-platform/4.10/security/compliance_operator/compliance-operator-supported-profiles.html) for example NIST and CIS. 
+To complete the setup of the cluster to meet the policy requirements laid out in the [OpenShift Security Configuration (Service Accelerator)](/accelerators/kubernetes/ocp/ServiceApprovalAccelerator_OCP.md) we will use the [OpenShift Compliance Operator](https://docs.openshift.com/container-platform/4.11/security/compliance_operator/compliance-operator-release-notes.html). The Compliance Operator lets OpenShift Container Platform administrators describe the required compliance state of a cluster and it provides them with an overview of gaps and ways to remediate them. The compliance operator supports a number of [compliance standards](https://docs.openshift.com/container-platform/4.11/security/compliance_operator/compliance-operator-supported-profiles.html) for example NIST and CIS. 
 
-To meet the policies as laid out in the service accelerator the OpenShift CIS Benchamrk profile will be used.
+To meet the policies as laid out in the service accelerator the OpenShift CIS Benchmark profile will be used.
 
-The compliance operator is a Customer Resource Definition (CRD) and includes a number of kubernetes objects, more details on these object can be found in [here](https://github.com/openshift/compliance-operator/blob/master/doc/crds.md). 
+The compliance operator is a Custom Resource Definition (CRD) and includes a number of kubernetes objects, more details on these object can be found in [here](https://github.com/openshift/compliance-operator/blob/master/doc/crds.md). 
 
-The Compliance Operator, or any other operator, can be installed on OCP using the Administrator UI or the CLI. Instructions on both methods can be found [here](https://docs.openshift.com/container-platform/4.10/security/compliance_operator/compliance-operator-installation.html). 
+The Compliance Operator, or any other operator, can be installed on OCP using the Administrator UI or the CLI. Instructions on both methods can be found [here](https://docs.openshift.com/container-platform/4.11/security/compliance_operator/compliance-operator-installation.html). 
 
 Below we will decribe both the installation and configuration of the CIS profile using the command line. 
 
@@ -233,4 +233,4 @@ oc annotate compliancescans/ocp4-cis-node-master compliance.openshift.io/rescan=
 oc annotate compliancescans/ocp4-cis-node-worker compliance.openshift.io/rescan=
 ```
 
-The compliance operator will auto-remediate all CIS policies with the exception of those policies that the CIS define as requiring manual rediation. In the next section we will address these [manual remdiations](/accelerators/kubernetes/ocp/gcp/06_remediation_of_manual_CIS_controls/Remediation_of_manual_CIS_controls.md).
+The compliance operator will auto-remediate all CIS policies with the exception of those policies that the CIS define as requiring manual rediation. In the next section we will address these [manual remediations](/gcp/06_remediation_of_manual_CIS_controls/Remediation_of_manual_CIS_controls.md).

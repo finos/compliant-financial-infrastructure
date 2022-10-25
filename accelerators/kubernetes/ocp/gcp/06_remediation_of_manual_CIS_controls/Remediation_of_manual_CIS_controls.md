@@ -123,4 +123,4 @@ spec:
 ```
 
 For more information on `TailoredProfile` resources, please refer to the
-[compliance operator documentation](https://docs.openshift.com/container-platform/4.10/security/compliance_operator/compliance-operator-tailor.html)
+[compliance operator documentation](https://docs.openshift.com/container-platform/4.11/security/compliance_operator/compliance-operator-tailor.html)
