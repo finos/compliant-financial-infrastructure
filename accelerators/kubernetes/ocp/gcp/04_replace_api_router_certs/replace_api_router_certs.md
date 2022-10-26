@@ -54,7 +54,7 @@ oc get ingresscontroller default -n openshift-ingress-operator -o jsonpath='{.st
 
 5. To replace the API endpoint certificate use following command, more details can be found in the [OCP documentation](https://docs.openshift.com/container-platform/4.11/security/certificates/api-server.html). Before running the command below CD into the directory with the API certificates, e.g. /Users/*home*/certificates/api/ 
 
-      - Create a secret using the API endpoint certifcate chain and private key created in the previous step
+      - Create a secret using the API endpoint certificate chain and private key created in the previous step
 
     ```shell
     oc create secret tls api-certs --cert=fullchain.pem --key=key.pem -n openshift-config
@@ -123,4 +123,4 @@ curl -v https://api.<clustername>.<domainname>.com:6443
 
 It will take a few minutes for the update to replicate, to check login to the OCP Console and check that the connection is secure and using the new certificate. 
 
-The next step is to complete the [day 2 customisation](/gcp/05_implement_ocp_compliance_operator/implement_ocp_compliance_operator.md).
+The next step is to complete the [day 2 customisation](../05_implement_ocp_compliance_operator/implement_ocp_compliance_operator.md).
