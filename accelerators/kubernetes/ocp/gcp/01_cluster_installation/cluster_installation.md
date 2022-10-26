@@ -2,7 +2,7 @@
 
 ## GCP Project setup and Cluster Installation 
 
-The OpenShift (OCP) Installer supports two installation methods, Installer Provisioned Infrastructure(IPI) and User Provisioned Infrastructure(UPI). IPI is an opinionated automated installation, this is the installation menthod that will be used. UPI gives users more flexibility to install OCP on pre-provisioned infrastructure, for example an on-premises installation where a firm's IT standards and policies prevent the use of an opinionated and automated installation. More details on OpenShift Installation can be found [here](https://docs.openshift.com/container-platform/4.11/installing/index.html).
+The OpenShift (OCP) Installer supports two installation methods, Installer Provisioned Infrastructure(IPI) and User Provisioned Infrastructure(UPI). IPI is an opinionated automated installation, this is the installation method that will be used. UPI gives users more flexibility to install OCP on pre-provisioned infrastructure, for example an on-premises installation where a firm's IT standards and policies prevent the use of an opinionated and automated installation. More details on OpenShift Installation can be found [here](https://docs.openshift.com/container-platform/4.11/installing/index.html).
 
 It is possile for OCP to be installed into a disconnected / air-gapped environment or be configured to have no public endpoints. To meet the current service accelerator requirements this is not required, the following instructions will implement a cluster that is internet connected and has public end-points. 
 
@@ -41,7 +41,7 @@ export KUBECONFIG=/Users/*home*/ocp_clusters/<cluster_name>/auth/kubeconfig
 ```
 
 
-FIPS compliance is managed via the OpenShift Compliance Operator, which will be discussed later. To confirm that the OVNKubernetes SDN has been implemeted log into the cluster and run the following commands.
+FIPS compliance is managed via the OpenShift Compliance Operator, which will be discussed later. To confirm that the OVNKubernetes SDN has been implemented log into the cluster and run the following commands.
 
 ```shell
 oc describe network.config/cluster
@@ -60,4 +60,4 @@ Status:
     172.30.0.0/16
 ```
 
-The next step of the installation process is to set up an identity provider. An example using [HTPASSWD](/gcp/02_htpasswd_identity_provider/htpasswd_implementation.md) has been provided. OCP supports a number of identity providers, more detail can be found [here](https://docs.openshift.com/container-platform/4.10/authentication/understanding-identity-provider.html)
+The next step of the installation process is to set up an identity provider. An example using [HTPASSWD](../02_htpasswd_identity_provider/htpasswd_implementation.md) has been provided. OCP supports a number of identity providers, more detail can be found [here](https://docs.openshift.com/container-platform/4.10/authentication/understanding-identity-provider.html)
