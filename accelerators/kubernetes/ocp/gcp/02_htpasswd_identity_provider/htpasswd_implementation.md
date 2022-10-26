@@ -81,7 +81,7 @@ metadata:
   selfLink: ""
 ```
 
-  - Replace the existing OAUTH configuration with the updated oauth.yaml file using the follwing command
+  - Replace the existing OAUTH configuration with the updated oauth.yaml file using the following command
 
 ```shell
 oc replace -f oauth.yaml
@@ -102,7 +102,7 @@ oauth-openshift-7cdbdd45ff-8xkt4   0/1     Pending       0          25s
 ```
 
 
-  - The last step is to give the newly created administrator account *cluster admin* priveledges, this can be done using the following command
+  - The last step is to give the newly created administrator account *cluster admin* privileges, this can be done using the following command
 
 ```shell
 oc adm policy add-cluster-role-to-user cluster-admin finos-admin-1
@@ -141,4 +141,4 @@ oc delete secrets kubeadmin -n kube-system
 ```
 
 
-The next [step](/gcp/03_default_network_policy/default_network_policy_implementation.md) will be to add default network policies for non control plane projects. 
+The next [step](../03_default_network_policy/default_network_policy_implementation.md) will be to add default network policies for non control plane projects. 
