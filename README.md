@@ -1,4 +1,5 @@
 [![FINOS - Incubating](https://cdn.jsdelivr.net/gh/finos/contrib-toolbox@master/images/badge-incubating.svg)](https://finosfoundation.atlassian.net/wiki/display/FINOS/Incubating)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6557/badge)](https://bestpractices.coreinfrastructure.org/projects/6557)
 [<img src="https://img.shields.io/badge/slack-@finos/compliant%20financial%20infrastructure-green.svg?logo=slack">](https://finos-lf.slack.com/messages/compliant-financial-infrastructure/)
 
 <img src="https://github.com/finos/branding/blob/master/project-logos/active-project-logos/Compliant%20Financial%20Infrastructure%20Logo/Horizontal/2021_CFI_Logo_Horizontal.png?raw=true" width="450">
@@ -131,3 +132,11 @@ For more information about how to engage with the rest of the community and cont
 Distributed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 SPDX-License-Identifier: [Apache-2.0](https://spdx.org/licenses/Apache-2.0)
+
+## Suggestions and Change Requests
+
+Please feel free to engage the community via [Slack](https://finos-lf.slack.com/messages/compliant-financial-infrastructure), [GitHub Discussions](https://github.com/finos/compliant-financial-infrastructure/discussions), or [GitHub Issues](https://github.com/finos/compliant-financial-infrastructure/issues).
+
+## Security Concerns
+
+If you have any security concerns related to this project, please [create an issue on this repository](https://github.com/finos/compliant-financial-infrastructure/issues/new/choose) _or_ create an issue on the repository associated with your concern.
