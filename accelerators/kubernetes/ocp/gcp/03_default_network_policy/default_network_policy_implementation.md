@@ -20,7 +20,7 @@ oc adm create-bootstrap-project-template -o yaml > template.yaml
 oc create -f template.yaml -n openshift-config
 ```
 
-3. So that this template is used we must edit the project config resiource to use template created in the last step
+3. So that this template is used we must edit the project config resource to use template created in the last step
 
 ```bash
 oc edit project.config.openshift.io/cluster
@@ -180,4 +180,4 @@ allow-from-openshift-monitoring   <none>         16s
 allow-same-namespace              <none>         16s
 ```
 
-The next [step](/gcp/04_replace_api_router_certs/replace_api_router_certs.md) will replace the self signed certificates for the API Server and Router. 
+The next [step](../04_replace_api_router_certs/replace_api_router_certs.md) will replace the self signed certificates for the API Server and Router. 
