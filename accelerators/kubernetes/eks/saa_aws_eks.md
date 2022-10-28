@@ -14,3 +14,5 @@ unless otherwise noted in section 2: [Amendments to the Baseline](#2-amendments-
 All guidelines provided by the aforementioned baseline are to be followed without modification or exception.
 
 ## 3. Extensions to the Baseline
+
+All guidelines provided by the aforementioned baseline are to be followed without modification or exception.
