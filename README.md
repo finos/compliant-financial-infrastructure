@@ -1,25 +1,41 @@
 [![FINOS - Incubating](https://cdn.jsdelivr.net/gh/finos/contrib-toolbox@master/images/badge-incubating.svg)](https://finosfoundation.atlassian.net/wiki/display/FINOS/Incubating)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6557/badge)](https://bestpractices.coreinfrastructure.org/projects/6557)
 [<img src="https://img.shields.io/badge/slack-@finos/compliant%20financial%20infrastructure-green.svg?logo=slack">](https://finos-lf.slack.com/messages/compliant-financial-infrastructure/)
 
 <img src="https://github.com/finos/branding/blob/master/project-logos/active-project-logos/Compliant%20Financial%20Infrastructure%20Logo/Horizontal/2021_CFI_Logo_Horizontal.png?raw=true" width="450">
 
+
 # Compliant Financial Infrastructure
-Compliant Financial Infrastructure (CFI) accelerates the development, deployment and adoption of services provided for _AWS_, _Azure_, _Google Cloud_, and _IBM Cloud_ in a way that meets existing regulatory and internal security controls.
+Compliant Financial Infrastructure (CFI) accelerates the development, deployment and adoption of services provided for infrastructure in a way that meets existing regulatory and internal security controls.
 
-## Business Problem and Opportunity
-Cloud services controls and tests are used to demonstrate adherence with regulatory and internal compliance requirements mandated for financial institutions when using cloud services. The majority of cloud security incidents are due to misconfiguration; services are not secure by default, configuration is often complex, nuanced and difficult to validate. To some degree or another all financial institutions are re-inventing the wheel – institutions have similar control frameworks and each is trying to secure and stand up the same providers and services within the same regulatory frameworks.
+## What's the value?
 
-Having robust controls and tests developed and in place removes a barrier to faster adoption of cloud services such as those provided by Amazon/AWS, Microsoft/Azure and Google/GCP, among others. Addressing this barrier will benefit both financial services IT departments, many of whom are looking to move more quickly to the cloud, and the providers themselves, who wish to sell more cloud services into financial institutions.
+### What does this project provide to financial institutions?
 
-Controls for cloud service compliance afford firms no particular strategic or competitive advantage while also representing a task something all firms who look to deploy more applications onto the cloud needs to do, and as such are conducive to being developed together as part of the "public commons". The focused project and collaboration with other firms will increase the amount of controls produced and, it's expected, help increase the rate of adoption of cloud services.
+Our community collaboratively creates accelerators to aid in the adoption of specific infrastructure based on input and experience from professionals across a variety of roles and firms.
+
+A firm may take benefit from one or more of the following:
+
+- Opinionated compliance documentation provided by our *service approval accelerators*
+- Vetted *infrastructure as code* that is ready to import to your internal registry
+- CI/CD-friendly *post-deployment validation tests* to ensure your deployed resources are compliant
+
+### Why should I contribute to this project?
+
+Every active community member serves to accelerate the frequency that we are able to make resources available! Participation from security and compliance professionals helps to ensure that opinions made by our community are aligned to every firm's needs. Contribution from infrastructure engineers helps the community create more and better infrastructure as code. Collaboration from programmers and testers helps the community more quickly offer validation tests for more services.
+
+Anything you are interested in contributing to the project will make a huge impact! Contributions will be publicly displayed on the project's GitHub history and often highlighted within FINOS and CFI community sessions.
+
+### How does this project add to FINOS?
+
+This question is answered fully in the [project charter](docs/project-charter.md).
 
 ## What is the meaning of "compliant" in CFI?
 
-Our community intends to create an authoritative source for _defining, creating, and validating_ compliant infrastructure for financial services.
+Our community has created an authoritative source for _defining, creating, and validating_ infrastructure for financial services that is compliant with regulatory standards.
 As detailed in [the following section](#services--workflows), our community focuses on these three key offerings.
 
-Our compliance definition comes from the an extension of a baseline into a
-comprehensive standard that is suited to accelerate adoption in highly regulated environements.
+Our compliance definition comes from the extension of a baseline into a comprehensive standard that is suited to accelerate adoption in highly regulated environments.
 
 ### Defining Compliant Infrastructure
 
@@ -58,7 +74,7 @@ the tools necessary to ensure that infrastructure is compliant after it has been
 In some cases, full compliance may only be possible (or preferable) when deployed behind a firewall or with other similar contexts not reflected by the IaC code.
 In these cases, only post-deployment validation will provide confidence that a deployment is actually prod-ready.
 
-To organize and facilitate these tests, our community uses the (Probr)[http://github.com/probr] test harness to create tests for each service.
+To organize and facilitate these tests, our community uses the [Probr](https://github.com/probr) test harness to create tests for each service.
 These tests are run in our validation pipelines after a deployment is complete,
 and can also be run independently in any environment regardless of how the service was deployed.
 
@@ -87,68 +103,40 @@ and automatically tested for compliance with the CDMC framework.
 This feature matrix is intended to show all current and planned services along with the current status of each,
 to help contributors looking for a task know where best to spend their effort.
 
-|                    |         AWS         |         GCP         |        Azure        |    OpenShift     |
-| ------------------:|:-------------------:|:-------------------:|:-------------------:|:----------------:|
-| Kubernetes Cluster |      :trophy:       |       :cookie:      |  :page_facing_up:   | :page_facing_up: |
-|  Postgres Database |                     |                     |      :cookie:       |                  |
-|           DynamoDB |  :page_facing_up:   |                     |                     |                  |
-|           RedShift |  :page_facing_up:   |                     |                     |                  |
-|                SQS |  :page_facing_up:   |                     |                     |                  |
+|                    |         AWS                                                                             |         GCP                                                     |        Azure                                                 |    OpenShift                                               |
+| ------------------:|:---------------------------------------------------------------------------------------:|:--------------------------------------------------------------: |:------------------------------------------------------------:|:----------------------------------------------------------:|
+| Kubernetes Cluster | ![](https://byob.yarr.is/finos/compliant-financial-infrastructure/eks-terraform)        | <img src="docs/_images/bronze.png"  alt="bronze" height="20"/>  | <img src="docs/_images/paper.png" alt="paper" height="20"/>  |<img src="docs/_images/paper.png" alt="paper" height="20"/> |
+|  Postgres Database |                                                                                         |                                                                 | <img src="docs/_images/bronze.png" alt="bronze" height="20"/>|                                                            |
+|           DynamoDB |  <img src="docs/_images/paper.png" alt="paper" height="20"/>                            |                                                                 |                                                              |                                                            |
+|           RedShift |  <img src="docs/_images/paper.png" alt="paper" height="20"/>                            |                                                                 |                                                              |                                                            |
+|                SQS |                                                                                         |                                                                 |                                                              |                                                            |
 
 
 ### Key
 
-- :gem: diamond - Post-deployment validation tests exist for every aspect of the SAA,
+- <img src="docs/_images/diamond.png" alt="diamond" height="20"/> - Post-deployment validation tests exist for every aspect of the SAA,
 and all tests pass in the CI pipeline testing phase.
-- :trophy: gold - Post-deployment validation tests are run in CI as part of the testing phase,
+- <img src="docs/_images/gold.png" alt="gold" height="20"/> - Post-deployment validation tests are run in CI as part of the testing phase,
 and some tests pass.
-- :cd: silver - The service is automatically spun up and destroyed via CI before being merged to `main`.
-- :cookie: bronze - IaC has been produced that is able to create and destroy the service,
+- <img src="docs/_images/silver.png" alt="silver" height="20"/> - The service is automatically spun up and destroyed via CI before being merged to `main`.
+- <img src="docs/_images/bronze.png"  alt="bronze" height="20"/> - IaC has been produced that is able to create and destroy the service,
 where said service meets the SAA specification.
-- :page_facing_up: paper - A complete SAA document for this service has been merged to `main`.
+- <img src="docs/_images/paper.png" alt="paper" height="20"/> - A complete SAA document for this service has been merged to `main`.
 
-## Project Kanban
-Find the [Compliant Financial Infrastructure Project Kanban](https://github.com/orgs/finos/projects/1) in the parent FINOS organisation on GitHub.
+## Join the Community!
 
-### Compliant Financial Infrastructure - Agile Workflow
-
-The Agile Workflow for Compliant Financial Infrastructure falls into three main work streams which are overseen by Project Maintainers and fulfilled by the project team and wider FINOS community.
-
-- [Agile Delivery of Prioritised Work Items](https://github.com/finos/compliant-financial-infrastructure/tree/main/docs/agile-workflow#agile)
-- [Community Contributions and Pull Requests](https://github.com/finos/compliant-financial-infrastructure/tree/main/docs/agile-workflow#community)
-- [Compliant Financial Infrastructure Asynchronous Pull Request and Code Reviews](https://github.com/finos/compliant-financial-infrastructure/tree/main/docs/agile-workflow#reviews)
-
-### Contributing - Forking, Feature Branches and Pull Requests
-
-1. Fork it (<https://github.com/finos/compliant-financial-infrastructure/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Read our [contribution guidelines](.github/CONTRIBUTING.md) and [Community Code of Conduct](https://www.finos.org/code-of-conduct)
-4. Commit your changes (`git commit -am 'Add some fooBar'`)
-5. Push to the branch (`git push origin feature/fooBar`)
-6. Create a new Pull Request
-
-## Service Approval Accelerator
-
-The [Service Approval Accelerator](templates/ServiceApprovalAcceleratorTemplate.md) (SAA) describes each service contributed to Compliant Financial Infrastructure alongside test cases and infrastructure as code.
-
-A single SAA should be contributed with every service contributed to Compliant Financial Infrastructure. 
-
-You may review existing services for examples of existing SAAs.
-
-## Compliant Financial Infrastructure Mailing List
-Compliant Financial Infrastructure email communications are conducted through the compliant-financial-infrastructure@finos.org mailing list. Email compliant-financial-infrastructure@finos.org with questions or suggestions related to Compliant Financial Infrastructure.
-
-Subscribe to the Compliant Financial Infrastructure mailing list by sending an email to compliant-financial-infrastructure+subscribe@finos.org.
-
-## Join the Compliant Financial Infrastructure Slack Channel
-Join Compliant Financial Infrastructure on the FINOS Slack by signing up at https://finos-lf.slack.com/. The Compliant Financial Infrastructure channel on Slack is found directly at https://finos-lf.slack.com/messages/compliant-financial-infrastructure/.
-
-[<img src="https://img.shields.io/badge/slack-@finos/cloud%20service%20certification-green.svg?logo=slack">](https://finos-lf.slack.com/messages/compliant-financial-infrastructure/)
-
-Reach out to help@finos.org for any issues when joining Compliant Financial Infrastructure on the FINOS Slack.
+For more information about how to engage with the rest of the community and contribute to the project, view the documentation and links [here](docs/CONTRIBUTING.md).
 
 ## License
 
 Distributed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 SPDX-License-Identifier: [Apache-2.0](https://spdx.org/licenses/Apache-2.0)
+
+## Suggestions and Change Requests
+
+Please feel free to engage the community via [Slack](https://finos-lf.slack.com/messages/compliant-financial-infrastructure), [GitHub Discussions](https://github.com/finos/compliant-financial-infrastructure/discussions), or [GitHub Issues](https://github.com/finos/compliant-financial-infrastructure/issues).
+
+## Security Concerns
+
+If you have any security concerns related to this project, please [create an issue on this repository](https://github.com/finos/compliant-financial-infrastructure/issues/new/choose) _or_ create an issue on the repository associated with your concern.

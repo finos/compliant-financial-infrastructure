@@ -22,7 +22,7 @@ The working group will produce multiple Compliant Financial Infrastructure artif
 
 ### Meetings
 
-  - The project meets every other Thursday at 10am ET / 3pm UK.
+  - The project meets every other Friday at 10am ET / 3pm UK.
 
 ### Webex:
   - https://finos.webex.com/finos/j.php?MTID=m4b1d85127d1f3ca179545d6bd3291975

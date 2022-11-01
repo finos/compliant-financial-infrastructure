@@ -4,9 +4,9 @@ resource "aws_kms_key" "eks" {
 
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
-  version         = ">=17.0.0, <18.0.0"
+  version         = "17.24.0"
   cluster_name    = local.cluster_name
-  cluster_version = "1.18"
+  cluster_version = "1.20"
   subnets         = module.vpc.private_subnets
 
   cluster_encryption_config = [
@@ -17,7 +17,7 @@ module "eks" {
   ]
 
   tags = {
-    "environment" = "cloud-service-certification"
+    "environment" = "compliant-financial-infrastructure"
   }
 
   vpc_id = module.vpc.vpc_id
@@ -31,13 +31,13 @@ module "eks" {
       name                          = "worker-group-1"
       instance_type                 = var.worker_groups_instance_type
       asg_desired_capacity          = var.worker_groups_asg_desired_capacity
-      additional_security_group_ids = [aws_security_group.worker_group_one.id]
+      additional_security_group_ids = [aws_security_group.worker_group_mgmt_one.id]
     },
     {
       name                          = "worker-group-2"
       instance_type                 = var.worker_groups_instance_type
       asg_desired_capacity          = var.worker_groups_asg_desired_capacity
-      additional_security_group_ids = [aws_security_group.worker_group_two.id]
+      additional_security_group_ids = [aws_security_group.worker_group_mgmt_two.id]
     },
   ]
 }

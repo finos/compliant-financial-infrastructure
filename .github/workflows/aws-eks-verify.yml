@@ -102,6 +102,14 @@ jobs:
           name: probr-report
           path: ${{ github.workspace }}/${{ env.PROBR_DIRECTORY }}/cucumber/cucumber_report.html
 
+      - name: Get eks badge
+        uses: ./.github/actions/status-badge
+        id: set_badge        
+        with:
+          color: "Gold"
+          badge_name: eks-terraform
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Destroy eks terraform
         if: always()
         uses: ./.github/actions/terraform-destroy
