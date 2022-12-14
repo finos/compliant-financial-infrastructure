@@ -39,9 +39,10 @@ oc get ingresscontroller default -n openshift-ingress-operator -o jsonpath='{.st
       
       ```bash
       acme.sh --issue -d api.<cluster____name>.><domain_name>.com --dns dns_gcloud
-      acme.sh --issue -d *.apps.<cluster_name>.><domain_name>.com --dns dns_gcloud
+      acme.sh --issue -d *.apps.<cluster_name>.><domain_name>.com --dns dns_gcloud 
       ```
-
+    Note: Make sure to include the asterisk as shown inthe command
+    
     - move the certificates from the acme.sh path to a known working directory, for this example we are using *home*/certificates/api and *home*/certificates/router
 
       ```bash
@@ -63,7 +64,7 @@ oc get ingresscontroller default -n openshift-ingress-operator -o jsonpath='{.st
       - Patch the apiserver to use the new certificate
     
     ```shell
-    oc patch apiserver cluster --type=merge -p '{"spec":{"servingCerts": {"namedCertificates": [{"names": ["api.finos1.ahamgcp.com"], "servingCertificate": {"name": "api-certs"}}]}}}'
+    oc patch apiserver cluster --type=merge -p '{"spec":{"servingCerts": {"namedCertificates": [{"names": ["api.<cluster____name>.><domain_name>.com"], "servingCertificate": {"name": "api-certs"}}]}}}'
     ```
 
       - To check the update has been made to the apiserver review the servingCerts using the following command
