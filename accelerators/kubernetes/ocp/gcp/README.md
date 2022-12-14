@@ -1,6 +1,6 @@
-# OpenShift Compliant Financial Infrastructure - Google Cloud Platform
+# OpenShift Compliant Financial Infrastructure - Google Cloud
 
-This folder provides documentation and working code to install and customise OpenShift(OCP) on Google Cloud Platform(GCP) to meet the policies set out in the [Red Hat OpenShift Compliant Financial Infrastructure Service Accelerator document](../ServiceApprovalAccelerator_OCP.md). 
+This folder provides documentation and working code to install and customise OpenShift(OCP) on Google Cloud(GC) to meet the policies set out in the [Red Hat OpenShift Compliant Financial Infrastructure Service Accelerator document](../ServiceApprovalAccelerator_OCP.md). 
 
 There are six steps to complete cluster installation and customisation:
 
