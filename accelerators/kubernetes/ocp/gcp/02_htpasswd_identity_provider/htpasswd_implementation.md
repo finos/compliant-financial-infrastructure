@@ -26,7 +26,7 @@ htpasswd -c -B -b </path/to/htpasswd> <user_name> <password>
 2. Add any additional administrator or user accounts
 
 ```shell
-htpasswd -c -B -b </path/to/users.htpasswd> <user_name> <password>
+htpasswd -B -b </path/to/users.htpasswd> <user_name> <password>
 ```
 
 3. Create a generic secret using the htpasswd file.
