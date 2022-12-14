@@ -16,4 +16,40 @@ For each cloud provider documentation and working code will be provided to:
 5. Implement OCP Compliance Operator
 6. Manual Remediation of CIS Controls
 
-[] Todo: Need to add a section here that covers requirement to have a secure and compliant bastion to install OCP from, maybe as Juo to write??
+Using the above will provide an OCP Cluster which is compliant with most CIS Policies. There are a number of CIS policies that require a user to make local decisions on how the policy would be implemented, CIS describe these as MANUAL. 
+
+We do provide examples of how some of these types of policies could implemented, for example adding an identity provider or replacing the self signed certificates.
+
+In step 6 we have provided some guidance on remediation of CIS control. 
+
+Below is a list of the CIS policies that a user will have to investigate how they should be implemented within their own organisation. 
+
+```console
+
+NAME                                                STATUS   SEVERITY
+ocp4-cis-audit-log-forwarding-enabled               FAIL     medium
+ocp4-cis-accounts-restrict-service-account-tokens   MANUAL   medium
+ocp4-cis-accounts-unique-service-account            MANUAL   medium
+ocp4-cis-api-server-oauth-https-serving-cert        MANUAL   medium
+ocp4-cis-api-server-openshift-https-serving-cert    MANUAL   medium
+ocp4-cis-general-apply-scc                          MANUAL   medium
+ocp4-cis-general-configure-imagepolicywebhook       MANUAL   medium
+ocp4-cis-general-default-namespace-use              MANUAL   medium
+ocp4-cis-general-default-seccomp-profile            MANUAL   medium
+ocp4-cis-general-namespaces-in-use                  MANUAL   medium
+ocp4-cis-rbac-limit-cluster-admin                   MANUAL   medium
+ocp4-cis-rbac-limit-secrets-access                  MANUAL   medium
+ocp4-cis-rbac-pod-creation-access                   MANUAL   medium
+ocp4-cis-rbac-wildcard-use                          MANUAL   medium
+ocp4-cis-scc-drop-container-capabilities            MANUAL   medium
+ocp4-cis-scc-limit-ipc-namespace                    MANUAL   medium
+ocp4-cis-scc-limit-net-raw-capability               MANUAL   medium
+ocp4-cis-scc-limit-network-namespace                MANUAL   medium
+ocp4-cis-scc-limit-privilege-escalation             MANUAL   medium
+ocp4-cis-scc-limit-privileged-containers            MANUAL   medium
+ocp4-cis-scc-limit-process-id-namespace             MANUAL   medium
+ocp4-cis-scc-limit-root-containers                  MANUAL   medium
+ocp4-cis-secrets-consider-external-storage          MANUAL   medium
+ocp4-cis-secrets-no-environment-variables           MANUAL   medium
+
+```
