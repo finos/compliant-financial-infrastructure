@@ -1,6 +1,6 @@
 # OpenShift Compliant Financial Infrastructure
 
-To complete the setup of the cluster to meet the policy requirements laid out in the [OpenShift Security Configuration (Service Accelerator)](../../accelerators/kubernetes/ocp/ServiceApprovalAccelerator_OCP.md) we will use the [OpenShift Compliance Operator](https://docs.openshift.com/container-platform/4.11/security/compliance_operator/compliance-operator-release-notes.html). The Compliance Operator lets OpenShift Container Platform administrators describe the required compliance state of a cluster and it provides them with an overview of gaps and ways to remediate them. The compliance operator supports a number of [compliance standards](https://docs.openshift.com/container-platform/4.11/security/compliance_operator/compliance-operator-supported-profiles.html) for example NIST and CIS. 
+To complete the setup of the cluster to meet the policy requirements laid out in the [OpenShift Security Configuration (Service Accelerator)](../../ServiceApprovalAccelerator_OCP.md) we will use the [OpenShift Compliance Operator](https://docs.openshift.com/container-platform/4.11/security/compliance_operator/compliance-operator-release-notes.html). The Compliance Operator lets OpenShift Container Platform administrators describe the required compliance state of a cluster and it provides them with an overview of gaps and ways to remediate them. The compliance operator supports a number of [compliance standards](https://docs.openshift.com/container-platform/4.11/security/compliance_operator/compliance-operator-supported-profiles.html) for example NIST and CIS. 
 
 To meet the policies as laid out in the service accelerator the OpenShift CIS Benchmark profile will be used.
 
@@ -16,6 +16,12 @@ Below we will describe both the installation and configuration of the CIS profil
 
 1. Create the compliance operator namespace
 
+Refer to this section [00-namespace-object.yaml](00-namespace-object.yaml) for the content of the file
+   
+```shell
+sudo vim 00-namespace-object.yaml 
+```
+
 ```shell
 oc create -f 00-namespace-object.yaml
 ```
@@ -27,12 +33,24 @@ oc project openshift-compliance
 ```
 
 3. Create the compliance operator OperatorGroup object
-
+ 
+Refer to this section [01-operator-group-object.yaml](01-operator-group-object.yaml) for the content of the file 
+   
+```shell
+sudo vim 01-operator-group-object.yaml
+```   
+   
 ```shell
 oc create -f 01-operator-group-object.yaml
 ```
 
 4. Create the compliance operator subscription object, this will initiate the operator installation 
+
+Refer to this section [02-subscription-object.yaml](02-subscription-object.yaml) for the content of the file 
+
+```shell
+sudo vim 02-subscription-object.yaml
+```   
 
 ```shell
 oc create -f 02-subscription-object.yaml
@@ -102,6 +120,12 @@ rhcos4-nerc-cip      57s
 
 7. The next step is to set up the compliance scanning using the CIS profile, the default profiles that is being used will run scans on a daily basis and, where possible auto-remediate any complaince issues.
 
+Refer to this section [03-scansetting-cis-ocp4-default.yaml](03-scansetting-cis-ocp4-default.yaml) for the content of the file 
+
+```shell
+sudo vim 03-scansetting-cis-ocp4-default.yaml
+```   
+
 ```shell
 oc create -f 03-scansetting-cis-ocp4-default.yaml
 ```
@@ -164,7 +188,7 @@ ocp4-cis-api-server-encryption-provider-config                                 F
 
 Initially a number of the compliance checks will FAIL, many of them will be remediated automatically by the compliance operator. This remediation process can take sometime (hours). These remediation are actioned by the OCP cluster operators, using the following command the progress of these cluster operators can be seen.
 
-'''shell
+```shell
 oc get co
 ```
 Below is an example of the output of this command.
