@@ -27,7 +27,7 @@ Below is a list of the CIS policies that a user will have to investigate how the
 ```console
 
 NAME                                                STATUS   SEVERITY
-ocp4-cis-audit-log-forwarding-enabled   FAIL     medium
+ocp4-cis-audit-log-forwarding-enabled               FAIL     medium
 ocp4-cis-accounts-restrict-service-account-tokens   MANUAL   medium
 ocp4-cis-accounts-unique-service-account            MANUAL   medium
 ocp4-cis-api-server-oauth-https-serving-cert        MANUAL   medium
