@@ -1,20 +1,26 @@
 # OpenShift Compliant Financial Infrastructure
 
-To complete the setup of the cluster to meet the policy requirements laid out in the [OpenShift Security Configuration (Service Accelerator)](/accelerators/kubernetes/ocp/sat_rh_ocp.adoc) we will use the [OpenShift Compliance Operator](https://docs.openshift.com/container-platform/4.10/security/compliance_operator/compliance-operator-release-notes.html). The Compliance Operator lets OpenShift Container Platform administrators describe the required compliance state of a cluster and it provides them with an overview of gaps and ways to remediate them. The compliance operator supports a number of [compliance standards](https://docs.openshift.com/container-platform/4.10/security/compliance_operator/compliance-operator-supported-profiles.html) for example NIST and CIS. 
+To complete the setup of the cluster to meet the policy requirements laid out in the [OpenShift Security Configuration (Service Accelerator)](../../ServiceApprovalAccelerator_OCP.md) we will use the [OpenShift Compliance Operator](https://docs.openshift.com/container-platform/4.11/security/compliance_operator/compliance-operator-release-notes.html). The Compliance Operator lets OpenShift Container Platform administrators describe the required compliance state of a cluster and it provides them with an overview of gaps and ways to remediate them. The compliance operator supports a number of [compliance standards](https://docs.openshift.com/container-platform/4.11/security/compliance_operator/compliance-operator-supported-profiles.html) for example NIST and CIS. 
 
-To meet the policies as laid out in the service accelerator the OpenShift CIS Benchamrk profile will be used.
+To meet the policies as laid out in the service accelerator the OpenShift CIS Benchmark profile will be used.
 
-The compliance operator is a Customer Resource Definition (CRD) and includes a number of kubernetes objects, more details on these object can be found in [here](https://github.com/openshift/compliance-operator/blob/master/doc/crds.md). 
+The compliance operator is a Custom Resource Definition (CRD) and includes a number of kubernetes objects, more details on these object can be found in [here](https://github.com/openshift/compliance-operator/blob/master/doc/crds.md). 
 
-The Compliance Operator, or any other operator, can be installed on OCP using the Administrator UI or the CLI. Instructions on both methods can be found [here](https://docs.openshift.com/container-platform/4.10/security/compliance_operator/compliance-operator-installation.html). 
+The Compliance Operator, or any other operator, can be installed on OCP using the Administrator UI or the CLI. Instructions on both methods can be found [here](https://docs.openshift.com/container-platform/4.11/security/compliance_operator/compliance-operator-installation.html). 
 
-Below we will decribe both the installation and configuration of the CIS profile using the command line. 
+Below we will describe both the installation and configuration of the CIS profile using the command line. 
 
 ## Day 2 Customisation 
 
 ### Compliance Operator Installation and verification
 
 1. Create the compliance operator namespace
+
+Refer to this section [00-namespace-object.yaml](00-namespace-object.yaml) for the content of the file
+   
+```shell
+sudo vim 00-namespace-object.yaml 
+```
 
 ```shell
 oc create -f 00-namespace-object.yaml
@@ -27,12 +33,24 @@ oc project openshift-compliance
 ```
 
 3. Create the compliance operator OperatorGroup object
-
+ 
+Refer to this section [01-operator-group-object.yaml](01-operator-group-object.yaml) for the content of the file 
+   
+```shell
+sudo vim 01-operator-group-object.yaml
+```   
+   
 ```shell
 oc create -f 01-operator-group-object.yaml
 ```
 
 4. Create the compliance operator subscription object, this will initiate the operator installation 
+
+Refer to this section [02-subscription-object.yaml](02-subscription-object.yaml) for the content of the file 
+
+```shell
+sudo vim 02-subscription-object.yaml
+```   
 
 ```shell
 oc create -f 02-subscription-object.yaml
@@ -75,7 +93,7 @@ ocp4-openshift-compliance-pp     0/1     1            0           45s
 rhcos4-openshift-compliance-pp   0/1     1            0           45s
 ```
 
-6. The compliance operator ships with a number of complaince profiles, these can be seen using the following command
+6. The compliance operator ships with a number of compliance profiles, these can be seen using the following command
 
 ```shell
 oc get profiles.compliance
@@ -100,13 +118,19 @@ rhcos4-moderate      57s
 rhcos4-nerc-cip      57s
 ```
 
-7. The next step is to set up the compliance scanning using the CIS profile, the default profiles that is being used will run scans on a daily base and, where possible. auto-remiate any complaince issues.
+7. The next step is to set up the compliance scanning using the CIS profile, the default profiles that is being used will run scans on a daily basis and, where possible auto-remediate any complaince issues.
+
+Refer to this section [03-scansetting-cis-ocp4-default.yaml](03-scansetting-cis-ocp4-default.yaml) for the content of the file 
+
+```shell
+sudo vim 03-scansetting-cis-ocp4-default.yaml
+```   
 
 ```shell
 oc create -f 03-scansetting-cis-ocp4-default.yaml
 ```
 
-8. The creation of the scan object will trigger the initial compliance scan to take please against the CIS compliance profile, to check that the compliance scan is running use the following command: 
+8. The creation of the scan object will trigger the initial compliance scan to take place against the CIS compliance profile, to check that the compliance scan is running use the following command: 
 
 ```shell
 oc get compliancesuite -w
@@ -127,7 +151,7 @@ cis-compliance-ocp4   DONE          NON-COMPLIANT
 cis-compliance-ocp4   DONE          NON-COMPLIANT
 ```
 
-9. Once the scan is complete the following command can be used to check the complaince scan results, when setting up the compliance scan object (step 7), we set the complaince operator to automatical remidate compliance failures. 
+9. Once the scan is complete the following command can be used to check the complaince scan results, when setting up the compliance scan object (step 7), we set the compliance operator to automatically remediate compliance failures. 
 
 ```shell
 oc get ccr
@@ -162,9 +186,9 @@ ocp4-cis-api-server-encryption-provider-cipher                                 F
 ocp4-cis-api-server-encryption-provider-config                                 FAIL     medium
 ```
 
-Initially a number of the compliance checks will FAIL, many of them will be remediated automatically by the compliance operator. This remediation process can take sometime (hours). These remediation a actioned by the OCP cluster operators, using the following command the progress of these cluster operators can be seen.
+Initially a number of the compliance checks will FAIL, many of them will be remediated automatically by the compliance operator. This remediation process can take sometime (hours). These remediation are actioned by the OCP cluster operators, using the following command the progress of these cluster operators can be seen.
 
-'''shell
+```shell
 oc get co
 ```
 Below is an example of the output of this command.
@@ -209,7 +233,7 @@ storage                                    4.10.3    True        True          F
 
 The OCP CIS Benchmark consists of three sets of policies:
 
-- *ocp-cis* for Cluster polies
+- *ocp-cis* for Cluster policies
 - *ocp-node-master* for control node policies
 - *ocp-node-worker* for compute node policies
 
@@ -223,7 +247,7 @@ oc get compliancecheckresults -l compliance.openshift.io/scan-name=ocp4-cis-node
 oc get compliancecheckresults -l compliance.openshift.io/scan-name=ocp4-cis-node-worker,compliance.openshift.io/check-status=FAIL
 ```
 
-Once any remediation have be made the following commands can be used to trigger a compliance rescan. A [script](rescan.sh) to trigger a rescan of all scans has been provided. 
+Once any remediation have been made the following commands can be used to trigger a compliance rescan. A [script](rescan.sh) to trigger a rescan of all scans has been provided. 
 
 ```bash
 oc annotate compliancescans/ocp4-cis compliance.openshift.io/rescan=
@@ -233,4 +257,4 @@ oc annotate compliancescans/ocp4-cis-node-master compliance.openshift.io/rescan=
 oc annotate compliancescans/ocp4-cis-node-worker compliance.openshift.io/rescan=
 ```
 
-The compliance operator will auto-remediate all CIS policies with the exception of those policies that the CIS define as requiring manual rediation. In the next section we will address these [manual remdiations](/accelerators/kubernetes/ocp/gcp/06_remediation_of_manual_CIS_controls/Remediation_of_manual_CIS_controls.md).
+The compliance operator will auto-remediate all CIS policies with the exception of those policies that the CIS define as requiring manual remediation. In the next section we will address these [manual remediations](../06_remediation_of_manual_CIS_controls/Remediation_of_manual_CIS_controls.md).

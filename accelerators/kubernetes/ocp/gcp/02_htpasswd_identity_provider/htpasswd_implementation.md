@@ -2,9 +2,9 @@
 
 OCP supports a number of password providers, HTPasswd is used in this implementation of the FINOS CFI service accelerator, this should be updated where a different identity provider is being used.
 
-OCP supports these [identify providers](https://docs.openshift.com/container-platform/4.10/authentication/understanding-identity-provider.html), including LDAP, OpenID Connect, GitHub, Google and others. 
+OCP supports these [identify providers](https://docs.openshift.com/container-platform/4.11/authentication/understanding-identity-provider.html), including LDAP, OpenID Connect, GitHub, Google and others. 
 
-So that the KubeAdmin user can be deleted we must first create additional administrator account(s) for the cluster. The following provides a working example using an [HTPasswd](https://docs.openshift.com/container-platform/4.10/authentication/identity_providers/configuring-htpasswd-identity-provider.html) provider.
+So that the KubeAdmin user can be deleted we must first create additional administrator account(s) for the cluster. The following provides a working example using an [HTPasswd](https://docs.openshift.com/container-platform/4.11/authentication/identity_providers/configuring-htpasswd-identity-provider.html) provider.
 
 ## Setting up HTPasswd 
 
@@ -26,7 +26,7 @@ htpasswd -c -B -b </path/to/htpasswd> <user_name> <password>
 2. Add any additional administrator or user accounts
 
 ```shell
-htpasswd -c -B -b </path/to/users.htpasswd> <user_name> <password>
+htpasswd -B -b </path/to/users.htpasswd> <user_name> <password>
 ```
 
 3. Create a generic secret using the htpasswd file.
@@ -42,7 +42,7 @@ oc create secret generic htpass-secret --from-file=htpasswd=htpasswd -n openshif
 oc get oauth -o yaml -n openshift-config > oauth.yaml
 ```
 
-  - Using an editor of your choice update *oauth.yaml* to define the HTPasswd provider, a sample *spec:* definition can be found [here](sample_htpassed_provider_oauth.yaml).
+  - Using an editor of your choice update *oauth.yaml* to define the HTPasswd provider, a sample *spec:* definition can be found [here](sample_htpasswd_provider_oauth.yaml).
 
     Below is an example of an updated oauth.yaml
 
@@ -81,7 +81,7 @@ metadata:
   selfLink: ""
 ```
 
-  - Replace the existing OAUTH configuration with the updated oauth.yaml file using the follwing command
+  - Replace the existing OAUTH configuration with the updated oauth.yaml file using the following command
 
 ```shell
 oc replace -f oauth.yaml
@@ -102,13 +102,13 @@ oauth-openshift-7cdbdd45ff-8xkt4   0/1     Pending       0          25s
 ```
 
 
-  - The last step is to give the newly created administrator account *cluster admin* priveledges, this can be done using the following command
+  - The last step is to give the newly created administrator account *cluster admin* privileges, this can be done using the following command
 
 ```shell
 oc adm policy add-cluster-role-to-user cluster-admin finos-admin-1
 ```
 
-A sample [script](add_cluster_admin_role.sh) is provided to automate this. The response that the user is not found can be ignored. 
+A sample [script](add_cluster_admin_role.sh) is provided to automate this. The response that the user is not found can be ignored as it is due to the user having not yet logged into the cluster.  
 
 Once the above steps have been completed it should now be possible to login into the OCP cluster using the new credentials. 
 
@@ -118,7 +118,7 @@ Once the above steps have been completed it should now be possible to login into
 oc login -u finos-admin-1 -p F1n0s_R3dH4t_123
 ```
 
-6. Check that the account has admin privedledges: this can be done by using the following command, if the cluster nodes are not displayed the account being used does not have admin priveledges so do not proceed with the next step until corrected.
+6. Check that the account has admin privileges: this can be done by using the following command, if the cluster nodes are not displayed the account being used does not have admin privileges so do not proceed with the next step until corrected.
 
 ```shell
 oc get nodes
@@ -141,4 +141,4 @@ oc delete secrets kubeadmin -n kube-system
 ```
 
 
-The next [step](/accelerators/kubernetes/ocp/gcp/03_default_network_policy/default_network_policy_implementation.md) will be to add default network policies for non control plane projects. 
+The next [step](../03_default_network_policy/default_network_policy_implementation.md) will be to add default network policies for non control plane projects. 
