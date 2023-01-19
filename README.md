@@ -15,7 +15,7 @@ Through our three working groups, we provide:
 - Vetted *infrastructure as code* that is ready to import to your internal registry
 - CI/CD-friendly *runtime validation tests* to ensure your deployed resources are compliant
 
-## Policy Working Group
+## Policy Working Group [<img src="https://img.shields.io/badge/slack-@finos/cfi%20policy-green.svg?logo=slack">](https://finos-lf.slack.com/messages/cfi-policy-wg)
 
 This WG exists to define and document best practice and process for implementing compliant cloud infrastructure, while streamlining the process for contributions from financial institutions in a frictionless manner.
 
@@ -36,14 +36,13 @@ Detailed documentation in the form of _Service Approval Accelerators_ (SAAs) liv
 
 A template Service Approval Accelerator is maintained [here](templates/ServiceApprovalAcceleratorTemplate.md).
 
-[<img src="https://img.shields.io/badge/slack-@finos/cfi%20policy-green.svg?logo=slack">](https://finos-lf.slack.com/messages/cfi-policy-wg)
 
 ### Contributions
 
 - Work for this WG is tracked in [GitHub issues on the main CFI repository](https://github.com/finos/compliant-financial-infrastructure/issues).
 - Approved and active work is visualized on the [Policy WG project board](https://github.com/orgs/finos/projects/50).
 
-## Reproducible Infrastructure Working Group
+## Reproducible Infrastructure Working Group [<img src="https://img.shields.io/badge/slack-@finos/cfi%20reproducible%20infrastructure-green.svg?logo=slack">](https://finos-lf.slack.com/messages/cfi-reproducible-infrastructure-wg)
 
 This WG exists to develop, maintain, and document easily consumable infrastructure as code (IaC) which can be used as a base for deploying systems in highly-regulated environments.
 
@@ -63,9 +62,8 @@ Detailed documentation regarding the process for developing and delivering IaC c
 - Work for IaC that has already begun will be tracked on the respective repo.
 - Approved and active work is visualized on the [Reproducible Infrastructure WG project board](https://github.com/orgs/finos/projects/45).
 
-[<img src="https://img.shields.io/badge/slack-@finos/cfi%20reproducible%20infrastructure-green.svg?logo=slack">](https://finos-lf.slack.com/messages/cfi-reproducible-infrastructure-wg)
 
-## Runtime Validation Working Group
+## Runtime Validation Working Group [<img src="https://img.shields.io/badge/slack-@finos/cfi%20runtime%20validation-green.svg?logo=slack">](https://finos-lf.slack.com/messages/cfi-runtime-validation-wg)
 
 This WG exists to maintain a suite of tools that may be used to validate that deployed infrastructure is compliant with the documentation provided by the Policy Working Group, and provide actionable information for users who are working toward compliance.
 
@@ -89,7 +87,6 @@ Detailed documentation regarding the process for developing and delivering runti
 - Work on test packs that has already begun will be tracked on the respective repo.
 - Approved and active work is visualized on the [Reproducible Infrastructure WG project board](https://github.com/orgs/finos/projects/51).
 
-[<img src="https://img.shields.io/badge/slack-@finos/cfi%20runtime%20validation-green.svg?logo=slack">](https://finos-lf.slack.com/messages/cfi-runtime-validation-wg)
 
 ## Join the Community!
 
