@@ -1,5 +1,5 @@
 ---
-name: 🤝 Compliant Financial Infrastructure Meeting Agenda
+name: 🤝 Monthly Compliant Financial Infrastructure Meeting Agenda
 about: To track Compliant Financial Infrastructure meeting agenda and attendance
 ---
 
