@@ -17,7 +17,7 @@ Through our three working groups, we provide:
 
 ## Policy Working Group [<img src="https://img.shields.io/badge/slack-@finos/cfi%20policy-green.svg?logo=slack">](https://finos-lf.slack.com/messages/cfi-policy-wg)
 
-This WG exists to define and document best practice and process for implementing compliant cloud infrastructure, while streamlining the process for contributions from financial institutions in a frictionless manner.
+This WG exists to define and document best practice and process for implementing compliant infrastructure, while streamlining the process for contributions from financial institutions in a frictionless manner.
 
 _Compliance_ may mean something different from one institution to the next. The goal of CFI is _not_ to create a single solution that all firms must adhere to, instead our goal is to streamline adoption and free up security teams to focus on non-redundant activities.
 
@@ -50,13 +50,13 @@ Detailed documentation regarding the process for developing and delivering IaC c
 
 ### High level objectives
 
-1. Create and maintain IaC to deploy cloud services to meet policies as defined by the Policy Working Group
+1. Create and maintain IaC to deploy services to meet policies as defined by the Policy Working Group
 
 ### Approach
 
-- Review Service Accelerators and work with the Policy Working Group to agree an approach to codify policies
-- Build and maintain the IaC to enable in scope Cloud Services to be meet requirements set out in the SAA. Where this is not possible then any policy gaps will be documented
-- Ensure that IaC developed can be consumed by the Runtime Validation Group so that testing against the SAA can be completed
+- Review Service Accelerators and work with the Policy Working Group to agree on each approach to codify policies
+- Build and maintain the IaC to meet requirements set out in the SAA
+  - Where this is not possible then any policy gaps will be documented
 
 ### Contributions
 
