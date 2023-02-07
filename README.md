@@ -46,22 +46,23 @@ A template Service Approval Accelerator is maintained [here](templates/ServiceAp
 
 This WG exists to develop, maintain, and document easily consumable infrastructure as code (IaC) which can be used as a base for deploying systems in highly-regulated environments.
 
-Detailed documentation regarding the process for developing and delivering IaC can be found [here](?).
+Detailed documentation regarding the process for developing and delivering IaC can be found [here](https://github.com/finos/compliant-financial-infrastructure/blob/docs/wg-readme/docs/terraform-module-best-practices.md).
 
 ### High level objectives
 
-- TODO
-
+- Understand the policies that need to be deployed via IaC for supported Cloud Services (Input)
+- Create and maintain IaC to deploy cloud services to meet policies as defined by the Policy Working Group (Output)
 ### Approach
 
-- TODO
+- Review Service Accelerators and work with the Policy Working Group to agree an approach to codify policies
+- Build and maintain the IaC to enable in scope Cloud Services to be meet requirements set out in the SAA. Where this is not possible then any policy gaps will be documented
+- Ensure that IaC developed can be consumed by the Runtime Validation Group so that testing against the SAA can be completed
 
 ### Contributions
 
 - Work for this WG that does not yet have a deidicated repo is tracked in [GitHub issues on the main CFI repository](https://github.com/finos/compliant-financial-infrastructure/issues).
 - Work for IaC that has already begun will be tracked on the respective repo.
 - Approved and active work is visualized on the [Reproducible Infrastructure WG project board](https://github.com/orgs/finos/projects/45).
-
 
 ## Runtime Validation Working Group [<img src="https://img.shields.io/badge/slack-@finos/cfi%20runtime%20validation-green.svg?logo=slack">](https://finos-lf.slack.com/messages/cfi-runtime-validation-wg)
 
