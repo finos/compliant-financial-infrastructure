@@ -50,8 +50,8 @@ Detailed documentation regarding the process for developing and delivering IaC c
 
 ### High level objectives
 
-1. Understand the policies that need to be deployed via IaC for supported Cloud Services (Input)
-1. Create and maintain IaC to deploy cloud services to meet policies as defined by the Policy Working Group (Output)
+1. Create and maintain IaC to deploy cloud services to meet policies as defined by the Policy Working Group
+
 ### Approach
 
 - Review Service Accelerators and work with the Policy Working Group to agree an approach to codify policies
