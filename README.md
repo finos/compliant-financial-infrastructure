@@ -50,7 +50,7 @@ Detailed documentation regarding the process for developing and delivering IaC c
 
 ### High level objectives
 
-1. Create and maintain IaC to deploy services to meet policies as defined by the Policy Working Group
+1. Create and maintain IaC to deploy services that meet policies as defined by the Policy Working Group
 
 ### Approach
 
