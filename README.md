@@ -97,6 +97,9 @@ Please feel free to request changes via [GitHub Issues](https://github.com/finos
 
 Everyone is encouraged to join our public community meetings found on the [FINOS community calendar](https://www.finos.org/finos-community-calendar), and join us on [Slack](https://finos-lf.slack.com/messages/cfi).
 
+### Thank you to our contributors!
+
+<img src="https://contrib.rocks/image?repo=finos/compliant-financial-infrastructure" />
 
 ## License
 
