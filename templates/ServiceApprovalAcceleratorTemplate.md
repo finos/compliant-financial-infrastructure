@@ -17,7 +17,7 @@ The policies included in the following document(s) are required for security and
 unless otherwise noted in section 2: [Amendments to the Baseline](#2-amendments-to-the-baseline)
 
 | Benchmark/Framework | Purpose | Name | Link | Comments |
-|---|---|---|---|
+|---|---|---|---|---|
 | CIS      | Security | Kubernetes V1.23 Benchmark v1.0.1 | [downloads.cisecurity.org](https://downloads.cisecurity.org/#/) | Profiles: Level 2 - Master Node and Level 1 - Worker Node  |
 
 ## 2. Amendments to the Baseline
