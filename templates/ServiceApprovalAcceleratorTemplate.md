@@ -11,7 +11,7 @@ _**Template Notes:**_
 
 - _Text here may be omitted, or optionally used to provide any supplemental information related to the baseline._
 - _For security purposes, we will aim to stick to CIS as much as possible, though the specific benchmark/framework will be changed on a case-by-case basis._
-- _Multiple benchmarks/frameworks may be linked if required for full compliance coverage._
+- _Multiple benchmarks/frameworks may be linked if required for full security and compliance coverage._
 
 The policies included in the following document(s) are required for security and compliance,
 unless otherwise noted in section 2: [Amendments to the Baseline](#2-amendments-to-the-baseline)
