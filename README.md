@@ -1,141 +1,111 @@
 [![FINOS - Incubating](https://cdn.jsdelivr.net/gh/finos/contrib-toolbox@master/images/badge-incubating.svg)](https://finosfoundation.atlassian.net/wiki/display/FINOS/Incubating)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6557/badge)](https://bestpractices.coreinfrastructure.org/projects/6557)
-[<img src="https://img.shields.io/badge/slack-@finos/compliant%20financial%20infrastructure-green.svg?logo=slack">](https://finos-lf.slack.com/messages/compliant-financial-infrastructure/)
+[<img src="https://img.shields.io/badge/slack-@finos/compliant%20financial%20infrastructure-green.svg?logo=slack">](https://finos-lf.slack.com/messages/cfi/)
 
 <img src="https://github.com/finos/branding/blob/master/project-logos/active-project-logos/Compliant%20Financial%20Infrastructure%20Logo/Horizontal/2021_CFI_Logo_Horizontal.png?raw=true" width="450">
 
 
 # Compliant Financial Infrastructure
-Compliant Financial Infrastructure (CFI) accelerates the development, deployment and adoption of services provided for infrastructure in a way that meets existing regulatory and internal security controls.
 
-## What's the value?
+Compliant Financial Infrastructure (CFI) is a project that exists to accelerate the development, deployment and adoption of services provided for infrastructure in a way that meets common regulatory and internal security controls.
 
-### What does this project provide to financial institutions?
-
-Our community collaboratively creates accelerators to aid in the adoption of specific infrastructure based on input and experience from professionals across a variety of roles and firms.
-
-A firm may take benefit from one or more of the following:
+Through our three working groups, we provide:
 
 - Opinionated compliance documentation provided by our *service approval accelerators*
 - Vetted *infrastructure as code* that is ready to import to your internal registry
-- CI/CD-friendly *post-deployment validation tests* to ensure your deployed resources are compliant
+- CI/CD-friendly *runtime validation tests* to ensure your deployed resources are compliant
 
-### Why should I contribute to this project?
+## Policy Working Group [<img src="https://img.shields.io/badge/slack-@finos/cfi%20policy-green.svg?logo=slack">](https://finos-lf.slack.com/messages/cfi-policy-wg)
 
-Every active community member serves to accelerate the frequency that we are able to make resources available! Participation from security and compliance professionals helps to ensure that opinions made by our community are aligned to every firm's needs. Contribution from infrastructure engineers helps the community create more and better infrastructure as code. Collaboration from programmers and testers helps the community more quickly offer validation tests for more services.
+This WG exists to define and document best practice and process for implementing compliant infrastructure, while streamlining the process for contributions from financial institutions in a frictionless manner.
 
-Anything you are interested in contributing to the project will make a huge impact! Contributions will be publicly displayed on the project's GitHub history and often highlighted within FINOS and CFI community sessions.
+_Compliance_ may mean something different from one institution to the next. The goal of CFI is _not_ to create a single solution that all firms must adhere to, instead our goal is to streamline adoption and free up security teams to focus on non-redundant activities.
 
-### How does this project add to FINOS?
+Detailed documentation in the form of _Service Approval Accelerators_ (SAAs) live within this main CFI repository.
 
-This question is answered fully in the [project charter](docs/project-charter.md).
+### High level objectives
 
-## What is the meaning of "compliant" in CFI?
+1. Maintain a knowledge base of up-to-date compliance requirements from member financial institutions (Inputs)
+1. Document how to achieve compliance for different infrastructure resources from a financial perspective (Outputs)
 
-Our community has created an authoritative source for _defining, creating, and validating_ infrastructure for financial services that is compliant with regulatory standards.
-As detailed in [the following section](#services--workflows), our community focuses on these three key offerings.
+### Approach
 
-Our compliance definition comes from the extension of a baseline into a comprehensive standard that is suited to accelerate adoption in highly regulated environments.
+- Document opinionated configurations, mitigations, and decisions to accelerate compliance for infrastructure services in SAAs.
+- Ensure all SAAs are informed by industry-wide experience/feedback
+- Ensure CFI communication methods (both inputs and outputs) are streamlined to best serve our community and users
 
-### Defining Compliant Infrastructure
-
-It must be noted that every institution is made up of highly skilled professionals who collaborate to define what _compliance_ means within their firm.
-As such, _compliance_ may mean something different from one institution to the next. The goal of CFI is _not_ to create a single solution 
-that all firms must adhere to, instead our goal is to streamline adoption and free up security teams to focus on non-redundant activities.
-
-This effort is only made possible through the efforts of our Financial Institution members to provide insight and guidance in the development of Service Approval Accelerators.
-
-A template for the Service Approval Accelerator can be found [here](templates/ServiceApprovalAcceleratorTemplate.md).
-
-### Creating Compliant Infrastructure
-
-Infrastructure as Code (IaC) is a key component of every modern firm's infrastructure efforts. 
-
-Many times, however, our community has seen the task of IaC development fall on the shoulders of engineers and developers who are not fully familiar with the required technologies.
-This results in added time, stress, and risks as teams become familiar with the necessary technologies.
-
-In other cases, we see nearly identical IaC efforts being undertaken by multiple teams within a single business unit, resulting in unncessesary costs and delays.
-
-And most importantly, we have seen teams struggling to follow best-practices
-(even when their most senior people are leading the charge) because these technologies are constantly changing.
-
-By developing _registry-ready resources_ in an open source context, specialists from all over can come together to create a solid foundation for IaC efforts.
-
-In most cases, our community uses Terraform for our IaC. As noted [below](#services--workflows), these are developed in a way that can be
-individually reviewed by your security teams and imported to a firm registry for extention or consumption.
-
-### Validating Compliant Infrastructure
-
-A key element to compliance is _validating the result of an activity_. This is a pillar to the CFI efforts.
-
-In addition to technology-specific automated tests and scans in the code repository, our community believes that it is essential to provide
-the tools necessary to ensure that infrastructure is compliant after it has been deployed into an environment.
-
-In some cases, full compliance may only be possible (or preferable) when deployed behind a firewall or with other similar contexts not reflected by the IaC code.
-In these cases, only post-deployment validation will provide confidence that a deployment is actually prod-ready.
-
-To organize and facilitate these tests, our community uses the [Probr](https://github.com/probr) test harness to create tests for each service.
-These tests are run in our validation pipelines after a deployment is complete,
-and can also be run independently in any environment regardless of how the service was deployed.
-
-## Services & Workflows
-
-As noted [above](#what-is-the-meaning-of-compliant-in-cfi), our community produces multiple artifacts for each CFI service.
-Where necessary, we have segmented the aforementioned artifacts across multiple repositories
-to ensure that they are ready for quick and easy adoption by users in highly regulated environments.
-
-1. Detailed documentation in the form of a _Service Approval Accelerator_ (SAA)
-    - All SAAs live within this repository
-1. Infrastructure as Code (IaC) that meets the specifications described in the SAA
-    - This IaC may include multiple services if necessary to properly ensure compliance of the specified service
-    - IaC registry-ready repos should be linked as git submodules within this repository
-1. Post-Deployment Validation Tests to ensure that IaC is compliant
-    - Test packs for each service should live in separate repos so they can be used independently of the provided IaC
-1. An automated pipeline to execute the post-deployment tests and apply accurate badges to the service
-    - CI pipelines should exist in this repo to tie together all other elements
-
-## Feature Matrix
-
-CFI addresses multiple services, across multiple providers.
-These services range from not-yet-implemented, to fully featured,
-and automatically tested for compliance with the CDMC framework.
-
-This feature matrix is intended to show all current and planned services along with the current status of each,
-to help contributors looking for a task know where best to spend their effort.
-
-|                    |         AWS                                                                             |         GCP                                                     |        Azure                                                 |    OpenShift                                               |
-| ------------------:|:---------------------------------------------------------------------------------------:|:--------------------------------------------------------------: |:------------------------------------------------------------:|:----------------------------------------------------------:|
-| Kubernetes Cluster | ![](https://byob.yarr.is/finos/compliant-financial-infrastructure/eks-terraform)        | <img src="docs/_images/bronze.png"  alt="bronze" height="20"/>  | <img src="docs/_images/paper.png" alt="paper" height="20"/>  |<img src="docs/_images/paper.png" alt="paper" height="20"/> |
-|  Postgres Database |                                                                                         |                                                                 | <img src="docs/_images/bronze.png" alt="bronze" height="20"/>|                                                            |
-|           DynamoDB |  <img src="docs/_images/paper.png" alt="paper" height="20"/>                            |                                                                 |                                                              |                                                            |
-|           RedShift |  <img src="docs/_images/paper.png" alt="paper" height="20"/>                            |                                                                 |                                                              |                                                            |
-|                SQS |                                                                                         |                                                                 |                                                              |                                                            |
+A template Service Approval Accelerator is maintained [here](templates/ServiceApprovalAcceleratorTemplate.md).
 
 
-### Key
+### Contributions
 
-- <img src="docs/_images/diamond.png" alt="diamond" height="20"/> - Post-deployment validation tests exist for every aspect of the SAA,
-and all tests pass in the CI pipeline testing phase.
-- <img src="docs/_images/gold.png" alt="gold" height="20"/> - Post-deployment validation tests are run in CI as part of the testing phase,
-and some tests pass.
-- <img src="docs/_images/silver.png" alt="silver" height="20"/> - The service is automatically spun up and destroyed via CI before being merged to `main`.
-- <img src="docs/_images/bronze.png"  alt="bronze" height="20"/> - IaC has been produced that is able to create and destroy the service,
-where said service meets the SAA specification.
-- <img src="docs/_images/paper.png" alt="paper" height="20"/> - A complete SAA document for this service has been merged to `main`.
+- Work for this WG is tracked in [GitHub issues on the main CFI repository](https://github.com/finos/compliant-financial-infrastructure/issues).
+- Approved and active work is visualized on the [Policy WG project board](https://github.com/orgs/finos/projects/50).
+
+## Reproducible Infrastructure Working Group [<img src="https://img.shields.io/badge/slack-@finos/cfi%20reproducible%20infrastructure-green.svg?logo=slack">](https://finos-lf.slack.com/messages/cfi-reproducible-infrastructure-wg)
+
+This WG exists to develop, maintain, and document easily consumable infrastructure as code (IaC) which can be used as a base for deploying systems in highly-regulated environments.
+
+Detailed documentation regarding the process for developing and delivering IaC can be found [here](https://github.com/finos/compliant-financial-infrastructure/blob/docs/wg-readme/docs/terraform-module-best-practices.md).
+
+### High level objectives
+
+1. Create and maintain IaC to deploy services that meet policies as defined by the Policy Working Group
+
+### Approach
+
+- Review Service Accelerators and work with the Policy Working Group to agree on each approach to codify policies
+- Build and maintain the IaC to meet requirements set out in the SAA
+  - Where this is not possible then any policy gaps will be documented
+
+### Contributions
+
+- Work for this WG that does not yet have a dedicated repo is tracked in [GitHub issues on the main CFI repository](https://github.com/finos/compliant-financial-infrastructure/issues).
+- Work for IaC that has already begun will be tracked on the respective repo.
+- Approved and active work is visualized on the [Reproducible Infrastructure WG project board](https://github.com/orgs/finos/projects/45).
+
+## Runtime Validation Working Group [<img src="https://img.shields.io/badge/slack-@finos/cfi%20runtime%20validation-green.svg?logo=slack">](https://finos-lf.slack.com/messages/cfi-runtime-validation-wg)
+
+This WG exists to maintain a suite of tools that may be used to validate that deployed infrastructure is compliant with the documentation provided by the Policy Working Group, and provide actionable information for users who are working toward compliance.
+
+Detailed documentation regarding the process for developing and delivering runtime validation test packs can be found [here](?).
+
+### High level objectives
+
+1. Maintain tests matching each SAA to validate the compliance of any deployed resource
+1. Maintain test harness to streamline approach across all services
+
+### Approach
+
+- Execute tests that match the accelerators provided by the Policy WG (no more, no less)
+- Ensure harnes is easily configurable & can be used for diverse validation purposes
+- Maintain smooth logging functionality for validation and development purposes
+- Ensure common human-readable output format for all test packs
+
+### Contributions
+
+- Work for this WG that does not yet have a dedicated repo is tracked in [GitHub issues on the main CFI repository](https://github.com/finos/compliant-financial-infrastructure/issues).
+- Work on test packs that has already begun will be tracked on the respective repo.
+- Approved and active work is visualized on the [Reproducible Infrastructure WG project board](https://github.com/orgs/finos/projects/51).
+
 
 ## Join the Community!
 
 For more information about how to engage with the rest of the community and contribute to the project, view the documentation and links [here](docs/CONTRIBUTING.md).
+
+Please feel free to request changes via [GitHub Issues](https://github.com/finos/compliant-financial-infrastructure/issues).
+
+Everyone is encouraged to join our public community meetings found on the [FINOS community calendar](https://www.finos.org/finos-community-calendar), and join us on [Slack](https://finos-lf.slack.com/messages/cfi).
+
+### Thank you to our contributors!
+
+<img src="https://contrib.rocks/image?repo=finos/compliant-financial-infrastructure" />
 
 ## License
 
 Distributed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 SPDX-License-Identifier: [Apache-2.0](https://spdx.org/licenses/Apache-2.0)
-
-## Suggestions and Change Requests
-
-Please feel free to engage the community via [Slack](https://finos-lf.slack.com/messages/compliant-financial-infrastructure), [GitHub Discussions](https://github.com/finos/compliant-financial-infrastructure/discussions), or [GitHub Issues](https://github.com/finos/compliant-financial-infrastructure/issues).
 
 ## Security Concerns
 
