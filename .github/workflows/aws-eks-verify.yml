@@ -59,7 +59,7 @@ jobs:
           terraform_version: "~1.0.0"
 
       - name: Setup kubectl
-        uses: azure/setup-kubectl@v1
+        uses: azure/setup-kubectl@v3
       - name: Make sure we have destroyed any leftover resources from previous runs
         uses: ./.github/actions/terraform-destroy
         with:
