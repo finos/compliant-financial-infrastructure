@@ -1,17 +1,25 @@
-# Service Approval Accelerator (SAA) Template
+# Service Approval Accelerator (SAA) Baseline
 
+Version 2023.03.15
+
+<!-- When using the baseline as a template, please include the below details: -->
+<!--
 _**Template Notes:**_
 
 - _Examples within this template are included only to facilitate the demonstration of the correct formatting._
 - _Use this section to provide a written description of anything unique to this SAA._
+-->
 
 ## 1. Baseline
 
+<!-- When using the baseline as a template, please include the below details: -->
+<!--
 _**Template Notes:**_
 
 - _Text here may be omitted, or optionally used to provide any supplemental information related to the baseline._
 - _For security purposes, we will aim to stick to CIS as much as possible, though the specific benchmark/framework will be changed on a case-by-case basis._
 - _Multiple benchmarks/frameworks may be linked if required for full security and compliance coverage._
+-->
 
 The policies included in the following document(s) are required for security and compliance,
 unless otherwise noted in section 2: [Amendments to the Baseline](#2-amendments-to-the-baseline)
@@ -22,22 +30,28 @@ unless otherwise noted in section 2: [Amendments to the Baseline](#2-amendments-
 
 ## 2. Amendments to the Baseline
 
+<!-- When using the baseline as a template, please include the below details: -->
+<!--
 _**Template Notes:**_
 
 - _If anything in the above baseline is to be excluded or handled differently, provide details in this section_
 _following the format demonstrated in section 3: [Extensions to the Baseline](#3-extensions-to-the-baseline)._
 - _If no amendments are necessary, simply provide the following text:_
+-->
 
 All guidelines provided by the aforementioned baseline are to be followed without modification or exception.
 
 ## 3. Extensions to the Baseline
 
+<!-- When using the baseline as a template, please include the below details: -->
+<!--
 _**Template Notes:**_
 
 - _Use this section to provide a summary of any additional measures that must be taken in addition to the baseline._
 - _Formatting for extensions and amendments should imitate the benchmark/framework format as closely as possible._
 - _The example below is actually covered by a different CIS control, 5.5.1,_
 _but I'm adding a custom version here simply for demonstration of formatting._
+-->
 
 ### 1. Ensure deployment from an unauthorized container registry is denied
 
@@ -71,10 +85,13 @@ To mitigate this risk, only trusted registries with approved images should be al
 
 ## 4. Security & Compliance Mapping
 
+<!-- When using the baseline as a template, please include the below details: -->
+<!--
 _**Template Notes:**_
 
 - _The table below is meant to map a security benchmark/framework control to a compliance standard requirement._
 - _The below is just an example, but the table is expected to be filled._
+-->
 
 | Security Benchmark/Framework Control | Compliance Standard Requirement | Comments |
 |---|---|---|
