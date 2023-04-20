@@ -1,4 +1,4 @@
-# Service Approval Accelerator (SAA) - EKS
+# Service Approval Accelerator (SAA) v0.2 - AWS EKS - v2.0
 
 ## 1. Baseline
 

@@ -1,6 +1,4 @@
-# Service Approval Accelerator (SAA) Template
-
-v0.2
+# Service Approval Accelerator (SAA) v0.2 - Template
 
 _**Template Notes:**_
 
