@@ -38,14 +38,10 @@ Friday DD MMM yyyy - 10am ET / 3pm UK
 - [ ] Action 2
 - [ ] ...
 
-### WebEx info
-**Webex:** 
-https://finos.webex.com/finos/j.php?MTID=m4b1d85127d1f3ca179545d6bd3291975
-
-**Dial-in**
-- **US** +1-415-655-0003 US Toll
-- **UK** +44-20319-88141 UK Toll
-- **Access code:** 127 846 2278
+### Zoom info
+https://zoom.us/j/94923845801
+Meeting ID: 949 2384 5801
+Passcode: 062016
 
 **Github Repo:** https://github.com/finos/compliant-financial-infrastructure/
 
