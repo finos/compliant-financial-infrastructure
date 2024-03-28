@@ -4,6 +4,16 @@
 
 <img src="https://github.com/finos/branding/blob/master/project-logos/active-project-logos/Compliant%20Financial%20Infrastructure%20Logo/Horizontal/2021_CFI_Logo_Horizontal.png?raw=true" width="450">
 
+> :warning: ** Maintenance Temporarily Suspended
+>
+> In order to elevate end user priorities and streamline contribution, the CFI project is currently undergoing a reorganization.
+>
+> Work will be suspended until the formation of a steering committee is established, then fresh working groups will be launched. This process will be loosely coupled with the outputs coming from the FINOS Common Cloud Controls effort.
+>
+> The content below is historical information about the project. The vision and intent for CFI will persist, though the structure and methods will likely look different soon.
+>
+> The community remains optimistic that we can provide the best tools to improve the processes around secure infrastructure deployments for FSIs. If you would like to contribute to the reorganization discussion, or otherwise explore your involvement with CFI, please reach out to a project maintainer or contact help@finos.org.
+
 
 # Compliant Financial Infrastructure
 
