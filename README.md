@@ -2,7 +2,7 @@
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/6557/badge)](https://bestpractices.coreinfrastructure.org/projects/6557)
 [<img src="https://img.shields.io/badge/slack-@finos/compliant%20financial%20infrastructure-green.svg?logo=slack">](https://finos-lf.slack.com/messages/cfi/)
 
-<img src="https://raw.githubusercontent.com/finos/branding/master/project-logos/active-project-logos/Compliant%20Financial%20Infrastructure/Horizontal/2021_CFI_Logo_Horizontal.svg" width="450">
+<img src="https://github.com/finos/branding/blob/master/project-logos/active-project-logos/Compliant%20Financial%20Infrastructure%20Logo/Horizontal/2021_CFI_Logo_Horizontal.png?raw=true" width="450">
 
 > :warning: ** Maintenance Temporarily Suspended
 >
