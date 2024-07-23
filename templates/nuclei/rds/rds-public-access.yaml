@@ -1,0 +1,49 @@
+id: rds-public-endpoint
+
+info:
+  name: RDS check for Public Endpoint
+  author: jlgore
+  severity: high
+  description: |
+    Verifies that AWS RDS instances are not allowed to have public endpoints.
+  reference:
+    - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html
+  tags: cloud,devops,aws,amazon,rds,aws-cloud-config
+
+flow: |
+  code(1)
+  for(let rdsInstance of iterate(template.databases)){
+    set("database", rdsInstance)
+    code(2)
+  }
+
+self-contained: true
+code:
+  - engine:
+      - sh
+      - bash
+    source: |
+      aws rds describe-db-instances --query 'DBInstances[*].DBInstanceIdentifier'
+
+    extractors:
+      - type: json # type of the extractor
+        internal: true
+        name: databases
+        json:
+          - '.[]'
+
+  - engine:
+      - sh
+      - bash
+    source: |
+        aws rds describe-db-instances --db-instance-identifier $database --query 'DBInstances[0].[PubliclyAccessible]'
+    matchers:
+      - type: word
+        words:
+          - 'true'
+
+    extractors:
+      - type: dsl
+        dsl:
+          - '"The RDS instance " + database +" is publicly accessible."'
+# digest: 4a0a004730450220448d531ae617ca71bd529b258878b343a579c88775040ee666ae8f22a1d37271022100fa299fd983e421ced8f2d165702dc4ad7150f6a3760c87226f7e636bc8a7b004:ee75fa6ac4bf0c40d6aff9c2694c7e06
