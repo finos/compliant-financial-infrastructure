@@ -14,6 +14,19 @@ type VPCArgs struct {
 	EnableDnsSupport   bool
 	InstanceType       string
 	Region             string
+	Tags               TagArgs
+}
+
+type TagArgs struct {
+	VPC               map[string]string
+	InternetGateway   map[string]string
+	PublicSubnet      map[string]string
+	PrivateSubnet     map[string]string
+	NatInstance       map[string]string
+	NatSecurityGroup  map[string]string
+	PublicRouteTable  map[string]string
+	PrivateRouteTable map[string]string
+	Default           map[string]string
 }
 
 type VPC struct {
@@ -64,21 +77,36 @@ func NewVPC(ctx *pulumi.Context, name string, args *VPCArgs, opts ...pulumi.Reso
 		return nil, err
 	}
 
+	// Helper function to merge tags
+	mergeTags := func(specific map[string]string, defaultTags map[string]string, resourceName string) pulumi.StringMap {
+		merged := pulumi.StringMap{}
+		for k, v := range defaultTags {
+			merged[k] = pulumi.String(v)
+		}
+		for k, v := range specific {
+			merged[k] = pulumi.String(v)
+		}
+		merged["Name"] = pulumi.String(fmt.Sprintf("%s-%s", name, resourceName))
+		return merged
+	}
+
 	// Create VPC
+	vpcTags := mergeTags(args.Tags.VPC, args.Tags.Default, "vpc")
 	vpcResource, err := ec2.NewVpc(ctx, fmt.Sprintf("%s-vpc", name), &ec2.VpcArgs{
 		CidrBlock:          pulumi.String(args.CidrBlock),
 		EnableDnsHostnames: pulumi.Bool(args.EnableDnsHostnames),
 		EnableDnsSupport:   pulumi.Bool(args.EnableDnsSupport),
-		Tags:               pulumi.StringMap{"Name": pulumi.String(fmt.Sprintf("%s-vpc", name))},
+		Tags:               vpcTags,
 	}, pulumi.Parent(vpc))
 	if err != nil {
 		return nil, err
 	}
 
 	// Create Internet Gateway
+	igwTags := mergeTags(args.Tags.InternetGateway, args.Tags.Default, "igw")
 	igw, err := ec2.NewInternetGateway(ctx, fmt.Sprintf("%s-igw", name), &ec2.InternetGatewayArgs{
 		VpcId: vpcResource.ID(),
-		Tags:  pulumi.StringMap{"Name": pulumi.String(fmt.Sprintf("%s-igw", name))},
+		Tags:  igwTags,
 	}, pulumi.Parent(vpc))
 	if err != nil {
 		return nil, err
@@ -87,12 +115,13 @@ func NewVPC(ctx *pulumi.Context, name string, args *VPCArgs, opts ...pulumi.Reso
 	// Create public subnets
 	publicSubnets := make([]pulumi.IDOutput, 2)
 	for i := 0; i < 2; i++ {
+		subnetTags := mergeTags(args.Tags.PublicSubnet, args.Tags.Default, fmt.Sprintf("public-subnet-%d", i))
 		subnet, err := ec2.NewSubnet(ctx, fmt.Sprintf("%s-public-subnet-%d", name, i), &ec2.SubnetArgs{
 			VpcId:               vpcResource.ID(),
 			CidrBlock:           pulumi.Sprintf("10.0.%d.0/24", i),
-			AvailabilityZone:    pulumi.Sprintf("us-east-1%s", pulumi.String(string(rune('a'+i)))),
+			AvailabilityZone:    pulumi.Sprintf("us-east-1%s", string(rune('a'+i))),
 			MapPublicIpOnLaunch: pulumi.Bool(true),
-			Tags:                pulumi.StringMap{"Name": pulumi.Sprintf("%s-public-subnet-%d", name, i)},
+			Tags:                subnetTags,
 		}, pulumi.Parent(vpc))
 		if err != nil {
 			return nil, err
@@ -103,11 +132,12 @@ func NewVPC(ctx *pulumi.Context, name string, args *VPCArgs, opts ...pulumi.Reso
 	// Create private subnets
 	privateSubnets := make([]pulumi.IDOutput, 2)
 	for i := 0; i < 2; i++ {
+		subnetTags := mergeTags(args.Tags.PrivateSubnet, args.Tags.Default, fmt.Sprintf("private-subnet-%d", i))
 		subnet, err := ec2.NewSubnet(ctx, fmt.Sprintf("%s-private-subnet-%d", name, i), &ec2.SubnetArgs{
 			VpcId:            vpcResource.ID(),
 			CidrBlock:        pulumi.Sprintf("10.0.%d.0/24", i+2),
-			AvailabilityZone: pulumi.Sprintf("us-east-1%s", pulumi.String(string(rune('a'+i)))),
-			Tags:             pulumi.StringMap{"Name": pulumi.Sprintf("%s-private-subnet-%d", name, i)},
+			AvailabilityZone: pulumi.Sprintf("us-east-1%s", string(rune('a'+i))),
+			Tags:             subnetTags,
 		}, pulumi.Parent(vpc))
 		if err != nil {
 			return nil, err
@@ -115,11 +145,12 @@ func NewVPC(ctx *pulumi.Context, name string, args *VPCArgs, opts ...pulumi.Reso
 		privateSubnets[i] = subnet.ID()
 	}
 
-	// Create NAT instance
+	// Create NAT instance security group
+	natSgTags := mergeTags(args.Tags.NatSecurityGroup, args.Tags.Default, "nat-sg")
 	natSg, err := ec2.NewSecurityGroup(ctx, fmt.Sprintf("%s-nat-sg", name), &ec2.SecurityGroupArgs{
 		VpcId: vpcResource.ID(),
 		Egress: ec2.SecurityGroupEgressArray{
-			ec2.SecurityGroupEgressArgs{
+			&ec2.SecurityGroupEgressArgs{
 				Protocol:   pulumi.String("-1"),
 				FromPort:   pulumi.Int(0),
 				ToPort:     pulumi.Int(0),
@@ -127,32 +158,35 @@ func NewVPC(ctx *pulumi.Context, name string, args *VPCArgs, opts ...pulumi.Reso
 			},
 		},
 		Ingress: ec2.SecurityGroupIngressArray{
-			ec2.SecurityGroupIngressArgs{
+			&ec2.SecurityGroupIngressArgs{
 				Protocol:   pulumi.String("-1"),
 				FromPort:   pulumi.Int(0),
 				ToPort:     pulumi.Int(0),
 				CidrBlocks: pulumi.StringArray{pulumi.String(args.CidrBlock)},
 			},
 		},
-		Tags: pulumi.StringMap{"Name": pulumi.String(fmt.Sprintf("%s-nat-sg", name))},
+		Tags: natSgTags,
 	}, pulumi.Parent(vpc))
 	if err != nil {
 		return nil, err
 	}
 
+	// Create NAT instance
+	natInstanceTags := mergeTags(args.Tags.NatInstance, args.Tags.Default, "nat-instance")
 	natInstance, err := ec2.NewInstance(ctx, fmt.Sprintf("%s-nat-instance", name), &ec2.InstanceArgs{
 		InstanceType:        pulumi.String(args.InstanceType),
 		Ami:                 amiId,
 		VpcSecurityGroupIds: pulumi.StringArray{natSg.ID()},
 		SubnetId:            publicSubnets[0],
 		SourceDestCheck:     pulumi.Bool(false),
-		Tags:                pulumi.StringMap{"Name": pulumi.String(fmt.Sprintf("%s-nat-instance", name))},
+		Tags:                natInstanceTags,
 	}, pulumi.Parent(vpc))
 	if err != nil {
 		return nil, err
 	}
 
 	// Create route tables
+	publicRtTags := mergeTags(args.Tags.PublicRouteTable, args.Tags.Default, "public-rt")
 	publicRt, err := ec2.NewRouteTable(ctx, fmt.Sprintf("%s-public-rt", name), &ec2.RouteTableArgs{
 		VpcId: vpcResource.ID(),
 		Routes: ec2.RouteTableRouteArray{
@@ -161,12 +195,13 @@ func NewVPC(ctx *pulumi.Context, name string, args *VPCArgs, opts ...pulumi.Reso
 				GatewayId: igw.ID(),
 			},
 		},
-		Tags: pulumi.StringMap{"Name": pulumi.String(fmt.Sprintf("%s-public-rt", name))},
+		Tags: publicRtTags,
 	}, pulumi.Parent(vpc))
 	if err != nil {
 		return nil, err
 	}
 
+	privateRtTags := mergeTags(args.Tags.PrivateRouteTable, args.Tags.Default, "private-rt")
 	privateRt, err := ec2.NewRouteTable(ctx, fmt.Sprintf("%s-private-rt", name), &ec2.RouteTableArgs{
 		VpcId: vpcResource.ID(),
 		Routes: ec2.RouteTableRouteArray{
@@ -175,7 +210,7 @@ func NewVPC(ctx *pulumi.Context, name string, args *VPCArgs, opts ...pulumi.Reso
 				NetworkInterfaceId: natInstance.PrimaryNetworkInterfaceId,
 			},
 		},
-		Tags: pulumi.StringMap{"Name": pulumi.String(fmt.Sprintf("%s-private-rt", name))},
+		Tags: privateRtTags,
 	}, pulumi.Parent(vpc))
 	if err != nil {
 		return nil, err

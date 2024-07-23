@@ -16,6 +16,7 @@ type RDSInstanceArgs struct {
 	PubliclyAccessible  bool
 	SubnetIds           []string
 	VpcSecurityGroupIds []string
+	Tags                map[string]string
 }
 
 type RDSInstance struct {
@@ -53,6 +54,7 @@ func NewRDSInstance(ctx *pulumi.Context, name string, args *RDSInstanceArgs, opt
 		PubliclyAccessible:  pulumi.Bool(args.PubliclyAccessible),
 		DbSubnetGroupName:   subnetGroup.Name,
 		VpcSecurityGroupIds: pulumi.ToStringArray(args.VpcSecurityGroupIds),
+		Tags:                pulumi.ToStringMap(args.Tags),
 	}, pulumi.Parent(rdsInstance))
 
 	if err != nil {

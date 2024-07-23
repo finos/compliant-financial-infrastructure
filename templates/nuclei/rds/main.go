@@ -16,6 +16,27 @@ func main() {
 			EnableDnsSupport:   true,
 			InstanceType:       "t3.micro", // For NAT instance
 			Region:             "us-east-1",
+			Tags: components.TagArgs{
+				Default: map[string]string{
+					"Project":     "cfi-rds",
+					"Environment": "Sandbox",
+				},
+				VPC: map[string]string{
+					"Type": "Main",
+				},
+				NatInstance: map[string]string{
+					"Role": "NAT",
+				},
+				NatSecurityGroup: map[string]string{
+					"Purpose": "Allow NAT traffic",
+				},
+				PublicSubnet: map[string]string{
+					"Accessibility": "Public",
+				},
+				PrivateSubnet: map[string]string{
+					"Accessibility": "Private",
+				},
+			},
 		})
 		if err != nil {
 			return err
@@ -50,6 +71,12 @@ func main() {
 			DbSubnetGroupName:   createSubnetGroup(ctx, "public-subnet-group", vpc.PublicSubnetIds),
 			VpcSecurityGroupIds: pulumi.StringArray{rdsSecurityGroup.ID()},
 			SkipFinalSnapshot:   pulumi.Bool(true),
+			Tags: pulumi.StringMap{
+				"Name":        pulumi.String("PublicRDSInstance"),
+				"Environment": pulumi.String("Development"),
+				"Project":     pulumi.String("cfi-rds"),
+				"ManagedBy":   pulumi.String("Pulumi"),
+			},
 		})
 		if err != nil {
 			return err
@@ -68,6 +95,12 @@ func main() {
 			DbSubnetGroupName:   createSubnetGroup(ctx, "private-subnet-group", vpc.PrivateSubnetIds),
 			VpcSecurityGroupIds: pulumi.StringArray{rdsSecurityGroup.ID()},
 			SkipFinalSnapshot:   pulumi.Bool(true),
+			Tags: pulumi.StringMap{
+				"Name":        pulumi.String("PrivateRDSInstance"),
+				"Environment": pulumi.String("Development"),
+				"Project":     pulumi.String("MyProject"),
+				"ManagedBy":   pulumi.String("Pulumi"),
+			},
 		})
 		if err != nil {
 			return err
