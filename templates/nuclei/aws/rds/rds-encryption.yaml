@@ -1,0 +1,48 @@
+id: rds-encryption
+
+info:
+  name: Check if RDS instances are encrypted
+  author: grudra7714
+  severity: high
+  description: |
+    Verifies that AWS RDS instances are not allowed to have public endpoints.
+  reference:
+    - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html
+  tags: cloud,devops,aws,amazon,rds,aws-cloud-config
+
+flow: |
+  code(1)
+  for(let rdsInstance of iterate(template.databases)){
+    set("database", rdsInstance)
+    code(2)
+  }
+
+self-contained: true
+code:
+  - engine:
+      - sh
+      - bash
+    source: |
+     aws rds describe-db-instances --query 'DBInstances[?contains(TagList[].Key, `Project`) && contains(TagList[].Value, `cfi-rds`)].DBInstanceIdentifier' --output json
+    extractors:
+      - type: json # type of the extractor
+        internal: true
+        name: databases
+        json:
+          - '.[]'
+
+  - engine:
+      - sh
+      - bash
+    source: |
+        aws rds describe-db-instances --db-instance-identifier $database --query 'DBInstances[0].StorageEncrypted'
+    matchers:
+      - type: word
+        words:
+          - 'true'
+
+    extractors:
+      - type: dsl
+        dsl:
+          - '"The RDS instance " + database +" is encrypted."'
+# digest: 4a0a00473045022100c284f0b77a28cf741d4282cb2fce3c7a8b8faefca9a7ccd1b7e1ca2a86917957022038115004c9bccaa6b700c60683ed68b11830f9fe5b4d74cce817f349d3be58b7:3867ffcf4cd80964623bf72a34554668
