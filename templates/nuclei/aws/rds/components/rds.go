@@ -1,6 +1,7 @@
 package components
 
 import (
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -14,9 +15,11 @@ type RDSInstanceArgs struct {
 	Password            string
 	DbName              string
 	PubliclyAccessible  bool
-	SubnetIds           []string
-	VpcSecurityGroupIds []string
+	SubnetIds           pulumi.StringArrayInput
+	VpcSecurityGroupIds pulumi.StringArrayInput
 	Tags                map[string]string
+	Encryption          bool
+	CreateKey           bool
 }
 
 type RDSInstance struct {
@@ -24,6 +27,7 @@ type RDSInstance struct {
 
 	Instance *rds.Instance
 	Endpoint pulumi.StringOutput
+	KMSKey   *kms.Key
 }
 
 func NewRDSInstance(ctx *pulumi.Context, name string, args *RDSInstanceArgs, opts ...pulumi.ResourceOption) (*RDSInstance, error) {
@@ -35,14 +39,13 @@ func NewRDSInstance(ctx *pulumi.Context, name string, args *RDSInstanceArgs, opt
 
 	// Create a subnet group for the RDS instance
 	subnetGroup, err := rds.NewSubnetGroup(ctx, name+"-subnet-group", &rds.SubnetGroupArgs{
-		SubnetIds: pulumi.ToStringArray(args.SubnetIds),
+		SubnetIds: args.SubnetIds,
 	}, pulumi.Parent(rdsInstance))
 	if err != nil {
 		return nil, err
 	}
 
-	// Create the RDS instance
-	instance, err := rds.NewInstance(ctx, name, &rds.InstanceArgs{
+	instanceArgs := &rds.InstanceArgs{
 		InstanceClass:       pulumi.String(args.InstanceClass),
 		AllocatedStorage:    pulumi.Int(args.AllocatedStorage),
 		Engine:              pulumi.String(args.Engine),
@@ -50,13 +53,30 @@ func NewRDSInstance(ctx *pulumi.Context, name string, args *RDSInstanceArgs, opt
 		Username:            pulumi.String(args.Username),
 		Password:            pulumi.String(args.Password),
 		DbName:              pulumi.String(args.DbName),
-		SkipFinalSnapshot:   pulumi.Bool(true),
 		PubliclyAccessible:  pulumi.Bool(args.PubliclyAccessible),
 		DbSubnetGroupName:   subnetGroup.Name,
-		VpcSecurityGroupIds: pulumi.ToStringArray(args.VpcSecurityGroupIds),
+		VpcSecurityGroupIds: args.VpcSecurityGroupIds,
+		SkipFinalSnapshot:   pulumi.Bool(true),
 		Tags:                pulumi.ToStringMap(args.Tags),
-	}, pulumi.Parent(rdsInstance))
+	}
 
+	// Handle encryption
+	if args.Encryption {
+		instanceArgs.StorageEncrypted = pulumi.BoolPtr(true)
+		if args.CreateKey {
+			key, err := kms.NewKey(ctx, name+"-kms-key", &kms.KeyArgs{
+				Description: pulumi.String("KMS key for RDS instance " + name),
+				Tags:        pulumi.ToStringMap(args.Tags),
+			}, pulumi.Parent(rdsInstance))
+			if err != nil {
+				return nil, err
+			}
+			instanceArgs.KmsKeyId = key.Arn
+		}
+	}
+
+	// Create the RDS instance
+	instance, err := rds.NewInstance(ctx, name, instanceArgs, pulumi.Parent(rdsInstance))
 	if err != nil {
 		return nil, err
 	}

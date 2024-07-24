@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/jlgore/components"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -59,23 +58,30 @@ func main() {
 		}
 
 		// Create public RDS instance
-		publicRds, err := rds.NewInstance(ctx, "public-rds", &rds.InstanceArgs{
-			InstanceClass:       pulumi.String("db.t3.micro"),
-			AllocatedStorage:    pulumi.Int(20),
-			Engine:              pulumi.String("mysql"),
-			EngineVersion:       pulumi.String("8.0"),
-			Username:            pulumi.String("admin"),
-			Password:            pulumi.String("password123"), // Note: Use secrets manager in production
-			DbName:              pulumi.String("publicdb"),
-			PubliclyAccessible:  pulumi.Bool(true),
-			DbSubnetGroupName:   createSubnetGroup(ctx, "public-subnet-group", vpc.PublicSubnetIds),
+		publicRds, err := components.NewRDSInstance(ctx, "cfi-public-rds", &components.RDSInstanceArgs{
+			InstanceClass:      "db.t3.micro",
+			AllocatedStorage:   20,
+			Engine:             "mysql",
+			EngineVersion:      "8.0",
+			Username:           "admin",
+			Password:           "password123", // Use secrets manager in production
+			DbName:             "publicdb",
+			PubliclyAccessible: true,
+			SubnetIds: vpc.PublicSubnetIds.ApplyT(func(ids []pulumi.ID) []string {
+				result := make([]string, len(ids))
+				for i, id := range ids {
+					result[i] = string(id)
+				}
+				return result
+			}).(pulumi.StringArrayOutput),
 			VpcSecurityGroupIds: pulumi.StringArray{rdsSecurityGroup.ID()},
-			SkipFinalSnapshot:   pulumi.Bool(true),
-			Tags: pulumi.StringMap{
-				"Name":        pulumi.String("PublicRDSInstance"),
-				"Environment": pulumi.String("Development"),
-				"Project":     pulumi.String("cfi-rds"),
-				"ManagedBy":   pulumi.String("Pulumi"),
+			CreateKey:           false,
+			Encryption:          false,
+			Tags: map[string]string{
+				"Name":        "PublicRDSInstance",
+				"Environment": "Development",
+				"Project":     "cfi-rds",
+				"ManagedBy":   "Pulumi",
 			},
 		})
 		if err != nil {
@@ -83,29 +89,35 @@ func main() {
 		}
 
 		// Create private RDS instance
-		privateRds, err := rds.NewInstance(ctx, "private-rds", &rds.InstanceArgs{
-			InstanceClass:       pulumi.String("db.t3.micro"),
-			AllocatedStorage:    pulumi.Int(20),
-			Engine:              pulumi.String("mysql"),
-			EngineVersion:       pulumi.String("8.0"),
-			Username:            pulumi.String("admin"),
-			Password:            pulumi.String("password456"), // Note: Use secrets manager in production
-			DbName:              pulumi.String("privatedb"),
-			PubliclyAccessible:  pulumi.Bool(false),
-			DbSubnetGroupName:   createSubnetGroup(ctx, "private-subnet-group", vpc.PrivateSubnetIds),
+		privateRds, err := components.NewRDSInstance(ctx, "cfi-private-rds", &components.RDSInstanceArgs{
+			InstanceClass:      "db.t3.micro",
+			AllocatedStorage:   20,
+			Engine:             "mysql",
+			EngineVersion:      "8.0",
+			Username:           "admin",
+			Password:           "password456", // Use secrets manager in production
+			DbName:             "privatedb",
+			PubliclyAccessible: false,
+			SubnetIds: vpc.PrivateSubnetIds.ApplyT(func(ids []pulumi.ID) []string {
+				result := make([]string, len(ids))
+				for i, id := range ids {
+					result[i] = string(id)
+				}
+				return result
+			}).(pulumi.StringArrayOutput),
 			VpcSecurityGroupIds: pulumi.StringArray{rdsSecurityGroup.ID()},
-			SkipFinalSnapshot:   pulumi.Bool(true),
-			Tags: pulumi.StringMap{
-				"Name":        pulumi.String("PrivateRDSInstance"),
-				"Environment": pulumi.String("Development"),
-				"Project":     pulumi.String("MyProject"),
-				"ManagedBy":   pulumi.String("Pulumi"),
+			CreateKey:           true,
+			Encryption:          true,
+			Tags: map[string]string{
+				"Name":        "PrivateRDSInstance",
+				"Environment": "Development",
+				"Project":     "cfi-rds",
+				"ManagedBy":   "Pulumi",
 			},
 		})
 		if err != nil {
 			return err
 		}
-
 		// Export the VPC and RDS information
 		ctx.Export("vpcId", vpc.VpcId)
 		ctx.Export("publicSubnetIds", vpc.PublicSubnetIds)
@@ -115,20 +127,4 @@ func main() {
 
 		return nil
 	})
-}
-
-func createSubnetGroup(ctx *pulumi.Context, name string, subnetIds pulumi.IDArrayOutput) pulumi.StringOutput {
-	subnetGroup, err := rds.NewSubnetGroup(ctx, name, &rds.SubnetGroupArgs{
-		SubnetIds: subnetIds.ApplyT(func(ids []pulumi.ID) []string {
-			result := make([]string, len(ids))
-			for i, id := range ids {
-				result[i] = string(id)
-			}
-			return result
-		}).(pulumi.StringArrayOutput),
-	})
-	if err != nil {
-		return pulumi.String("").ToStringOutput()
-	}
-	return subnetGroup.Name
 }
