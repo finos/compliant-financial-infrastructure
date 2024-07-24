@@ -5,9 +5,9 @@ info:
   author: grudra7714
   severity: high
   description: |
-    Verifies that AWS RDS instances are not allowed to have public endpoints.
+    Verifies that AWS RDS instances have encryption enabled.
   reference:
-    - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html
+    - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html
   tags: cloud,devops,aws,amazon,rds,aws-cloud-config
 
 flow: |
