@@ -23,7 +23,7 @@ code:
       - sh
       - bash
     source: |
-      aws rds describe-db-instances --query 'DBInstances[?contains(TagList[?Key==`Project` && Value==`cfi-rds`], `true`)].DBInstanceIdentifier' --output json
+      aws rds describe-db-instances --query 'DBInstances[?TagList[?Key==`Project` && Value==`cfi-rds`]].DBInstanceIdentifier' --output json
     extractors:
       - type: json # type of the extractor
         internal: true
@@ -45,4 +45,4 @@ code:
       - type: dsl
         dsl:
           - '"The RDS instance " + database +" is publicly accessible."'
-# digest: 4a0a00473045022100f33f8a58a592c48566a2a398958117ca81c73029e816615847b8d4caf8d13a6b022071ae3bfeb54482409da3e604f619c8e7a9826b8f9ebb10ad8cccb5f0af4988eb:ee75fa6ac4bf0c40d6aff9c2694c7e06
+# digest: 4a0a00473045022002603c83ae4ea7f7f701ab329821180a324cf42046da49918066962734a928cd022100dfe2042b7bae8481a2aaaa5fff4517ff295380922d23c440f0cd9a8bf7b224a7:ee75fa6ac4bf0c40d6aff9c2694c7e06
