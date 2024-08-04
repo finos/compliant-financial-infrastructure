@@ -1,0 +1,36 @@
+---
+id: GCS_CCC_OS_C5
+info:
+  name: 'GCS CCC Object Storage: Log all access and changes to object storage'
+  severity: info
+  author: FINOS
+code:
+  - engine:
+      - zsh
+    source: |2-
+      src/test-exec_0.0.0 GCS_CCC_OS_C5_TR01
+    matchers:
+      - type: word
+        words:
+          - FAIL
+          - ERROR
+  - engine:
+      - zsh
+    source: |2-
+      src/test-exec_0.0.0 GCS_CCC_OS_C5_TR02
+    matchers:
+      - type: word
+        words:
+          - FAIL
+          - ERROR
+  - engine:
+      - zsh
+    source: |2-
+      src/test-exec_0.0.0 GCS_CCC_OS_C5_TR03
+    matchers:
+      - type: word
+        words:
+          - FAIL
+          - ERROR
+self-contained: true
+# digest: 4a0a00473045022100a33e6e580c45629be7e202dfd54c36d841e7229bd500e6a584f8f889d052978202206772a9b7ad9b7d31bd9415db4edf34ff5c782b001530f0b9ee690088973b132e:aaf38f31a171ac3523192a918c72ba84

@@ -1,0 +1,50 @@
+package main
+
+import (
+	"fmt"
+	"os"
+	"reflect"
+	"strings"
+)
+
+var funcMap = map[string]interface{}{
+	{{ range .FunctionNames }}"{{.}}": {{.}},
+	{{ end }}
+}
+
+// Pass takes any number of strings and prints them as a single string
+func CFIPass(values ...string) {
+	cfiPrint(values, "PASS")
+}
+
+// FAIL takes any number of strings and prints them as a single string
+func CFIFAIL(values ...string) {
+	cfiPrint(values, "FAIL")
+}
+
+// Error takes any number of strings and prints them as a single string
+func CFIError(values ...string) {
+	cfiPrint(values, "ERROR")
+}
+
+// cfiPrint prints the provided values as a single string with a prefix
+func cfiPrint(values []string, prefix string) {
+	str := strings.Join(values, " ")
+	fmt.Printf("[%s]: %s", prefix, str)
+}
+
+func main() {
+	if len(os.Args) == 1 {
+		CFIError("Please provide a function name to call")
+		return
+	}
+
+	funcName := os.Args[1]
+	if function, exists := funcMap[funcName]; exists {
+		reflect.ValueOf(function).Call(nil)
+	} else {
+		CFIError("Function does not exist")
+		// panic and print function name if it does not exist
+		CFIError("Function %s does not exist", funcName)
+	}
+}
