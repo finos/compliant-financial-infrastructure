@@ -1,7 +1,4 @@
-ws/.DS_Store
-azure/postgresql/.DS_Store
-.idea
+*.DS_Store
 .DS_Store
 .terraform*
 terraform.tfstate*
-accelerators/kubernetes/ocp/gcp/01_htpasswd_identity_provider/oauth.yaml
