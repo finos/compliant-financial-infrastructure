@@ -34,13 +34,11 @@ To run the generator directly from this directory, use the following command:
 
 ```sh
 go run main.go <component_def_file.yaml> <csp_name> <service_name> <version>
-Replace <component_def_file.yaml>, <csp_name>, <service_name>, and <version> with your actual values.
 ```
 
 Example
 ```sh
 go run main.go definitions.yaml AWS S3 v1.0
-This command will read definitions.yaml, generate Nuclei templates and Go code for the AWS CSP and S3 service, and assume the version is v1.0.
 ```
 
 ### Output
@@ -59,7 +57,7 @@ Go Files:
 
 The output is organized into a directory structure based on the CSP and service names. If any of the directories do not exist, they will be created.
 
-_The example below is using GCP's GCS service, which has 5 controls defined in the CCC component definition._
+_The example below is using GCP's GCS service retrieved from a [development URL](https://raw.githubusercontent.com/eddie-knight/cfi-nuclei-demo/main/yaml/CCC.OS.yaml) for this example. The component definition has 5 controls defined in the CCC component definition._
 
 ```sh
 GCP
