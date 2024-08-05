@@ -45,4 +45,4 @@ Passcode: 062016
 
 **Github Repo:** https://github.com/finos/compliant-financial-infrastructure/
 
-**Mailing List:** Email compliant-financial-infrastructure+subscribe@finos.org to subscribe to our mailing list
+**Mailing List:** Email cfi+subscribe@lists.finos.org to subscribe to our mailing list
