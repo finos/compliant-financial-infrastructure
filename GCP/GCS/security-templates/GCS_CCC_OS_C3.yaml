@@ -1,0 +1,36 @@
+---
+id: GCS_CCC_OS_C3
+info:
+  name: 'GCS CCC Object Storage: Implement multi-factor authentication (MFA) for access'
+  severity: info
+  author: FINOS
+code:
+  - engine:
+      - zsh
+    source: |2-
+      src/test-exec_0.0.0 GCS_CCC_OS_C3_TR01
+    matchers:
+      - type: word
+        words:
+          - FAIL
+          - ERROR
+  - engine:
+      - zsh
+    source: |2-
+      src/test-exec_0.0.0 GCS_CCC_OS_C3_TR02
+    matchers:
+      - type: word
+        words:
+          - FAIL
+          - ERROR
+  - engine:
+      - zsh
+    source: |2-
+      src/test-exec_0.0.0 GCS_CCC_OS_C3_TR03
+    matchers:
+      - type: word
+        words:
+          - FAIL
+          - ERROR
+self-contained: true
+# digest: 490a004630440220265b64cdfb94b4f4722ad512ef9290526446641fd28a053ce645069d57369f7702204032904dac15c42f2fd5c2f256dd6dd042c1b7ec5ecc1393416b27097baed9e8:aaf38f31a171ac3523192a918c72ba84
