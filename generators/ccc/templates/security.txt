@@ -1,7 +1,0 @@
-package main
-
-{{ range .FunctionNames }}
-func {{.}}() {
-	CFIError("Not Yet Implemented")
-}
-{{end}}
