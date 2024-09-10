@@ -4,118 +4,45 @@
 
 <img src="https://github.com/finos/branding/blob/master/project-logos/active-project-logos/Compliant%20Financial%20Infrastructure%20Logo/Horizontal/2021_CFI_Logo_Horizontal.png?raw=true" width="450">
 
-> :warning: ** Maintenance Temporarily Suspended
->
-> In order to elevate end user priorities and streamline contribution, the CFI project is currently undergoing a reorganization.
->
-> Work will be suspended until the formation of a steering committee is established, then fresh working groups will be launched. This process will be loosely coupled with the outputs coming from the FINOS Common Cloud Controls effort.
->
-> The content below is historical information about the project. The vision and intent for CFI will persist, though the structure and methods will likely look different soon.
->
-> The community remains optimistic that we can provide the best tools to improve the processes around secure infrastructure deployments for FSIs. If you would like to contribute to the reorganization discussion, or otherwise explore your involvement with CFI, please reach out to a project maintainer or contact help@finos.org.
-
-
 # Compliant Financial Infrastructure
 
-Compliant Financial Infrastructure (CFI) is a project that exists to accelerate the development, deployment and adoption of services provided for infrastructure in a way that meets common regulatory and internal security controls.
+Compliant Financial Infrastructure (CFI) seeks to accelerate the development,
+deployment and adoption of services provided for infrastructure in a way that
+complies with common regulatory and internal security controls.
 
-Through our three working groups, we provide:
+## Objectives
 
-- Opinionated compliance documentation provided by our *service approval accelerators*
-- Vetted *infrastructure as code* that is ready to import to your internal registry
-- CI/CD-friendly *runtime validation tests* to ensure your deployed resources are compliant
+The CFI community collaboratively maintains a series of standalone resources that fall into two categories: 
 
-## Policy Working Group [<img src="https://img.shields.io/badge/slack-@finos/cfi%20policy-green.svg?logo=slack">](https://finos-lf.slack.com/messages/cfi-policy-wg)
+  1. Infrastructure as Code modules
+  2. Compliance Validation Plugins
 
-This WG exists to define and document best practice and process for implementing compliant infrastructure, while streamlining the process for contributions from financial institutions in a frictionless manner.
+Each resource maintained by the community are designed according to the controls produced by the Common Cloud Controls (CCC) project.
 
-_Compliance_ may mean something different from one institution to the next. The goal of CFI is _not_ to create a single solution that all firms must adhere to, instead our goal is to streamline adoption and free up security teams to focus on non-redundant activities.
+### Ways of Working
 
-Detailed documentation in the form of _Service Approval Accelerators_ (SAAs) live within this main CFI repository.
+All outputs should be independently version controlled in standalone repositories. For example, one repo might exist for each _OpenTofu/Terraform_ child module. 
+Similarly, a separate repo might exist for every _Privateer Raid_ validator plugin.
 
-### High level objectives
+Prior to completion, it is expected that development takes place in a code repository that is managed by the contributor (personal or organization). When the contribution is feature complete, the CFI community will review the contribution for acceptance into the FINOS namespace.
 
-1. Maintain a knowledge base of up-to-date compliance requirements from member financial institutions (Inputs)
-1. Document how to achieve compliance for different infrastructure resources from a financial perspective (Outputs)
+Contributors should collaborate openly with the community to avoid duplication of effort, such as two teams independently developing a validator for the same cloud service or controls.
 
-### Approach
-
-- Document opinionated configurations, mitigations, and decisions to accelerate compliance for infrastructure services in SAAs.
-- Ensure all SAAs are informed by industry-wide experience/feedback
-- Ensure CFI communication methods (both inputs and outputs) are streamlined to best serve our community and users
-
-A template Service Approval Accelerator is maintained [here](templates/ServiceApprovalAcceleratorTemplate.md).
-
-
-### Contributions
-
-- Work for this WG is tracked in [GitHub issues on the main CFI repository](https://github.com/finos/compliant-financial-infrastructure/issues).
-- Approved and active work is visualized on the [Policy WG project board](https://github.com/orgs/finos/projects/50).
-
-## Reproducible Infrastructure Working Group [<img src="https://img.shields.io/badge/slack-@finos/cfi%20reproducible%20infrastructure-green.svg?logo=slack">](https://finos-lf.slack.com/messages/cfi-reproducible-infrastructure-wg)
-
-This WG exists to develop, maintain, and document easily consumable infrastructure as code (IaC) which can be used as a base for deploying systems in highly-regulated environments.
-
-Detailed documentation regarding the process for developing and delivering IaC can be found [here](https://github.com/finos/compliant-financial-infrastructure/blob/docs/wg-readme/docs/terraform-module-best-practices.md).
-
-### High level objectives
-
-1. Create and maintain IaC to deploy services that meet policies as defined by the Policy Working Group
-
-### Approach
-
-- Review Service Accelerators and work with the Policy Working Group to agree on each approach to codify policies
-- Build and maintain the IaC to meet requirements set out in the SAA
-  - Where this is not possible then any policy gaps will be documented
-
-### Contributions
-
-- Work for this WG that does not yet have a dedicated repo is tracked in [GitHub issues on the main CFI repository](https://github.com/finos/compliant-financial-infrastructure/issues).
-- Work for IaC that has already begun will be tracked on the respective repo.
-- Approved and active work is visualized on the [Reproducible Infrastructure WG project board](https://github.com/orgs/finos/projects/45).
-
-## Runtime Validation Working Group [<img src="https://img.shields.io/badge/slack-@finos/cfi%20runtime%20validation-green.svg?logo=slack">](https://finos-lf.slack.com/messages/cfi-runtime-validation-wg)
-
-This WG exists to maintain a suite of tools that may be used to validate that deployed infrastructure is compliant with the documentation provided by the Policy Working Group, and provide actionable information for users who are working toward compliance.
-
-Detailed documentation regarding the process for developing and delivering runtime validation test packs can be found [here](?).
-
-### High level objectives
-
-1. Maintain tests matching each SAA to validate the compliance of any deployed resource
-1. Maintain test harness to streamline approach across all services
-
-### Approach
-
-- Execute tests that match the accelerators provided by the Policy WG (no more, no less)
-- Ensure harnes is easily configurable & can be used for diverse validation purposes
-- Maintain smooth logging functionality for validation and development purposes
-- Ensure common human-readable output format for all test packs
-
-### Contributions
-
-- Work for this WG that does not yet have a dedicated repo is tracked in [GitHub issues on the main CFI repository](https://github.com/finos/compliant-financial-infrastructure/issues).
-- Work on test packs that has already begun will be tracked on the respective repo.
-- Approved and active work is visualized on the [Reproducible Infrastructure WG project board](https://github.com/orgs/finos/projects/51).
-
+If desired, the contributing team may retain their attribution on the repository's README for as long as they are leading the maintenance and updates of the resource.
 
 ## Join the Community!
+
+The CFI community has a monthly call where we synchronize our efforts and share lessons learned. Join us through the [FINOS Calendar](https://www.finos.org/calendar) on the second Wednesday of every month.
+
+You can also join us on [Slack](https://finos-lf.slack.com/messages/cfi)!
 
 For more information about how to engage with the rest of the community and contribute to the project, view the documentation and links [here](docs/CONTRIBUTING.md).
 
 Please feel free to request changes via [GitHub Issues](https://github.com/finos/compliant-financial-infrastructure/issues).
 
-Everyone is encouraged to join our public community meetings found on the [FINOS community calendar](https://www.finos.org/finos-community-calendar), and join us on [Slack](https://finos-lf.slack.com/messages/cfi).
-
 ### Thank you to our contributors!
 
 <img src="https://contrib.rocks/image?repo=finos/compliant-financial-infrastructure" />
-
-## License
-
-Distributed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
-
-SPDX-License-Identifier: [Apache-2.0](https://spdx.org/licenses/Apache-2.0)
 
 ## Security Concerns
 
